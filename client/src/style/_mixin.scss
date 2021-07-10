@@ -1,0 +1,19 @@
+@mixin block-center {
+    margin: 0 auto;
+    padding: 0;
+}
+
+@mixin border-styling ($border-width, $border-style, $border-color) {
+    border-width: $border-width;
+    border-style: $border-style;
+    border-color: $border-color;
+}
+
+
+/*flex: flex-grow flex-shrink flex-basis*/
+
+@mixin flex ($grow, $shrink, $flex-basis) {
+    flex-grow: $grow;
+    flex-shrink: $shrink;
+    flex-basis: $flex-basis;
+}

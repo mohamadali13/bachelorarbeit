@@ -1,0 +1,215 @@
+-{
+    "Students": [{
+            "fisrtname": "Mohamad",
+            "lastname": "Alschammari",
+            "bornDate": "25.01.1993",
+            "bornPlace": "Riyadh",
+            "nationality": "germen",
+            "sex": "male",
+            "telephonNumber": "01732502236",
+            "mobileNumber": "01732502236",
+            "email": "mohamad.alschammari@gmail.com",
+            "adress": {
+                "street": "goerzalle",
+                "hausNumber": "131",
+                "additional": "778-31-02-16-0",
+                "c/o": "yasin",
+                "zipCode": "12207",
+                "city": "Berlin"
+            },
+            "password": "123456789",
+            "uni": "Beuth Hochschule Für Technick Berlin",
+            "idPhoto": "id.jpg",
+            "matriculation ": "matriculation .jpg",
+            "jobs": {
+                "applied": [
+                    "id1",
+                    "id2"
+                ],
+                "toDo": [
+                    "id3",
+                    "id4"
+                ],
+                "finished": [
+                    "id5",
+                    "id6"
+                ]
+            },
+            "note": "any thing"
+        },
+        {
+            "fisrtname": "Mohamad",
+            "lastname": "Alschammari",
+            "bornDate": "25.01.1993",
+            "bornPlace": "Riyadh",
+            "nationality": "germen",
+            "sex": "male",
+            "telephonNumber": "01732502236",
+            "mobileNumber": "01732502236",
+            "email": "mohamad.alschammari@gmail.com",
+            "adress": {
+                "street": "goerzalle",
+                "hausNumber": "131",
+                "additional": "778-31-02-16-0",
+                "c/o": "yasin",
+                "zipCode": "12207",
+                "city": "Berlin"
+            },
+            "password": "123456789",
+            "uni": "Beuth Hochschule Für Technick Berlin",
+            "idPhoto": "id.jpg",
+            "matriculation ": "matriculation .jpg",
+            "jobs": {
+                "applied": [
+                    "id1",
+                    "id2"
+                ],
+                "toDo": [
+                    "id3",
+                    "id4"
+                ],
+                "finished": [
+                    "id5",
+                    "id6"
+                ]
+            },
+            "note": "any thing"
+        }
+    ],
+    "Companies": [{
+            "name": "Fiege GmbH",
+            "origin": "Berlin",
+            "launchDat": "Berlin",
+            "registrationNumber": "abc123",
+            "adress": {
+                "street": "Märkische Allee",
+                "hausNumber": "15",
+                "additional": "",
+                "zipCode": "14979",
+                "city": "Großbeeren"
+            },
+            "telefonNumber": "1234567",
+            "faxNumber": "123456798",
+            "representer": {
+                "firstname": "Denis",
+                "lastname": "müller",
+                "email": "fiege.info@fiege.com",
+                "telephoneNumber": "030123456"
+            },
+            "jobs": {
+                "applied": [
+                    "id1",
+                    "id2"
+                ],
+                "toDo": [
+                    "id3",
+                    "id4"
+                ],
+                "finished": [
+                    "id5",
+                    "id6"
+                ]
+            }
+        },
+        {
+            "name": "Fiege GmbH",
+            "origin": "Berlin",
+            "launchDat": "Berlin",
+            "registrationNumber": "abc123",
+            "adress": {
+                "street": "Märkische Allee",
+                "hausNumber": "15",
+                "additional": "",
+                "zipCode": "14979",
+                "city": "Großbeeren"
+            },
+            "telefonNumber": "1234567",
+            "faxNumber": "123456798",
+            "representer": {
+                "firstname": "Denis",
+                "lastname": "müller",
+                "email": "fiege.info@fiege.com",
+                "telephoneNumber": "030123456"
+            },
+            "jobs": {
+                "applied": [
+                    "id1",
+                    "id2"
+                ],
+                "toDo": [
+                    "id3",
+                    "id4"
+                ],
+                "finished": [
+                    "id5",
+                    "id6"
+                ]
+            }
+        }
+    ],
+    "jobs": [{
+            "title": "eine Größe Lagerhilfe braucht DICH für Konfiktionierung!",
+            "company": "fiegeID",
+            "numberOfDays": 2,
+            "salaryPerHour": 12.5,
+            "sex": "male",
+            "numberOfStudents": 4,
+            "shifts": [{
+                    "date": "25.02.2021",
+                    "numberOfHours": 8,
+                    "longOfPause": 45,
+                    "time from": "08.00",
+                    "time till": "14.45"
+                },
+                {
+                    "date": "25.02.2021",
+                    "numberOfHours": 8,
+                    "longOfPause": 45,
+                    "time from": "08.00",
+                    "time till": "14.45"
+                }
+            ],
+            "adress": {
+                "street": "Märkische Allee",
+                "hausNumber": "15",
+                "additional": "",
+                "zipCode": "14979",
+                "city": "Großbeeren"
+            },
+            "discripe":"",
+            "notesAndReq":""
+        },
+        {
+            "title": "eine Größe Lagerhilfe braucht DICH für Konfiktionierung!",
+            "company": "fiegeID",
+            "numberOfDays": 2,
+            "salaryPerHour": 12.5,
+            "sex": "male",
+            "numberOfStudents": 4,
+            "shifts": [{
+                    "date": "25.02.2021",
+                    "numberOfHours": 8,
+                    "longOfPause": 45,
+                    "time from": "08.00",
+                    "time till": "14.45"
+                },
+                {
+                    "date": "25.02.2021",
+                    "numberOfHours": 8,
+                    "longOfPause": 45,
+                    "time from": "08.00",
+                    "time till": "14.45"
+                }
+            ],
+            "adress": {
+                "street": "Märkische Allee",
+                "hausNumber": "15",
+                "additional": "",
+                "zipCode": "14979",
+                "city": "Großbeeren"
+            },
+            "discripe":"",
+            "notesAndReq":""
+        }
+    ]
+}

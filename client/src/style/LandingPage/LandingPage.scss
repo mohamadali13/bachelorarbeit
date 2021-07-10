@@ -1,0 +1,73 @@
+.content{
+    display: flex;
+    flex:1 0 auto;
+    flex-flow: row nowrap;
+}
+
+.signUpBox{
+    display: flex;
+    flex-flow: column nowrap;
+    width: 33%;
+    margin: 5% auto;
+    border: 1px black solid;
+    border-radius: 0.5rem;
+    justify-content: space-between;
+    background-color: rgb(241, 206, 198);
+
+}
+.titleSignBox{
+    padding: 1.5rem;
+    border: black 1px solid;
+    margin: 1rem;
+    border-radius: 0.5rem;
+    background-color: rgb(255, 255, 255);
+}
+ul {
+    list-style: none;;
+    & li{
+        display: flex;
+        flex-flow: row nowrap;
+        margin: 0.1rem;
+        &:hover{
+            cursor: default;
+        }
+    }
+}
+.vorteileSignBox{
+    border: black 1px solid;
+    margin: 1rem;
+    border-radius: 0.5rem;
+    display: flex;
+    flex-flow: column wrap;
+    height: 80%;
+    justify-content: space-between;text-align: left;
+    background-color: rgb(255, 255, 255);
+}
+.greenMark{
+    margin-left: -2rem;
+    color: rgb(24, 117, 49);
+    font-size: 2rem;
+}
+.vorteileBeschreibung{
+    margin-left: 1.5rem;
+}
+.sigUpButtom{
+    width: 95%;
+    margin: 1rem auto;
+    padding: 1rem;
+    background-color: rgb(24, 117, 49);
+    color: rgb(255, 255, 255);
+    cursor: pointer;
+    border-radius: 0.5rem;
+    box-shadow: 0.2rem 0.2rem black;
+
+}
+.inputDivs{
+    margin: 1rem;
+}
+.label{
+    margin: 3rem;
+}
+.inputField{
+    padding:0.5rem;
+}

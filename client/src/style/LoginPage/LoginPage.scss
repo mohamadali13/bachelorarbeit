@@ -1,0 +1,28 @@
+.content{
+    display: flex;
+    flex:1 0 auto;
+    flex-flow: row nowrap;
+}
+.logInButtom{
+    background-color: navajowhite;
+}
+#forgotPasswordLink{
+    color: rgb(58, 58, 177);
+    margin: 1rem;
+}
+#loginBox{
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-between;
+    margin: 4rem auto;
+    width: 50%;
+    height: 30rem;
+    background-color: rgb(241, 206, 198);
+    text-align: center;
+    padding: 7rem;
+}
+#inputBox{
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-between;
+}
