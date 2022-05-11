@@ -13,10 +13,11 @@ const theFooter = () => {
         
         <footer>
             
-                <div id="upperSection">
+                <div className="upperSectionFooter">
                     <div className = "footerUpperInfos">
-                        <ul>
-                            <p className="titleOfList">Rund um Bencom</p>
+                        <p className="titleOfList">Rund um Bencom</p>
+                        <ul className='listfooterUpperInfos'>
+                            
                             <li>
                                 <a href ="" >About us</a>
                             </li>
@@ -33,7 +34,8 @@ const theFooter = () => {
                     </div>
 
                     <div className = "footerUpperInfos">
-                        <ul>
+                        <p className="titleOfList"></p>
+                        <ul className='listfooterUpperInfos'>
                             <li>
                                 <a href ="" >Datenschutzinformation für Talents</a>
                             </li>
@@ -47,8 +49,9 @@ const theFooter = () => {
                     </div>
 
                     <div className = "footerUpperInfos">
-                        <ul>
-                            <p className="titleOfList">Für Studenten</p>
+                        <p className="titleOfList">Für Studenten</p>
+                        <ul className='listfooterUpperInfos'>
+                            
                             <li>
                                 <a href ="" >Jobs in Berlin</a>
                             </li>
@@ -64,21 +67,21 @@ const theFooter = () => {
                         </ul>
                     </div>
                     <div className = "footerUpperInfos"> 
-                    <ul>
                         <p className="titleOfList">Für Unternehemen</p>
-                        <li>    
-                            <a href ="" >Personal in Berlin</a>
-                        </li>
-                        <li>
-                            <a href ="" >Personal in München</a>
-                        </li>
-                        <li>
-                            <a href ="" >Personal in Bonn</a>
-                        </li>
-                        <li>
-                            <a href ="" >Personal in Darmstadt </a>
-                        </li> 
-                    </ul>
+                        <ul className='listfooterUpperInfos'>
+                            <li>    
+                                <a href ="" >Personal in Berlin</a>
+                            </li>
+                            <li>
+                                <a href ="" >Personal in München</a>
+                            </li>
+                            <li>
+                                <a href ="" >Personal in Bonn</a>
+                            </li>
+                            <li>
+                                <a href ="" >Personal in Darmstadt </a>
+                            </li> 
+                        </ul>
                     </div>
                 </div>
                 <div id ="bottomSection">

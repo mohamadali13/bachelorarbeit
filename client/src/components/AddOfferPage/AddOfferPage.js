@@ -1,14 +1,13 @@
 import React from 'react';
 import TheNavBar from '../TheNavBar';
 import Footer from '../Footer.js';
-import MainSection from '../LandingPage/MainSection.js';
+import MainSection from './MainSection';
 import { Fragment } from 'react';
-import '../../style/LandingPage/LandingPage.scss';
 import  '../../style/bodySection.scss';
 
 
-
-const landingPage = () =>{
+ 
+const addOffer = () =>{
     return(
         <Fragment>
             <body>
@@ -18,10 +17,8 @@ const landingPage = () =>{
                     
                <Footer />
             </body>
-
         </Fragment>
     );
-
 };
 
-export default landingPage;
+export default addOffer;

@@ -1,0 +1,1973 @@
+
+:root {
+    --e-main-color: #22323c;
+    --e-main-sec-color: #22323c;
+    --e-main-alternate-color: #1085ea;
+    --e-white-color: #fff;
+    --e-grey-color: #e3e3e3;
+    --e-sec-color: #00A36B;
+    --e-blue: #F8C000;
+    --e-font-xl: 3rem;
+    --e-font-l: 2.5rem;
+    --e-font-lm: 2.2rem;
+    --e-font-m: 1.5rem;
+    --e-font-ms: 1.3rem;
+    --e-font-s: 0.8rem;
+    --e-copy: 1rem;
+    --e-mx-width: 1160px;
+    --e-mg-tp-m: 1rem;
+    --e-mg-bt-m: 1rem;
+    --e-mg-lt-m: 1rem;
+    --e-mg-rt-m: 1rem;
+    --e-mg-tp-l: 2rem;
+    --e-mg-bt-l: 2rem;
+    --e-mg-lt-l: 2rem;
+    --e-mg-rt-l: 2rem;
+  }
+  a {
+    text-decoration: none;
+  }
+  .entry-content br {
+    display: none;
+  }
+  .entry-content p,
+  .entry-content h1,
+  .entry-content h2,
+  .entry-content h3,
+  .entry-content h4,
+  .entry-content h5,
+  .entry-content h6 {
+    margin: 0;
+  }
+  .entry-content.clear > br,
+  .navigation.post-navigation,
+  main.eurostream-content.eurostream-main > br {
+    display: none;
+  }
+  .site-primary-footer-wrap[data-section="section-primary-footer-builder"] {
+    border-top-style: none;
+  }
+  .inside-footer-widgets {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  li#menu-item-1739 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  #menu-footer-nav li a {
+    color: #000;
+    font-size: 16px;
+    text-decoration: underline;
+  }
+  .site-logo img {
+      max-width: 160px;
+  }
+  p.small-footer-c {
+    text-align: center;
+    font-size: 12px;
+  }
+  footer.site-info {
+    display: none;
+  }
+  .inside-footer-widgets > div:not(:last-child) {
+    margin-bottom: 0 !important;
+  }
+  
+  .hover-txt {
+      position: absolute;
+      color: #000;
+      top: 43px;
+      font-size: 10px;
+  }
+  ul#menu-footer-nav li {
+      margin-bottom: 0;
+  }
+  ul#menu-footer-nav {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+  }
+  .inner-body p,
+  .inner-body h2,
+  .inner-body h3,
+  .inner-body h4 {
+    margin-bottom: 1rem;
+  }
+  .inside-header {
+    padding: 5px 40px;
+  }
+  .wert-logo {
+      display: flex;
+  }
+  .foo-img p br {
+      display: none;
+  }
+  .foo-img p {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      grid-gap: 15px;
+      flex-wrap: nowrap;
+      flex-direction: row-reverse;
+  }
+  .footer-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+  .eurostream-hero h1 {
+    margin-top: 0px !important;
+  }
+     .menu-item-has-children::after {
+    background-image: none;
+  }
+  .footer-gambling-logos {
+    display: flex;
+    grid-gap: 20px;
+    align-items: center;
+  }
+  .footer-gambling-logos div.g-logo:first-child {
+    width: 60px;
+  }
+  .promo-feat-img img {
+    max-width: 100%;
+    max-height: 200px;
+  }
+  .inside-header {
+    padding-right: 5px;
+    padding-left: 5px;
+  }
+  .footer-gambling-logos div.g-logo:nth-child(2) {
+    width: 120px;
+  }
+  .footer-gambling-logos div.g-logo:nth-child(3) {
+    width: 35px;
+  }
+  .footer-social {
+    color: var(--e-white-color);
+    display: flex;
+    flex-direction: column;
+  }
+  .social-icons ul {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    grid-gap: 15px;
+  }
+  .social-icons ul li {
+    width: 20px;
+    color: #fff;
+  }
+  .footer-social > p {
+    margin-bottom: 1em;
+    font-size: 12px;
+  }
+  .social-icons ul li svg {
+    fill: #fff;
+  }
+  .footer-middle {
+    margin-top: 2em;
+    text-align: left;
+  }
+  .footer-middle p {
+    color: var(--e-white-color);
+    font-size: 12px;
+    margin-bottom: 1em;
+  }
+  .hero-main-short {
+    max-width: var(--e-mx-width);
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: var(--e-mg-tp-l);
+    margin-bottom: var(--e-mg-bt-l);
+    padding: 10px;
+  }
+  .head-3 {
+    font-weight: bold !important;
+    font-size: var(--e-font-lm) !important;
+  }
+  .dark-txt-color {
+    color: var(--e-main-color) !important;
+  }
+  h2.head-4 {
+    font-size: var(--e-font-ms) !important;
+    line-height: 1.4;
+    font-weight: bold !important;
+    margin-bottom: 8px;
+  }
+  .head-3 {
+    font-size: var(--e-font-m) !important;
+    line-height: 37px;
+    font-weight: bold !important;
+  }
+  .italic-txt {
+    font-style: italic !important;
+  }
+  .para-base-m {
+    font-size: 1rem !important;
+    font-weight: bold !important;
+  }
+  .para-base {
+    font-size: 1rem !important;
+    line-height: 1.5;
+  }
+  span.bold-txt {
+    font-weight: bold;
+  }
+  .main-btn,
+  a.main-btn {
+    background-color: var(--e-sec-color);
+    color: var(--e-white-color);
+    font-weight: bold;
+    border-radius: 50px;
+    color: #fff;
+    transition: all 0.2s ease;
+    box-shadow: 2px 2px 4px 0px rgb(211 86 20 / 36%);
+    padding: 15px 45px;
+    font-size: 1.1rem;
+    width: 100%;
+    display: inline-block;
+    text-align: center;
+    line-height: 1;
+  }
+  .diff img {
+    width: 30px !important;
+  }
+  .main-btn:hover,
+  a.main-btn:hover {
+    background-color: var(--e-blue);
+  }
+  .main-txt-color,
+  button.more-info:hover {
+    color: var(--e-blue) !important;
+  }
+  .eurostream-hero {
+    background-image: url(https://www.betbros.africa/gh/wp-content/uploads/2021/10/Header.jpg);
+    background-position: right;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin: auto;
+  }
+  .eurostream-content {
+    max-width: var(--e-mx-width);
+    margin: auto;
+    padding: 0 10px;
+    padding-top: 1rem;
+  }
+  .eurostream-hero .eurostream-content {
+    min-height: 220px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .white-txt {
+    color: var(--e-white-color);
+  }
+  .eurostream-hero h1 {
+    font-size: var(--e-font-xl);
+    font-weight: bold;
+    line-height: 1em;
+    margin-top: 50px;
+    color: var(--e-white-color);
+  }
+  .eurostream-hero-check {
+    margin-top: 16px;
+  }
+  .eurostream-hero-check ul {
+    list-style-type: none;
+    display: flex;
+    align-items: center;
+    padding: 0;
+    margin: 0;
+    gap: 10px;
+  }
+  .eurostream-hero-check ul li {
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+    font-size: var(--e-copy);
+  }
+  .eurostream-hero .eurostream--alternate {
+    background-color: var(--e-main-color);
+    padding: 20px 10px;
+    margin-top: var(--e-mg-tp-m);
+  }
+  .eurostream-hero .eurostream--alternate .eurostream-hero-quote {
+    max-width: var(--e-mx-width);
+    margin: auto;
+    font-size: var(--e-copy);
+  }
+  .fill-gray {
+    background-color: var(--e-grey-color);
+  }
+  
+  .license-logo,
+  .single-payment-img .payment-image {
+    margin-right: 0px !important;
+  }
+  /*FAQ CSS */
+  .betting-faq-title {
+    margin-bottom: 10px;
+    margin-left: 10px;
+  }
+  #toolset_view-61-8 {
+    width: 100%;
+  }
+  section.g-faq-container {
+    padding: 1rem;
+    background-color: #fff;
+    border-radius: 7px;
+  }
+  section.g-faq-container:not(:last-child) {
+    margin-bottom: 1rem;
+  }
+  .g-faq-question-wrap {
+    display: flex;
+    position: relative;
+    cursor: pointer;
+  }
+  .g-faq-question-wrap::after {
+    content: "";
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    background-image: url(https://www.betbros.africa/gh/wp-content/uploads/2021/10/down-1.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    position: absolute;
+    right: -5px;
+    transition: all 0.2s ease;
+    top: 8px;
+  }
+  .g-faq-question-wrap.active::after {
+    transform: rotate(180deg);
+    transition: all 0.2s ease;
+  }
+  
+  .g-faq-cat {
+    display: none;
+  }
+  .g-faq-question {
+    display: flex;
+    margin-right: 20px;
+  }
+  .g-faq-question h2,
+  .g-faq-question p {
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin: 0;
+  }
+  .g-faq-answ {
+    display: none;
+    font-size: 1rem;
+  }
+  /*END FAQ CSS*/
+  /*global */
+  .loop {
+    position: relative;
+  }
+  .num-order-wrap {
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+  .g-faq-question h2 {
+    font-size: 1.1rem !important;
+  }
+  .blue-color {
+    color: var(--e-blue);
+  }
+  .danger-txt {
+    color: #eba93c;
+  }
+  .logo-rating {
+    display: flex;
+    flex-direction: column;
+  }
+  .f-w-b {
+    font-weight: bold !important;
+  }
+  /*Loop in Promo Posts*/
+  .negative-mg-tp-50 {
+    margin-top: -50px;
+  }
+  .sec-title {
+    margin-bottom: 10px;
+    margin-left: 10px;
+  }
+  article.promo-loop {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+    grid-gap: 20px;
+  }
+  .promo-content {
+    background-color: #fff;
+    min-height: 180px;
+    padding: 0.2rem 1rem;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+  }
+  .promo-link {
+    margin-bottom: 1rem;
+  }
+  .promo-content h3 {
+    margin: 1rem 0;
+    font-size: 22px;
+    line-height: 1.2;
+    font-weight: 500;
+    color: #22323c;
+  }
+  .promo-link a {
+    background-color: var(--e-sec-color);
+    color: var(--e-white-color);
+    font-weight: 600;
+    border-radius: 50px;
+    transition: all 0.2s ease;
+    box-shadow: 2px 2px 4px 0px rgb(211 86 20 / 36%);
+    padding: 10px 30px;
+    font-size: 1rem;
+    text-align: center;
+    line-height: 1;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 150px;
+  }
+  .promo-feat-img a {
+    display: flex;
+    object-fit: cover;
+    max-width: 100vw;
+    max-height: 200px;
+  }
+  .promo-feat-img img {
+    object-fit: cover;
+  }
+  
+  .promo-feat-img {
+    max-width: 100vw;
+    max-height: 200px;
+  }
+  /*End of loop*/
+  .user-rating {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    color: var(--e-white-color);
+    border-radius: 5px;
+    margin-bottom: 18px;
+    padding: 10px;
+    font-weight: bold;
+    font-size: 13px;
+    border: 1px solid #eee;
+    text-transform: uppercase;
+  }
+  .fast-payout-container {
+    position: absolute;
+    top: 13px;
+    font-size: 14px;
+    text-transform: uppercase;
+    color: #fff;
+    font-weight: bold;
+  }
+  
+  
+  
+  a.main-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+      position:relative;
+  }
+          /*Anim Btns*/
+      a.main-btn:before {
+      content: "";
+      position: absolute;
+      opacity: 0;
+      top: 0;
+      left: 0;
+      background: linear-gradient(to right,rgba(255,255,255,0) 0,rgba(255,255,255,0.03) 1%,rgba(255,255,255,0.6) 30%,rgba(255,255,255,0.85) 50%,rgba(255,255,255,0.85) 70%,rgba(255,255,255,0.85) 71%,rgba(255,255,255,0) 100%);
+      width: 15%;
+      height: 100%;
+      transform: skew(-10deg,0);
+      animation: move 3s;
+      animation-iteration-count: infinite;
+      animation-delay: 1.5s;
+  }
+      @keyframes move{
+          0%{
+              left:-10%;
+          }
+          20%{
+              opacity:.6;
+          }
+          90%{
+              left:90%;
+          }
+          100%{
+              opacity:0
+          }
+          
+      }
+      /*END*/
+  a.main-btn img {
+    margin-left: 10px;
+  }
+  .verifi-wrap {
+    display: flex;
+  }
+  .fast-payout {
+    background-image: url(https://www.betbros.africa/gh/wp-content/uploads/2022/04/badge_yellow.svg);
+        min-width: 140px;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+      display: flex;
+      align-items: center;
+      padding: 6px 30px 5px 50px;
+      position: relative;
+      left: -5px;
+      line-height: 1;
+      width: 100%;
+  }
+  .payout-speed p {
+    display: flex;
+    color: #22323c;
+    font-weight: bold;
+    font-size: 18px;
+    margin-bottom: 0;
+  }
+  span.payout-speed-num {
+    margin-left: 5px;
+  }
+  span.payout-speed-txt {
+    color: #10d08e;
+    margin-left: 5px;
+    text-transform: uppercase;
+  }
+  .pay-img-wrap {
+    background-color: #f5f5f5;
+    width: calc(100% + 3rem);
+    position: relative;
+    left: -1.5rem;
+    padding-left: 1.5rem;
+  }
+  .num-order-wrap span {
+    font-size: 0.9rem;
+    padding: 4px 0 0 7px;
+    display: inline-block;
+  }
+  
+  .num-order-wrap {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: #be3434;
+    color: #fff;
+    font-weight: bold;
+    border-radius: 4px;
+    clip-path: polygon(100% 0, 0 0, 0 100%);
+    width: 50px;
+    height: 50px;
+  }
+  .license-logo,
+  .payment-image {
+    display: flex;
+    align-items: center;
+  }
+  .pay-img-wrap img {
+    max-width: 80px;
+  }
+  .license-logo img,
+  .payment-image img {
+    width: 100%;
+  }
+  .logo-wrap img {
+    max-width: 450px;
+    max-height: 122px;
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+  }
+  
+  .bonus-inf-txt p {
+    color: #999;
+    font-size: 0.7rem;
+    font-style: italic;
+    margin: 0px;
+  }
+  .rating-number {
+    font-size: 0.7rem;
+    font-weight: bold;
+  }
+  .my-rating {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 3px 5px;
+    border-radius: 50px;
+    background-color: #f1f1f1;
+  }
+  .based-on {
+    color: var(--e-blue);
+  }
+  .jq-star {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 16px !important;
+    height: 16px !important;
+  }
+  span.rating-txt {
+    font-size: 16px;
+  }
+  .rating-number p,
+  .bonus-wrap p {
+    margin: 0;
+  }
+  .license-logo,
+  .single-payment-img .payment-image {
+    margin-right: 10px;
+  }
+  
+  .ver-container img,
+  .license-logo img,
+  .difficulty div img {
+    width: 100%;
+  }
+  .single-payment-img {
+    max-width: 90px;
+  }
+  .difficulty > div {
+    display: flex;
+    align-items: center;
+  }
+  .difficulty > div img {
+    margin-right: 10px;
+  }
+  p.sub-heading {
+    text-transform: uppercase !important;
+    font-size: 16px;
+    font-weight: bold;
+    color: var(--e-blue);
+    margin: 8px 0;
+  }
+  p.bonus-txt {
+    color: var(--e-blue);
+    font-weight: bold;
+    font-size: 1.2rem;
+    line-height: 1;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 5px;
+  }
+  p.bonus-num {
+    font-size: 1.7rem;
+    font-weight: bold;
+    color: #22323c;
+    line-height: 1.2;
+  }
+  .benefits ul,
+  .benefits-desktop ul {
+    padding: 0;
+    list-style-type: none;
+    margin: 0;
+    margin-top: 10px;
+  }
+  .benefits ul li,
+  .benefits-desktop ul li {
+    padding-bottom: 5px;
+    line-height: 1.4;
+    display: flex;
+    align-items: flex-start;
+    padding-left: 20px;
+    position: relative;
+    font-weight: 400;
+    font-size: 16px !important;
+  }
+  .benefits ul li::before,
+  .benefits-desktop ul li::before {
+    content: "";
+    width: 14px;
+    height: 14px;
+    display: inline-block;
+    background-image: url(https://www.betbros.africa/gh/wp-content/uploads/2022/03/check_yellow.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    position: absolute;
+    left: 0;
+    top: 4px;
+  }
+  .benefits .para-base {
+    font-size: 1rem;
+  }
+  .verif-methods p {
+    position: relative;
+    padding-left: 22px;
+    display: flex;
+    line-height: 1.4;
+    margin: 0;
+    margin-bottom: 10px;
+    font-weight: 400;
+  }
+  .verif-methods p::before {
+    content: "";
+    width: 14px;
+    height: 14px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: unset;
+    display: inline-block;
+    position: absolute;
+    left: 0px;
+    top: 4px;
+  }
+  p.not-selected::before {
+    background-image: url(https://www.betbros.africa/gh/wp-content/uploads/2021/10/x.svg);
+  }
+  p.selected::before {
+    background-image: url(https://www.betbros.africa/gh/wp-content/uploads/2022/03/check_dark_blue.svg);
+    background-size: contain;
+  }
+  .turnover {
+    margin-top: 22px;
+  }
+  
+  .turnover p {
+    margin: 5px 0;
+    font-weight: 400;
+    font-size: 1rem;
+  }
+  .turnover p span {
+    font-weight: bold;
+    margin-left: 5px;
+  }
+  .anchor {
+    margin: 10px 0 10px 0;
+  }
+  .avail-platf {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+  }
+  
+  .intern-anchor {
+    grid-column-start: 1;
+    grid-column-end: 4;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 40px;
+  }
+  
+  a.anchor-link {
+    color: var(--e-blue);
+    text-align: center;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    line-height: 1;
+    justify-content: center;
+  }
+  a.anchor-link img {
+    margin-left: 5px;
+    transform: rotate(90deg);
+    height: 10px;
+    margin-top: -2px;
+  }
+  .intern-anchor .main-btn {
+    max-width: 263px;
+    margin-bottom: 24px;
+  }
+  .avail-platf > div {
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+  }
+  .avail-platf > div::before {
+    content: "";
+    width: 14px;
+    height: 14px;
+    display: inline-block;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    margin-right: 5px;
+  }
+  .ios-link {
+    margin-right: 5px;
+  }
+  .ios-link.checked::before,
+  .android-link.checked::before {
+    background-image: url(https://www.betbros.africa/gh/wp-content/uploads/2022/03/check_dark_blue.svg);
+  }
+  .ios-link.unchecked::before,
+  .android-link.unchecked::before {
+    background-image: url(https://www.betbros.africa/gh/wp-content/uploads/2021/10/x.svg);
+  }
+  .app-img {
+    margin-right: 10px;
+  }
+  .more-inf-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  button.more-info {
+    background: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    outline: none;
+    margin: 10px 0 0 0;
+    cursor: pointer;
+    border: 1px solid #eee;
+    padding: 0px 15px;
+    border-radius: 50px;
+  }
+  
+  button.more-info::active {
+    outline: none;
+  }
+  button.more-info::before {
+    content: "+";
+    display: inline-block;
+    margin: 0 6px;
+    font-size: 26px;
+  }
+  button.more-info.is-active::before {
+    content: "-";
+  }
+  
+  .turnover p {
+    display: flex;
+    align-items: center;
+  }
+  .turnover p img {
+    width: 15px;
+    margin-right: 8px;
+  }
+  .close {
+    display: none;
+    margin: 10px 0 20px 0;
+  }
+  .load-more {
+    text-align: center;
+    margin-top: 2rem;
+  }
+  .load-more a {
+    padding: 0.2rem 4rem;
+    border: 1px solid #17c280;
+    border-radius: 6px;
+    font-weight: 600;
+  }
+  .load-more a.page-link {
+    color: #999;
+  }
+  .load-more a.js-wpv-pagination-next-link {
+    color: #000;
+  }
+  .ct-toolset-view {
+    width: 100%;
+  }
+  .pay-img-wrap {
+    width: calc(100% + 1rem);
+    position: relative;
+    left: -0.5rem;
+    padding-left: 0;
+    padding: 15px;
+  }
+  .difficulty {
+    display: flex;
+  }
+  .diff-txt span {
+    display: flex;
+    align-items: center;
+    margin: 0 8px 0 0px;
+    justify-content: center;
+  }
+  .diff-txt span img {
+    width: 15px;
+    margin: 0;
+  }
+  .diff p {
+    margin: 0 5px;
+    font-weight: 500;
+  }
+  /*global */
+  .loop {
+    position: relative;
+  }
+  .num-order-wrap {
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+  .g-faq-question h2 {
+    font-size: 1.1rem !important;
+  }
+  .blue-color {
+    color: var(--e-blue);
+  }
+  .danger-txt {
+    color: #eba93c;
+  }
+  .logo-rating {
+    display: flex;
+    flex-direction: column;
+  }
+  .f-w-b {
+    font-weight: bold !important;
+  }
+  /*Loop in Promo Posts*/
+  .negative-mg-tp-50 {
+    margin-top: -50px;
+  }
+  .sec-title {
+    margin-bottom: 10px;
+    margin-left: 10px;
+  }
+  article.promo-loop {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+    grid-gap: 20px;
+  }
+  .promo-content {
+    background-color: #fff;
+    min-height: 180px;
+    padding: 0.2rem 1rem;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+  }
+  .promo-link {
+    margin-bottom: 1rem;
+  }
+  .promo-content h3 {
+    margin: 1rem 0;
+    font-size: 22px;
+    line-height: 1.2;
+    font-weight: 500;
+    color: #22323c;
+  }
+  .promo-link a {
+    background-color: var(--e-sec-color);
+    color: var(--e-white-color);
+    font-weight: 600;
+    border-radius: 50px;
+    transition: all 0.2s ease;
+    box-shadow: 2px 2px 4px 0px rgb(211 86 20 / 36%);
+    padding: 10px 30px;
+    font-size: 1rem;
+    text-align: center;
+    line-height: 1;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 150px;
+  }
+  .promo-feat-img a {
+    display: flex;
+    object-fit: cover;
+    max-width: 100vw;
+    max-height: 200px;
+  }
+  .promo-feat-img img {
+    object-fit: cover;
+  }
+  
+  .promo-feat-img {
+    max-width: 100vw;
+    max-height: 200px;
+  }
+  /*End of loop*/
+  .user-rating {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    color: var(--e-white-color);
+    border-radius: 5px;
+    margin-bottom: 18px;
+    padding: 10px;
+    font-weight: bold;
+    font-size: 13px;
+    border: 1px solid #eee;
+    text-transform: uppercase;
+  }
+  
+  
+  a.main-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  a.main-btn img {
+    margin-left: 10px;
+  }
+  .verifi-wrap {
+    display: flex;
+  }
+  
+      
+  .payout-speed p {
+    display: flex;
+    color: #22323c;
+    font-weight: bold;
+    font-size: 18px;
+    margin-bottom: 0;
+  }
+  span.payout-speed-num {
+    margin-left: 5px;
+  }
+  span.payout-speed-txt {
+    color: #10d08e;
+    margin-left: 5px;
+    text-transform: uppercase;
+  }
+  .pay-img-wrap {
+    background-color: #f5f5f5;
+    width: calc(100% + 3rem);
+    position: relative;
+    left: -1.5rem;
+    padding-left: 1.5rem;
+  }
+  .num-order-wrap span {
+    font-size: 0.9rem;
+    padding: 4px 0 0 7px;
+    display: inline-block;
+  }
+  
+  .num-order-wrap {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: #be3434;
+    color: #fff;
+    font-weight: bold;
+    border-radius: 4px;
+    clip-path: polygon(100% 0, 0 0, 0 100%);
+    width: 50px;
+    height: 50px;
+  }
+  .license-logo,
+  .payment-image {
+    display: flex;
+    align-items: center;
+  }
+  .pay-img-wrap img {
+    max-width: 80px;
+  }
+  .license-logo img,
+  .payment-image img {
+    width: 100%;
+  }
+  .logo-wrap img {
+    max-width: 450px;
+    max-height: 122px;
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+  }
+  
+  .bonus-inf-txt p {
+    color: #999;
+    font-size: 0.7rem;
+    font-style: italic;
+    margin: 0px;
+  }
+  .rating-number {
+    font-size: 0.7rem;
+    font-weight: bold;
+  }
+  .my-rating {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 3px 5px;
+    border-radius: 50px;
+    background-color: #f1f1f1;
+  }
+  .based-on {
+    color: var(--e-blue);
+  }
+  .jq-star {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 16px !important;
+    height: 16px !important;
+  }
+  span.rating-txt {
+    font-size: 16px;
+  }
+  .rating-number p,
+  .bonus-wrap p {
+    margin: 0;
+  }
+  .license-logo,
+  .single-payment-img .payment-image {
+    margin-right: 10px;
+  }
+  
+  .ver-container img,
+  .license-logo img,
+  .difficulty div img {
+    width: 100%;
+  }
+  .single-payment-img {
+    max-width: 90px;
+  }
+  .difficulty > div {
+    display: flex;
+    align-items: center;
+  }
+  .difficulty > div img {
+    margin-right: 10px;
+  }
+  p.sub-heading {
+    text-transform: uppercase !important;
+    font-size: 16px;
+    font-weight: bold;
+    color: var(--e-blue);
+    margin: 8px 0;
+  }
+  p.bonus-txt {
+    color: var(--e-blue);
+    font-weight: bold;
+    font-size: 1.2rem;
+    line-height: 1;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 5px;
+  }
+  p.bonus-num {
+    font-size: 1.7rem;
+    font-weight: bold;
+    color: #22323c;
+    line-height: 1.2;
+  }
+  .benefits ul,
+  .benefits-desktop ul {
+    padding: 0;
+    list-style-type: none;
+    margin: 0;
+    margin-top: 10px;
+  }
+  .benefits ul li,
+  .benefits-desktop ul li {
+    padding-bottom: 5px;
+    line-height: 1.4;
+    display: flex;
+    align-items: flex-start;
+    padding-left: 20px;
+    position: relative;
+    font-weight: 400;
+    font-size: 16px !important;
+  }
+  
+  .benefits .para-base {
+    font-size: 1rem;
+  }
+  .verif-methods p {
+    position: relative;
+    padding-left: 22px;
+    display: flex;
+    line-height: 1.4;
+    margin: 0;
+    margin-bottom: 10px;
+    font-weight: 400;
+  }
+  .verif-methods p::before {
+    content: "";
+    width: 14px;
+    height: 14px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: unset;
+    display: inline-block;
+    position: absolute;
+    left: 0px;
+    top: 4px;
+  }
+  p.not-selected::before {
+    background-image: url(https://www.betbros.africa/gh/wp-content/uploads/2021/10/x.svg);
+  }
+  p.selected::before {
+    background-image: url(https://www.betbros.africa/gh/wp-content/uploads/2022/03/check_dark_blue.svg);
+    background-size: contain;
+  }
+  .turnover {
+    margin-top: 22px;
+  }
+  
+  .turnover p {
+    margin: 5px 0;
+    font-weight: 400;
+    font-size: 1rem;
+  }
+  .turnover p span {
+    font-weight: bold;
+    margin-left: 5px;
+  }
+  .anchor {
+    margin: 10px 0 10px 0;
+  }
+  .avail-platf {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+  }
+  
+  .intern-anchor {
+    grid-column-start: 1;
+    grid-column-end: 4;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 40px;
+  }
+  
+  a.anchor-link {
+    color: var(--e-blue);
+    text-align: center;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    line-height: 1;
+    justify-content: center;
+  }
+  a.anchor-link img {
+    margin-left: 5px;
+    transform: rotate(90deg);
+    height: 10px;
+    margin-top: -2px;
+  }
+  .intern-anchor .main-btn {
+    max-width: 263px;
+    margin-bottom: 24px;
+  }
+  .avail-platf > div {
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+  }
+  .avail-platf > div::before {
+    content: "";
+    width: 14px;
+    height: 14px;
+    display: inline-block;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    margin-right: 5px;
+  }
+  .ios-link {
+    margin-right: 5px;
+  }
+  .ios-link.checked::before,
+  .android-link.checked::before {
+    background-image: url(https://www.betbros.africa/gh/wp-content/uploads/2022/03/check_dark_blue.svg);
+  }
+  .ios-link.unchecked::before,
+  .android-link.unchecked::before {
+    background-image: url(https://www.betbros.africa/gh/wp-content/uploads/2021/10/x.svg);
+  }
+  .app-img {
+    margin-right: 10px;
+  }
+  .more-inf-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  button.more-info {
+    background: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    outline: none;
+    margin: 10px 0 0 0;
+    cursor: pointer;
+    border: 1px solid #eee;
+    padding: 0px 15px;
+    border-radius: 50px;
+  }
+  
+  button.more-info::active {
+    outline: none;
+  }
+  button.more-info::before {
+    content: "+";
+    display: inline-block;
+    margin: 0 6px;
+    font-size: 26px;
+  }
+  button.more-info.is-active::before {
+    content: "-";
+  }
+  
+  .turnover p {
+    display: flex;
+    align-items: center;
+  }
+  .turnover p img {
+    width: 15px;
+    margin-right: 8px;
+  }
+  .close {
+    display: none;
+    margin: 10px 0 20px 0;
+  }
+  .load-more {
+    text-align: center;
+    margin-top: 2rem;
+  }
+  .load-more a {
+    padding: 0.2rem 4rem;
+    border: 1px solid #17c280;
+    border-radius: 6px;
+    font-weight: 600;
+  }
+  .load-more a.page-link {
+    color: #999;
+  }
+  .load-more a.js-wpv-pagination-next-link {
+    color: #000;
+  }
+  .ct-toolset-view {
+    width: 100%;
+  }
+  .pay-img-wrap {
+    width: calc(100% + 1rem);
+    position: relative;
+    left: -0.5rem;
+    padding-left: 0;
+    padding: 15px;
+  }
+  .difficulty {
+    display: flex;
+  }
+  .diff-txt span {
+    display: flex;
+    align-items: center;
+    margin: 0 8px 0 0px;
+    justify-content: center;
+  }
+  .diff-txt span img {
+    width: 15px;
+    margin: 0;
+  }
+  .diff p {
+    margin: 0 5px;
+    font-weight: 500;
+  }
+  
+  /*home main Page */
+  
+  #wpv-view-layout-37-TCPID13{
+     background-color: #64748b;
+  }
+  /* span.num*/
+  span.nums {
+      position: absolute;
+      top: 9px;
+      left: 26px;
+      font-size: 14px;
+      padding: 7px 12px;
+      border-radius: 50px;
+      line-height: 1;
+      color: var(--e-white-color);
+      background-color: var(--e-blue);
+      font-weight: 600;
+      z-index: 10;
+      border: 2px double #fff;
+  }	
+  
+  @media only screen and (min-width: 768px) {
+    section.loop {
+      display: grid;
+      grid-template-columns: 30% 1fr 25%;
+      grid-template-areas:
+        "logo-grid bonus-grid anchor-grid"
+        "bonus-inf-txt bonus-inf-txt bonus-inf-txt"
+        "close close close";
+      background-color: #fff;
+      margin-bottom: 2rem;
+      grid-gap: 2%;
+      padding: 1.5rem 1.5rem 1rem 1.5rem;
+    }
+  
+    .logo-grid {
+      grid-area: logo-grid;
+    }
+    .bonus-grid {
+      grid-area: bonus-grid;
+    }
+    .anchor-grid {
+      grid-area: anchor-grid;
+    }
+    .bonus-inf-txt {
+      grid-area: bonus-inf-txt;
+    }
+    .close {
+      grid-area: close;
+    }
+    .view-m-2.bonus-verif-container {
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+          margin-right:10px;
+          margin-left:10px;
+    }
+  
+    .close {
+      grid-area: close;
+      grid-template-columns: 1fr 1fr !important;
+      grid-gap: 0 30px !important;
+    }
+  
+    .logo-wrap a {
+      display: flex;
+    }
+    .benefits {
+      display: none;
+    }
+    .rating-number p {
+      text-align: center;
+    }
+  
+    .rating-wrap {
+      display: flex;
+    }
+    .bonus-wrap {
+      margin-top: 10px;
+    }
+    .verf-icons {
+      display: flex;
+      align-items: center;
+      padding: 8px;
+      background-color: #f5f5f5;
+      margin-top: 10px;
+      justify-content: center;
+      grid-gap: 15px;
+    }
+    .verifi-wrap .ver-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .verifi-wrap .ver-container img {
+      width: 15px;
+      margin-right: 5px;
+    }
+  
+    .verifi-wrap .para-base-m {
+      font-size: 9px;
+      text-transform: uppercase !important;
+      font-weight: bold !important;
+      margin: 0;
+    }
+    .bonus-inf-txt {
+      margin-top: 20px !important;
+      margin-bottom: 0px !important;
+    }
+    .btn-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+    }
+  
+    .anchor {
+      margin: 0 0 10px 0;
+      width: 100%;
+    }
+    .intern-anchor {
+      display: flex;
+      justify-content: center;
+    }
+    .intern-anchor a.second-btn {
+      width: 25%;
+    }
+    .benefits ul li::before,
+    .benefits-desktop ul li::before {
+      content: "";
+      top: 4px !important;
+    }
+    .pay-img-wrap .js-wpv-view-layout {
+      display: grid;
+      grid-template-columns: repeat(10, 1fr);
+    }
+    .view-m-2.view-closed {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+    }
+    .verif-methods {
+      grid-column-start: 1;
+      grid-column-end: 2;
+      margin-top: 22px;
+    }
+  }
+  @media only screen and (min-width: 768px) and (max-width: 1024px) {
+    .js-wpv-view-layout section.loop {
+      display: grid;
+      grid-gap: 0px 10px;
+      grid-template-columns: 1fr 1fr;
+      grid-gap: 10px;
+      grid-template-areas:
+        "logo-grid bonus-grid"
+        "close close"
+        "bonus-inf-txt bonus-inf-txt"
+        "anchor-grid anchor-grid";
+    }
+    .logo-rating {
+      display: flex;
+      justify-content: space-between;
+    }
+    .view-m-2.view-closed {
+      display: grid;
+      grid-template-columns: 40% 1fr 24%;
+      grid-gap: 20px;
+    }
+    p.dark-txt-color.para-base-m.sub-heading {
+      font-size: 18px;
+    }
+  }
+  @media only screen and (max-width: 600px) {
+    .eurostream-hero {
+      background-image: url(https://www.betbros.africa/gh/wp-content/uploads/2021/10/Header-1.jpg);
+      background-position: center;
+    }
+  .hero-short {
+      background-position: 80% 50% !important;
+  }
+    .eurostream-hero h1 {
+      font-size: var(--e-font-l);
+    }
+    .hero-main-short {
+      margin-top: var(--e-mg-tp-m);
+      margin-bottom: var(--e-mg-bt-m);
+    }
+    .footer-social {
+      flex-direction: column;
+      align-items: flex-start;
+      margin-top: 2em;
+    }
+    .site-above-footer-wrap {
+      padding: 2em;
+    }
+    .site-primary-footer-wrap {
+      padding-top: 0px;
+      padding-bottom: 10px;
+    }
+  .hero-bar ul li {
+  
+      display: flex;
+      gap: 10px;
+      cursor: pointer;
+      font-weight: 500;
+  
+  
+      /*font-size: 2.6vw;
+      display: flex;
+      align-items: center;
+      justify-content: center;*/
+  }
+  }
+  @media only screen and (max-width: 320px) {
+    .eurostream-hero h1 {
+      font-size: var(--e-font-lm);
+    }
+  }
+  /*Score icons*/
+  .ausgezeichnet-container,
+  .sehr-gut-container {
+    background: rgb(134, 133, 134);
+    background: linear-gradient(
+      128deg,
+      rgba(134, 133, 134, 1) 0%,
+      rgba(134, 133, 134, 1) 5%,
+      rgba(206, 206, 206, 1) 18%,
+      rgba(193, 193, 193, 1) 41%,
+      rgba(191, 191, 191, 1) 45%,
+      rgba(101, 100, 100, 0.9444152661064426) 68%,
+      rgba(142, 141, 141, 1) 85%,
+      rgba(165, 165, 165, 1) 93%,
+      rgba(165, 165, 165, 1) 100%
+    );
+  }
+  .befried-container,
+  .gut-container {
+    background: rgb(215, 157, 115);
+    background: linear-gradient(
+      315deg,
+      rgba(215, 157, 115, 1) 0%,
+      rgba(194, 116, 70, 1) 4%,
+      rgba(184, 97, 48, 1) 7%,
+      rgba(178, 86, 35, 1) 9%,
+      rgba(179, 87, 37, 1) 12%,
+      rgba(198, 125, 79, 1) 21%,
+      rgba(215, 157, 115, 1) 25%,
+      rgba(222, 165, 127, 1) 29%,
+      rgba(240, 187, 157, 1) 38%,
+      rgba(255, 205, 183, 1) 43%,
+      rgba(230, 166, 134, 1) 54%,
+      rgba(199, 119, 76, 1) 59%,
+      rgba(176, 82, 31, 1) 62%,
+      rgba(176, 82, 31, 1) 66%,
+      rgba(193, 110, 65, 1) 69%,
+      rgba(225, 159, 126, 1) 72%,
+      rgba(246, 196, 169, 1) 75%,
+      rgba(221, 167, 128, 1) 83%,
+      rgba(214, 141, 78, 1) 88%,
+      rgba(193, 132, 84, 1) 91%,
+      rgba(208, 149, 101, 1) 93%,
+      rgba(220, 167, 126, 1) 96%,
+      rgba(241, 192, 160, 1) 100%
+    );
+  }
+  .test-sieger-container {
+    background: rgb(253, 215, 128);
+    background: linear-gradient(
+      315deg,
+      rgba(253, 215, 128, 1) 0%,
+      rgba(253, 215, 128, 1) 4%,
+      rgba(217, 165, 83, 1) 17%,
+      rgba(205, 148, 67, 1) 24%,
+      rgba(237, 182, 86, 1) 35%,
+      rgba(253, 199, 96, 1) 48%,
+      rgba(253, 207, 112, 1) 50%,
+      rgba(254, 234, 164, 1) 63%,
+      rgba(254, 222, 143, 1) 66%,
+      rgba(253, 202, 110, 1) 72%,
+      rgba(205, 148, 67, 1) 89%,
+      rgba(205, 148, 67, 1) 100%
+    );
+  }
+  .score-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.3rem 0;
+  }
+  .score-inner {
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    border-radius: 30px;
+    padding: 2px 10px;
+  }
+  .rating-number {
+    margin-left: 0.5rem;
+  }
+  .score-txt-wrap {
+    margin-left: 1rem;
+  }
+  p.score-txt {
+    color: #fff;
+    margin: 12px 0px 6px 0;
+    font-weight: 600;
+    font-size: 1rem;
+    margin: 5px 0;
+    text-transform: uppercase;
+  }
+  p.inner-score-txt {
+    font-size: 0.6rem;
+    margin: 0;
+  }
+  .main-score-container {
+    display: flex;
+    align-items: center;
+  }
+  .wert-logo img {
+    width: 30px;
+  }
+  .test-sieger-container p.score-txt::before {
+    content: "Our Expert Rating";
+  }
+  .ausgezeichnet-container p.score-txt::before {
+    content: "Our Expert Rating";
+  }
+  .sehr-gut-container p.score-txt::before {
+    content: "Our Expert Rating";
+  }
+  .gut-container p.score-txt::before {
+    content: "Our Expert Rating";
+  }
+  .befried-container p.score-txt::before {
+    content: "Our Expert Rating";
+  }
+  /*End of style*/
+  .pay-img-wrap .js-wpv-view-layout {
+    grid-gap: 10px;
+  }
+  
+  /* Header .main-navigation lists Items
+  }*/
+  .main-navigation .main-nav ul li a {
+      padding-top: 15px;
+    padding-bottom: 15px;
+  }
+  
+  .licensed-item{
+      cursor:pointer;
+  }
+  .secure-item{
+      cursor:pointer;
+  }
+  .withdrawal-item{
+      cursor:pointer;
+  }
+  @media only screen and (max-width: 768px) {
+    span.nums {
+      position: absolute;
+      top: 0px;
+      left: 15px;
+    } 
+  
+    .pay-img-wrap .js-wpv-view-layout {
+      grid-gap: 10px;
+    }
+    .pay-img-wrap-single .js-wpv-view-layout {
+      grid-gap: 10px;
+    }
+    .pay-img-wrap .js-wpv-view-layout {
+      grid-template-columns: repeat(4, 1fr) !important;
+    }
+  
+    .ct-section-inner-wrap {
+      padding-left: 10px !important;
+      padding-right: 10px !important;
+    }
+    .single .ct-section-inner-wrap {
+      padding-left: 0px !important;
+      padding-right: 0px !important;
+    }
+    section.loop {
+      width: 100%;
+      margin: 1rem 0 0rem 0;
+      background-color: #fff;
+      padding: 1rem;
+    }
+    .user-rating {
+      align-items: center;
+      justify-content: center !important;
+      grid-gap: 15px;
+    }
+    .js-wpv-view-layout section.loop {
+      padding: 1rem 0.5rem 1rem 0.5rem;
+    }
+    .view-m-2.bonus-verif-container {
+      grid-template-columns: 1fr;
+      margin-top: 15px !important;
+          margin-left:5px;
+          margin-right:5px;
+    }
+      .bonus-inf-txt{
+          margin-left:5px;
+          margin-right:5px;
+      }
+    .fast-payout-container {
+      top: 4px !important;
+    }
+    /*Loop promo posts*/
+    .promo-content {
+      min-height: auto !important;
+    }
+    /*end of loop*/
+    .loop.is-active-p .user-rating {
+      display: none;
+    }
+    .main-btn,
+    a.main-btn {
+      font-size: 1.3rem;
+    }
+    .benefits-desktop {
+      display: none;
+    }
+    button.more-info {
+      margin: 0px 0 0 0;
+      padding: 0;
+    }
+    .turnover,
+    .avail-platf {
+      margin-top: 8px !important;
+    }
+    .intern-anchor .main-btn {
+      display: none;
+    }
+    .loop .logo-wrap {
+      width: 100%;
+    }
+    .logo-wrap a {
+      display: flex;
+    }
+  
+    .logo-rating {
+      display: flex;
+      justify-content: space-between;
+    }
+    .verifi-wrap div {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: 5px;
+    }
+    .verifi-wrap p {
+      text-align: center;
+    }
+    .verifi-wrap img {
+      width: 15px !important;
+      margin-right: 5px;
+    }
+    .verf-icons {
+      display: flex;
+      margin-top: 15px;
+      justify-content: center;
+      background-color: #f5f5f5;
+      width: calc(100% + 1rem);
+      position: relative;
+      left: -0.5rem;
+      grid-gap: 15px;
+      padding: 8px;
+    }
+    .single-payment-img {
+      display: flex;
+      align-items: center;
+    }
+    .license-log {
+      display: flex;
+      align-items: center;
+    }
+    .pay-img-wrap .js-wpv-view-layout {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+    }
+    .num-order-wrap {
+      width: 35px !important;
+      height: 35px !important;
+      display: flex;
+      display: none;
+    }
+    .num-order-wrap span {
+      font-size: 0.7rem !important;
+      padding: 2px 0 0 5px !important;
+      display: inline-block;
+    }
+    a.anchor-link {
+      width: 100% !important;
+    }
+    .payout-speed-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .payout-speed {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .payout-speed p {
+      margin-top: 0;
+    }
+    .bonus-inf-txt p {
+      margin-bottom: 15px !important;
+      margin-top: 15px !important;
+    }
+     .fast-payout {
+      padding: 6px 31px 5px 55px;
+    }
+  }
+  @media only screen and (max-width: 320px) {
+    p.bonus-num {
+      font-size: 1.4rem;
+    }
+    .benefits .para-base {
+      font-size: 1rem;
+    }
+    .score-container {
+      max-height: 89px;
+    }
+    p.score-txt {
+      font-size: 12px;
+      margin: 0;
+    }
+    .verifi-wrap p {
+      text-align: left;
+      font-size: 8px;
+    }
+  }
+  @media only screen and (min-device-width: 480px) and (max-device-width: 736px) and (orientation: landscape) {
+    .logo-wrap img {
+      max-width: 100vw;
+      max-height: 200px;
+    }
+  }
+
+  /*X-Small	None	< 576px
+Small	sm	≥ 576px
+Medium	md	≥ 768px
+Large	lg	≥ 992px
+Extra large	xl	≥ 1200px
+Extra extra large	xxl	≥ 1400px*/
+
+
+/*/* Extra small devices (phones, 600px and down) */
+/*@media only screen and (max-width: 600px) {...}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+/*@media only screen and (min-width: 600px) {...}
+
+/* Medium devices (landscape tablets, 768px and up) */
+/*@media only screen and (min-width: 768px) {...}
+
+/* Large devices (laptops/desktops, 992px and up) */
+/*@media only screen and (min-width: 992px) {...}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+/*@media only screen and (min-width: 1200px) {...}/*
+  
+  
+  /*
+Endgerät-Kategorie	Breakpoint	Modell
+Mobile, portrait	320px	iPhone SE
+375px	iPhone 6, 6S, 7, 8, X
+414px	iPhone 6 Plus, 7 Plus, 8 Plus
+Mobile, landscape	568px	iPhone SE
+667px	iPhone 6, 6S, 7, 8
+736px	iPhone 6 Plus, 7 Plus, 8 Plus
+812px	iPhone X
+Tablet, portrait	768px	iPad Air, iPad Mini, iPad Pro 9″
+834px	iPad Pro 10″
+Tablet, landscape	1024px	iPad Air, iPad Mini, iPad Pro 9″
+1024px	iPad Pro 12″ (portrait)
+1112px	iPad Pro 10″
+Laptop displays	1366px	HD laptops (768p)
+1366px	iPad Pro 12″ (landscape)
+1440px	13″ MacBook Pro (2x scaling)
+Desktop displays	1680px	13″ MacBook Pro (1.5x scaling)
+1920px	1080p displays*/
+  

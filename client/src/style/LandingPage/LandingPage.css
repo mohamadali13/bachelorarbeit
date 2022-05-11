@@ -1,0 +1,107 @@
+.content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-flex: 1;
+      -ms-flex: 1 0 auto;
+          flex: 1 0 auto;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row wrap;
+          flex-flow: row wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.signUpBox {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column nowrap;
+          flex-flow: column nowrap;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  margin: 5% 10%;
+  border: 1px black solid;
+  border-radius: 0.5rem;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  background-color: #f1cec6;
+}
+
+.titleSignBox {
+  padding: 1.5rem;
+  border: black 1px solid;
+  margin: 1rem;
+  border-radius: 0.5rem;
+  background-color: white;
+}
+
+.vorteileList {
+  list-style: none;
+}
+
+.vorteileList li {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row nowrap;
+          flex-flow: row nowrap;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  margin: 0.1rem;
+}
+
+.vorteileList li:hover {
+  cursor: default;
+}
+
+.vorteileSignBox {
+  border: black 1px solid;
+  margin: 1rem;
+  border-radius: 0.5rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column wrap;
+          flex-flow: column wrap;
+  height: 80%;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  text-align: left;
+  background-color: white;
+}
+
+.greenMark {
+  margin-left: -2rem;
+  color: #187531;
+  font-size: 2rem;
+}
+
+.vorteileBeschreibung {
+  margin-left: 1.5rem;
+}
+
+.sigUpButtom {
+  width: 95%;
+  margin: 1rem auto;
+  padding: 1rem;
+  background-color: #187531;
+  color: white;
+  cursor: pointer;
+  border-radius: 0.5rem;
+  -webkit-box-shadow: 0.2rem 0.2rem black;
+          box-shadow: 0.2rem 0.2rem black;
+}
+/*# sourceMappingURL=LandingPage.css.map */

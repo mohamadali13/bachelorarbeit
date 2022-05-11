@@ -1,0 +1,11 @@
+{
+    "version": 3,
+    "mappings": "ACYA,0CAA0C;ACZ1C,AAAA,CAAC;AACD,QAAQ;AACR,OAAO,CAAC;EACJ,UAAU,EAAE,UAAU;EACtB,MAAM,EAAE,CAAC;CACZ",
+    "sources": [
+        "App.scss",
+        "style/_mixin.scss",
+        "style/reset.scss"
+    ],
+    "names": [],
+    "file": "App.css"
+}

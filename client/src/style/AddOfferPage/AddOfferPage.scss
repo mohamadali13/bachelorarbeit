@@ -1,0 +1,105 @@
+.content{
+    display: flex;
+    flex:1 0 auto;
+    flex-flow: row wrap;
+    justify-content: center;
+}
+.AddOfferForm{
+    display: flex;
+    flex-flow: column wrap;
+    width: 50%;
+    background-color: rgb(225, 122, 134);
+    margin: 2rem auto;
+    border-radius: 10px;
+    padding: 1rem;
+}
+.dateDivAddOffer{
+    width: 100%;
+}
+.dateAddOfferP{
+    width: 100%;
+    margin-bottom: 1rem;
+    font-weight: bold;
+}
+.underLineBetween{
+    width: 80%;
+    align-self: center;
+    border-bottom: 1px solid rgb(97, 87, 87);
+    margin: 0 auto;
+    margin-bottom: 1rem;
+}
+.addOfferInputsOutWrap{
+    display: flex;
+    flex-flow: row wrap;
+    width: 100%;
+  //  background-color: green;
+    justify-content: center;
+}
+.addOfferInputsInWrap{
+    display: flex;
+    flex-flow: row wrap;
+    width: 70%;
+    justify-content: space-between;
+   // background-color: rgb(143, 8, 8);
+}
+.addOfferInputLongOutWrap{
+    display: flex;
+    flex-flow: row wrap;
+    width: 100%;
+    //background-color: green;
+    justify-content: center;
+    margin-bottom: 1rem;
+}
+.addOfferInputLongInWrap{
+    display: flex;
+    flex-flow: row wrap;
+   // background-color: rgb(94, 60, 125);
+    justify-content: space-between;
+    width: 70%;
+}
+.addOfferLabel{
+   margin-right: 2rem;
+}
+.addOfferLabelInputs{
+    margin-right: 1rem;
+ }
+.addOfferLongInput{
+   //flex: 1;
+   border-radius: 5px;
+   height: 1.5rem;
+   border-width: 0;
+   width: 70%; 
+}
+.addOfferInputShort{
+    border-radius: 5px;
+    height: 1.5rem;
+    border-width: 0;
+   }
+
+
+
+
+
+
+
+//media Query
+@media only screen and (max-width: 1200px){
+    .addOfferInputLongInWrap{
+        width: 100%;
+    }
+    .addOfferLabel{
+        margin-right: 0;
+    }
+
+    .addOfferLongInput{
+     width: 100%; 
+    }   
+    .addOfferInputsInWrap{
+        width: 100%;
+    }
+    .addOfferLongInput{
+        width: 100%;
+    }
+}
+
+

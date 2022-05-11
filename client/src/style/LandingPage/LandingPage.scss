@@ -1,14 +1,14 @@
 .content{
     display: flex;
     flex:1 0 auto;
-    flex-flow: row nowrap;
+    flex-flow: row wrap;
+    justify-content: center;
 }
-
 .signUpBox{
     display: flex;
     flex-flow: column nowrap;
-    width: 33%;
-    margin: 5% auto;
+    flex: 1;
+    margin: 5% 10%;
     border: 1px black solid;
     border-radius: 0.5rem;
     justify-content: space-between;
@@ -22,11 +22,14 @@
     border-radius: 0.5rem;
     background-color: rgb(255, 255, 255);
 }
-ul {
-    list-style: none;;
+.vorteileList {
+    list-style: none;
+   
+  
     & li{
         display: flex;
         flex-flow: row nowrap;
+        flex: 1;
         margin: 0.1rem;
         &:hover{
             cursor: default;
@@ -61,13 +64,4 @@ ul {
     border-radius: 0.5rem;
     box-shadow: 0.2rem 0.2rem black;
 
-}
-.inputDivs{
-    margin: 1rem;
-}
-.label{
-    margin: 3rem;
-}
-.inputField{
-    padding:0.5rem;
 }

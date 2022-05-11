@@ -1,28 +1,128 @@
 .content{
     display: flex;
     flex:1 0 auto;
-    flex-flow: row nowrap;
+    flex-flow: row wrap;
+    justify-content: center;
 }
-.logInButtom{
-    background-color: navajowhite;
-}
-#forgotPasswordLink{
-    color: rgb(58, 58, 177);
-    margin: 1rem;
-}
-#loginBox{
+#loginForm{
     display: flex;
-    flex-flow: column nowrap;
-    justify-content: space-between;
-    margin: 4rem auto;
+    flex-flow: column wrap;
     width: 50%;
-    height: 30rem;
-    background-color: rgb(241, 206, 198);
+    //justify-content: center;
+    align-items: center;
+    background-color:rgb(245, 189, 197);
+    margin: 4em auto;
+    border-radius: 20px;
+}
+
+
+.loginLogoImageDiv{
+    height: 5em;
+    background-color: blue;
     text-align: center;
-    padding: 7rem;
+    //flex: 1;
+    border-top-right-radius:20px ;
+    border-top-left-radius:20px;
+    width: 100%;
 }
-#inputBox{
+.loginFormInnerWrap{
     display: flex;
-    flex-flow: column nowrap;
-    justify-content: space-between;
+    flex-flow: row wrap;
+    width: 100%;
+   // background-color: burlywood;
+    justify-content: center;
+    margin-bottom: 0.8em;
+    //padding: 2em;
+  
 }
+.loginRow{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2em;
+    width: 90%;
+}
+.loginLebel{
+    width:10%
+}
+.loginInput{
+    width: 30%;
+}
+/*  
+#forgotPasswordLink{
+    color: rgb(41, 41, 199);
+    margin: 1em;
+}
+#loginForm{
+    background-color:rgb(245, 189, 197);
+    margin: 4em auto;
+    width: 50%;
+    display: flex;
+    flex-flow: column wrap;
+    border-radius: 20px;
+}
+
+
+#logoImage{
+    width: 50%;
+    height: 4em;
+    align-self: center;
+    border-top-right-radius:20px ;
+    border-top-left-radius:20px ;
+    align-content: center;
+}
+
+.loginBoxItemsSection{
+    flex: 1;
+    background-color: darkgreen;
+    display: flex;
+    justify-content: center;
+    flex-flow: column wrap;
+    align-items: center;
+}
+#logoImageDiv{
+    height: 35%;
+    text-align: center;
+}
+
+.inputDiv{
+    flex: 1;
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    align-items: center;
+
+}
+.inputField{
+    width:40% ;
+    margin: 0.5em;
+    border-radius: 5px;
+    border: 0;
+    padding: 0.8em;
+    font-size: 1em;
+}
+#loginButton{
+    background-color: rgb(24, 117, 49);
+    color: white;
+    padding: 0.9em;
+    cursor: pointer;
+    //font-size: 1em;
+    width:40% ;
+    border-radius: 5px;
+}
+
+@media only screen and (max-width: 768px) {
+    .inputField{
+        width: 90%;
+    }
+    #loginButton{
+        width: 90%;
+    }
+   
+}
+@media only screen  and (min-width: 768px) and (max-width: 1024px){
+    .inputField{
+        background-color: red;
+    }
+
+}*/

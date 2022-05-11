@@ -1,0 +1,104 @@
+footer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column wrap;
+          flex-flow: column wrap;
+  height: auto;
+  width: 100%;
+}
+
+#upperSection {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row wrap;
+          flex-flow: row wrap;
+  background-color: #187531;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  width: 100%;
+}
+
+#upperSection ul {
+  list-style: none;
+}
+
+#upperSection ul li {
+  width: 100%;
+}
+
+#bottomSection {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column wrap;
+          flex-flow: column wrap;
+  width: 100%;
+}
+
+.footerUpperInfos {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row wrap;
+          flex-flow: row wrap;
+  padding: 1rem;
+}
+
+#bottomSection {
+  background-color: #187531;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column wrap;
+          flex-flow: column wrap;
+  text-align: center;
+}
+
+#socialMediaIcons {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row wrap;
+          flex-flow: row wrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  width: 20%;
+  margin: 2rem auto;
+}
+
+.socialMediaIcons {
+  width: 3rem;
+  height: 3rem;
+  border: white 1px solid;
+  border-radius: 0.5rem;
+}
+
+#copyRight {
+  color: white;
+  margin-bottom: 1rem;
+}
+
+.titleOfList {
+  color: white;
+  text-decoration: underline;
+  margin-top: 1rem;
+  margin-left: 1rem;
+  font-size: 1.2rem;
+}
+/*# sourceMappingURL=footer.css.map */

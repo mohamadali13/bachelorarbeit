@@ -12,7 +12,7 @@ const theSection = () =>{
                        <p className="titleSignBox"> Sie suchen vorqualifiziertes studentisches Personal in Zeitarbeit  </p>
                    </div>
                    <div className="vorteileSignBox">
-                       <ul>
+                       <ul className='vorteileList'>
                            <li>
                                <div className="greenMark">✔</div>
                                <p className="vorteileBeschreibung">
@@ -51,7 +51,7 @@ const theSection = () =>{
                            auf Stundenbasis?  </p>
                    </div>
                    <div className="vorteileSignBox">
-                       <ul>
+                       <ul className='vorteileList'>
                            <li>
                                <div className="greenMark">✔</div>
                                <p className="vorteileBeschreibung"> Keine Vorerfahrung? Kein Problem! Arbeite im

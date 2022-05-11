@@ -1,0 +1,162 @@
+.content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-flex: 1;
+      -ms-flex: 1 0 auto;
+          flex: 1 0 auto;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row wrap;
+          flex-flow: row wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  border-radius: 20px;
+}
+
+.regStudentForm {
+  max-width: 65%;
+  margin: 4rem auto;
+  background-color: #ddadb9;
+  border-radius: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column wrap;
+          flex-flow: column wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+/*.regAStudentDive{
+    width: 100%;
+    background-color: brown;
+}
+/*.logoImageDiv{
+    height: 10rem;
+    width: 100%;
+    text-align: center;
+    background-color: blue;
+    border-top-right-radius:20px;
+    border-top-left-radius:20px;
+}
+*/
+.regSLogoImageDiv {
+  width: 100%;
+  height: 5rem;
+  text-align: center;
+}
+
+#regAsSText {
+  font-weight: bold;
+  font-size: 1rem;
+  text-decoration: underline;
+}
+
+.regAsSDiv {
+  width: 100%;
+  margin-bottom: 1rem;
+  text-align: center;
+  margin-top: 1rem;
+}
+
+.regASINForm {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row wrap;
+          flex-flow: row wrap;
+  width: 100%;
+  text-align: center;
+  margin-bottom: 0.8rem;
+}
+
+.regASRow {
+  width: 100%;
+  margin-bottom: 0.8rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row wrap;
+          flex-flow: row wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.regASRowIn {
+  width: 80%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row wrap;
+          flex-flow: row wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.ResASInput {
+  border-radius: 5px;
+  height: 2rem;
+  border-width: 0;
+  font-size: 1rem;
+}
+
+.rowDiv {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row wrap;
+          flex-flow: row wrap;
+}
+
+.regASLebel {
+  width: 20%;
+}
+
+.signUpSButtonDivANDTerms {
+  width: 80%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column wrap;
+          flex-flow: column wrap;
+  -ms-flex-item-align: center;
+      align-self: center;
+}
+
+.signUpSbuttonDiv {
+  width: 100%;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+
+.signUpSButton {
+  width: 100%;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+
+.termsSDiv {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+/*# sourceMappingURL=RegStudentPage.css.map */
