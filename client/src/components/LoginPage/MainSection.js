@@ -43,32 +43,3 @@ const TheSection = () =>{
 };
 
 export default TheSection;
-/*<input type='submit'   />*/
-/* <div id='loginLogoImageDiv'>      
-                   <img src={LogoImage} id='logoImageLogin'/>
-                </div>
-                <div className= 'loginInputsSection'>
-                    <div className='loginInputDiv'>
-                        <input type="text" placeholder="Deine Email" className="inputField" name="email" value={loginEmail} onChange={(e) => setLoginEmail(e.target.value)}></input>
-                        <input type="password" placeholder="Dein Passwort" className="inputField" name="password" value={loginPasswort} onChange={(e) => setLoginPasswort(e.target.value)}></input>
-                        <input type ='submit'  value='Login' name="loginButton"   id='loginButton' />
-                        <a href="#" id="forgotPasswordLink"> <p> Dein Passwort vergissen?</p></a>
-                    </div> 
-                </div>*/
-
-                /*<div className='loginINForm'>
-                    <div className='regASRow'>
-                        <div className='regASRowIn'>
-                            <div className='rowRegAsSInputInWrap'>
-                                <label className='regASLebel'>Vorname 
-                                </label>
-                                <input className='RegASInput' type="text" value={vorname} onChange={(e) => setVorname(e.target.value)}/>
-                            </div>
-                            <div className='rowRegAsSInputInWrap'>
-                                <label className='regASLebel'>Name    
-                                </label>
-                                <input className='RegASInput' type="text" value={name} onChange={(e) => setName(e.target.value)} />
-                            </div>
-                        </div>
-                    </div>
-                    </div>*/

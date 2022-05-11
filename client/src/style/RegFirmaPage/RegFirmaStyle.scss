@@ -44,16 +44,13 @@
     display: flex;
     flex-flow: row wrap;
     width: 100%;
-   // background-color: burlywood;
     justify-content: center;
     margin-bottom: 0.8em;
-    //padding: 2em;
 }
 
 .regAFRow{
     flex: 1;
     margin-bottom: 0.8em;
-  //  background-color: cadetblue;
     display: flex;
     flex-flow: row nowrap;
     justify-content: center;
@@ -65,7 +62,6 @@
 }
 
 .regAFLebel{
-  // background-color: green;
    width: 40%;
    text-align: center;
    
@@ -74,7 +70,6 @@
     height: 2em;
     border-width: 0;
     width: 50%;
-    //font-size: 1rem;
 }
 
 .regAFRowIn{
@@ -82,8 +77,6 @@
     flex-flow: row wrap;
     flex: 1;
     justify-content: space-between;
-    //margin-right: 1em;
-    //   background-color: red;
 }
 
 
@@ -127,7 +120,6 @@
 @media only screen and (max-width: 768px) {
     .regAFRowIn{
         flex-flow: column wrap;
-        // background-color: greenyellow;
          width: 100%;
          justify-content: center;
      }
@@ -150,45 +142,3 @@
    
 
 }
-
-/*@media only screen and (max-width: 768px) {
-  
-    .regASRowIn{
-       flex-flow: column wrap;
-       // background-color: greenyellow;
-        width: 100%;
-        justify-content: center;
-    }
-    .RegASInput{
-        border-radius: 5px;
-        height: 2em;
-        border-width: 0;
-        width: 90%;
-      
-    }
-    .rowRegAsSInputInWrap{
-        justify-content: center;
-    }
-}
-
-@media only screen  and (min-width: 768px) and (max-width: 1024px){
-    .regASRowIn{
-       
-       //  background-color: greenyellow;
-         width: 90%;
-
-     }
-     .RegASInput{
-        border-radius: 5px;
-        height: 2em;
-        border-width: 0;
-        width: 95%;
-        //background-color: blue;
-     } 
-     #immaInputFileLabel{
-        //justify-content: space-between;
-        width: 90%;
-        margin-top: 1rem;
-    }
-
-}*/
