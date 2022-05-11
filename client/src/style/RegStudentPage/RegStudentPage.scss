@@ -1,188 +1,179 @@
-@import '../vars';
+@import "../vars";
 
-.content{
-    display: flex;
-    flex:1 0 auto;
-    flex-flow: row wrap;
-    justify-content: center;
-    border-radius:20px ;
+.content {
+  display: flex;
+  flex: 1 0 auto;
+  flex-flow: row wrap;
+  justify-content: center;
+  border-radius: 20px;
 }
 
-.regStudentForm{
-    width: 65%;
-    margin: 4em auto;         
-    background-color: rgb(221, 173, 185);
-    border-radius: 20px;
-    display: flex;
-    flex-flow: column wrap;
-    justify-content: center; 
-   // height: 100vh;
+.regStudentForm {
+  width: 65%;
+  margin: 4em auto;
+  background-color: rgb(221, 173, 185);
+  border-radius: 20px;
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+  // height: 100vh;
 }
 
-.regSLogoImageDiv{
-    width: 100%;
-    height: 5em;
-   // background-color: blue;
-    text-align: center;
+.regSLogoImageDiv {
+  width: 100%;
+  height: 5em;
+  // background-color: blue;
+  text-align: center;
 }
 
-#regAsSText{
-    font-weight: bold;
-    font-size: 1.5em;
-    text-decoration: underline;
-    
+#regAsSText {
+  font-weight: bold;
+  font-size: 1.5em;
+  text-decoration: underline;
 }
-.regAsSDiv{
-    width: 100%;
+.regAsSDiv {
+  width: 100%;
   //  background-color: brown;
-    margin-bottom: 1em;
-    text-align: center;
-    margin-top: 1em;
+  margin-bottom: 1em;
+  text-align: center;
+  margin-top: 1em;
 }
-.regASINForm{
-    display: flex;
-    flex-flow: row wrap;
-    width: 100%;
-   // background-color: burlywood;
-    text-align: center;
-    margin-bottom: 0.8em;
-}
-
-.regASRow{
-    width: 100%;
-    margin-bottom: 0.8em;
-    //background-color: cadetblue;
-    display: flex;
-    flex-flow: row nowrap;
-    justify-content: center;
-   
-}
-.regASRowIn{
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: space-between;
-   // background-color: greenyellow;
-    width: 60%;
-}
-.RegASInput{
-    border-radius: 5px;
-    height: 2em;
-    border-width: 0;
-    //font-size: 1rem;
-    width: 50%;
-    //margin-left: 1em;
+.regASINForm {
+  display: flex;
+  flex-flow: row wrap;
+  width: 100%;
+  // background-color: burlywood;
+  text-align: center;
+  margin-bottom: 0.8em;
 }
 
-.rowDiv{ 
-    display: flex;
-    flex-flow: row wrap;
+.regASRow {
+  width: 100%;
+  margin-bottom: 0.8em;
+  //background-color: cadetblue;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
 }
-.regASLebel{
-    flex: 1;
-    text-align: center;
-    
+.regASRowIn {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  // background-color: greenyellow;
+  width: 60%;
 }
-
-.signUpSButtonDivANDTerms{
-    width: 50%;
-    display: flex;
-    flex-flow: column wrap;
-    align-self: center;
-    text-align: center;
-    justify-content: center;
-}
-.signUpSbuttonDiv{
-    width: 100%;
-    flex: 1;
-}
-.signUpSButton{
-    width: 50%;
-    flex: 1;
-    height: 2em;
-    background-color: $form-login-Button-background-color;
-    border: 0 0 0 0;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-bottom: 0.5em;
-    margin-right: 1em;
-    color: #fff;
+.RegASInput {
+  border-radius: 5px;
+  height: 2em;
+  border-width: 0;
+  //font-size: 1rem;
+  width: 50%;
+  //margin-left: 1em;
 }
 
-.termsSDiv{
-   display: flex;
-   flex-flow: row wrap; 
-   margin-bottom: 0.5em;
-   justify-content: center;
-   width: 85%;
-   align-self: center;
-   flex: 1;
+.rowDiv {
+  display: flex;
+  flex-flow: row wrap;
 }
-#scales{
-    margin: auto 0;
-    //width: 5%;
+.regASLebel {
+  flex: 1;
+  text-align: center;
 }
-.TermsANDCondText{
-    color: blue;
+
+.signUpSButtonDivANDTerms {
+  width: 50%;
+  display: flex;
+  flex-flow: column wrap;
+  align-self: center;
+  text-align: center;
+  justify-content: center;
 }
-#immaInputFileLabel{
-    justify-content: space-between;
-    width: 80%;
-    margin-top: 1em;
+.signUpSbuttonDiv {
+  width: 100%;
+  flex: 1;
 }
-.rowRegAsSInputInWrap{
-    display: flex;
-    flex-flow: row wrap;
-    flex: 1;
-    justify-content: space-between;
-    //margin-right: 1em;
- //   background-color: red;
-    
+.signUpSButton {
+  width: 50%;
+  flex: 1;
+  height: 2em;
+  background-color: $form-login-Button-background-color;
+  border: 0 0 0 0;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-bottom: 0.5em;
+  margin-right: 1em;
+  color: #fff;
 }
-.checkboxWrap{
-    width: 10%;
+
+.termsSDiv {
+  display: flex;
+  flex-flow: row wrap;
+  margin-bottom: 0.5em;
+  justify-content: center;
+  width: 85%;
+  align-self: center;
+  flex: 1;
 }
-.acceptTermsText{
-    width: 80%;
+#scales {
+  margin: auto 0;
+  //width: 5%;
+}
+.TermsANDCondText {
+  color: blue;
+}
+#immaInputFileLabel {
+  justify-content: space-between;
+  width: 80%;
+  margin-top: 1em;
+}
+.rowRegAsSInputInWrap {
+  display: flex;
+  flex-flow: row wrap;
+  flex: 1;
+  justify-content: space-between;
+  //margin-right: 1em;
+  //   background-color: red;
+}
+.checkboxWrap {
+  width: 10%;
+}
+.acceptTermsText {
+  width: 80%;
 }
 
 @media only screen and (max-width: 768px) {
-  
-    .regASRowIn{
-       flex-flow: column wrap;
-       // background-color: greenyellow;
-        width: 100%;
-        justify-content: center;
-    }
-    .RegASInput{
-        border-radius: 5px;
-        height: 2em;
-        border-width: 0;
-        width: 90%;
-      
-    }
-    .rowRegAsSInputInWrap{
-        justify-content: center;
-    }
+  .regASRowIn {
+    flex-flow: column wrap;
+    // background-color: greenyellow;
+    width: 100%;
+    justify-content: center;
+  }
+  .RegASInput {
+    border-radius: 5px;
+    height: 2em;
+    border-width: 0;
+    width: 90%;
+  }
+  .rowRegAsSInputInWrap {
+    justify-content: center;
+  }
 }
 
-@media only screen  and (min-width: 768px) and (max-width: 1024px){
-    .regASRowIn{
-       
-       //  background-color: greenyellow;
-         width: 90%;
-
-     }
-     .RegASInput{
-        border-radius: 5px;
-        height: 2em;
-        border-width: 0;
-        width: 95%;
-        //background-color: blue;
-     } 
-     #immaInputFileLabel{
-        //justify-content: space-between;
-        width: 90%;
-        margin-top: 1em;
-    }
-
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
+  .regASRowIn {
+    //  background-color: greenyellow;
+    width: 90%;
+  }
+  .RegASInput {
+    border-radius: 5px;
+    height: 2em;
+    border-width: 0;
+    width: 95%;
+    //background-color: blue;
+  }
+  #immaInputFileLabel {
+    //justify-content: space-between;
+    width: 90%;
+    margin-top: 1em;
+  }
 }

@@ -1,67 +1,65 @@
-.content{
-    display: flex;
-    flex:1 0 auto;
-    flex-flow: row wrap;
-    justify-content: center;
+.content {
+  display: flex;
+  flex: 1 0 auto;
+  flex-flow: row wrap;
+  justify-content: center;
 }
-.signUpBox{
-    display: flex;
-    flex-flow: column nowrap;
-    flex: 1;
-    margin: 5% 10%;
-    border: 1px black solid;
-    border-radius: 0.5rem;
-    justify-content: space-between;
-    background-color: rgb(241, 206, 198);
-
+.signUpBox {
+  display: flex;
+  flex-flow: column nowrap;
+  flex: 1;
+  margin: 5% 10%;
+  border: 1px black solid;
+  border-radius: 0.5rem;
+  justify-content: space-between;
+  background-color: rgb(241, 206, 198);
 }
-.titleSignBox{
-    padding: 1.5rem;
-    border: black 1px solid;
-    margin: 1rem;
-    border-radius: 0.5rem;
-    background-color: rgb(255, 255, 255);
+.titleSignBox {
+  padding: 1.5rem;
+  border: black 1px solid;
+  margin: 1rem;
+  border-radius: 0.5rem;
+  background-color: rgb(255, 255, 255);
 }
 .vorteileList {
-    list-style: none;
-   
-  
-    & li{
-        display: flex;
-        flex-flow: row nowrap;
-        flex: 1;
-        margin: 0.1rem;
-        &:hover{
-            cursor: default;
-        }
-    }
-}
-.vorteileSignBox{
-    border: black 1px solid;
-    margin: 1rem;
-    border-radius: 0.5rem;
-    display: flex;
-    flex-flow: column wrap;
-    height: 80%;
-    justify-content: space-between;text-align: left;
-    background-color: rgb(255, 255, 255);
-}
-.greenMark{
-    margin-left: -2rem;
-    color: rgb(24, 117, 49);
-    font-size: 2rem;
-}
-.vorteileBeschreibung{
-    margin-left: 1.5rem;
-}
-.sigUpButtom{
-    width: 95%;
-    margin: 1rem auto;
-    padding: 1rem;
-    background-color: rgb(24, 117, 49);
-    color: rgb(255, 255, 255);
-    cursor: pointer;
-    border-radius: 0.5rem;
-    box-shadow: 0.2rem 0.2rem black;
+  list-style: none;
 
+  & li {
+    display: flex;
+    flex-flow: row nowrap;
+    flex: 1;
+    margin: 0.1rem;
+    &:hover {
+      cursor: default;
+    }
+  }
+}
+.vorteileSignBox {
+  border: black 1px solid;
+  margin: 1rem;
+  border-radius: 0.5rem;
+  display: flex;
+  flex-flow: column wrap;
+  height: 80%;
+  justify-content: space-between;
+  text-align: left;
+  background-color: rgb(255, 255, 255);
+}
+.greenMark {
+  margin-left: -2rem;
+  color: rgb(24, 117, 49);
+  font-size: 2rem;
+}
+.vorteileBeschreibung {
+  margin-left: 1.5rem;
+}
+.sigUpButtom {
+  width: 95%;
+  margin: 1rem auto;
+  padding: 1rem;
+  background-color: rgb(24, 117, 49);
+  color: rgb(255, 255, 255);
+  cursor: pointer;
+  border-radius: 0.5rem;
+  box-shadow: 0.2rem 0.2rem black;
 }

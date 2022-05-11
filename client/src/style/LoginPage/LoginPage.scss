@@ -1,50 +1,42 @@
-.content{
-    display: flex;
-    flex:1 0 auto;
-    flex-flow: row wrap;
-    justify-content: center;
+.content {
+  display: flex;
+  flex: 1 0 auto;
+  flex-flow: row wrap;
+  justify-content: center;
 }
-#loginForm{
-    display: flex;
-    flex-flow: column wrap;
-    width: 50%;
-    //justify-content: center;
-    align-items: center;
-    background-color:rgb(245, 189, 197);
-    margin: 4em auto;
-    border-radius: 20px;
+#loginForm {
+  display: flex;
+  flex-flow: column wrap;
+  width: 50%;
+  //justify-content: center;
+  align-items: center;
+  background-color: rgb(245, 189, 197);
+  margin: 4em auto;
+  border-radius: 20px;
 }
 
-
-.loginLogoImageDiv{
-    height: 5em;
-    background-color: blue;
-    text-align: center;
-    //flex: 1;
-    border-top-right-radius:20px ;
-    border-top-left-radius:20px;
-    width: 100%;
+.loginLogoImageDiv {
+  height: 5em;
+  background-color: blue;
+  text-align: center;
+  //flex: 1;
+  border-top-right-radius: 20px;
+  border-top-left-radius: 20px;
+  width: 100%;
 }
-.loginFormInnerWrap{
-    display: flex;
-    flex-flow: row wrap;
-    width: 100%;
-   // background-color: burlywood;
-    justify-content: center;
-    margin-bottom: 0.8em;
-    //padding: 2em;
-  
+.loginFormInnerWrap {
+  display: flex;
+  flex-flow: row wrap;
+  width: 100%;
+  background-color: burlywood;
+  justify-content: center;
+  padding: 2em;
+  flex: 1;
 }
-.loginRow{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 2em;
-    width: 90%;
-}
-.loginLebel{
-    width:10%
-}
-.loginInput{
-    width: 30%;
+.loginRow {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2em;
+  width: 90%;
 }

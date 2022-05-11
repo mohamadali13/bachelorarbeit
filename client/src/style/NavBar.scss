@@ -1,31 +1,22 @@
 .NavBar {
-    display: flex;
-    width: 100%;
-    flex-flow: wrap row;
-    justify-content: space-between;
-    background-color: rgb(24, 117, 49);
-    height: 3.5em;
+  display: flex;
+  width: 100%;
+  flex-flow: wrap row;
+  justify-content: space-between;
+  background-color: rgb(24, 117, 49);
+  height: 3.5em;
 }
-.logoDiv{
-    font-family: Lucida;
-    text-align: center;
-    padding: 1em;
-    font-size: 1em;
-    color: rgb(255, 255, 255);
-    margin-left: 1em;
+.logoDiv {
+  font-family: Lucida;
+  text-align: center;
+  padding: 1em;
+  font-size: 1em;
+  color: rgb(255, 255, 255);
+  margin-left: 1em;
 }
-.logoDiv:hover{
-cursor: pointer;
+.logoDiv:hover {
+  cursor: pointer;
 }
 
 @media only screen and (max-width: 768px) {
-
-   
-
-
 }
-
-
-
-
-

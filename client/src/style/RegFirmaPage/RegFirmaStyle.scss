@@ -1,144 +1,136 @@
-@import '../vars';
+@import "../vars";
 
-.content{
-    display: flex;
-    flex:1 0 auto;
-    flex-flow: row wrap;
-    justify-content: center;
-    border-radius:20px ;
+.content {
+  display: flex;
+  flex: 1 0 auto;
+  flex-flow: row wrap;
+  justify-content: center;
+  border-radius: 20px;
 }
 
-.regFirmaForm{
-    width: 65%;
-    margin: 4em auto;         
-    background-color: rgb(221, 173, 185);
-    border-radius: 20px;
-    display: flex;
-    flex-flow: column wrap;
-    justify-content: center; 
-   // height: 100vh;
+.regFirmaForm {
+  width: 65%;
+  margin: 4em auto;
+  background-color: rgb(221, 173, 185);
+  border-radius: 20px;
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+  // height: 100vh;
 }
-.regFLogoImageDiv{
-    flex: 1;
-    height: 5em;
-   // background-color: blue;
-    text-align: center;
+.regFLogoImageDiv {
+  flex: 1;
+  height: 5em;
+  // background-color: blue;
+  text-align: center;
 }
 
-.regAsFDiv{
-    flex: 1;
+.regAsFDiv {
+  flex: 1;
   //  background-color: brown;
-    margin-bottom: 1em;
-    margin-left: 2em;
-    margin-top: 1em;
-    margin-bottom: 1em;
+  margin-bottom: 1em;
+  margin-left: 2em;
+  margin-top: 1em;
+  margin-bottom: 1em;
 }
-#regAsFText{
-    font-weight: bold;
-    font-size: 1.1em;
-    text-decoration: underline;
-    
+#regAsFText {
+  font-weight: bold;
+  font-size: 1.1em;
+  text-decoration: underline;
 }
 
-.regAFINForm{
-    display: flex;
-    flex-flow: row wrap;
+.regAFINForm {
+  display: flex;
+  flex-flow: row wrap;
+  width: 100%;
+  justify-content: center;
+  margin-bottom: 0.8em;
+}
+
+.regAFRow {
+  flex: 1;
+  margin-bottom: 0.8em;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+}
+.regAFRowInWrap {
+  width: 50%;
+  display: flex;
+  flex-flow: row nowrap;
+}
+
+.regAFLebel {
+  width: 40%;
+  text-align: center;
+}
+.ResAFInput {
+  border-radius: 5px;
+  height: 2em;
+  border-width: 0;
+  width: 50%;
+}
+
+.regAFRowIn {
+  display: flex;
+  flex-flow: row wrap;
+  flex: 1;
+  justify-content: space-between;
+}
+
+.signUpSbuttonDiv {
+  width: 100%;
+  flex: 1;
+}
+.signUpFButtonFirma {
+  width: 50%;
+  height: 2em;
+  background-color: $form-login-Button-background-color;
+  border: 0 0 0 0;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-bottom: 0.5em;
+  color: #fff;
+}
+.signUpFButtonDivANDTerms {
+  width: 80%;
+  display: flex;
+  flex-flow: column wrap;
+  align-self: center;
+  text-align: center;
+}
+
+.termsFSDiv {
+  flex: 1;
+}
+.termsFDiv {
+  display: flex;
+  flex-flow: row wrap;
+  margin-bottom: 0.5em;
+  justify-content: center;
+}
+#scalesF {
+  margin: auto 0.3em;
+}
+
+@media only screen and (max-width: 768px) {
+  .regAFRowIn {
+    flex-flow: column wrap;
     width: 100%;
     justify-content: center;
-    margin-bottom: 0.8em;
-}
-
-.regAFRow{
-    flex: 1;
-    margin-bottom: 0.8em;
-    display: flex;
-    flex-flow: row nowrap;
-    justify-content: center;
-}
-.regAFRowInWrap{
-    width: 50%;
-    display: flex;
-    flex-flow: row nowrap;
-}
-
-.regAFLebel{
-   width: 40%;
-   text-align: center;
-   
-}.ResAFInput{
+  }
+  .RegAFInput {
     border-radius: 5px;
     height: 2em;
     border-width: 0;
-    width: 50%;
-}
-
-.regAFRowIn{
-    display: flex;
-    flex-flow: row wrap;
-    flex: 1;
-    justify-content: space-between;
-}
-
-
-
-.signUpSbuttonDiv{
-    width: 100%;
-    flex: 1;
-}
-.signUpFButtonFirma{
-    width: 50%; 
-    height: 2em;
-    background-color: $form-login-Button-background-color;
-    border: 0 0 0 0;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-bottom: 0.5em;
-    color: #fff;
-}
-.signUpFButtonDivANDTerms{
-    width: 80%;
-    display: flex;
-    flex-flow: column wrap;
-    align-self: center;
-    text-align: center;
-}
-
-.termsFSDiv{
-    flex: 1;
-}
-.termsFDiv{
-    display: flex;
-    flex-flow: row wrap; 
-    margin-bottom: 0.5em;
+    width: 90%;
+  }
+  .regAFRowInWrap {
     justify-content: center;
- }
- #scalesF{
-    margin: auto 0.3em;
- }
-
-
-@media only screen and (max-width: 768px) {
-    .regAFRowIn{
-        flex-flow: column wrap;
-         width: 100%;
-         justify-content: center;
-     }
-     .RegAFInput{
-         border-radius: 5px;
-         height: 2em;
-         border-width: 0;
-         width: 90%;
-       
-     }
-     .regAFRowInWrap{
-         justify-content: center;
-         width: 100%;
-         margin-bottom: 1em;
-     }
-
+    width: 100%;
+    margin-bottom: 1em;
+  }
 }
 
-@media only screen  and (min-width: 768px) and (max-width: 1024px){
-   
-
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
 }
