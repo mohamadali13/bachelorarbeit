@@ -14,8 +14,8 @@ const TheSection = () => {
           <img src={LogoImage} style={{ width: "25%", height: "100%" }} />
         </div>
         <div className="loginFormInnerWrap">
-          <div className="LoginRow">
-            <div className="LoginRowIn">
+          <div className="loginRow">
+            <div className="loginRowIn">
               <div className="loginRowInWrap">
                 <label className="loginLebel">Email</label>
                 <input
@@ -27,8 +27,8 @@ const TheSection = () => {
               </div>
             </div>
           </div>
-          <div className="LoginRow">
-            <div className="LoginRowIn">
+          <div className="loginRow">
+            <div className="loginRowIn">
               <div className="loginRowInWrap">
                 <label className="loginLebel">Passwort</label>
                 <input
@@ -51,7 +51,7 @@ const TheSection = () => {
                 name="scaleslogin"
               ></input>
               <p className="acceptTermsTextlogin">
-                I agree with the{" "}
+                &nbsp;I agree with the{" "}
                 <a href="" className="TermsANDCondTextFirma">
                   Terms & Conditions
                 </a>

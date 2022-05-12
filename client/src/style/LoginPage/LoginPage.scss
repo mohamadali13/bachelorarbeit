@@ -1,3 +1,4 @@
+@import "../vars";
 .content {
   display: flex;
   flex: 1 0 auto;
@@ -8,35 +9,100 @@
   display: flex;
   flex-flow: column wrap;
   width: 50%;
-  //justify-content: center;
-  align-items: center;
+  justify-content: center;
+  //align-items: center;
   background-color: rgb(245, 189, 197);
   margin: 4em auto;
   border-radius: 20px;
 }
 
 .loginLogoImageDiv {
-  height: 5em;
-  background-color: blue;
   text-align: center;
-  //flex: 1;
+  flex: 1;
   border-top-right-radius: 20px;
   border-top-left-radius: 20px;
   width: 100%;
+  height: 5em;
 }
 .loginFormInnerWrap {
   display: flex;
-  flex-flow: row wrap;
+  flex-flow: column wrap;
   width: 100%;
-  background-color: burlywood;
   justify-content: center;
-  padding: 2em;
+  align-items: center;
   flex: 1;
 }
 .loginRow {
+  width: 100%;
   display: flex;
   justify-content: center;
-  align-items: center;
-  margin-top: 2em;
-  width: 90%;
+}
+.loginRowIn{
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  margin: 1em;
+}
+.loginRowInWrap{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.loginLebel{
+  width: 30%;
+}
+.loginInput{
+  border-radius: 5px;
+  height: 2em;
+  border-width: 0;
+  flex: 1;
+}
+.loginButtonDivANDTerms{
+  width: 100%;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+}
+.loginButtonDivANDTerms{
+  width: 100%;
+  display: flex;
+  flex-flow: column wrap;
+  text-align: center;
+  justify-content: center;
+}
+.loginButtonFirma{
+  width: 50%;
+  flex: 1;
+  height: 2em;
+  background-color: $form-login-Button-background-color;
+  border: 0;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-bottom: 0.5em;
+  margin-right: 1em;
+  color: #fff;
+  margin-top: 0.5em;
+}
+.termsloginDiv{
+  display: flex;
+  flex-flow: row wrap;
+  margin-bottom: 0.5em;
+  justify-content: center;
+  width: 85%;
+  align-self: center;
+  flex: 1;
+  margin-top: 0.5em;
+}
+#scaleslogin{
+  margin: auto 0;
+}
+
+
+@media only screen and (max-width: 768px)  {
+  #loginForm{
+    width: 90%;
+  }
+  .loginRowIn{
+    width: 90%;
+  }
 }
