@@ -161,6 +161,18 @@
   font-weight: bold;
   text-decoration: underline;
 }
+.textareaWrapAddOffer{
+  width: 100%;
+  background-color: green;
+  text-align: center;
+}
+.textAreaAddOffer{
+  width: 50%;
+  height: 6em;
+  margin: 1em;
+  border-radius: 5px;
+  border: 0;
+}
 //media Query
 @media only screen and (max-width: 1200px) {
   .addOfferInputLongInWrap {

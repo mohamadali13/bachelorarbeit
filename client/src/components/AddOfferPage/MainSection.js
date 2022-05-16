@@ -116,13 +116,13 @@ const theSection = () => {
             <div className="titeBottomDivAddOffer">
               <p className="titeBottomAddOfferText">Beschreibung</p>
             </div>
-            <div className=""><textarea></textarea></div>
+            <div className="textareaWrapAddOffer"><textarea  maxLength='200'  className='textAreaAddOffer'></textarea></div>
           </div>
           <div className="hinweiseAddOffer">
             <div className="titeBottomDivAddOffer">
               <p className="titeBottomAddOfferText">Hinweise & Anforderungen</p>
             </div>
-            <div className=""><textarea></textarea></div>
+            <div className="textareaWrapAddOffer"><textarea  maxLength='200' className='textAreaAddOffer' ></textarea></div>
           </div>
           <div className="adresseAddOffer">
             <div className="titeBottomDivAddOffer">
