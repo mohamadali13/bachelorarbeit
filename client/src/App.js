@@ -8,7 +8,7 @@ import AddOfferPage from "./components/AddOfferPage/AddOfferPage";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
 function App() {
-  return <LoginPage />;
+  return <AddOfferPage />;
 }
 
 export default App;
