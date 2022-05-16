@@ -76,11 +76,11 @@
   border-width: 0;
   width: 60%;
 }
-#buttonAddSchicht{
+#buttonAddSchicht {
   width: 100% !important;
 }
-.addOfferInputsWrap{
- // background-color: black;
+.addOfferInputsWrap {
+  // background-color: black;
   flex: 1;
   display: flex;
   flex-flow: row wrap;
@@ -88,15 +88,14 @@
   justify-content: center;
 }
 
-.schichtenItems{
+.schichtenItems {
   width: 100%;
   display: flex;
   flex-flow: row wrap;
   //background-color: blue;
   justify-content: center;
-
 }
-.buttonAddSchicht{
+.buttonAddSchicht {
   width: 50%;
   height: 2em;
   border-radius: 5px;
@@ -106,44 +105,64 @@
   justify-content: center;
   align-items: center;
 }
-.buttonAddSchichtInnerWrap{
+.buttonAddSchichtInnerWrap {
   width: 60%;
   display: flex;
   flex-flow: row wrap;
-  background-color: yellow;
+  background-color: rgb(248, 254, 212);
   border-radius: 5px;
   justify-content: center;
   margin-bottom: 1em;
   border: 1px solid black;
 }
-.schichtNr{
+.schichtNr {
   width: 20%;
- // background-color: violet;
- text-align: center;
+  // background-color: violet;
+  text-align: center;
 }
-.schichtInfosTable{
+.schichtInfosTable {
   display: flex;
   flex-flow: row wrap;
   width: 70%;
   //background-color: red;
 }
-.schichtInfoCol{
+.schichtInfoCol {
   flex: 1;
   border-right: 1px solid black;
   border-left: 1px solid black;
   text-align: center;
 }
-.titleAddOfferSection{
+.titleAddOfferSection {
   width: 100%;
   margin-bottom: 1em;
 }
-.titleAddOfferText{
+.titleAddOfferText {
+  font-weight: bold;
+  text-decoration: underline;
+}
+.addOfferBottomSectionWrap {
+  width: 100%;
+  display: flex;
+  flex-flow: column wrap;
+  justify-items: center;
+  background-color: blue;
+}
+.beschreibungAddOffer {
+  width: 100%;
+  display: flex;
+  flex-flow: column wrap;
+  background-color: yellow;
+}
+.titeBottomDivAddOffer {
+  width: 100%;
+  margin-bottom: 1em;
+}
+.titeBottomAddOfferText {
   font-weight: bold;
   text-decoration: underline;
 }
 //media Query
 @media only screen and (max-width: 1200px) {
-
   .addOfferInputLongInWrap {
     width: 100%;
   }
@@ -151,12 +170,10 @@
     margin-right: 0;
   }
 
- 
   .addOfferInputsInWrap {
     width: 100%;
   }
   .addOfferLongInput {
     width: 100%;
   }
-
 }

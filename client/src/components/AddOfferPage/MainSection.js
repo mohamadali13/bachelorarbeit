@@ -113,20 +113,20 @@ const theSection = () => {
         <div className="underLineBetween"></div>
         <div className="addOfferBottomSectionWrap">
           <div className="beschreibungAddOffer">
-            <div className="">
-              <p className="">Beschreibung</p>
+            <div className="titeBottomDivAddOffer">
+              <p className="titeBottomAddOfferText">Beschreibung</p>
             </div>
-            <div className=""></div>
+            <div className=""><textarea></textarea></div>
           </div>
           <div className="hinweiseAddOffer">
-            <div className="">
-              <p className="">Hinweise & Anforderungen</p>
+            <div className="titeBottomDivAddOffer">
+              <p className="titeBottomAddOfferText">Hinweise & Anforderungen</p>
             </div>
-            <div className=""></div>
+            <div className=""><textarea></textarea></div>
           </div>
           <div className="adresseAddOffer">
-            <div className="">
-              <p className="">Adresse</p>
+            <div className="titeBottomDivAddOffer">
+              <p className="titeBottomAddOfferText">Adresse</p>
             </div>
             <div className=""></div>
           </div>
@@ -142,29 +142,3 @@ const theSection = () => {
 };
 
 export default theSection;
-/*<div className="">
-                <div className="addOfferInputsOutWrap">
-                    <div className="addOfferInputsInWrap">
-                        <div className="addOfferInputsWrap">
-                        <label className="addOfferLabelInputs">Wie viele Tage?</label>
-                        <input className="addOfferInputShort"></input>
-                        </div>
-                        <div className="addOfferInputsWrap">
-                        <label className="addOfferLabelInputs">€ Pro Stunde</label>
-                        <input className="addOfferInputShort"></input>
-                        </div>
-                    </div>
-                 </div>
-
-            <div className="addOfferInputsOutWrap">
-              <div className="addOfferInputsInWrap">
-                <div className="addOfferInputsWrap">
-                  <label className="addOfferLabelInputs">Stadt</label>
-                  <input className="addOfferInputShort"></input>
-                </div>
-                <div className="addOfferInputsWrap">
-                  <label className="addOfferLabelInputs">Stadtteil</label>
-                  <input className="addOfferInputShort"></input>
-                </div>
-              </div>
-            </div></div>*/
