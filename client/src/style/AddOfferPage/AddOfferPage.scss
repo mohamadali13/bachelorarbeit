@@ -104,6 +104,7 @@
   cursor: pointer;
   justify-content: center;
   align-items: center;
+  color: white;
 }
 .buttonAddSchichtInnerWrap {
   width: 60%;
@@ -128,7 +129,6 @@
 }
 .schichtInfoCol {
   flex: 1;
-  border-right: 1px solid black;
   border-left: 1px solid black;
   text-align: center;
 }
@@ -145,13 +145,11 @@
   display: flex;
   flex-flow: column wrap;
   justify-items: center;
-  background-color: blue;
 }
 .beschreibungAddOffer {
   width: 100%;
   display: flex;
   flex-flow: column wrap;
-  background-color: yellow;
 }
 .titeBottomDivAddOffer {
   width: 100%;
@@ -163,7 +161,6 @@
 }
 .textareaWrapAddOffer{
   width: 100%;
-  background-color: green;
   text-align: center;
 }
 .textAreaAddOffer{
@@ -172,6 +169,20 @@
   margin: 1em;
   border-radius: 5px;
   border: 0;
+}
+.addOfferWrapButton{
+  margin-top: 1em;
+  width: 100%;
+  text-align: center;
+}
+.AddOfferButton{
+  width: 50%;
+  height: 2em;
+  border-radius: 5px;
+  border: 0;
+  cursor: pointer;
+  background-color: $form-login-Button-background-color;
+  color: white;
 }
 //media Query
 @media only screen and (max-width: 1200px) {
@@ -184,8 +195,15 @@
 
   .addOfferInputsInWrap {
     width: 100%;
+    flex-flow: column wrap;
   }
   .addOfferLongInput {
+    width: 100%;
+  }
+  .addOfferInputsWrap{
+    margin-bottom: 1em;
+  }
+  .AddOfferButton{
     width: 100%;
   }
 }

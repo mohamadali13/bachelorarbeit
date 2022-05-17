@@ -2,7 +2,26 @@ import React from "react";
 import "../../style/AddOfferPage/AddOfferPage.scss";
 import { useState } from "react";
 
-const theSection = () => {
+const TheSection = () => {
+  const [titleStelle, setTitleStelle] = useState("");
+  const [tageNr, setTageNr] = useState("");
+  const [geldPerStunde, setGeldPerStunde] = useState("");
+  const [stadtAddOffer, setStadtAddOffer] = useState("");
+  const [stadtteilAddOffer, setStadtteilAddOffer] = useState("");
+  const [geschlaechtAddOffer, setGeschlaechtAddOffer] = useState("");
+  const [personenNrAddOffer, setPersonenNrAddOffer] = useState("");
+  const [tagNameAddOffer, setTagNameAddOffer] = useState("");
+  const [stundenNrAddOffer, setStundenNrAddOffer] = useState("");
+  const [zeitVonAddOffer, setZeitVonAddOffer] = useState("");
+  const [zeitBisAddOffer, setZeitBisAddOffer] = useState("");
+  const [beschreungText, setBeschreungText] = useState("");
+  const [hinweiseTextAddOffer, setHinweiseTextAddOffer] = useState("");
+  const [strasseAddOffer, setStrasseAddOffer] = useState("");
+  const [hausNrAddOffer, setHausNrAddOffer] = useState("");
+  const [postleitzahlAddOffer, setPostleitzahlAddOffer] = useState("");
+  const [stadtAddOfferAdresse, setStadtAddOfferAdresse] = useState("");
+  const [zusaetlichAddOffer, setZusaetlichAddOffer] = useState("");
+
   return (
     <section className="content">
       <form className="AddOfferForm">
@@ -99,7 +118,7 @@ const theSection = () => {
             </div>
             <div className="schichtenItems">
               <div className="buttonAddSchichtInnerWrap">
-                <div className="schichtNr">Schicht 1</div>
+                <div className="schichtNr">Schicht 1 &nbsp;</div>
                 <div className="schichtInfosTable">
                   <div className="schichtInfoCol">re</div>
                   <div className="schichtInfoCol">r</div>
@@ -116,23 +135,58 @@ const theSection = () => {
             <div className="titeBottomDivAddOffer">
               <p className="titeBottomAddOfferText">Beschreibung</p>
             </div>
-            <div className="textareaWrapAddOffer"><textarea  maxLength='200'  className='textAreaAddOffer'></textarea></div>
+            <div className="textareaWrapAddOffer">
+              <textarea maxLength="200" className="textAreaAddOffer"></textarea>
+            </div>
           </div>
           <div className="hinweiseAddOffer">
             <div className="titeBottomDivAddOffer">
               <p className="titeBottomAddOfferText">Hinweise & Anforderungen</p>
             </div>
-            <div className="textareaWrapAddOffer"><textarea  maxLength='200' className='textAreaAddOffer' ></textarea></div>
+            <div className="textareaWrapAddOffer">
+              <textarea maxLength="200" className="textAreaAddOffer"></textarea>
+            </div>
           </div>
           <div className="adresseAddOffer">
             <div className="titeBottomDivAddOffer">
               <p className="titeBottomAddOfferText">Adresse</p>
             </div>
-            <div className=""></div>
+            <div className="addOfferInputsOutWrap">
+              <div className="addOfferInputsInWrap">
+                <div className="addOfferInputsWrap">
+                  <label className="addOfferLabelInputs">Straße</label>
+                  <input className="addOfferInputShort"></input>
+                </div>
+                <div className="addOfferInputsWrap">
+                  <label className="addOfferLabelInputs">Haus.Nr</label>
+                  <input className="addOfferInputShort"></input>
+                </div>
+              </div>
+            </div>
+            <div className="addOfferInputsOutWrap">
+              <div className="addOfferInputsInWrap">
+                <div className="addOfferInputsWrap">
+                  <label className="addOfferLabelInputs">Postleitzahl</label>
+                  <input className="addOfferInputShort"></input>
+                </div>
+                <div className="addOfferInputsWrap">
+                  <label className="addOfferLabelInputs">Stadt</label>
+                  <input className="addOfferInputShort"></input>
+                </div>
+              </div>
+            </div>
+            <div className="addOfferInputsOutWrap">
+              <div className="addOfferInputsInWrap">
+                <div className="addOfferInputsWrap">
+                  <label className="addOfferLabelInputs">Zusätlich</label>
+                  <input className="addOfferInputShort"></input>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
-        <div className="">
-          <button className="" type="submit">
+        <div className="addOfferWrapButton">
+          <button className="AddOfferButton" type="submit">
             Das Angebot Hinzufügen
           </button>
         </div>
@@ -141,4 +195,4 @@ const theSection = () => {
   );
 };
 
-export default theSection;
+export default TheSection;
