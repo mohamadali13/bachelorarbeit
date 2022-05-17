@@ -2,7 +2,7 @@ import React from "react";
 import "../../style/Offer/Offer.scss";
 import { MdLocationOn } from "react-icons/md";
 import { IoIosTime } from "react-icons/io";
-const OfferComponent = () => {
+const OfferComponent = props => {
   return (
     <div className="OfferWrap">
       <div className="titelGeldDiv">
