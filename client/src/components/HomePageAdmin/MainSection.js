@@ -11,7 +11,7 @@ const TheSection = () => {
         <div className="anfrageHomePageAmdin">
           <div className="anfrageInfoHomePageAdmin">
             <p className="anfrageInfoHomePageAdminText">
-              Mohamad hat sich um die Stelle Beworben
+              Mohamad hat sich um die Stelle beworben
             </p>
           </div>
           <div className="anfrageResHomePageAdmin">

@@ -1,6 +1,73 @@
 .content {
-    display: flex;
-    flex: 1 0 auto;
-    flex-flow: row wrap;
-    justify-content: center;
+  display: flex;
+  flex: 1 0 auto;
+  flex-flow: row wrap;
+  justify-content: center;
+  padding: 4em;
+}
+.homePageAmdinWrap {
+  width: 50%;
+  background-color: rgb(240, 148, 148);
+  border: 0;
+  border-radius: 20px;
+  padding: 2em;
+  display: flex;
+  flex-flow: column wrap;
+}
+.anfragenTextDiv {
+  width: 100%;
+  margin-bottom: 2em;
+}
+.anfragenText {
+  font-weight: bold;
+  text-decoration: underline;
+}
+.anfrageHomePageAmdin {
+  background-color: rgb(192, 182, 182);
+  width: 100%;
+  border-radius: 10px;
+  padding: 1em;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  border: 1px solid gray;
+  flex-flow: column wrap;
+}
+.anfrageInfoHomePageAdmin {
+  width: 100%;
+  text-align: center;
+  margin-bottom: 1em;
+}
+.anfrageInfoHomePageAdminText {
+  font-family: "Trebuchet MS";
+}
+.anfrageResHomePageAdmin {
+  width: 50%;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+.approveButtonHomePageAdmin {
+  background-color: green;
+  color: white;
+  cursor: pointer;
+  border-radius: 5px;
+  padding: 0.5em;
+  border: 0;
+  margin: 0.5em;
+}
+.rejectButtonHompageAdmin {
+  background-color: red;
+  color: white;
+  cursor: pointer;
+  border-radius: 5px;
+  padding: 0.5em;
+  border: 0;
+  margin: 0.5em;
+}
+@media only screen and (max-width: 768px) {
+  .homePageAmdinWrap {
+    width: 100%;
   }
+}
