@@ -34,16 +34,21 @@ const TheSection = () => {
                 <div className="geldProStundeDiv">
                   <p className="geldProStundeText">12,59€ pro Stunde</p>
                 </div>
-                <div></div>
               </div>
               <div className="titelOfferDiv">
                 <p className="titelOfferText">LagerHilfe Im Lidl</p>
               </div>
             </div>
             <div className="locationOfferDiv">
-              <div>
+              <div className="locationIconAddOfferInnerWrap">
                 <div className="locationIconOfferDiv">
-                  <MdLocationOn style={{ backgroundColor: "red" }} />
+                  <MdLocationOn
+                    style={{
+                      backgroundColor: "none",
+                      marginRight: "0.2em",
+                      fontSize: "14px",
+                    }}
+                  />
                 </div>
                 <p className="cityOfferText">Berlin</p>
               </div>
@@ -55,13 +60,10 @@ const TheSection = () => {
             <div className="timeDetalisOfferDiv">
               <div className="dateOfferDIv">
                 <div className="timeIconOfferDiv">
-                  <IoIosTime />
+                  <IoIosTime style={{ fontSize: "14px" }} />
                 </div>
                 <div className="dayNameOfferDiv">
-                  <p>Fr,</p>
-                </div>
-                <div className="dateOfferDiv">
-                  <p>01.01.2020</p>
+                  <p className="dateOfferText">Fr, 01.01.2020</p>
                 </div>
               </div>
               <div className="timeOfferDiv">
