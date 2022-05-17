@@ -1,0 +1,87 @@
+.OfferWrap {
+    width: 70%;
+    background-color: rgb(253, 253, 253);
+    border: 1px solid gray;
+    display: flex;
+    flex-flow: column wrap;
+    border-radius: 20px;
+    margin-bottom: 1em;
+  }
+  .titelGeldDiv {
+    width: 100%;
+    background-color: sienna;
+    border-radius: 20px;
+    padding: 0.5em;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+  }
+  .GeldOfferDiv {
+    width: 30%;
+    display: flex;
+    flex-flow: column wrap;
+  }
+  .GeldOfferText {
+    font-weight: bold;
+    font-size: 1em;
+    width: 100%;
+  }
+  .geldProStundeDiv {
+    width: 100%;
+  }
+  .geldProStundeText {
+    font-size: 10px;
+    font-weight: bold;
+  }
+  .titelOfferDiv {
+    flex: 1;
+    text-align: center;
+  }
+  .titelOfferText {
+    font-weight: bold;
+    text-decoration: underline;
+    font-size: 1.2rem;
+  }
+  .locationOfferDiv {
+    width: 100%;
+    //background-color: goldenrod;
+    padding: 0.5em;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .locationIconAddOfferInnerWrap {
+    width: 50%;
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+  }
+  .underLineOffer {
+    width: 80%;
+    border-bottom: 1px solid rgb(97, 87, 87);
+    margin: 0 auto;
+    margin-bottom: 1rem;
+  }
+  .timeDetalisOfferDiv {
+    width: 100%;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    padding: 0.5em;
+  }
+  .dateOfferDIv {
+    display: flex;
+    gap: 0.5em;
+    align-items: center;
+  }
+  .timeOfferDiv {
+    width: 30%;
+  }
+  @media only screen and (max-width: 768px) {
+    .OfferWrap {
+      width: 100%;
+    }
+    .selectCityHomePageStadtStudent {
+      width: 90%;
+    }
+  }

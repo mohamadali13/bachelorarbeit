@@ -2,9 +2,7 @@ import React from "react";
 import { useState } from "react";
 import "../../style/HomPageStudent/HomePageStudent.scss";
 import Select from "react-select";
-import { MdLocationOn } from "react-icons/md";
-import { IoIosTime } from "react-icons/io";
-
+import TheOffer from "../Offer/Offer";
 const TheSection = () => {
   const listOfCitesHomePageStudent = [
     { label: "Berlin", value: "Berlin" },
@@ -27,55 +25,7 @@ const TheSection = () => {
           />
         </div>
         <div className="offersHomePageStudent">
-          <div className="OfferWrap">
-            <div className="titelGeldDiv">
-              <div className="GeldOfferDiv">
-                <p className="GeldOfferText">250,59 €</p>
-                <div className="geldProStundeDiv">
-                  <p className="geldProStundeText">12,59€ pro Stunde</p>
-                </div>
-              </div>
-              <div className="titelOfferDiv">
-                <p className="titelOfferText">LagerHilfe Im Lidl</p>
-              </div>
-            </div>
-            <div className="locationOfferDiv">
-              <div className="locationIconAddOfferInnerWrap">
-                <div className="locationIconOfferDiv">
-                  <MdLocationOn
-                    style={{
-                      backgroundColor: "none",
-                      marginRight: "0.2em",
-                      fontSize: "14px",
-                    }}
-                  />
-                </div>
-                <p className="cityOfferText">Berlin</p>
-              </div>
-              <div className="stadtteilOfferDiv">
-                <p className="stadtteilOfferText">Wedding</p>
-              </div>
-            </div>
-            <div className="underLineOffer"></div>
-            <div className="timeDetalisOfferDiv">
-              <div className="dateOfferDIv">
-                <div className="timeIconOfferDiv">
-                  <IoIosTime style={{ fontSize: "14px" }} />
-                </div>
-                <div className="dayNameOfferDiv">
-                  <p className="dateOfferText">Fr, 01.01.2020</p>
-                </div>
-              </div>
-              <div className="timeOfferDiv">
-                <p className="timeOfferText">14:50 - 20:00</p>
-              </div>
-              <div className="setailsOfferLinkDiv">
-                <a className="detailsOfferLink" href="#">
-                  Details
-                </a>
-              </div>
-            </div>
-          </div>
+          <TheOffer />
         </div>
       </div>
     </section>
