@@ -33,7 +33,6 @@
   display: flex;
   flex-flow: row wrap;
   width: 100%;
-  //  background-color: green;
   justify-content: center;
 }
 .addOfferInputsInWrap {
@@ -42,20 +41,17 @@
   width: 70%;
   justify-content: space-between;
   margin-bottom: 1em;
-  // background-color: rgb(143, 8, 8);
 }
 .addOfferInputLongOutWrap {
   display: flex;
   flex-flow: row wrap;
   width: 100%;
-  //background-color: green;
   justify-content: center;
   margin-bottom: 1rem;
 }
 .addOfferInputLongInWrap {
   display: flex;
   flex-flow: row wrap;
-  // background-color: rgb(94, 60, 125);
   justify-content: space-between;
   width: 70%;
 }
@@ -81,7 +77,6 @@
   width: 100% !important;
 }
 .addOfferInputsWrap {
-  // background-color: black;
   flex: 1;
   display: flex;
   flex-flow: row wrap;
@@ -93,7 +88,6 @@
   width: 100%;
   display: flex;
   flex-flow: row wrap;
-  //background-color: blue;
   justify-content: center;
 }
 .buttonAddSchicht {
@@ -119,14 +113,12 @@
 }
 .schichtNr {
   width: 20%;
-  // background-color: violet;
   text-align: center;
 }
 .schichtInfosTable {
   display: flex;
   flex-flow: row wrap;
   width: 70%;
-  //background-color: red;
 }
 .schichtInfoCol {
   flex: 1;

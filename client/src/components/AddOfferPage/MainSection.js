@@ -284,7 +284,7 @@ const TheSection = () => {
           </div>
         </div>
         <div className="addOfferWrapButton">
-          <button className="AddOfferButton" type="submit">
+          <button className="AddOfferButton" type="submit" onClick={()=>{}}>
             Das Angebot Hinzufügen
           </button>
         </div>
