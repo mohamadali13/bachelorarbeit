@@ -2,13 +2,27 @@ import React from "react";
 import { useState } from "react";
 import "../../style/HomePageAdmin/HomePageAdmin.scss";
 const TheSection = () => {
-  const [loginEmail, setLoginEmail] = useState("");
-
   return (
     <section className="content">
-      <div className="">
-        <div></div>
-        <div></div>
+      <div className="homePageAmdinWrap">
+        <div className="anfragenTextDiv">
+          <p className="anfragenText">Anfragen</p>
+        </div>
+        <div className="anfrageHomePageAmdin">
+          <div className="anfrageInfoHomePageAdmin">
+            <p className="anfrageInfoHomePageAdminText">
+              Mohamad hat sich um die Stelle Beworben
+            </p>
+          </div>
+          <div className="anfrageResHomePageAdmin">
+            <button className="approveButtonHomePageAdmin" onClick={() => {}}>
+              Bestätigen
+            </button>
+            <button className="rejectButtonHompageAdmin" onClick={() => {}}>
+              Ablehnen
+            </button>
+          </div>
+        </div>
       </div>
     </section>
   );

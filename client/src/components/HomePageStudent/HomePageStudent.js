@@ -12,8 +12,6 @@ const HomePageStudent = () => {
         <TheNavBar />
 
         <MainSection />
-
-        <Footer />
       </body>
     </Fragment>
   );
