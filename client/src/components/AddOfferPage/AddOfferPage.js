@@ -1,24 +1,19 @@
-import React from 'react';
-import TheNavBar from '../TheNavBar';
-import Footer from '../Footer.js';
-import MainSection from './MainSection';
-import { Fragment } from 'react';
-import  '../../style/bodySection.scss';
+import React from "react";
+import TheNavBar from "../TheNavBar";
+import MainSection from "./MainSection";
+import { Fragment } from "react";
+import "../../style/bodySection.scss";
 
+const addOffer = () => {
+  return (
+    <Fragment>
+      <body>
+        <TheNavBar />
 
- 
-const addOffer = () =>{
-    return(
-        <Fragment>
-            <body>
-              <TheNavBar /> 
-               
-               <MainSection />
-                    
-               <Footer />
-            </body>
-        </Fragment>
-    );
+        <MainSection />
+      </body>
+    </Fragment>
+  );
 };
 
 export default addOffer;
