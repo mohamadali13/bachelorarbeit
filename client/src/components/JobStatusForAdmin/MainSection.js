@@ -1,17 +1,16 @@
 import React from "react";
 import { useState } from "react";
 import "../../style/JobStatusForStudent/JobStatusForStudent.scss";
-import TheOffer from "../Offer/Offer";
 
 const TheSection = () => {
   const [loginEmail, setLoginEmail] = useState("");
-  let data = [
+  /* let data = [
     { name: "ahmed", price: 123 },
     { name: "mohamad", price: 1553 },
   ];
   let offers = data.map((offer) => {
     return <TheOffer offerInfo={offer} />;
-  });
+  });*/
   const [toggleState, setToggleState] = useState(1);
   const toggleTab = (index) => {
     setToggleState(index);
@@ -43,10 +42,44 @@ const TheSection = () => {
         <div className="tabsContentDiv">
           {(() => {
             if (toggleState === 1) {
-              return <div className="contentTab1">{offers}</div>;
+              return (
+                <div className="contentTab1">
+                  <div className="contentTab2">
+                    <div className="innerInfoWrap">
+                      <div className="infoBeworbenFirma">
+                        <p className="infoBeworbenFirmaText">
+                          Mohamad hat sich für Stelle Nr 78878 beworben.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              );
             } else if (toggleState === 2) {
-              return <div className="contentTab2">{offers}</div>;
-            } else return <div className="contentTab3">{offers}</div>;
+              return (
+                <div className="contentTab2">
+                  <div className="innerInfoWrap">
+                    <div className="infoBeworbenFirma">
+                      <p className="infoBeworbenFirmaText">
+                        Mohamad hat wurde für Stelle Nr 54438 ausgewählt.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              );
+            } else
+              return (
+                <div className="contentTab3">
+                  <div className="innerInfoWrap">
+                    <div className="infoBeworbenFirma">
+                      <p className="infoBeworbenFirmaText">
+                        Mohamad hat die Tätigkeit für die Stelle Nr 78878
+                        beendet.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              );
           })()}
         </div>
       </div>
