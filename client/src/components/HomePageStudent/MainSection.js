@@ -12,6 +12,13 @@ const TheSection = () => {
     { label: "Darmstadt", value: "Darmstadt" },
     { label: "Düsseldorf", value: "Düsseldord" },
   ];
+  let data = [
+    { name: "ahmed", price: 123 },
+    { name: "mohamad", price: 1553 },
+  ];
+  let offers = data.map((offer) => {
+    return <TheOffer offerInfo={offer} />;
+  });
 
   return (
     <section className="content">
@@ -24,9 +31,7 @@ const TheSection = () => {
             }}
           />
         </div>
-        <div className="offersHomePageStudent">
-          <TheOffer />
-        </div>
+        <div className="offersHomePageStudent">{offers}</div>
       </div>
     </section>
   );

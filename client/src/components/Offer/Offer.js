@@ -2,14 +2,16 @@ import React from "react";
 import "../../style/Offer/Offer.scss";
 import { MdLocationOn } from "react-icons/md";
 import { IoIosTime } from "react-icons/io";
-const OfferComponent = props => {
+const OfferComponent = (props) => {
+  let name = 10;
+
   return (
     <div className="OfferWrap">
       <div className="titelGeldDiv">
         <div className="GeldOfferDiv">
-          <p className="GeldOfferText">250,59 €</p>
+          <p className="GeldOfferText">{props.offerInfo.name}</p>
           <div className="geldProStundeDiv">
-            <p className="geldProStundeText">12,59€ pro Stunde</p>
+            <p className="geldProStundeText">{props.offerInfo.price}</p>
           </div>
         </div>
         <div className="titelOfferDiv">

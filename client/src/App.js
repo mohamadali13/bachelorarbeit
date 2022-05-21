@@ -9,8 +9,9 @@ import HomePageAdmin from './components/HomePageAdmin/HomePageStudent';
 import HomePageFrima from './components/HomePageFirma/HomePageStudent'
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import AppliedSuscess from "./components/AppliedSucsessPage/AppliedSucsessPage";
+import JobStatusForStudent from "./components/JobStatusForStudent/JobStatusForStudent";
 function App() {
-  return <HomePageFrima />;
+  return <JobStatusForStudent />;
 }
 
 export default App;
