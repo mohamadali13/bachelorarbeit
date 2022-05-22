@@ -151,8 +151,8 @@
   width: 100%;
   padding: 1em;
 }
-.jobDetailsAdresse{
-    width: 80%;
+.jobDetailsAdresse {
+  width: 80%;
   background-color: white;
   padding: 1em;
   display: flex;
@@ -162,30 +162,81 @@
   border-radius: 10px;
   margin-bottom: 1em;
 }
-.jobDetailsAdresseTextDiv{
-    width: 100%;
-    padding: 1em;
+.jobDetailsAdresseTextDiv {
+  width: 100%;
+  padding: 1em;
 }
-.jobDetailsAdresseText{
-    font-weight: bold;
+.jobDetailsAdresseText {
+  font-weight: bold;
 }
-.jobDetailsAdresseInfosWrap{
-    width: 100%;
-    padding: 1em;
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: space-between;
+.jobDetailsAdresseInfosWrap {
+  width: 100%;
+  padding: 1em;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
 }
-.jobDetailsSchicht{
-    width: 80%;
-    background-color: white;
-    padding: 1em;
-    display: flex;
-    flex-flow: column wrap;
-    justify-content: space-between;
-    border: 1px solid gray;
-    border-radius: 10px;
-    margin-bottom: 1em;
+.jobDetailsSchicht {
+  width: 80%;
+  background-color: white;
+  padding: 1em;
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: space-between;
+  border: 1px solid gray;
+  border-radius: 10px;
+  margin-bottom: 1em;
+}
+.jobDetailsSchichtTextDiv {
+  width: 100%;
+  padding: 1em;
+}
+.jobDetailsSchichtText {
+  font-weight: bold;
+}
+.schichtKarte {
+  margin: 1em;
+  border: 1px solid gray;
+  padding: 0.5em;
+  border-radius: 10px;
+  background-color: rgb(241, 183, 183);
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: space-between;
+}
+.schichtKarteWrap {
+  width: 100%;
+  padding: 1em;
+  overflow-x: auto;
+  display: flex;
+  flex-flow: row nowrap;
+}
+.schichtKarteDay {
+  font-family: cursive;
+  color: rgb(119, 51, 51);
+  font-size: 0.8em;
+}
+.schichtKarteDate {
+  font-size: 0.7em;
+  color: rgb(0, 0, 0);
+  margin: 1em 0;
+}
+.schichtKarteTime {
+  font-size: 0.6em;
+  color: rgb(0, 0, 0);
+}
+.applayButton {
+  margin-bottom: 1em;
+  width: 80%;
+  border-radius: 5px;
+  border: 0;
+  padding: 0.5em;
+  cursor: pointer;
+  background-color: $form-login-Button-background-color;
+  &:active {
+    box-shadow: 0 2px gray;
+    transform: translateY(1px);
+  }
 }
 @media only screen and (max-width: 768px) {
   .jobWrap {

@@ -103,14 +103,18 @@ const TheSection = (props) => {
           </div>
         </div>
         <div className="jobDetailsSchicht">
-          <div className=""><p className="">Schichte</p></div>
-          <div className="schichtKarte">
-            <p className="">Fri</p>
-            <p className=""></p>
-            <p className=""></p>
+          <div className="jobDetailsSchichtTextDiv">
+            <p className="jobDetailsSchichtText">Schichte</p>
+          </div>
+          <div className="schichtKarteWrap">
+            <div className="schichtKarte">
+              <p className="schichtKarteDay">Fri</p>
+              <p className="schichtKarteDate">01.01</p>
+              <p className="schichtKarteTime">15:00 bis 21:00</p>
+            </div>
           </div>
         </div>
-        <button className="" onClick={() => {}}>
+        <button className="applayButton" onClick={() => {}}>
           Bewerben
         </button>
       </div>
