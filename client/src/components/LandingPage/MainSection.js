@@ -48,7 +48,16 @@ const theSection = () => {
             </li>
           </ul>
         </div>
-        <button className="sigUpButtom">Sign Up</button>
+        <button
+          className="sigUpButtom"
+          type="button"
+          onClick={(e) => {
+            e.preventDefault();
+            window.location.href = "http://localhost:3000/regFirmaPage";
+          }}
+        >
+          Sign Up
+        </button>
       </div>
       <div className="signUpBox">
         <div>
@@ -90,7 +99,16 @@ const theSection = () => {
             </li>
           </ul>
         </div>
-        <button className="sigUpButtom">Sign Up</button>
+        <button
+          className="sigUpButtom"
+          type="button"
+          onClick={(e) => {
+            e.preventDefault();
+            window.location.href = "http://localhost:3000/regStudentPage";
+          }}
+        >
+          Sign Up
+        </button>
       </div>
     </section>
   );

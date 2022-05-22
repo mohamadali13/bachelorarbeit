@@ -1,0 +1,203 @@
+@import "../vars";
+.content {
+  display: flex;
+  flex: 1 0 auto;
+  flex-flow: row wrap;
+  justify-content: center;
+}
+.jobDetailsWrap {
+  width: 50%;
+  background-color: rgb(238, 195, 176);
+  border: 0;
+  border-radius: 20px;
+  display: flex;
+  flex-flow: column wrap;
+  align-items: center;
+}
+.jobWrap {
+  width: 100%;
+  background-color: rgb(255, 255, 255);
+  border: 1px solid gray;
+  display: flex;
+  flex-flow: column wrap;
+  border-radius: 20px;
+  margin-bottom: 1em;
+}
+.jobDetailsInfo {
+  width: 100%;
+}
+.jobTitleGeldInnerWrap {
+  width: 80%;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+.titelGeldDiv {
+  width: 100%;
+  background-color: rgb(20, 107, 17);
+  border-radius: 20px;
+  padding: 0.5em;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+}
+.GeldjobDiv {
+  width: 30%;
+  display: flex;
+  flex-flow: column wrap;
+}
+.GeldjobText {
+  font-weight: bold;
+  font-size: 1em;
+  width: 100%;
+}
+.geldProStundeDiv {
+  width: 100%;
+}
+.geldProStundeText {
+  font-size: 10px;
+  font-weight: bold;
+}
+.titeljobDiv {
+  flex: 1;
+  text-align: center;
+}
+.titeljobText {
+  font-weight: bold;
+  text-decoration: underline;
+  font-size: 1.2rem;
+}
+.locationjobDiv {
+  width: 80%;
+  //background-color: goldenrod;
+  padding: 0.5em;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  align-self: center;
+}
+.locationIconAddjobInnerWrap {
+  width: 50%;
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+}
+.underLinejob {
+  width: 80%;
+  border-bottom: 1px solid rgb(97, 87, 87);
+  margin: 0 auto;
+  margin-bottom: 1rem;
+}
+.timeDetalisjobDiv {
+  width: 80%;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  padding: 0.5em;
+  align-self: center;
+}
+.datejobDIv {
+  display: flex;
+  gap: 0.5em;
+  align-items: center;
+}
+.timejobDiv {
+  width: 30%;
+}
+.jobDetailsDescribe {
+  width: 80%;
+  background-color: white;
+  padding: 1em;
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: start;
+  border: 1px solid gray;
+  border-radius: 10px;
+  margin-bottom: 1em;
+}
+.jobDetailsDescribeTextDiv {
+  width: 100%;
+  padding: 1em;
+}
+.jobDetailsDescribeText {
+  font-weight: bold;
+}
+.jobDetailsDescribeContent {
+  width: 100%;
+  padding: 1em;
+}
+.jobDetailsAnforderung {
+  background-color: blue;
+}
+.jobDetailsAnforderung {
+  width: 80%;
+  background-color: white;
+  padding: 1em;
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: start;
+  border: 1px solid gray;
+  border-radius: 10px;
+  margin-bottom: 1em;
+}
+.jobDetailsAnforderungTextDiv {
+  padding: 1em;
+}
+.jobDetailsAnforderungText {
+  font-weight: bold;
+}
+.jobDetailsAnforderungContent {
+  width: 100%;
+  padding: 1em;
+}
+.jobDetailsAdresse{
+    width: 80%;
+  background-color: white;
+  padding: 1em;
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: space-between;
+  border: 1px solid gray;
+  border-radius: 10px;
+  margin-bottom: 1em;
+}
+.jobDetailsAdresseTextDiv{
+    width: 100%;
+    padding: 1em;
+}
+.jobDetailsAdresseText{
+    font-weight: bold;
+}
+.jobDetailsAdresseInfosWrap{
+    width: 100%;
+    padding: 1em;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+}
+.jobDetailsSchicht{
+    width: 80%;
+    background-color: white;
+    padding: 1em;
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: space-between;
+    border: 1px solid gray;
+    border-radius: 10px;
+    margin-bottom: 1em;
+}
+@media only screen and (max-width: 768px) {
+  .jobWrap {
+    width: 100%;
+  }
+  .selectCityHomePageStadtStudent {
+    width: 90%;
+  }
+  .jobDetailsWrap {
+    width: 100%;
+  }
+  .content {
+    padding: 1em;
+  }
+}

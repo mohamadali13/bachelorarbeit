@@ -13,7 +13,9 @@ const TheSection = () => {
           </p>
         </div>
         <div className="zumHomePageButtonASDiv">
-          <button className="zumHomePageButtonAS" onChange={()=>{}}>zum Homepage</button>
+          <button className="zumHomePageButtonAS" onChange={() => {}}>
+            zum Homepage
+          </button>
         </div>
       </div>
     </section>

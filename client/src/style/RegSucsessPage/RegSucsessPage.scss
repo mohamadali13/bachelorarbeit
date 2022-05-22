@@ -1,0 +1,52 @@
+@import "../vars";
+.content {
+  display: flex;
+  flex: 1 0 auto;
+  flex-flow: row wrap;
+  justify-content: center;
+  padding: 4em;
+}
+.rSWrapDiv {
+  background-color: rgb(175, 185, 178);
+  display: flex;
+  flex-flow: column wrap;
+  padding: 2em;
+  border-radius: 20px;
+  width: 35%;
+  align-items: center;
+  justify-content: center;
+}
+.rSMessageWrap {
+  width: 100%;
+  padding: 1em;
+  text-align: center;
+}
+.rSSucsessMessageText {
+  font-weight: bold;
+}
+
+.anmedlenRegAcsessButtonDiv {
+  margin-top: 4em;
+  width: 100%;
+  text-align: center;
+}
+.anmedlenRegAcsessButton {
+  width: 50%;
+  background-color: $form-login-Button-background-color;
+  border: 0;
+  border-radius: 5px;
+  padding: 1em;
+  color: white;
+  text-align: center;
+  cursor: pointer;
+  &:active {
+    box-shadow: 0 2px gray;
+    transform: translateY(1px);
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .rSWrapDiv {
+    width: 90%;
+  }
+}

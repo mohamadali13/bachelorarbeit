@@ -265,7 +265,15 @@ const TheSection = () => {
         </div>
         <div className="signUpSButtonDivANDTerms">
           <div className="signUpSbuttonDiv">
-            <input type="submit" value="Sign Up" className="signUpSButton" />
+            <input
+              type="submit"
+              value="Sign Up"
+              className="signUpSButton"
+              onClick={(e) => {
+                e.preventDefault();
+                window.location.href = "http://localhost:3000/regSucsessPage";
+              }}
+            />
           </div>
           <div className="termsSDiv">
             <div className="checkboxWrap">

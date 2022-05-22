@@ -1,10 +1,10 @@
 import React from "react";
-import TheNavBar from "../TheNavBar.js";
+import TheNavBar from "../TheNavBar";
 import MainSection from "./MainSection";
 import { Fragment } from "react";
 import "../../style/bodySection.scss";
 
-const OfferDetail = () => {
+const regSuscess = () => {
   return (
     <Fragment>
       <body>
@@ -16,4 +16,4 @@ const OfferDetail = () => {
   );
 };
 
-export default OfferDetail;
+export default regSuscess;

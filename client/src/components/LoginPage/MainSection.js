@@ -1,12 +1,25 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "../../style/LoginPage/LoginPage.scss";
 import LogoImage from "../../img/logoExample.jpg";
 import { useState } from "react";
-
+import { useParams } from "react-router-dom";
 const TheSection = () => {
   const [loginEmail, setLoginEmail] = useState("");
   const [loginPasswort, setLoginPasswort] = useState("");
+  //const [forUserLink, setForUserLink] = useState("");
 
+  const param = useParams();
+  
+  let userId = "12345";
+  let forUserLink =""
+  let userTpy = "student";
+  if (userTpy ==='firma') forUserLink ='homePageFirma'; else if (userTpy ==='student') forUserLink ='homePageStudent'
+ /* useEffect(()=>{if (userTpy === "student") {
+    setForUserLink ('homePageStudent') ;
+  } else if (userTpy === "firma") {
+    setForUserLink ('homePageFirma') ;
+  }})*/
+  
   return (
     <section className="content">
       <form id="loginForm">
@@ -42,7 +55,15 @@ const TheSection = () => {
           </div>
           <div className="loginButtonDivANDTerms">
             <div className="loginbuttonDiv">
-              <input type="submit" value="Login" className="loginButtonFirma" />
+              <input
+                type="submit"
+                value="Login"
+                className="loginButtonFirma"
+                onClick={(e) => {
+                  e.preventDefault();
+                  window.location.href = `http://localhost:3000/${forUserLink}/${userId}`;
+                }}
+              />
             </div>
             <div className="termsloginDiv">
               <input

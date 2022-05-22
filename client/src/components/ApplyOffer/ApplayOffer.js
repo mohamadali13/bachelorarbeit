@@ -4,7 +4,7 @@ import MainSection from "./MainSection";
 import { Fragment } from "react";
 import "../../style/bodySection.scss";
 
-const OfferDetail = () => {
+const ApplayOffer = props => {
   return (
     <Fragment>
       <body>
@@ -16,4 +16,4 @@ const OfferDetail = () => {
   );
 };
 
-export default OfferDetail;
+export default ApplayOffer;

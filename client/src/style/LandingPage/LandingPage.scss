@@ -63,3 +63,9 @@
   border-radius: 0.5rem;
   box-shadow: 0.2rem 0.2rem black;
 }
+
+
+.sigUpButtom:active {
+  box-shadow: 0 2px gray;
+  transform: translateY(1px);
+}

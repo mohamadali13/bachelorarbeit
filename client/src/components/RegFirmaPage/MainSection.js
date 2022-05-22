@@ -253,6 +253,10 @@ const TheSection = () => {
               type="submit"
               value="Sign Up"
               className="signUpFButtonFirma"
+              onClick={(e) => {
+                e.preventDefault();
+                window.location.href = "http://localhost:3000/regSucsessPage";
+              }}
             />
           </div>
           <div className="termsFDiv">

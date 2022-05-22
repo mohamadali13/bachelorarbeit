@@ -6,26 +6,36 @@ import RegFirmaPage from "./components/RegFirmaPage/RegFirmaPage";
 import AddOfferPage from "./components/AddOfferPage/AddOfferPage";
 import HomePageStudent from "./components/HomePageStudent/HomePageStudent";
 import HomePageAdmin from "./components/HomePageAdmin/HomePageAdmin";
-import HomePageFrima from "./components/HomePageFirma/HomePageFirma";
-import { Routes, Route } from "react-router-dom";
+import HomePageFirma from "./components/HomePageFirma/HomePageFirma";
+import { Routes, Route, Switch } from "react-router-dom";
 import AppliedSuscess from "./components/AppliedSucsessPage/AppliedSucsessPage";
 import JobStatusForStudent from "./components/JobStatusForStudent/JobStatusForStudent";
 import JobStatusForAdmin from "./components/JobStatusForAdmin/JobStatusForAdmin";
+import RegSucsessPage from "./components/RegSucsessPage/RegSucsessPage";
+import OfferDetail from './components/OfferDetails/OfferDetails';
+import ApplayOffer from "./components/ApplyOffer/ApplayOffer";
 
 function App() {
   return (
     <Routes>
-      <Route path="/" element={<LandingPage />} />
+      <Route path="/" exact element={<ApplayOffer />} />
       <Route path="loginPage" element={<LoginPage />} />
       <Route path="regStudentPage" element={<RegStudentPage />} />
       <Route path="AddOfferPage" element={<AddOfferPage />} />
       <Route path="regFirmaPage" element={<RegFirmaPage />} />
-      <Route path="homePageStudent" element={<HomePageStudent />} />
-      <Route path="homePageAdmin" element={<HomePageAdmin/>} />
-      <Route path="homePageFrima" element={<HomePageFrima />} />
+      <Route path="homePageStudent/:studentID" element={<HomePageStudent />} />
+      <Route path="homePageAdmin/:adminID" element={<HomePageAdmin />} />
+      <Route path="homePageFirma/:firmaID" element={<HomePageFirma />} />
       <Route path="appliedSuscess" element={<AppliedSuscess />} />
-      <Route path="jobStatusForStudent" element={<JobStatusForStudent />} />
-      <Route path="jobStatusForAdmin" element={<JobStatusForAdmin />} />
+      <Route
+        path="jobStatusForStudent/:studentID"
+        element={<JobStatusForStudent />}
+      />
+      <Route
+        path="jobStatusForAdmin/:firmaID"
+        element={<JobStatusForAdmin />}
+      />
+      <Route path="regSucsessPage" element={<RegSucsessPage />} />
     </Routes>
   );
 }
