@@ -59,7 +59,7 @@ const TheSection = () => {
       !regex.test(values.email_rep) ||
       !regex.test(values.re_email_rep)
     ) {
-      errors = "Bitte richtige Ifos eingeben!";
+      errors = "Bitte richtige Infos eingeben!";
     }
 
     return errors;
