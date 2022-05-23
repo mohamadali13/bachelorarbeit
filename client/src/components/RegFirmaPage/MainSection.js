@@ -1,7 +1,7 @@
 import React from "react";
 import "../../style/RegFirmaPage/RegFirmaStyle.scss";
 import LogoImage from "../../img/logoExample.jpg";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const TheSection = () => {
   const initialValues = {
@@ -64,15 +64,17 @@ const TheSection = () => {
 
     return errors;
   };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    setFormErrors(validate(formValues));
-    setIsSubmit(true);
+  useEffect(() => {
+    console.log(formErrors);
     if (formErrors === "" && isSubmit) {
       console.log(formValues);
       window.location.href = "http://localhost:3000/regSucsessPage";
     }
+  }, [formErrors]);
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setFormErrors(validate(formValues));
+    setIsSubmit(true);
   };
   return (
     <section className="content">

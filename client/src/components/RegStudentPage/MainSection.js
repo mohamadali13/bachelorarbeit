@@ -69,15 +69,17 @@ const TheSection = () => {
 
     return errors;
   };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    setFormErrors(validate(formValues));
-    setIsSubmit(true);
+  useEffect(() => {
+    console.log(formErrors);
     if (formErrors === "" && isSubmit) {
       console.log(formValues);
       window.location.href = "http://localhost:3000/regSucsessPage";
     }
+  }, [formErrors]);
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setFormErrors(validate(formValues));
+    setIsSubmit(true);
   };
   return (
     <section className="content">
