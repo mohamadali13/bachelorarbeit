@@ -18,7 +18,7 @@ import ApplayOffer from "./components/ApplyOffer/ApplayOffer";
 function App() {
   return (
     <Routes>
-      <Route path="/" exact element={<RegStudentPage />} />
+      <Route path="/" exact element={<RegFirmaPage />} />
       <Route path="loginPage" element={<LoginPage />} />
       <Route path="regStudentPage" element={<RegStudentPage />} />
       <Route path="AddOfferPage" element={<AddOfferPage />} />

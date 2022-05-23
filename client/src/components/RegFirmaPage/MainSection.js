@@ -4,34 +4,90 @@ import LogoImage from "../../img/logoExample.jpg";
 import { useState } from "react";
 
 const TheSection = () => {
-  const [firma, setFirma] = useState("");
-  const [herkunft, setHerkunft] = useState("");
-  const [grundsDatum, setGrundsDatum] = useState("");
-  const [regNr, setRegNr] = useState("");
-  const [frimaStrasse, setFirmaStrasse] = useState("");
-  const [firmaStadt, setFirmaStadt] = useState("");
-  const [firmaTelNr, setFirmaTelNr] = useState("");
-  const [firmaEmail, setFirmaEmail] = useState("");
-  const [firmaFaxNr, setFirmaFaxNr] = useState("");
-  const [zusaetlichFirma, setZusaetlichFirma] = useState("");
-  const [vertreterVorname, setVertreterVorname] = useState("");
-  const [vertreterName, setVertreterName] = useState("");
-  const [verterTelNr, setVertreterTelNr] = useState("");
-  const [vertreterEmail, setVertreterEmail] = useState("");
-  const [vertreterReEmail, setVertreterReEmail] = useState("");
-  const [verterPasswort, setVertreterPasswort] = useState("");
-  const [vertreterRePasswort, setVertreterRePasswort] = useState("");
-  const [vertreterHandyNr, setVertreterHandyNr] = useState("");
-  const [firmaChacked, setFirmaChacked] = useState("");
+  const initialValues = {
+    company_name: "",
+    origin: "",
+    found_date: "",
+    reg_nr: "",
+    street: "",
+    city: "",
+    tel_nr: "",
+    fax_nr: "",
+    email_company: "",
+    add_to_adress: "",
+    first_name_rep: "",
+    last_name_rep: "",
+    email_rep: "",
+    re_email_rep: "",
+    password: "",
+    re_password: "",
+    tel_nr_rep: "",
+    mobile_nr_rep: "",
+  };
+  const [formValues, setFormValues] = useState(initialValues);
+  const [formErrors, setFormErrors] = useState("");
+  const [isSubmit, setIsSubmit] = useState(false);
 
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormValues({ ...formValues, [name]: value });
+  };
+  const validate = (values) => {
+    let errors = "";
+    const regex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i;
+
+    if (
+      !values.company_name ||
+      !values.origin ||
+      !values.found_date ||
+      !values.reg_nr ||
+      !values.street ||
+      !values.city ||
+      !values.tel_nr ||
+      !values.fax_nr ||
+      !values.email_company ||
+      !values.add_to_adress ||
+      !values.first_name_rep ||
+      !values.last_name_rep ||
+      !values.password ||
+      !values.re_password ||
+      !values.email_rep ||
+      !values.re_email_rep ||
+      !values.tel_nr_rep ||
+      !values.mobile_nr_rep ||
+      !regex.test(values.email_company) ||
+      !regex.test(values.email_rep) ||
+      !regex.test(values.re_email_rep)
+    ) {
+      errors = "Bitte richtige Ifos eingeben!";
+    }
+
+    return errors;
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setFormErrors(validate(formValues));
+    setIsSubmit(true);
+    if (formErrors === "" && isSubmit) {
+      console.log(formValues);
+      window.location.href = "http://localhost:3000/regSucsessPage";
+    }
+  };
   return (
     <section className="content">
-      <form className="regFirmaForm">
+      <form className="regFirmaForm" onSubmit={handleSubmit}>
         <div className="regFLogoImageDiv">
           <img src={LogoImage} style={{ width: "25%", height: "100%" }} />
         </div>
         <div className="regAsFDiv">
           <p id="regAsFText">Registrierung Als Unternehmen</p>
+          <p
+            className="errorText"
+            style={{ margin: "1em", fontWeight: "bold", color: "red" }}
+          >
+            {formErrors}
+          </p>
         </div>
         <div className="regAFINForm">
           <div className="regAFRow">
@@ -41,8 +97,9 @@ const TheSection = () => {
                 <input
                   className="ResAFInput"
                   type="text"
-                  value={firma}
-                  onChange={(e) => setFirma(e.target.value)}
+                  name="company_name"
+                  value={formValues.company_name}
+                  onChange={handleChange}
                 />
               </div>
               <div className="regAFRowInWrap">
@@ -50,8 +107,9 @@ const TheSection = () => {
                 <input
                   className="ResAFInput"
                   type="text"
-                  value={herkunft}
-                  onChange={(e) => setHerkunft(e.target.value)}
+                  name="origin"
+                  value={formValues.origin}
+                  onChange={handleChange}
                 />
               </div>
             </div>
@@ -63,8 +121,9 @@ const TheSection = () => {
                 <input
                   className="ResAFInput"
                   type="text"
-                  value={grundsDatum}
-                  onChange={(e) => setGrundsDatum(e.target.value)}
+                  name="found_date"
+                  value={formValues.found_date}
+                  onChange={handleChange}
                 />
               </div>
               <div className="regAFRowInWrap">
@@ -72,8 +131,9 @@ const TheSection = () => {
                 <input
                   className="ResAFInput"
                   type="text"
-                  value={regNr}
-                  onChange={(e) => setRegNr(e.target.value)}
+                  name="reg_nr"
+                  value={formValues.reg_nr}
+                  onChange={handleChange}
                 />
               </div>
             </div>
@@ -90,8 +150,9 @@ const TheSection = () => {
                 <input
                   className="ResAFInput"
                   type="text"
-                  value={frimaStrasse}
-                  onChange={(e) => setFirmaStrasse(e.target.value)}
+                  name="street"
+                  value={formValues.street}
+                  onChange={handleChange}
                 />
               </div>
               <div className="regAFRowInWrap">
@@ -99,8 +160,9 @@ const TheSection = () => {
                 <input
                   className="ResAFInput"
                   type="text"
-                  value={firma}
-                  onChange={(e) => setFirma(e.target.value)}
+                  name="city"
+                  value={formValues.city}
+                  onChange={handleChange}
                 />
               </div>
             </div>
@@ -112,8 +174,9 @@ const TheSection = () => {
                 <input
                   className="ResAFInput"
                   type="text"
-                  value={firmaTelNr}
-                  onChange={(e) => setFirmaTelNr(e.target.value)}
+                  name="tel_nr"
+                  value={formValues.tel_nr}
+                  onChange={handleChange}
                 />
               </div>
               <div className="regAFRowInWrap">
@@ -121,8 +184,9 @@ const TheSection = () => {
                 <input
                   className="ResAFInput"
                   type="text"
-                  value={firmaFaxNr}
-                  onChange={(e) => setFirmaFaxNr(e.target.value)}
+                  name="fax_nr"
+                  value={formValues.fax_nr}
+                  onChange={handleChange}
                 />
               </div>
             </div>
@@ -134,8 +198,9 @@ const TheSection = () => {
                 <input
                   className="ResAFInput"
                   type="text"
-                  value={firmaEmail}
-                  onChange={(e) => setFirmaEmail(e.target.value)}
+                  name="email_company"
+                  value={formValues.email_company}
+                  onChange={handleChange}
                 />
               </div>
               <div className="regAFRowInWrap">
@@ -143,8 +208,9 @@ const TheSection = () => {
                 <input
                   className="ResAFInput"
                   type="text"
-                  value={zusaetlichFirma}
-                  onChange={(e) => setZusaetlichFirma(e.target.value)}
+                  name="add_to_adress"
+                  value={formValues.add_to_adress}
+                  onChange={handleChange}
                 />
               </div>
             </div>
@@ -161,8 +227,9 @@ const TheSection = () => {
                 <input
                   className="ResAFInput"
                   type="text"
-                  value={vertreterVorname}
-                  onChange={(e) => setVertreterVorname(e.target.value)}
+                  name="first_name_rep"
+                  value={formValues.first_name_rep}
+                  onChange={handleChange}
                 />
               </div>
               <div className="regAFRowInWrap">
@@ -170,8 +237,9 @@ const TheSection = () => {
                 <input
                   className="ResAFInput"
                   type="text"
-                  value={vertreterName}
-                  onChange={(e) => setVertreterName(e.target.value)}
+                  name="last_name_rep"
+                  value={formValues.last_name_rep}
+                  onChange={handleChange}
                 />
               </div>
             </div>
@@ -184,8 +252,9 @@ const TheSection = () => {
                 <input
                   className="ResAFInput"
                   type="text"
-                  value={vertreterEmail}
-                  onChange={(e) => setVertreterEmail(e.target.value)}
+                  name="email_rep"
+                  value={formValues.email_rep}
+                  onChange={handleChange}
                 />
               </div>
               <div className="regAFRowInWrap">
@@ -193,8 +262,9 @@ const TheSection = () => {
                 <input
                   className="ResAFInput"
                   type="text"
-                  value={vertreterReEmail}
-                  onChange={(e) => setVertreterReEmail(e.target.value)}
+                  name="re_email_rep"
+                  value={formValues.re_email_rep}
+                  onChange={handleChange}
                 />
               </div>
             </div>
@@ -208,8 +278,9 @@ const TheSection = () => {
                 <input
                   className="ResAFInput"
                   type="text"
-                  value={verterPasswort}
-                  onChange={(e) => setVertreterPasswort(e.target.value)}
+                  name="password"
+                  value={formValues.password}
+                  onChange={handleChange}
                 />
               </div>
               <div className="regAFRowInWrap">
@@ -217,8 +288,9 @@ const TheSection = () => {
                 <input
                   className="ResAFInput"
                   type="text"
-                  value={vertreterRePasswort}
-                  onChange={(e) => setVertreterRePasswort(e.target.value)}
+                  name="re_password"
+                  value={formValues.re_password}
+                  onChange={handleChange}
                 />
               </div>
             </div>
@@ -231,8 +303,9 @@ const TheSection = () => {
                 <input
                   className="ResAFInput"
                   type="text"
-                  value={verterTelNr}
-                  onChange={(e) => setVertreterTelNr(e.target.value)}
+                  name="tel_nr_rep"
+                  value={formValues.tel_nr_rep}
+                  onChange={handleChange}
                 />
               </div>
               <div className="regAFRowInWrap">
@@ -240,8 +313,9 @@ const TheSection = () => {
                 <input
                   className="ResAFInput"
                   type="text"
-                  value={vertreterHandyNr}
-                  onChange={(e) => setVertreterHandyNr(e.target.value)}
+                  name="mobile_nr_rep"
+                  value={formValues.mobile_nr_rep}
+                  onChange={handleChange}
                 />
               </div>
             </div>
@@ -253,10 +327,6 @@ const TheSection = () => {
               type="submit"
               value="Sign Up"
               className="signUpFButtonFirma"
-              onClick={(e) => {
-                e.preventDefault();
-                window.location.href = "http://localhost:3000/regSucsessPage";
-              }}
             />
           </div>
           <div className="termsFDiv">
