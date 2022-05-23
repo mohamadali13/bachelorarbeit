@@ -7,11 +7,9 @@ import "../../style/bodySection.scss";
 const appliedSuscess = () => {
   return (
     <Fragment>
-      <body>
-        <TheNavBar />
+      <TheNavBar />
 
-        <MainSection />
-      </body>
+      <MainSection />
     </Fragment>
   );
 };

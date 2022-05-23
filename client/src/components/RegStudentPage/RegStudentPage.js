@@ -8,13 +8,11 @@ import "../../style/bodySection.scss";
 const regStudent = () => {
   return (
     <Fragment>
-      <body>
-        <TheNavBar />
+      <TheNavBar />
 
-        <MainSection />
+      <MainSection />
 
-        <Footer />
-      </body>
+      <Footer />
     </Fragment>
   );
 };

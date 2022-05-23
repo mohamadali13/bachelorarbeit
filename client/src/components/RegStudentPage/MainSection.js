@@ -4,36 +4,63 @@ import LogoImage from "../../img/logoExample.jpg";
 import { useState } from "react";
 
 const TheSection = () => {
-  const [vorname, setVorname] = useState("");
-  const [name, setName] = useState("");
-  const [gebDatum, setGebDatum] = useState("");
-  const [gebsOrt, setGebsOrt] = useState("");
-  const [nationalitaet, setNationalitaet] = useState("");
-  const [geschlicht, setGeschlicht] = useState("");
-  const [telNr, setTelNr] = useState("");
-  const [handyNr, setHandyNr] = useState("");
-  const [wohnort, setWohnort] = useState("");
-  const [email, setEmail] = useState("");
-  const [reEmail, setReEmail] = useState("");
-  const [passwort, setPasswort] = useState("");
-  const [rePasswort, setRePwasswort] = useState("");
-  const [hausNr, setHausNr] = useState("");
-  const [strasse, setStrasse] = useState("");
-  const [postleitzahl, setPostleitzahl] = useState("");
-  const [co, setCo] = useState("");
-  const [hochschule, setHochschule] = useState("");
-  const [ausweisNr, setAusweisNr] = useState("");
-  const [zuSatz, setZusatz] = useState("");
-  const [studentChacked, setStudentChacked] = useState("");
+  // const [studentChacked, setStudentChacked] = useState("");
 
+  const initialValues = {
+    firs_tname: "",
+    last_name: "",
+    birth_date: "",
+    birth_place: "",
+    nationality: "",
+    sex: "",
+    tel_nr: "",
+    mobile_nr: "",
+    email: "",
+    re_email: "",
+    living_place: "",
+    street: "",
+    password: "",
+    re_password: "",
+    haus_nr: "",
+    post_code: "",
+    co: "",
+    add_to_adress: "",
+    university: "",
+    porsonal_id_nr: "",
+  };
+  const [formValues, setFormValues] = useState(initialValues);
+  const [formErrors, setFormErrors] = useState({});
+  const [isSubmit, setIsSubmit] = useState(false);
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormValues({ ...formValues, [name]: value });
+  };
+  const validate = (values) => {
+    const erros = {};
+    const errors = {};
+    const regex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i;
+  };
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setFormErrors(validate(formValues));
+    setIsSubmit(true);
+  };
   return (
     <section className="content">
-      <form className="regStudentForm">
+      <form className="regStudentForm" onSubmit={handleSubmit}>
         <div className="regSLogoImageDiv">
           <img src={LogoImage} style={{ width: "25%", height: "100%" }} />
         </div>
         <div className="regAsSDiv">
           <p id="regAsSText">Registrierung Als Student</p>
+          <p
+            className="errorText"
+            style={{ margin: "1em", fontWeight: "bold", color: "red" }}
+          >
+            {" "}
+            bitte richtige Infos eingeben!
+          </p>
         </div>
         <div className="regASINForm">
           <div className="regASRow">
@@ -41,19 +68,22 @@ const TheSection = () => {
               <div className="rowRegAsSInputInWrap">
                 <label className="regASLebel">Vorname</label>
                 <input
+                  name="firstname"
                   className="RegASInput"
                   type="text"
-                  value={vorname}
-                  onChange={(e) => setVorname(e.target.value)}
+                  value={formValues.firs_tname}
+                  onChange={handleChange}
                 />
               </div>
+
               <div className="rowRegAsSInputInWrap">
                 <label className="regASLebel">Name</label>
                 <input
+                  name="lastname"
                   className="RegASInput"
                   type="text"
-                  value={name}
-                  onChange={(e) => setName(e.target.value)}
+                  value={formValues.last_name}
+                  onChange={handleChange}
                 />
               </div>
             </div>
@@ -63,19 +93,21 @@ const TheSection = () => {
               <div className="rowRegAsSInputInWrap">
                 <label className="regASLebel">Geb.datum</label>
                 <input
+                  name="birth_date"
                   className="RegASInput"
                   type="text"
-                  value={gebDatum}
-                  onChange={(e) => setGebDatum(e.target.value)}
+                  value={formValues.birth_date}
+                  onChange={handleChange}
                 />
               </div>
               <div className="rowRegAsSInputInWrap">
                 <label className="regASLebel">Geburtsort</label>
                 <input
+                  name="birth_place"
                   className="RegASInput"
                   type="text"
-                  value={gebsOrt}
-                  onChange={(e) => setGebsOrt(e.target.value)}
+                  value={formValues.birth_place}
+                  onChange={handleChange}
                 />
               </div>
             </div>
@@ -85,19 +117,21 @@ const TheSection = () => {
               <div className="rowRegAsSInputInWrap">
                 <label className="regASLebel">Nationalität</label>
                 <input
+                  name="nationality"
                   className="RegASInput"
                   type="text"
-                  value={nationalitaet}
-                  onChange={(e) => setNationalitaet(e.target.value)}
+                  value={formValues.nationality}
+                  onChange={handleChange}
                 />
               </div>
               <div className="rowRegAsSInputInWrap">
                 <label className="regASLebel">Geschlicht</label>
                 <input
+                  name="sex"
                   className="RegASInput"
                   type="text"
-                  value={geschlicht}
-                  onChange={(e) => setGeschlicht(e.target.value)}
+                  value={formValues.sex}
+                  onChange={handleChange}
                 />
               </div>
             </div>
@@ -107,19 +141,21 @@ const TheSection = () => {
               <div className="rowRegAsSInputInWrap">
                 <label className="regASLebel">Tel.Nr</label>
                 <input
+                  name="tel_nr"
                   className="RegASInput"
                   type="text"
-                  value={telNr}
-                  onChange={(e) => setTelNr(e.target.value)}
+                  value={formValues.tel_nr}
+                  onChange={handleChange}
                 />
               </div>
               <div className="rowRegAsSInputInWrap">
                 <label className="regASLebel">Handy.Nr</label>
                 <input
+                  name="mobile_nr"
                   className="RegASInput"
                   type="text"
-                  value={handyNr}
-                  onChange={(e) => setHandyNr(e.target.value)}
+                  value={formValues.mobile_nr}
+                  onChange={handleChange}
                 />
               </div>
             </div>
@@ -129,19 +165,21 @@ const TheSection = () => {
               <div className="rowRegAsSInputInWrap">
                 <label className="regASLebel">Email</label>
                 <input
+                  name="email"
                   className="RegASInput"
                   type="text"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
+                  value={formValues.email}
+                  onChange={handleChange}
                 />
               </div>
               <div className="rowRegAsSInputInWrap">
                 <label className="regASLebel">Re-Email</label>
                 <input
+                  name="re_email"
                   className="RegASInput"
                   type="text"
-                  value={reEmail}
-                  onChange={(e) => setReEmail(e.target.value)}
+                  value={formValues.re_email}
+                  onChange={handleChange}
                 />
               </div>
             </div>
@@ -151,19 +189,21 @@ const TheSection = () => {
               <div className="rowRegAsSInputInWrap">
                 <label className="regASLebel">Wohnort</label>
                 <input
+                  name="living_place"
                   className="RegASInput"
                   type="text"
-                  value={wohnort}
-                  onChange={(e) => setWohnort(e.target.value)}
+                  value={formValues.living_place}
+                  onChange={handleChange}
                 />
               </div>
               <div className="rowRegAsSInputInWrap">
                 <label className="regASLebel">Straße</label>
                 <input
+                  name="street"
                   className="RegASInput"
                   type="text"
-                  value={strasse}
-                  onChange={(e) => setStrasse(e.target.value)}
+                  value={formValues.street}
+                  onChange={handleChange}
                 />
               </div>
             </div>
@@ -173,19 +213,21 @@ const TheSection = () => {
               <div className="rowRegAsSInputInWrap">
                 <label className="regASLebel">Passwort</label>
                 <input
+                  name="password"
                   className="RegASInput"
                   type="text"
-                  value={passwort}
-                  onChange={(e) => setPasswort(e.target.value)}
+                  value={formValues.password}
+                  onChange={handleChange}
                 />
               </div>
               <div className="rowRegAsSInputInWrap">
                 <label className="regASLebel">Re-Passwort</label>
                 <input
+                  name="re_password"
                   className="RegASInput"
                   type="text"
-                  value={rePasswort}
-                  onChange={(e) => setRePwasswort(e.target.value)}
+                  value={formValues.re_password}
+                  onChange={handleChange}
                 />
               </div>
             </div>
@@ -195,19 +237,21 @@ const TheSection = () => {
               <div className="rowRegAsSInputInWrap">
                 <label className="regASLebel">Haus.Nr</label>
                 <input
+                  name="haus_nr"
                   className="RegASInput"
                   type="text"
-                  value={hausNr}
-                  onChange={(e) => setHausNr(e.target.value)}
+                  value={formValues.haus_nr}
+                  onChange={handleChange}
                 />
               </div>
               <div className="rowRegAsSInputInWrap">
                 <label className="regASLebel">Postleitzahl</label>
                 <input
+                  name="post_code"
                   className="RegASInput"
                   type="text"
-                  value={postleitzahl}
-                  onChange={(e) => setPostleitzahl(e.target.value)}
+                  value={formValues.post_code}
+                  onChange={handleChange}
                 />
               </div>
             </div>
@@ -217,19 +261,21 @@ const TheSection = () => {
               <div className="rowRegAsSInputInWrap">
                 <label className="regASLebel">C/O</label>
                 <input
+                  name="co"
                   className="RegASInput"
                   type="text"
-                  value={co}
-                  onChange={(e) => setCo(e.target.value)}
+                  value={formValues.co}
+                  onChange={handleChange}
                 />
               </div>
               <div className="rowRegAsSInputInWrap">
                 <label className="regASLebel">Zusatz zur Adresse</label>
                 <input
+                  name="add_to_address"
                   className="RegASInput"
                   type="text"
-                  value={zuSatz}
-                  onChange={(e) => setZusatz(e.target.value)}
+                  value={formValues.add_to_adress}
+                  onChange={handleChange}
                 />
               </div>
             </div>
@@ -239,33 +285,30 @@ const TheSection = () => {
               <div className="rowRegAsSInputInWrap">
                 <label className="regASLebel">Hochschule</label>
                 <input
+                  name="univrtsity"
                   className="RegASInput"
                   type="text"
-                  value={hochschule}
-                  onChange={(e) => setHochschule(e.target.value)}
+                  value={formValues.university}
+                  onChange={handleChange}
                 />
               </div>
               <div className="rowRegAsSInputInWrap">
                 <label className="regASLebel">Ausweis.Nr</label>
                 <input
+                  name="personal_id_nr"
                   className="RegASInput"
                   type="text"
-                  value={ausweisNr}
-                  onChange={(e) => setAusweisNr(e.target.value)}
+                  value={formValues.porsonal_id_nr}
+                  onChange={handleChange}
                 />
               </div>
-            </div>
-          </div>
-          <div className="regASRow">
-            <div className="regASRowIn" id="immaInputFileLabel">
-              <label className="regASLebel">Immatr.Hochladen</label>
-              <input className="RegASInput" type="file" id="immaInputFile" />
             </div>
           </div>
         </div>
         <div className="signUpSButtonDivANDTerms">
           <div className="signUpSbuttonDiv">
             <input
+              name="submit"
               type="submit"
               value="Sign Up"
               className="signUpSButton"
@@ -295,3 +338,10 @@ const TheSection = () => {
 };
 
 export default TheSection;
+/* <div className="regASRow">
+            <div className="regASRowIn" id="immaInputFileLabel">
+              <label className="regASLebel">Immatr.Hochladen</label>
+              <input
+                name="" className="RegASInput" type="file" id="immaInputFile" />
+            </div>
+          </div>*/

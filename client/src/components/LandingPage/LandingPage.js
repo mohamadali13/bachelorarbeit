@@ -9,13 +9,11 @@ import "../../style/bodySection.scss";
 const landingPage = () => {
   return (
     <Fragment>
-      <body>
-        <TheNavBar />
+      <TheNavBar />
 
-        <MainSection />
+      <MainSection />
 
-        <Footer />
-      </body>
+      <Footer />
     </Fragment>
   );
 };

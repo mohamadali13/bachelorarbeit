@@ -97,12 +97,17 @@
   flex: 1;
   height: 2em;
   background-color: $form-login-Button-background-color;
-  border: 0 0 0 0;
+  border: 0 ;
   border-radius: 5px;
   cursor: pointer;
   margin-bottom: 0.5em;
   margin-right: 1em;
   color: #fff;
+  &:active {
+    box-shadow: 0 2px gray;
+    transform: translateY(1px);
+  }
+  
 }
 
 .termsSDiv {

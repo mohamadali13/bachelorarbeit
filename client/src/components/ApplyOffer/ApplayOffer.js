@@ -4,14 +4,12 @@ import MainSection from "./MainSection";
 import { Fragment } from "react";
 import "../../style/bodySection.scss";
 
-const ApplayOffer = props => {
+const ApplayOffer = (props) => {
   return (
     <Fragment>
-      <body>
-        <TheNavBar />
+      <TheNavBar />
 
-        <MainSection />
-      </body>
+      <MainSection />
     </Fragment>
   );
 };

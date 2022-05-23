@@ -8,11 +8,9 @@ import "../../style/bodySection.scss";
 const HomePageStudent = () => {
   return (
     <Fragment>
-      <body>
-        <TheNavBar />
+      <TheNavBar />
 
-        <MainSection />
-      </body>
+      <MainSection />
     </Fragment>
   );
 };

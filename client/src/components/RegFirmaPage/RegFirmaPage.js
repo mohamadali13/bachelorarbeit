@@ -8,13 +8,11 @@ import "../../style/bodySection.scss";
 const regFirma = () => {
   return (
     <Fragment>
-      <body>
-        <TheNavBar />
+      <TheNavBar />
 
-        <MainSection />
+      <MainSection />
 
-        <Footer />
-      </body>
+      <Footer />
     </Fragment>
   );
 };

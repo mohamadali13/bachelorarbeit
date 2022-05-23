@@ -7,11 +7,9 @@ import "../../style/bodySection.scss";
 const OfferDetail = () => {
   return (
     <Fragment>
-      <body>
-        <TheNavBar />
+      <TheNavBar />
 
-        <MainSection />
-      </body>
+      <MainSection />
     </Fragment>
   );
 };
