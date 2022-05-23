@@ -1,13 +1,13 @@
 import React from "react";
 import "../../style/RegStudentPage/RegStudentPage.scss";
 import LogoImage from "../../img/logoExample.jpg";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const TheSection = () => {
   // const [studentChacked, setStudentChacked] = useState("");
 
   const initialValues = {
-    firs_tname: "",
+    first_name: "",
     last_name: "",
     birth_date: "",
     birth_place: "",
@@ -26,10 +26,10 @@ const TheSection = () => {
     co: "",
     add_to_adress: "",
     university: "",
-    porsonal_id_nr: "",
+    personal_id_nr: "",
   };
   const [formValues, setFormValues] = useState(initialValues);
-  const [formErrors, setFormErrors] = useState({});
+  const [formErrors, setFormErrors] = useState("");
   const [isSubmit, setIsSubmit] = useState(false);
 
   const handleChange = (e) => {
@@ -37,10 +37,45 @@ const TheSection = () => {
     setFormValues({ ...formValues, [name]: value });
   };
   const validate = (values) => {
-    const erros = {};
-    const errors = {};
+    let errors = "";
     const regex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i;
+
+    if (
+      !values.first_name ||
+      !values.last_name ||
+      !values.birth_date ||
+      !values.birth_place ||
+      !values.nationality ||
+      !values.sex ||
+      !values.tel_nr ||
+      !values.mobile_nr ||
+      !values.email ||
+      !values.re_email ||
+      !values.living_place ||
+      !values.street ||
+      !values.password ||
+      !values.re_password ||
+      !values.haus_nr ||
+      !values.post_code ||
+      !values.co ||
+      !values.add_to_adress ||
+      !values.university ||
+      !values.personal_id_nr ||
+      !regex.test(values.email) ||
+      !regex.test(values.re_email)
+    ) {
+      errors = "Bitte richtige Ifos eingeben!";
+    }
+
+    return errors;
   };
+  useEffect(() => {
+    console.log(formErrors);
+    if (formErrors === "" && isSubmit) {
+      console.log(formValues);
+     // window.location.href = "http://localhost:3000/regSucsessPage";
+    }
+  }, [formErrors]);
   const handleSubmit = (e) => {
     e.preventDefault();
     setFormErrors(validate(formValues));
@@ -48,7 +83,7 @@ const TheSection = () => {
   };
   return (
     <section className="content">
-      <form className="regStudentForm" onSubmit={handleSubmit}>
+      <form className="regStudentForm">
         <div className="regSLogoImageDiv">
           <img src={LogoImage} style={{ width: "25%", height: "100%" }} />
         </div>
@@ -58,8 +93,7 @@ const TheSection = () => {
             className="errorText"
             style={{ margin: "1em", fontWeight: "bold", color: "red" }}
           >
-            {" "}
-            bitte richtige Infos eingeben!
+            {formErrors}
           </p>
         </div>
         <div className="regASINForm">
@@ -68,10 +102,10 @@ const TheSection = () => {
               <div className="rowRegAsSInputInWrap">
                 <label className="regASLebel">Vorname</label>
                 <input
-                  name="firstname"
+                  name="first_name"
                   className="RegASInput"
                   type="text"
-                  value={formValues.firs_tname}
+                  value={formValues.first_name}
                   onChange={handleChange}
                 />
               </div>
@@ -79,7 +113,7 @@ const TheSection = () => {
               <div className="rowRegAsSInputInWrap">
                 <label className="regASLebel">Name</label>
                 <input
-                  name="lastname"
+                  name="last_name"
                   className="RegASInput"
                   type="text"
                   value={formValues.last_name}
@@ -271,7 +305,7 @@ const TheSection = () => {
               <div className="rowRegAsSInputInWrap">
                 <label className="regASLebel">Zusatz zur Adresse</label>
                 <input
-                  name="add_to_address"
+                  name="add_to_adress"
                   className="RegASInput"
                   type="text"
                   value={formValues.add_to_adress}
@@ -285,7 +319,7 @@ const TheSection = () => {
               <div className="rowRegAsSInputInWrap">
                 <label className="regASLebel">Hochschule</label>
                 <input
-                  name="univrtsity"
+                  name="university"
                   className="RegASInput"
                   type="text"
                   value={formValues.university}
@@ -298,7 +332,7 @@ const TheSection = () => {
                   name="personal_id_nr"
                   className="RegASInput"
                   type="text"
-                  value={formValues.porsonal_id_nr}
+                  value={formValues.personal_id_nr}
                   onChange={handleChange}
                 />
               </div>
@@ -312,10 +346,7 @@ const TheSection = () => {
               type="submit"
               value="Sign Up"
               className="signUpSButton"
-              onClick={(e) => {
-                e.preventDefault();
-                window.location.href = "http://localhost:3000/regSucsessPage";
-              }}
+              onClick={handleSubmit}
             />
           </div>
           <div className="termsSDiv">
