@@ -69,21 +69,19 @@ const TheSection = () => {
 
     return errors;
   };
-  useEffect(() => {
-    console.log(formErrors);
-    if (formErrors === "" && isSubmit) {
-      console.log(formValues);
-     // window.location.href = "http://localhost:3000/regSucsessPage";
-    }
-  }, [formErrors]);
+
   const handleSubmit = (e) => {
     e.preventDefault();
     setFormErrors(validate(formValues));
     setIsSubmit(true);
+    if (formErrors === "" && isSubmit) {
+      console.log(formValues);
+      window.location.href = "http://localhost:3000/regSucsessPage";
+    }
   };
   return (
     <section className="content">
-      <form className="regStudentForm">
+      <form className="regStudentForm" onSubmit={handleSubmit}>
         <div className="regSLogoImageDiv">
           <img src={LogoImage} style={{ width: "25%", height: "100%" }} />
         </div>
@@ -346,7 +344,7 @@ const TheSection = () => {
               type="submit"
               value="Sign Up"
               className="signUpSButton"
-              onClick={handleSubmit}
+              // onClick={handleSubmit}
             />
           </div>
           <div className="termsSDiv">
