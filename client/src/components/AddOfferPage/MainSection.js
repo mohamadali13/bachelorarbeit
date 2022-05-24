@@ -16,12 +16,11 @@ const TheSection = () => {
     time_from: "",
     time_until: "",
     date: "",
-    describe: "",
+    describtion: "",
     notes_and_requirements: "",
     street: "",
     haus_nr: "",
     post_code: "",
-    city: "",
     add_to_address: "",
   };
   const [formValues, setFormValues] = useState(initialValues);
@@ -36,7 +35,30 @@ const TheSection = () => {
     let errors = "";
     const regex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i;
 
-    if (!values.email || !values.password || !regex.test(values.email)) {
+    if (
+      !values.title_offer ||
+      !values.days_nr ||
+      !values.per_hour_money ||
+      !values.city ||
+      !values.neighbourhood ||
+      !values.sex ||
+      !values.persons_nr ||
+      !values.persons_nr ||
+      !values.hours_nr ||
+      !values.city ||
+      !values.neighbourhood ||
+      !values.sex ||
+      !values.day_name ||
+      !values.hours_nr ||
+      !values.time_from ||
+      !values.time_until ||
+      !values.date ||
+      !values.describtion ||
+      !values.street ||
+      !values.haus_nr ||
+      !values.post_code ||
+      !values.add_to_address
+    ) {
       errors = "Bitte richtige Infos eingeben!";
     }
 
@@ -233,8 +255,8 @@ const TheSection = () => {
                 maxLength="200"
                 className="textAreaAddOffer"
                 type="text"
-                name="describe"
-                value={formValues.describe}
+                name="describtion"
+                value={formValues.describtion}
                 onChange={handleChange}
               ></textarea>
             </div>
@@ -265,7 +287,7 @@ const TheSection = () => {
                   <input
                     className="addOfferInputShort"
                     type="text"
-                    name=""
+                    name="street"
                     value={formValues.street}
                     onChange={handleChange}
                   ></input>
@@ -289,7 +311,7 @@ const TheSection = () => {
                   <input
                     className="addOfferInputShort"
                     type="text"
-                    name=""
+                    name="post_code"
                     value={formValues.post_code}
                     onChange={handleChange}
                   ></input>
