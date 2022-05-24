@@ -14,11 +14,6 @@ const TheSection = () => {
   if (userTpy === "firma") forUserLink = "homePageFirma";
   else if (userTpy === "student") forUserLink = "homePageStudent";
   console.log(forUserLink);
-  /* useEffect(()=>{if (userTpy === "student") {
-    setForUserLink ('homePageStudent') ;
-  } else if (userTpy === "firma") {
-    setForUserLink ('homePageFirma') ;
-  }})*/
 
   const initialValues = {
     email: "",
