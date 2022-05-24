@@ -1,0 +1,48 @@
+@import "../vars";
+.content {
+  display: flex;
+  flex: 1 0 auto;
+  flex-flow: row wrap;
+  justify-content: center;
+  padding: 4em;
+}
+.aSWrapDiv {
+    background-color: rgb(175, 185, 178);
+    display: flex;
+    flex-flow: column wrap;
+    padding: 2em;
+    border-radius: 20px;
+    width: 35%;
+    align-items: center;
+    justify-content: center;
+}
+.aSMessageWrap {
+    width: 100%;
+    padding: 1em;
+    text-align: center;
+}
+.apSucsessMessageText {
+    font-weight: bold;
+}
+
+.zumHomePageButtonASDiv {
+    margin-top: 4em;
+    width: 100%;
+    text-align: center;
+}
+.zumHomePageButtonAS {
+    width: 50%;
+    background-color:$form-login-Button-background-color;
+    border: 0;
+    border-radius: 5px;
+    padding: 1em;
+    color: white;
+    text-align: center;
+    cursor: pointer;
+}
+
+@media only screen and (max-width: 768px)  {
+    .aSWrapDiv {
+        width: 90%;
+    }
+  }

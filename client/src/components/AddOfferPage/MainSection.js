@@ -68,7 +68,7 @@ const TheSection = () => {
     console.log(formErrors);
     if (formErrors === "" && isSubmit) {
       console.log(formValues);
-      window.location.href = `http://localhost:3000/`;
+      window.location.href = `http://localhost:3000/addedSucsessPage`;
     }
   }, [formErrors]);
   const handleSubmit = (e) => {

@@ -14,12 +14,13 @@ import JobStatusForAdmin from "./components/JobStatusForAdmin/JobStatusForAdmin"
 import RegSucsessPage from "./components/RegSucsessPage/RegSucsessPage";
 import OfferDetail from './components/OfferDetails/OfferDetails';
 import ApplayOffer from "./components/ApplyOffer/ApplayOffer";
-
+import AddedSuscess from "./components/OfferAddSucsessPage/AddedSucsessPage";
 function App() {
   return (
     <Routes>
       <Route path="/" exact element={<RegFirmaPage />} />
       <Route path="loginPage" element={<LoginPage />} />
+      <Route path="addedSucsessPage" element={<AddedSuscess />} />
       <Route path="regStudentPage" element={<RegStudentPage />} />
       <Route path="addOfferPage" element={<AddOfferPage />} />
       <Route path="regFirmaPage" element={<RegFirmaPage />} />
