@@ -3,7 +3,11 @@ import { useState } from "react";
 import "../../style/AddedSucsessPage/AddedSucsessPage.scss";
 const TheSection = () => {
   const [titleStelle, setTitleStelle] = useState("");
-
+  let userId = "12345";
+  let forUserLink = "";
+  let userTpy = "firma";
+  if (userTpy === "firma") forUserLink = "homePageFirma";
+  else if (userTpy === "student") forUserLink = "homePageStudent";
   return (
     <section className="content">
       <div className="aSWrapDiv">
@@ -13,7 +17,7 @@ const TheSection = () => {
           </p>
         </div>
         <div className="zumHomePageButtonASDiv">
-          <button className="zumHomePageButtonAS" onChange={() => {}}>
+          <button className="zumHomePageButtonAS" onClick={() => window.location.href = `http://localhost:3000/${forUserLink}/${userId}`}>
             zum Homepage
           </button>
         </div>
