@@ -10,9 +10,10 @@ const TheSection = () => {
 
   let userId = "12345";
   let forUserLink = "";
-  let userTpy = "student";
+  let userTpy = "firma";
   if (userTpy === "firma") forUserLink = "homePageFirma";
   else if (userTpy === "student") forUserLink = "homePageStudent";
+  console.log(forUserLink);
   /* useEffect(()=>{if (userTpy === "student") {
     setForUserLink ('homePageStudent') ;
   } else if (userTpy === "firma") {
@@ -45,7 +46,7 @@ const TheSection = () => {
     console.log(formErrors);
     if (formErrors === "" && isSubmit) {
       console.log(formValues);
-      window.location.href = "http://localhost:3000/regSucsessPage";
+      window.location.href = `http://localhost:3000/${forUserLink}/${userId}`;
     }
   }, [formErrors]);
   const handleSubmit = (e) => {
