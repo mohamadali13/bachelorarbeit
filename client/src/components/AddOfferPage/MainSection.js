@@ -1,33 +1,71 @@
 import React from "react";
 import "../../style/AddOfferPage/AddOfferPage.scss";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const TheSection = () => {
-  const [titleStelle, setTitleStelle] = useState("");
-  const [tageNr, setTageNr] = useState("");
-  const [geldPerStunde, setGeldPerStunde] = useState("");
-  const [stadtAddOffer, setStadtAddOffer] = useState("");
-  const [stadtteilAddOffer, setStadtTeilAddOffer] = useState("");
-  const [geschlaechtAddOffer, setGeschlaechtAddOffer] = useState("");
-  const [personenNrAddOffer, setPersonenNrAddOffer] = useState("");
-  const [tagNameAddOffer, setTagNameAddOffer] = useState("");
-  const [stundenNrAddOffer, setStundenNrAddOffer] = useState("");
-  const [zeitVonAddOffer, setZeitVonAddOffer] = useState("");
-  const [zeitBisAddOffer, setZeitBisAddOffer] = useState("");
-  const [beschreungText, setBeschreungText] = useState("");
-  const [hinweiseTextAddOffer, setHinweiseTextAddOffer] = useState("");
-  const [strasseAddOffer, setStrasseAddOffer] = useState("");
-  const [hausNrAddOffer, setHausNrAddOffer] = useState("");
-  const [postleitzahlAddOffer, setPostleitzahlAddOffer] = useState("");
-  const [stadtAddOfferAdresse, setStadtAddOfferAdresse] = useState("");
-  const [zusaetlichAddOffer, setZusaetlichAddOffer] = useState("");
-  const [datumAddOffer, setDatumAddOffer] = useState("");
+  const initialValues = {
+    title_offer: "",
+    days_nr: "",
+    per_hour_money: "",
+    city: "",
+    neighbourhood: "",
+    sex: "",
+    persons_nr: "",
+    day_name: "",
+    hours_nr: "",
+    time_from: "",
+    time_until: "",
+    date: "",
+    describe: "",
+    notes_and_requirements: "",
+    street: "",
+    haus_nr: "",
+    post_code: "",
+    city: "",
+    add_to_address: "",
+  };
+  const [formValues, setFormValues] = useState(initialValues);
+  const [formErrors, setFormErrors] = useState("");
+  const [isSubmit, setIsSubmit] = useState(false);
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormValues({ ...formValues, [name]: value });
+  };
+  const validate = (values) => {
+    let errors = "";
+    const regex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i;
+
+    if (!values.email || !values.password || !regex.test(values.email)) {
+      errors = "Bitte richtige Infos eingeben!";
+    }
+
+    return errors;
+  };
+  useEffect(() => {
+    console.log(formErrors);
+    if (formErrors === "" && isSubmit) {
+      console.log(formValues);
+      window.location.href = `http://localhost:3000/`;
+    }
+  }, [formErrors]);
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setFormErrors(validate(formValues));
+    setIsSubmit(true);
+  };
 
   return (
     <section className="content">
-      <form className="AddOfferForm">
+      <form className="AddOfferForm" onSubmit={handleSubmit}>
         <div className="dateDivAddOffer">
           <p className="dateAddOfferP">Donnerstag, 28 Dezember 2021 </p>
+          <p
+            className="errorText"
+            style={{ margin: "1em", fontWeight: "bold", color: "red" }}
+          >
+            {formErrors}
+          </p>
           <div className="underLineBetween"></div>
         </div>
 
@@ -37,8 +75,9 @@ const TheSection = () => {
             <input
               className="addOfferLongInput"
               type="text"
-              value={titleStelle}
-              onChange={(e) => setTitleStelle(e.target.value)}
+              name="title_offer"
+              value={formValues.title_offer}
+              onChange={handleChange}
             ></input>
           </div>
         </div>
@@ -50,8 +89,9 @@ const TheSection = () => {
               <input
                 className="addOfferInputShort"
                 type="text"
-                value={tageNr}
-                onChange={(e) => setTageNr(e.target.value)}
+                name="days_nr"
+                value={formValues.days_nr}
+                onChange={handleChange}
               ></input>
             </div>
             <div className="addOfferInputsWrap">
@@ -59,8 +99,9 @@ const TheSection = () => {
               <input
                 className="addOfferInputShort"
                 type="text"
-                value={geldPerStunde}
-                onChange={(e) => setGeldPerStunde(e.target.value)}
+                name="per_hour_money"
+                value={formValues.per_hour_money}
+                onChange={handleChange}
               ></input>
             </div>
           </div>
@@ -73,8 +114,9 @@ const TheSection = () => {
               <input
                 className="addOfferInputShort"
                 type="text"
-                value={stadtAddOffer}
-                onChange={(e) => setStadtAddOffer(e.target.value)}
+                name="city"
+                value={formValues.city}
+                onChange={handleChange}
               ></input>
             </div>
             <div className="addOfferInputsWrap">
@@ -82,8 +124,9 @@ const TheSection = () => {
               <input
                 className="addOfferInputShort"
                 type="text"
-                value={stadtteilAddOffer}
-                onChange={(e) => setStadtTeilAddOffer(e.target.value)}
+                name="neighbourhood"
+                value={formValues.neighbourhood}
+                onChange={handleChange}
               ></input>
             </div>
           </div>
@@ -96,8 +139,9 @@ const TheSection = () => {
               <input
                 className="addOfferInputShort"
                 type="text"
-                value={geschlaechtAddOffer}
-                onChange={(e) => setGeschlaechtAddOffer(e.target.value)}
+                name="sex"
+                value={formValues.sex}
+                onChange={handleChange}
               ></input>
             </div>
             <div className="addOfferInputsWrap">
@@ -105,8 +149,9 @@ const TheSection = () => {
               <input
                 className="addOfferInputShort"
                 type="text"
-                value={personenNrAddOffer}
-                onChange={(e) => setPersonenNrAddOffer(e.target.value)}
+                name="persons_nr"
+                value={formValues.persons_nr}
+                onChange={handleChange}
               ></input>
             </div>
           </div>
@@ -123,8 +168,9 @@ const TheSection = () => {
                 <input
                   className="addOfferInputShort"
                   type="text"
-                  value={tagNameAddOffer}
-                  onChange={(e) => setTagNameAddOffer(e.target.value)}
+                  name="day_name"
+                  value={formValues.day_name}
+                  onChange={handleChange}
                 ></input>
               </div>
               <div className="addOfferInputsWrap">
@@ -134,8 +180,9 @@ const TheSection = () => {
                 <input
                   className="addOfferInputShort"
                   type="text"
-                  value={stundenNrAddOffer}
-                  onChange={(e) => setStundenNrAddOffer(e.target.value)}
+                  name="hours_nr"
+                  value={formValues.hours_nr}
+                  onChange={handleChange}
                 ></input>
               </div>
             </div>
@@ -145,8 +192,9 @@ const TheSection = () => {
                 <input
                   className="addOfferInputShort"
                   type="text"
-                  value={zeitVonAddOffer}
-                  onChange={(e) => setZeitVonAddOffer(e.target.value)}
+                  name="time_from"
+                  value={formValues.time_from}
+                  onChange={handleChange}
                 ></input>
               </div>
               <div className="addOfferInputsWrap">
@@ -154,8 +202,9 @@ const TheSection = () => {
                 <input
                   className="addOfferInputShort"
                   type="text"
-                  value={zeitBisAddOffer}
-                  onChange={(e) => setZeitBisAddOffer(e.target.value)}
+                  name="time_until"
+                  value={formValues.time_until}
+                  onChange={handleChange}
                 ></input>
               </div>
             </div>
@@ -165,12 +214,112 @@ const TheSection = () => {
                 <input
                   className="addOfferInputShort"
                   type="text"
-                  value={datumAddOffer}
-                  onChange={(e) => setDatumAddOffer(e.target.value)}
+                  name="date"
+                  value={formValues.date}
+                  onChange={handleChange}
                 ></input>
               </div>
             </div>
-            <div className="addOfferInputsInWrap" id="buttonAddSchicht">
+          </div>
+        </div>
+        <div className="underLineBetween"></div>
+        <div className="addOfferBottomSectionWrap">
+          <div className="beschreibungAddOffer">
+            <div className="titeBottomDivAddOffer">
+              <p className="titeBottomAddOfferText">Beschreibung</p>
+            </div>
+            <div className="textareaWrapAddOffer">
+              <textarea
+                maxLength="200"
+                className="textAreaAddOffer"
+                type="text"
+                name="describe"
+                value={formValues.describe}
+                onChange={handleChange}
+              ></textarea>
+            </div>
+          </div>
+          <div className="hinweiseAddOffer">
+            <div className="titeBottomDivAddOffer">
+              <p className="titeBottomAddOfferText">Hinweise & Anforderungen</p>
+            </div>
+            <div className="textareaWrapAddOffer">
+              <textarea
+                maxLength="200"
+                className="textAreaAddOffer"
+                type="text"
+                name="notes_and_requirements"
+                value={formValues.notes_and_requirements}
+                onChange={handleChange}
+              ></textarea>
+            </div>
+          </div>
+          <div className="adresseAddOffer">
+            <div className="titeBottomDivAddOffer">
+              <p className="titeBottomAddOfferText">Adresse</p>
+            </div>
+            <div className="addOfferInputsOutWrap">
+              <div className="addOfferInputsInWrap">
+                <div className="addOfferInputsWrap">
+                  <label className="addOfferLabelInputs">Straße</label>
+                  <input
+                    className="addOfferInputShort"
+                    type="text"
+                    name=""
+                    value={formValues.street}
+                    onChange={handleChange}
+                  ></input>
+                </div>
+                <div className="addOfferInputsWrap">
+                  <label className="addOfferLabelInputs">Haus.Nr</label>
+                  <input
+                    className="addOfferInputShort"
+                    type="text"
+                    name="haus_nr"
+                    value={formValues.haus_nr}
+                    onChange={handleChange}
+                  ></input>
+                </div>
+              </div>
+            </div>
+            <div className="addOfferInputsOutWrap">
+              <div className="addOfferInputsInWrap">
+                <div className="addOfferInputsWrap">
+                  <label className="addOfferLabelInputs">Postleitzahl</label>
+                  <input
+                    className="addOfferInputShort"
+                    type="text"
+                    name=""
+                    value={formValues.post_code}
+                    onChange={handleChange}
+                  ></input>
+                </div>
+                <div className="addOfferInputsWrap">
+                  <label className="addOfferLabelInputs">Zusätlich</label>
+                  <input
+                    className="addOfferInputShort"
+                    type="text"
+                    name="add_to_address"
+                    value={formValues.add_to_address}
+                    onChange={handleChange}
+                  ></input>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="addOfferWrapButton">
+          <button className="AddOfferButton" type="submit" onClick={() => {}}>
+            Das Angebot Hinzufügen
+          </button>
+        </div>
+      </form>
+    </section>
+  );
+};
+
+export default TheSection;
+/*<div className="addOfferInputsInWrap" id="buttonAddSchicht">
               <div className="addOfferInputsWrap">
                 <button className="buttonAddSchicht" onClick={() => {}}>
                   Hinzufügen
@@ -187,110 +336,4 @@ const TheSection = () => {
                   <div className="schichtInfoCol">d</div>
                 </div>
               </div>
-            </div>
-          </div>
-        </div>
-        <div className="underLineBetween"></div>
-        <div className="addOfferBottomSectionWrap">
-          <div className="beschreibungAddOffer">
-            <div className="titeBottomDivAddOffer">
-              <p className="titeBottomAddOfferText">Beschreibung</p>
-            </div>
-            <div className="textareaWrapAddOffer">
-              <textarea
-                maxLength="200"
-                className="textAreaAddOffer"
-                type="text"
-                value={beschreungText}
-                onChange={(e) => setBeschreungText(e.target.value)}
-              ></textarea>
-            </div>
-          </div>
-          <div className="hinweiseAddOffer">
-            <div className="titeBottomDivAddOffer">
-              <p className="titeBottomAddOfferText">Hinweise & Anforderungen</p>
-            </div>
-            <div className="textareaWrapAddOffer">
-              <textarea
-                maxLength="200"
-                className="textAreaAddOffer"
-                type="text"
-                value={hinweiseTextAddOffer}
-                onChange={(e) => setHinweiseTextAddOffer(e.target.value)}
-              ></textarea>
-            </div>
-          </div>
-          <div className="adresseAddOffer">
-            <div className="titeBottomDivAddOffer">
-              <p className="titeBottomAddOfferText">Adresse</p>
-            </div>
-            <div className="addOfferInputsOutWrap">
-              <div className="addOfferInputsInWrap">
-                <div className="addOfferInputsWrap">
-                  <label className="addOfferLabelInputs">Straße</label>
-                  <input
-                    className="addOfferInputShort"
-                    type="text"
-                    value={strasseAddOffer}
-                    onChange={(e) => setStrasseAddOffer(e.target.value)}
-                  ></input>
-                </div>
-                <div className="addOfferInputsWrap">
-                  <label className="addOfferLabelInputs">Haus.Nr</label>
-                  <input
-                    className="addOfferInputShort"
-                    type="text"
-                    value={hausNrAddOffer}
-                    onChange={(e) => setHausNrAddOffer(e.target.value)}
-                  ></input>
-                </div>
-              </div>
-            </div>
-            <div className="addOfferInputsOutWrap">
-              <div className="addOfferInputsInWrap">
-                <div className="addOfferInputsWrap">
-                  <label className="addOfferLabelInputs">Postleitzahl</label>
-                  <input
-                    className="addOfferInputShort"
-                    type="text"
-                    value={postleitzahlAddOffer}
-                    onChange={(e) => setPostleitzahlAddOffer(e.target.value)}
-                  ></input>
-                </div>
-                <div className="addOfferInputsWrap">
-                  <label className="addOfferLabelInputs">Stadt</label>
-                  <input
-                    className="addOfferInputShort"
-                    type="text"
-                    value={stadtAddOfferAdresse}
-                    onChange={(e) => setStadtAddOfferAdresse(e.target.value)}
-                  ></input>
-                </div>
-              </div>
-            </div>
-            <div className="addOfferInputsOutWrap">
-              <div className="addOfferInputsInWrap">
-                <div className="addOfferInputsWrap">
-                  <label className="addOfferLabelInputs">Zusätlich</label>
-                  <input
-                    className="addOfferInputShort"
-                    type="text"
-                    value={zusaetlichAddOffer}
-                    onChange={(e) => setZusaetlichAddOffer(e.target.value)}
-                  ></input>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div className="addOfferWrapButton">
-          <button className="AddOfferButton" type="submit" onClick={()=>{}}>
-            Das Angebot Hinzufügen
-          </button>
-        </div>
-      </form>
-    </section>
-  );
-};
-
-export default TheSection;
+            </div>*/

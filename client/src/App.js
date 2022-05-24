@@ -21,7 +21,7 @@ function App() {
       <Route path="/" exact element={<RegFirmaPage />} />
       <Route path="loginPage" element={<LoginPage />} />
       <Route path="regStudentPage" element={<RegStudentPage />} />
-      <Route path="AddOfferPage" element={<AddOfferPage />} />
+      <Route path="addOfferPage" element={<AddOfferPage />} />
       <Route path="regFirmaPage" element={<RegFirmaPage />} />
       <Route path="homePageStudent/:studentID" element={<HomePageStudent />} />
       <Route path="homePageAdmin/:adminID" element={<HomePageAdmin />} />
