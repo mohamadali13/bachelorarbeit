@@ -17,7 +17,12 @@ const TheSection = () => {
           </p>
         </div>
         <div className="zumHomePageButtonASDiv">
-          <button className="zumHomePageButtonAS" onClick={() => window.location.href = `http://localhost:3000/${forUserLink}/${userId}`}>
+          <button
+            className="zumHomePageButtonAS"
+            onClick={() =>
+              (window.location.href = `http://localhost:3000/${forUserLink}/${userId}`)
+            }
+          >
             zum Homepage
           </button>
         </div>

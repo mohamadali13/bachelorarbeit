@@ -7,12 +7,12 @@ import AddOfferPage from "./components/AddOfferPage/AddOfferPage";
 import HomePageStudent from "./components/HomePageStudent/HomePageStudent";
 import HomePageAdmin from "./components/HomePageAdmin/HomePageAdmin";
 import HomePageFirma from "./components/HomePageFirma/HomePageFirma";
-import { Routes, Route, Switch } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import AppliedSuscess from "./components/AppliedSucsessPage/AppliedSucsessPage";
 import JobStatusForStudent from "./components/JobStatusForStudent/JobStatusForStudent";
 import JobStatusForAdmin from "./components/JobStatusForAdmin/JobStatusForAdmin";
 import RegSucsessPage from "./components/RegSucsessPage/RegSucsessPage";
-import OfferDetail from './components/OfferDetails/OfferDetails';
+import OfferDetail from "./components/OfferDetails/OfferDetails";
 import ApplayOffer from "./components/ApplyOffer/ApplayOffer";
 import AddedSuscess from "./components/OfferAddSucsessPage/AddedSucsessPage";
 function App() {
