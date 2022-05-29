@@ -2,7 +2,7 @@ import React from "react";
 import "../../style/RegFirmaPage/RegFirmaStyle.scss";
 import LogoImage from "../../img/logoExample.jpg";
 import { useState, useEffect } from "react";
-
+import Axios from "axios";
 const TheSection = () => {
   const initialValues = {
     company_name: "",
@@ -13,16 +13,18 @@ const TheSection = () => {
     city: "",
     tel_nr: "",
     fax_nr: "",
-    email_company: "",
-    add_to_adress: "",
+    add_to_address: "",
     first_name_rep: "",
     last_name_rep: "",
+    email_company: "",
     email_rep: "",
     re_email_rep: "",
     password: "",
     re_password: "",
     tel_nr_rep: "",
     mobile_nr_rep: "",
+    haus_nr: "",
+    post_code: "",
   };
   const [formValues, setFormValues] = useState(initialValues);
   const [formErrors, setFormErrors] = useState("");
@@ -46,7 +48,7 @@ const TheSection = () => {
       !values.tel_nr ||
       !values.fax_nr ||
       !values.email_company ||
-      !values.add_to_adress ||
+      !values.add_to_address ||
       !values.first_name_rep ||
       !values.last_name_rep ||
       !values.password ||
@@ -54,6 +56,8 @@ const TheSection = () => {
       !values.email_rep ||
       !values.re_email_rep ||
       !values.tel_nr_rep ||
+      !values.post_code ||
+      !values.haus_nr ||
       !values.mobile_nr_rep ||
       !regex.test(values.email_company) ||
       !regex.test(values.email_rep) ||
@@ -68,13 +72,41 @@ const TheSection = () => {
     console.log(formErrors);
     if (formErrors === "" && isSubmit) {
       console.log(formValues);
-      window.location.href = "http://localhost:3000/regSucsessPage";
+      regsHandler();
     }
   }, [formErrors]);
   const handleSubmit = (e) => {
     e.preventDefault();
     setFormErrors(validate(formValues));
     setIsSubmit(true);
+  };
+  const regsHandler = () => {
+    Axios.post("http://localhost:8080/createCoAccount", {
+      company_name: formValues.company_name,
+      origin: formValues.origin,
+      found_date: formValues.found_date,
+      reg_nr: formValues.reg_nr,
+      street: formValues.street,
+      city: formValues.city,
+      tel_nr: formValues.tel_nr,
+      fax_nr: formValues.fax_nr,
+      add_to_address: formValues.add_to_address,
+      first_name_rep: formValues.first_name_rep,
+      last_name_rep: formValues.last_name_rep,
+      email_company: formValues.email_company,
+      email_rep: formValues.email_rep,
+      password: formValues.password,
+      tel_nr_rep: formValues.tel_nr_rep,
+      mobile_nr_rep: formValues.mobile_nr_rep,
+      haus_nr: formValues.haus_nr,
+      post_code: formValues.post_code,
+    })
+      .then(() => {
+        window.location.href = "http://localhost:3000/regSucsessPage";
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   };
   return (
     <section className="content">
@@ -196,6 +228,30 @@ const TheSection = () => {
           <div className="regASRow">
             <div className="regAFRowIn">
               <div className="regAFRowInWrap">
+                <label className="regAFLebel">Haus.Nr</label>
+                <input
+                  className="ResAFInput"
+                  type="text"
+                  name="haus_nr"
+                  value={formValues.haus_nr}
+                  onChange={handleChange}
+                />
+              </div>
+              <div className="regAFRowInWrap">
+                <label className="regAFLebel">Postleitzahl</label>
+                <input
+                  className="ResAFInput"
+                  type="text"
+                  name="post_code"
+                  value={formValues.post_code}
+                  onChange={handleChange}
+                />
+              </div>
+            </div>
+          </div>
+          <div className="regASRow">
+            <div className="regAFRowIn">
+              <div className="regAFRowInWrap">
                 <label className="regAFLebel">Email</label>
                 <input
                   className="ResAFInput"
@@ -210,8 +266,8 @@ const TheSection = () => {
                 <input
                   className="ResAFInput"
                   type="text"
-                  name="add_to_adress"
-                  value={formValues.add_to_adress}
+                  name="add_to_address"
+                  value={formValues.add_to_address}
                   onChange={handleChange}
                 />
               </div>

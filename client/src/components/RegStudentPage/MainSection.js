@@ -2,7 +2,7 @@ import React from "react";
 import "../../style/RegStudentPage/RegStudentPage.scss";
 import LogoImage from "../../img/logoExample.jpg";
 import { useState, useEffect } from "react";
-
+import Axios from "axios";
 const TheSection = () => {
   // const [studentChacked, setStudentChacked] = useState("");
 
@@ -24,7 +24,7 @@ const TheSection = () => {
     haus_nr: "",
     post_code: "",
     co: "",
-    add_to_adress: "",
+    add_to_address: "",
     university: "",
     personal_id_nr: "",
   };
@@ -58,7 +58,7 @@ const TheSection = () => {
       !values.haus_nr ||
       !values.post_code ||
       !values.co ||
-      !values.add_to_adress ||
+      !values.add_to_address ||
       !values.university ||
       !values.personal_id_nr ||
       !regex.test(values.email) ||
@@ -73,13 +73,43 @@ const TheSection = () => {
     console.log(formErrors);
     if (formErrors === "" && isSubmit) {
       console.log(formValues);
-      window.location.href = "http://localhost:3000/regSucsessPage";
+      //  window.location.href = "http://localhost:3000/regSucsessPage";
+      regsHandler();
     }
   }, [formErrors]);
   const handleSubmit = (e) => {
     e.preventDefault();
     setFormErrors(validate(formValues));
     setIsSubmit(true);
+  };
+
+  const regsHandler = () => {
+    Axios.post("http://localhost:8080/createStAccount", {
+      first_name: formValues.first_name,
+      last_name: formValues.last_name,
+      birth_date: formValues.birth_date,
+      birth_place: formValues.birth_place,
+      nationality: formValues.nationality,
+      sex: formValues.sex,
+      tel_nr: formValues.tel_nr,
+      mobile_nr: formValues.mobile_nr,
+      email: formValues.email,
+      living_place: formValues.living_place,
+      street: formValues.street,
+      password: formValues.password,
+      haus_nr: formValues.haus_nr,
+      post_code: formValues.post_code,
+      co: formValues.co,
+      add_to_address: formValues.add_to_address,
+      university: formValues.university,
+      personal_id_nr: formValues.personal_id_nr,
+    })
+      .then(() => {
+        window.location.href = "http://localhost:3000/regSucsessPage";
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   };
   return (
     <section className="content">
@@ -305,10 +335,10 @@ const TheSection = () => {
               <div className="rowRegAsSInputInWrap">
                 <label className="regASLebel">Zusatz zur Adresse</label>
                 <input
-                  name="add_to_adress"
+                  name="add_to_address"
                   className="RegASInput"
                   type="text"
-                  value={formValues.add_to_adress}
+                  value={formValues.add_to_address}
                   onChange={handleChange}
                 />
               </div>
