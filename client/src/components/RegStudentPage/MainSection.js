@@ -38,6 +38,7 @@ const TheSection = () => {
   };
   const validate = (values) => {
     let errors = "";
+    let emailAlreadyExsist;
     const regex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i;
 
     if (
@@ -104,7 +105,8 @@ const TheSection = () => {
       university: formValues.university,
       personal_id_nr: formValues.personal_id_nr,
     })
-      .then(() => {
+      .then((res) => {
+        //console.log(res);
         window.location.href = "http://localhost:3000/regSucsessPage";
       })
       .catch((err) => {
