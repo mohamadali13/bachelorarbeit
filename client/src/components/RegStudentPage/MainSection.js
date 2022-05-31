@@ -71,10 +71,10 @@ const TheSection = () => {
     return errors;
   };
   useEffect(() => {
-    console.log(formErrors);
+    //console.log(formErrors);
     if (formErrors === "" && isSubmit) {
-      console.log(formValues);
-      //  window.location.href = "http://localhost:3000/regSucsessPage";
+     // console.log(formValues);
+       // window.location.href = "http://localhost:3000/regSucsessPage";
       regsHandler();
     }
   }, [formErrors]);
@@ -106,8 +106,11 @@ const TheSection = () => {
       personal_id_nr: formValues.personal_id_nr,
     })
       .then((res) => {
-        //console.log(res);
-        window.location.href = "http://localhost:3000/regSucsessPage";
+        if (
+          Object.values(res.data).indexOf("Email ist bereits existiert") > -1
+        ) {
+          return setFormErrors(res.data.message);
+        } else window.location.href = "http://localhost:3000/regSucsessPage";
       })
       .catch((err) => {
         console.log(err);

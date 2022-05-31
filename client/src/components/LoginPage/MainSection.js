@@ -3,6 +3,7 @@ import "../../style/LoginPage/LoginPage.scss";
 import LogoImage from "../../img/logoExample.jpg";
 import { useState } from "react";
 import { useParams } from "react-router-dom";
+import Axios from "axios";
 const TheSection = () => {
   //const [forUserLink, setForUserLink] = useState("");
 
@@ -41,7 +42,8 @@ const TheSection = () => {
     console.log(formErrors);
     if (formErrors === "" && isSubmit) {
       console.log(formValues);
-      window.location.href = `http://localhost:3000/${forUserLink}/${userId}`;
+      loginHandler();
+      // window.location.href = `http://localhost:3000/${forUserLink}/${userId}`;
     }
   }, [formErrors]);
   const handleSubmit = (e) => {
@@ -50,6 +52,24 @@ const TheSection = () => {
     setIsSubmit(true);
   };
 
+  const loginHandler = () => {
+    Axios.post("http://localhost:8080/login", {
+      email: formValues.email,
+      password: formValues.password,
+    })
+      .then((res) => {
+        if (
+          Object.values(res.data).indexOf(
+            "Die Email oder Das Passwrot ist falsch"
+          ) > -1
+        ) {
+          return setFormErrors(res.data.message);
+        } else window.location.href = `http://localhost:3000/${forUserLink}/${userId}`;
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
   return (
     <section className="content">
       <form id="loginForm" onSubmit={handleSubmit}>

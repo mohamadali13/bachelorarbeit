@@ -1,14 +1,16 @@
 const express = require("express");
 const mysql = require("mysql");
+var morgan = require("morgan");
 const app = express();
 const port = 8080;
 const cors = require("cors");
-
+app.use(morgan("dev"));
 app.use(express.json());
 app.use(cors());
+require("dotenv").config();
 //connection
 
-const db = mysql.createConnection({
+const db = mysql.createPool({
   user: "root",
   host: "localhost",
   password: "",
@@ -19,6 +21,59 @@ app.get("/", (req, res) => {
   res.send("Hello World Mohamad und Renad!");
 });
 
+app.post("/login", (req, res) => {
+  const email = req.body.email;
+  const password = req.body.password;
+
+  db.query("SELECT * FROM student WHERE email  = ?", [email], (err, result) => {
+    if (err) {
+      return console.log(err);
+    } else if (result.length > 0) {
+      //  return res.status(200).json({ message: "Email ist nicht existiert" });
+      if (password == result[0].password) {
+        return console.log("loggin");
+      } else {
+        return console.log("password not correct");
+      }
+    } else {
+      db.query(
+        "SELECT * FROM company WHERE email_company  = ?",
+        [email],
+        (err, result) => {
+          if (err) {
+            return console.log(err);
+          } else if (result.length > 0) {
+            if (password == result[0].password) {
+              return console.log("loggin");
+            } else {
+              return console.log("password not correct");
+            }
+          } else {
+            db.query(
+              "SELECT * FROM admin WHERE email  = ?",
+              [email],
+              (err, result) => {
+                if (err) {
+                  return console.log(err);
+                } else if (result.length > 0) {
+                  if (password == result[0].password) {
+                    return console.log("loggin");
+                  } else {
+                    return console.log("password not correct");
+                  }
+                } else {
+                  return console.log("user not found!!!!");
+                }
+              }
+            );
+          }
+        }
+      );
+    }
+  });
+});
+
+//creatCoAccount
 app.post("/createCoAccount", (req, res) => {
   const company_name = req.body.company_name;
   const origin = req.body.origin;
@@ -40,38 +95,62 @@ app.post("/createCoAccount", (req, res) => {
   const post_code = req.body.post_code;
 
   db.query(
-    "INSERT INTO companies (company_name,	origin,	found_date,	reg_nr,	street,	haus_nr,	post_code	,city,	tel_nr,	fax_nr,	email_company,	add_to_address,	first_name_rep,	last_name_rep,	password,	email_rep,	tel_nr_rep,	mobile_nr_rep,	role) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)",
-    [
-      company_name,
-      origin,
-      found_date,
-      reg_nr,
-      street,
-      haus_nr,
-      post_code,
-      city,
-      tel_nr,
-      fax_nr,
-      email_company,
-      add_to_address,
-      first_name_rep,
-      last_name_rep,
-      password,
-      email_rep,
-      tel_nr_rep,
-      mobile_nr_rep,
-      "company",
-    ],
+    "SELECT COUNT(*) AS co FROM company WHERE email_rep = ?",
+    [email_rep],
     (err, result) => {
-      if (err) {
-        console.log(err);
+      const exist1 = result[0].co;
+      if (exist1 > 0) {
+        return res.status(200).json({ message: "Email ist bereits existiert" });
       } else {
-        res.send("Values Inserted");
+        db.query(
+          "SELECT COUNT(*) AS co FROM student WHERE email = ?",
+          [email_rep],
+          (err, result) => {
+            const exist2 = result[0].co;
+            if (exist2 > 0) {
+              return res
+                .status(200)
+                .json({ message: "Email ist bereits existiert" });
+            } else {
+              db.query(
+                "INSERT INTO company (company_name,	origin,	found_date,	reg_nr,	street,	haus_nr,	post_code	,city,	tel_nr,	fax_nr,	email_company,	add_to_address,	first_name_rep,	last_name_rep,	password,	email_rep,	tel_nr_rep,	mobile_nr_rep,	role) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)",
+                [
+                  company_name,
+                  origin,
+                  found_date,
+                  reg_nr,
+                  street,
+                  haus_nr,
+                  post_code,
+                  city,
+                  tel_nr,
+                  fax_nr,
+                  email_company,
+                  add_to_address,
+                  first_name_rep,
+                  last_name_rep,
+                  password,
+                  email_rep,
+                  tel_nr_rep,
+                  mobile_nr_rep,
+                  "company",
+                ],
+                (err, result) => {
+                  if (err) {
+                    console.log(err);
+                  } else {
+                    res.send("Values Inserted");
+                  }
+                }
+              );
+            }
+          }
+        );
       }
     }
   );
 });
-
+/*  */
 // createStAccount
 app.post("/createStAccount", (req, res) => {
   const first_name = req.body.first_name;
@@ -92,35 +171,58 @@ app.post("/createStAccount", (req, res) => {
   const add_to_address = req.body.add_to_address;
   const university = req.body.university;
   const personal_id_nr = req.body.personal_id_nr;
-  console.log(req.body);
   db.query(
-    "INSERT INTO students (first_name,	last_name	,birth_date	,birth_place,	nationality,	tel_nr,	mobile_nr,	email	,living_place,	street,	haus_nr,	post_code,	co,	password,	university,	add_to_address,	personal_id_nr,	role,	sex) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)",
-    [
-      first_name,
-      last_name,
-      birth_date,
-      birth_place,
-      nationality,
-      tel_nr,
-      mobile_nr,
-      email,
-      living_place,
-      street,
-      haus_nr,
-      post_code,
-      co,
-      password,
-      university,
-      add_to_address,
-      personal_id_nr,
-      "student",
-      sex,
-    ],
+    "SELECT COUNT(*) AS co FROM student WHERE email = ?",
+    [email],
     (err, result) => {
-      if (err) {
-        console.log(err);
+      const exist1 = result[0].co;
+      if (exist1 > 0) {
+        return res.status(200).json({ message: "Email ist bereits existiert" });
       } else {
-        res.send("Values Inserted");
+        db.query(
+          "SELECT COUNT(*) AS co FROM company WHERE email_company = ?",
+          [email],
+          (err, result) => {
+            const exist2 = result[0].co;
+            if (exist2 > 0) {
+              return res
+                .status(200)
+                .json({ message: "Email ist bereits existiert" });
+            } else {
+              db.query(
+                "INSERT INTO student (first_name,	last_name	,birth_date	,birth_place,	nationality,	tel_nr,	mobile_nr,	email	,living_place,	street,	haus_nr,	post_code,	co,	password,	university,	add_to_address,	personal_id_nr,	role,	sex) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)",
+                [
+                  first_name,
+                  last_name,
+                  birth_date,
+                  birth_place,
+                  nationality,
+                  tel_nr,
+                  mobile_nr,
+                  email,
+                  living_place,
+                  street,
+                  haus_nr,
+                  post_code,
+                  co,
+                  password,
+                  university,
+                  add_to_address,
+                  personal_id_nr,
+                  "student",
+                  sex,
+                ],
+                (err, result) => {
+                  if (err) {
+                    console.log(err);
+                  } else {
+                    return res.status(200).json({ message: "done" });
+                  }
+                }
+              );
+            }
+          }
+        );
       }
     }
   );
@@ -129,47 +231,3 @@ app.post("/createStAccount", (req, res) => {
 app.listen(port, () => {
   console.log(`The app listening on port ${port}`);
 });
-/*const http = require('http');
-const fs = require('fs');
-const requestHandler = (req, res) => {
-  const url = req.url;
-  const method = req.method;
-  if (url === '/') {
-    res.write('<html>');
-    res.write('<head><title>Enter Message</title></head>');
-    res.write(
-      '<body><form action="/message" method="POST"><input type="text" name="message"><button type="submit">Send</button></form></body>'
-    );
-    res.write('</html>');
-    return res.end();
-  }
-  
-  if (url === '/message' && method === 'POST') {
-    const body = [];
-    req.on('data', chunk => {
-      console.log(chunk);
-      body.push(chunk);
-    });
-    return req.on('end', () => {
-      const parsedBody = Buffer.concat(body).toString();
-      const message = parsedBody.split('=')[1];
-      fs.writeFile('message.txt', message, err => {
-        res.statusCode = 302;
-        res.setHeader('Location', '/');
-        return res.end();
-      });
-    });
-  }
-  res.setHeader('Content-Type', 'text/html');
-  res.write('<html>');
-  res.write('<head><title>My First Page</title><head>');
-  res.write('<body><h1>Hello from my Node.js Server!</h1></body>');
-  res.write('</html>');
-  res.end();
-};
-
-//console.log(routes.someText);
-
-const server = http.createServer(requestHandler);
-
-server.listen(8080);*/

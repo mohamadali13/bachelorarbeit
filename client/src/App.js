@@ -18,7 +18,7 @@ import AddedSuscess from "./components/OfferAddSucsessPage/AddedSucsessPage";
 function App() {
   return (
     <Routes>
-      <Route path="/" exact element={<RegStudentPage />} />
+      <Route path="/" exact element={<RegFirmaPage />} />
       <Route path="loginPage" element={<LoginPage />} />
       <Route path="addedSucsessPage" element={<AddedSuscess />} />
       <Route path="regStudentPage" element={<RegStudentPage />} />
