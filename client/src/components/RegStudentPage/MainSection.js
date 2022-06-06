@@ -71,13 +71,10 @@ const TheSection = () => {
     return errors;
   };
   useEffect(() => {
-    //console.log(formErrors);
     if (formErrors === "" && isSubmit) {
-     // console.log(formValues);
-       // window.location.href = "http://localhost:3000/regSucsessPage";
       regsHandler();
     }
-  }, [formErrors]);
+  }, [formErrors,formValues]);
   const handleSubmit = (e) => {
     e.preventDefault();
     setFormErrors(validate(formValues));

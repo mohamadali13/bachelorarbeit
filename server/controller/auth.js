@@ -29,7 +29,7 @@ module.exports.login =  async (req, res) =>{
           } else {
             return res
               .status(400)
-              .json({ message: "Die Email oder Das Passwrot ist falsch" });
+              .json({ message: "Das Passwrot ist falsch" });
           }
         } 
         else {
@@ -46,7 +46,7 @@ module.exports.login =  async (req, res) =>{
                 } else {
                   return res
                     .status(400)
-                    .json({ message: "Die Email oder Das Passwrot ist falsch" });
+                    .json({ message: "Das Passwrot ist falsch" });
                 }
               } else {
                 db.query(
@@ -61,7 +61,7 @@ module.exports.login =  async (req, res) =>{
                         return res.status(200).json({ message: "loggedin" });
                       } else {
                         return res.status(400).json({
-                          message: "Die Email oder Das Passwrot ist falsch",
+                          message: "Das Passwrot ist falsch",
                         });
                       }
                     } else {
