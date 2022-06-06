@@ -2,19 +2,22 @@ import React, { useEffect } from "react";
 import "../../style/LoginPage/LoginPage.scss";
 import LogoImage from "../../img/logoExample.jpg";
 import { useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams,useNavigate } from "react-router-dom";
 import Axios from "axios";
+import jwt_decode from "jwt-decode";
+ 
+
+
 const TheSection = () => {
+  
+  const navigate = useNavigate();
   //const [forUserLink, setForUserLink] = useState("");
 
   //const param = useParams();
 
-  let userId = "12345";
-  let forUserLink = "";
-  let userTpy = "firma";
-  if (userTpy === "firma") forUserLink = "homePageFirma";
-  else if (userTpy === "student") forUserLink = "homePageStudent";
-  console.log(forUserLink);
+
+ 
+
 
   const initialValues = {
     email: "",
@@ -24,28 +27,79 @@ const TheSection = () => {
   const [formErrors, setFormErrors] = useState("");
   const [isSubmit, setIsSubmit] = useState(false);
 
+
+  const validate = (values) => {
+    console.log(values);
+    let errors = "";
+     let errorsState =false;
+    const regex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i;
+
+    if (
+      values.email.length == 0 ||
+      values.password.length == 0 ||
+      !regex.test(values.email)
+    ) {
+      errors = "Bitte richtige Infos eingeben!";
+      errorsState = true;
+    }
+
+    return {errorsState, errors }
+  };
+
+
+
+  function handleLogin(){
+    let email = document.getElementById("email").value;
+    let password =document.getElementById("password").value;
+    console.log(email, " ", password)
+    let result= validate({email, password});
+    if(result.errorsState)
+    alert(result.errors);
+    Axios.post("http://localhost:4000/api/v1/auth/login", {
+    email,
+    password,
+    })
+      .then((res) => {
+        console.log(res.data.token);
+        localStorage.setItem('token', res.data.token);
+   
+        var decoded = jwt_decode(res.data.token);
+      
+        localStorage.setItem('name', decoded.name);
+        localStorage.setItem('role', decoded.role);
+
+        if(decoded.role =="student")
+          navigate('/homePageStudent')
+         else if(decoded.role =="company")
+             navigate('/homePageFirma')
+      })
+      .catch((err) => {
+      alert(err.response.data.message)
+        console.log(err);
+      });
+
+
+
+  }
+
+
   const handleChange = (e) => {
+    console.log("pla", e.target)
     const { name, value } = e.target;
     setFormValues({ ...formValues, [name]: value });
   };
-  const validate = (values) => {
-    let errors = "";
-    const regex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i;
-
-    if (!values.email || !values.password || !regex.test(values.email)) {
-      errors = "Bitte richtige Infos eingeben!";
-    }
-
-    return errors;
-  };
+ 
   useEffect(() => {
-    console.log(formErrors);
+    console.log("out")
+
+    // console.log(formErrors);
     if (formErrors === "" && isSubmit) {
-      console.log(formValues);
+      console.log("in")
+      // console.log(formValues);
       loginHandler();
       // window.location.href = `http://localhost:3000/${forUserLink}/${userId}`;
     }
-  }, [formErrors]);
+  }, [formErrors] );
   const handleSubmit = (e) => {
     e.preventDefault();
     setFormErrors(validate(formValues));
@@ -53,26 +107,19 @@ const TheSection = () => {
   };
 
   const loginHandler = () => {
-    Axios.post("http://localhost:8080/login", {
-      email: formValues.email,
-      password: formValues.password,
-    })
-      .then((res) => {
-        if (
-          Object.values(res.data).indexOf(
-            "Die Email oder Das Passwrot ist falsch"
-          ) > -1
-        ) {
-          return setFormErrors(res.data.message);
-        } else window.location.href = `http://localhost:3000/${forUserLink}/${userId}`;
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+  
   };
   return (
     <section className="content">
-      <form id="loginForm" onSubmit={handleSubmit}>
+      <div>
+
+
+
+        <input id="email" />
+        <input id="password" />
+        <button onClick={handleLogin}>login</button>
+      </div>
+      {/* <form id="loginForm" onSubmit={handleSubmit}>
         <div className="loginLogoImageDiv">
           <img src={LogoImage} style={{ width: "25%", height: "100%" }} />
         </div>
@@ -130,7 +177,7 @@ const TheSection = () => {
             </div>
           </div>
         </div>
-      </form>
+      </form> */}
     </section>
   );
 };

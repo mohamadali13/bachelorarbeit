@@ -3,11 +3,19 @@ import { useState } from "react";
 import "../../style/HomePageFirma/HomePageFirma.scss";
 import TheOffer from "../Offer/Offer";
 const TheSection = () => {
+  
   const [loginEmail, setLoginEmail] = useState("");
   let data = [
     { name: "ahmed", price: 123 },
     { name: "mohamad", price: 1553 },
   ];
+  // api/v1/company
+
+   /**
+    * useeffect -> axios ->post 
+    * offer /:id
+    * 
+    */
   let offers = data.map((offer) => {
     return <TheOffer offerInfo={offer} />;
   });

@@ -24,16 +24,16 @@ function App() {
       <Route path="regStudentPage" element={<RegStudentPage />} />
       <Route path="addOfferPage" element={<AddOfferPage />} />
       <Route path="regFirmaPage" element={<RegFirmaPage />} />
-      <Route path="homePageStudent/:studentID" element={<HomePageStudent />} />
-      <Route path="homePageAdmin/:adminID" element={<HomePageAdmin />} />
-      <Route path="homePageFirma/:firmaID" element={<HomePageFirma />} />
+      <Route path="homePageStudent" element={<HomePageStudent />} />
+      <Route path="homePageAdmin" element={<HomePageAdmin />} />
+      <Route path="homePageFirma" element={<HomePageFirma />} />
       <Route path="appliedSuscess" element={<AppliedSuscess />} />
       <Route
-        path="jobStatusForStudent/:studentID"
+        path="jobStatusForStudent"
         element={<JobStatusForStudent />}
       />
       <Route
-        path="jobStatusForAdmin/:firmaID"
+        path="jobStatusForAdmin"
         element={<JobStatusForAdmin />}
       />
       <Route path="regSucsessPage" element={<RegSucsessPage />} />
