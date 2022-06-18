@@ -3,9 +3,10 @@ import "../../style/RegStudentPage/RegStudentPage.scss";
 import LogoImage from "../../img/logoExample.jpg";
 import { useState, useEffect } from "react";
 import Axios from "axios";
+import { useNavigate } from "react-router-dom";
 const TheSection = () => {
   // const [studentChacked, setStudentChacked] = useState("");
-
+  const navigate = useNavigate();
   const initialValues = {
     first_name: "",
     last_name: "",
@@ -16,11 +17,9 @@ const TheSection = () => {
     tel_nr: "",
     mobile_nr: "",
     email: "",
-    re_email: "",
     living_place: "",
     street: "",
     password: "",
-    re_password: "",
     haus_nr: "",
     post_code: "",
     co: "",
@@ -31,91 +30,109 @@ const TheSection = () => {
   const [formValues, setFormValues] = useState(initialValues);
   const [formErrors, setFormErrors] = useState("");
   const [isSubmit, setIsSubmit] = useState(false);
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormValues({ ...formValues, [name]: value });
-  };
   const validate = (values) => {
     let errors = "";
-    let emailAlreadyExsist;
     const regex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i;
 
     if (
-      !values.first_name ||
-      !values.last_name ||
-      !values.birth_date ||
-      !values.birth_place ||
-      !values.nationality ||
-      !values.sex ||
-      !values.tel_nr ||
-      !values.mobile_nr ||
-      !values.email ||
-      !values.re_email ||
-      !values.living_place ||
-      !values.street ||
-      !values.password ||
-      !values.re_password ||
-      !values.haus_nr ||
-      !values.post_code ||
-      !values.co ||
-      !values.add_to_address ||
-      !values.university ||
-      !values.personal_id_nr ||
-      !regex.test(values.email) ||
-      !regex.test(values.re_email)
+      values.first_name.length == 0 ||
+      values.last_name.length == 0 ||
+      values.birth_date.length == 0 ||
+      values.birth_place.length == 0 ||
+      values.nationality.length == 0 ||
+      values.sex.length == 0 ||
+      values.tel_nr.length == 0 ||
+      values.mobile_nr.length == 0 ||
+      values.email.length == 0 ||
+      values.re_email.length == 0 ||
+      values.living_place.length == 0 ||
+      values.street.length == 0 ||
+      values.password.length == 0 ||
+      values.re_password.length == 0 ||
+      values.haus_nr.length == 0 ||
+      values.post_code.length == 0 ||
+      values.co.length == 0 ||
+      values.add_to_address.length == 0 ||
+      values.university.length == 0 ||
+      values.personal_id_nr.length == 0 ||
+      !regex.test(values.email)
     ) {
       errors = "Bitte richtige Infos eingeben!";
     }
 
     return errors;
   };
+  const handleChange = (e) => {
+    //  console.log("pla", e.target);
+    const { name, value } = e.target;
+    setFormValues({ ...formValues, [name]: value });
+  };
   useEffect(() => {
     if (formErrors === "" && isSubmit) {
-      regsHandler();
+      console.log("sucess");
+      regsHandle();
     }
-  }, [formErrors,formValues]);
+  }, [formErrors, formValues]);
   const handleSubmit = (e) => {
     e.preventDefault();
     setFormErrors(validate(formValues));
     setIsSubmit(true);
   };
 
-  const regsHandler = () => {
-    Axios.post("http://localhost:8080/createStAccount", {
-      first_name: formValues.first_name,
-      last_name: formValues.last_name,
-      birth_date: formValues.birth_date,
-      birth_place: formValues.birth_place,
-      nationality: formValues.nationality,
-      sex: formValues.sex,
-      tel_nr: formValues.tel_nr,
-      mobile_nr: formValues.mobile_nr,
-      email: formValues.email,
-      living_place: formValues.living_place,
-      street: formValues.street,
-      password: formValues.password,
-      haus_nr: formValues.haus_nr,
-      post_code: formValues.post_code,
-      co: formValues.co,
-      add_to_address: formValues.add_to_address,
-      university: formValues.university,
-      personal_id_nr: formValues.personal_id_nr,
+  function regsHandle() {
+    //  const email = formValues.email;
+    //  const password = formValues.password;
+    const first_name = formValues.first_name;
+    const last_name = formValues.last_name;
+    const birth_date = formValues.birth_date;
+    const birth_place = formValues.birth_place;
+    const nationality = formValues.nationality;
+    const sex = formValues.sex;
+    const tel_nr = formValues.tel_nr;
+    const mobile_nr = formValues.mobile_nr;
+    const email = formValues.email;
+    const living_place = formValues.living_place;
+    const street = formValues.street;
+    const password = formValues.password;
+    const haus_nr = formValues.haus_nr;
+    const post_code = formValues.post_code;
+    const co = formValues.co;
+    const add_to_address = formValues.add_to_address;
+    const university = formValues.university;
+    const personal_id_nr = formValues.personal_id_nr;
+
+    Axios.post("http://localhost:4000/api/v1/auth/signup/st", {
+      first_name,
+      last_name,
+      birth_date,
+      birth_place,
+      nationality,
+      sex,
+      tel_nr,
+      mobile_nr,
+      email,
+      living_place,
+      street,
+      password,
+      haus_nr,
+      post_code,
+      co,
+      add_to_address,
+      university,
+      personal_id_nr,
     })
       .then((res) => {
-        if (
-          Object.values(res.data).indexOf("Email ist bereits existiert") > -1
-        ) {
-          return setFormErrors(res.data.message);
-        } else window.location.href = "http://localhost:3000/regSucsessPage";
+        navigate("/homePageStudent");
       })
       .catch((err) => {
+        setFormErrors(err.response.data.message);
         console.log(err);
       });
-  };
+  }
+
   return (
     <section className="content">
-      <form className="regStudentForm" onSubmit={handleSubmit}>
+      <div className="regStudentForm">
         <div className="regSLogoImageDiv">
           <img src={LogoImage} style={{ width: "25%", height: "100%" }} />
         </div>
@@ -249,7 +266,7 @@ const TheSection = () => {
                 />
               </div>
             </div>
-          </div>{" "}
+          </div>
           <div className="regASRow">
             <div className="regASRowIn">
               <div className="rowRegAsSInputInWrap">
@@ -378,7 +395,7 @@ const TheSection = () => {
               type="submit"
               value="Sign Up"
               className="signUpSButton"
-              // onClick={handleSubmit}
+              onClick={handleSubmit}
             />
           </div>
           <div className="termsSDiv">
@@ -395,7 +412,7 @@ const TheSection = () => {
             </div>
           </div>
         </div>
-      </form>
+      </div>
     </section>
   );
 };

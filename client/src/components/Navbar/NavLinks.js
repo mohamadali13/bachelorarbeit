@@ -1,28 +1,60 @@
 import React from "react";
+import { useParams, useNavigate } from "react-router-dom";
 import "../../style/Navbar/NavLinks.scss";
-
-const theNavLinks = () => {
-  let auth = localStorage.getItem("auth");
-
+/*var current_time = new Date().getTime() / 1000;
+	if (current_time > jwt.exp) { /* expired  }*/
+const TheNavLinks = () => {
+  const navigate = useNavigate();
+  let auth = localStorage.getItem("token");
+  let role = localStorage.getItem("role");
   return (
     <ul id="linksNavigation">
-      {/*auth& <li>
-              <a href= '#'>Login</a>
-      </li>*/}
-      <li>
-        <a href="#">Login</a>
-      </li>
-      <li>
-        <a href="#">Für Unternehmen</a>
-      </li>
-      <li>
-        <a href="#">Für Studenten</a>
-      </li>
-      <li>
+      {auth ? (
+        <li
+          onClick={(auth) => {
+            localStorage.removeItem("token");
+            navigate("/loginPage");
+          }}
+        >
+          <a href="#">Logout</a>
+        </li>
+      ) : (
+        <li onClick={() => navigate("/loginPage")}>
+          <a href="#">Login</a>
+        </li>
+      )}
+      {role === "student" && (
+        <li onClick={() => {}}>
+          <a href="#">Meine Jobs</a>
+        </li>
+      )}
+      {role === "student" && (
+        <li onClick={() => {}}>
+          <a href="#">Jobs</a>
+        </li>
+      )}
+      {role === "company" && (
+        <li onClick={() => {}}>
+          <a href="#">Meine Anzeigen</a>
+        </li>
+      )}
+      {role === "company" && (
+        <li onClick={() => navigate("/addOfferPage")}>
+          <a href="#">Anzeige Hinzufügen</a>
+        </li>
+      )}
+
+      {role === "admin" && (
+        <li onClick={() => {}}>
+          <a href="#">Jobs</a>
+        </li>
+      )}
+
+      <li onClick={() => {}}>
         <a href="#">Kontakt</a>
       </li>
     </ul>
   );
 };
 
-export default theNavLinks;
+export default TheNavLinks;

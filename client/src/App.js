@@ -7,7 +7,7 @@ import AddOfferPage from "./components/AddOfferPage/AddOfferPage";
 import HomePageStudent from "./components/HomePageStudent/HomePageStudent";
 import HomePageAdmin from "./components/HomePageAdmin/HomePageAdmin";
 import HomePageFirma from "./components/HomePageFirma/HomePageFirma";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useNavigate } from "react-router-dom";
 import AppliedSuscess from "./components/AppliedSucsessPage/AppliedSucsessPage";
 import JobStatusForStudent from "./components/JobStatusForStudent/JobStatusForStudent";
 import JobStatusForAdmin from "./components/JobStatusForAdmin/JobStatusForAdmin";
@@ -15,28 +15,32 @@ import RegSucsessPage from "./components/RegSucsessPage/RegSucsessPage";
 import OfferDetail from "./components/OfferDetails/OfferDetails";
 import ApplayOffer from "./components/ApplyOffer/ApplayOffer";
 import AddedSuscess from "./components/OfferAddSucsessPage/AddedSucsessPage";
+import ProtectedRoutes from "./ProtectedRoutes";
+import { useEffect } from "react";
+var jwt = require('jsonwebtoken');
 function App() {
+  const navigate = useNavigate();
+
+
   return (
     <Routes>
+      <Route element={<ProtectedRoutes />}>
+        <Route path="addOfferPage" element={<AddOfferPage />} />
+      </Route>
       <Route path="/" exact element={<RegFirmaPage />} />
-      <Route path="loginPage" element={<LoginPage />} />
-      <Route path="addedSucsessPage" element={<AddedSuscess />} />
+      <Route path="loginPage" exact element={<LoginPage />} />
+      <Route path="addedSucsessPage" exact element={<AddedSuscess />} />
       <Route path="regStudentPage" element={<RegStudentPage />} />
-      <Route path="addOfferPage" element={<AddOfferPage />} />
-      <Route path="regFirmaPage" element={<RegFirmaPage />} />
-      <Route path="homePageStudent" element={<HomePageStudent />} />
-      <Route path="homePageAdmin" element={<HomePageAdmin />} />
-      <Route path="homePageFirma" element={<HomePageFirma />} />
-      <Route path="appliedSuscess" element={<AppliedSuscess />} />
-      <Route
-        path="jobStatusForStudent"
-        element={<JobStatusForStudent />}
-      />
-      <Route
-        path="jobStatusForAdmin"
-        element={<JobStatusForAdmin />}
-      />
+
+      <Route path="regFirmaPage" exact element={<RegFirmaPage />} />
+      <Route path="homePageStudent" exact element={<HomePageStudent />} />
+      <Route path="homePageAdmin" exact element={<HomePageAdmin />} />
+      <Route path="homePageFirma" exact element={<HomePageFirma />} />
+      <Route path="appliedSuscess" exact element={<AppliedSuscess />} />
+      <Route path="jobStatusForStudent" element={<JobStatusForStudent />} />
+      <Route path="jobStatusForAdmin" element={<JobStatusForAdmin />} />
       <Route path="regSucsessPage" element={<RegSucsessPage />} />
+      <Route path="*" element={<p>There's nothing here: 404!</p>} />
     </Routes>
   );
 }

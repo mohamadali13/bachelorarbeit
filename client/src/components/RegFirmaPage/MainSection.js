@@ -3,7 +3,9 @@ import "../../style/RegFirmaPage/RegFirmaStyle.scss";
 import LogoImage from "../../img/logoExample.jpg";
 import { useState, useEffect } from "react";
 import Axios from "axios";
+import { useNavigate } from "react-router-dom";
 const TheSection = () => {
+  const navigate = useNavigate();
   const initialValues = {
     company_name: "",
     origin: "",
@@ -39,26 +41,26 @@ const TheSection = () => {
     const regex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i;
 
     if (
-      !values.company_name ||
-      !values.origin ||
-      !values.found_date ||
-      !values.reg_nr ||
-      !values.street ||
-      !values.city ||
-      !values.tel_nr ||
-      !values.fax_nr ||
-      !values.email_company ||
-      !values.add_to_address ||
-      !values.first_name_rep ||
-      !values.last_name_rep ||
-      !values.password ||
-      !values.re_password ||
-      !values.email_rep ||
-      !values.re_email_rep ||
-      !values.tel_nr_rep ||
-      !values.post_code ||
-      !values.haus_nr ||
-      !values.mobile_nr_rep ||
+      values.company_name.length == 0 ||
+      values.origin.length == 0 ||
+      values.found_date.length == 0 ||
+      values.reg_nr.length == 0 ||
+      values.street.length == 0 ||
+      values.city.length == 0 ||
+      values.tel_nr.length == 0 ||
+      values.fax_nr.length == 0 ||
+      values.email_company.length == 0 ||
+      values.add_to_address.length == 0 ||
+      values.first_name_rep.length == 0 ||
+      values.last_name_rep.length == 0 ||
+      values.password.length == 0 ||
+      values.re_password.length == 0 ||
+      values.email_rep.length == 0 ||
+      values.re_email_rep.length == 0 ||
+      values.tel_nr_rep.length == 0 ||
+      values.post_code.length == 0 ||
+      values.haus_nr.length == 0 ||
+      values.mobile_nr_rep.length == 0 ||
       !regex.test(values.email_company) ||
       !regex.test(values.email_rep) ||
       !regex.test(values.re_email_rep)
@@ -69,19 +71,19 @@ const TheSection = () => {
     return errors;
   };
   useEffect(() => {
-  //  console.log(formErrors);
+    //  console.log(formErrors);
     if (formErrors === "" && isSubmit) {
-    //  console.log(formValues);
+      //  console.log(formValues);
       regsHandler();
     }
-  }, [formErrors]);
+  }, [formErrors, formValues]);
   const handleSubmit = (e) => {
     e.preventDefault();
     setFormErrors(validate(formValues));
     setIsSubmit(true);
   };
   const regsHandler = () => {
-    Axios.post("http://localhost:8080/createCoAccount", {
+    Axios.post("http://localhost:4000/api/v1/auth/signup/co", {
       company_name: formValues.company_name,
       origin: formValues.origin,
       found_date: formValues.found_date,
@@ -102,19 +104,16 @@ const TheSection = () => {
       post_code: formValues.post_code,
     })
       .then((res) => {
-        if (
-          Object.values(res.data).indexOf("Email ist bereits existiert") > -1
-        ) {
-          return setFormErrors(res.data.message);
-        } else window.location.href = "http://localhost:3000/regSucsessPage";
+        navigate("/regSucsessPage");
       })
       .catch((err) => {
+        setFormErrors(err.response.data.message);
         console.log(err);
       });
   };
   return (
     <section className="content">
-      <form className="regFirmaForm" onSubmit={handleSubmit}>
+      <div className="regFirmaForm">
         <div className="regFLogoImageDiv">
           <img src={LogoImage} style={{ width: "25%", height: "100%" }} />
         </div>
@@ -389,6 +388,7 @@ const TheSection = () => {
               type="submit"
               value="Sign Up"
               className="signUpFButtonFirma"
+              onClick={handleSubmit}
             />
           </div>
           <div className="termsFDiv">
@@ -401,7 +401,7 @@ const TheSection = () => {
             </p>
           </div>
         </div>
-      </form>
+      </div>
     </section>
   );
 };

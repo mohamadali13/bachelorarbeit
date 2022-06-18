@@ -8,9 +8,6 @@ import jwt_decode from "jwt-decode";
 
 const TheSection = () => {
   const navigate = useNavigate();
-  //const [forUserLink, setForUserLink] = useState("");
-
-  //const param = useParams();
 
   const initialValues = {
     email: "",
@@ -47,11 +44,12 @@ const TheSection = () => {
         console.log(res.data.token);
         localStorage.setItem("token", res.data.token);
 
-        var decoded = jwt_decode(res.data.token);
+        const decoded = jwt_decode(res.data.token);
 
         localStorage.setItem("name", decoded.name);
         localStorage.setItem("role", decoded.role);
-        
+        localStorage.setItem("userId",decoded.userId)
+
         if (decoded.role == "student") navigate("/homePageStudent");
         else if (decoded.role == "company") navigate("/homePageFirma");
       })
@@ -69,6 +67,7 @@ const TheSection = () => {
 
   useEffect(() => {
     if (formErrors === "" && isSubmit) {
+     // console.log('sucess');
       handleLogin();
     }
   }, [formErrors, formValues]);

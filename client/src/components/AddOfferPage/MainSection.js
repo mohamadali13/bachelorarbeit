@@ -1,15 +1,21 @@
 import React from "react";
 import "../../style/AddOfferPage/AddOfferPage.scss";
 import { useState, useEffect } from "react";
-
+import Axios from "axios";
+import { useParams, useNavigate } from "react-router-dom";
 const TheSection = () => {
+  let companyId = localStorage.getItem("userId");
+  console.log(companyId);
+  const userName = localStorage.getItem("name");
+  const tokenUser = localStorage.getItem("token");
+  const navigate = useNavigate();
+
   const initialValues = {
     title_offer: "",
     days_nr: "",
     per_hour_money: "",
     city: "",
     neighbourhood: "",
-    sex: "",
     persons_nr: "",
     day_name: "",
     hours_nr: "",
@@ -26,60 +32,84 @@ const TheSection = () => {
   const [formValues, setFormValues] = useState(initialValues);
   const [formErrors, setFormErrors] = useState("");
   const [isSubmit, setIsSubmit] = useState(false);
-
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormValues({ ...formValues, [name]: value });
   };
+
   const validate = (values) => {
     let errors = "";
     const regex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i;
 
     if (
-      !values.title_offer ||
-      !values.days_nr ||
-      !values.per_hour_money ||
-      !values.city ||
-      !values.neighbourhood ||
-      !values.sex ||
-      !values.persons_nr ||
-      !values.persons_nr ||
-      !values.hours_nr ||
-      !values.city ||
-      !values.neighbourhood ||
-      !values.sex ||
-      !values.day_name ||
-      !values.hours_nr ||
-      !values.time_from ||
-      !values.time_until ||
-      !values.date ||
-      !values.describtion ||
-      !values.street ||
-      !values.haus_nr ||
-      !values.post_code ||
-      !values.add_to_address
+      values.title_offer.length == 0 ||
+      values.days_nr.length == 0 ||
+      values.per_hour_money.length == 0 ||
+      values.city.length == 0 ||
+      values.neighbourhood.length == 0 ||
+      values.persons_nr.length == 0 ||
+      values.day_name.length == 0 ||
+      values.hours_nr.length == 0 ||
+      values.time_from.length == 0 ||
+      values.time_until.length == 0 ||
+      values.date.length == 0 ||
+      values.describtion.length == 0 ||
+      values.notes_and_requirements.length == 0 ||
+      values.street.length == 0 ||
+      values.haus_nr.length == 0 ||
+      values.post_code.length == 0 ||
+      values.add_to_address.length == 0
     ) {
       errors = "Bitte richtige Infos eingeben!";
     }
 
     return errors;
   };
+
   useEffect(() => {
-    console.log(formErrors);
+    //  console.log(formErrors);
     if (formErrors === "" && isSubmit) {
-      console.log(formValues);
-      window.location.href = `http://localhost:3000/addedSucsessPage`;
+      //  console.log(formValues);
+      offerPostHandler();
     }
-  }, [formErrors]);
+  }, [formErrors, formValues]);
   const handleSubmit = (e) => {
     e.preventDefault();
     setFormErrors(validate(formValues));
     setIsSubmit(true);
   };
-
+  const offerPostHandler = () => {
+    Axios.post("http://localhost:4000/api/v1/offer/add_offer", {
+      title_offer: formValues.title_offer,
+      days_nr: formValues.days_nr,
+      per_hour_money: formValues.per_hour_money,
+      city: formValues.city,
+      neighbourhood: formValues.neighbourhood,
+      persons_nr: formValues.persons_nr,
+      day_name: formValues.day_name,
+      hours_nr: formValues.hours_nr,
+      time_from: formValues.time_from,
+      time_until: formValues.time_until,
+      date: formValues.date,
+      describtion: formValues.describtion,
+      notes_and_requirements: formValues.notes_and_requirements,
+      street: formValues.street,
+      haus_nr: formValues.haus_nr,
+      post_code: formValues.post_code,
+      add_to_address: formValues.add_to_address,
+      companyId: companyId,
+    },{ headers: { "x-auth-token": `${tokenUser}` } })
+      .then((res) => {
+        navigate("/regSucsessPage");
+      })
+      .catch((err) => {
+        setFormErrors(err.response.data.message);
+        console.log(err);
+      },);
+  };
   return (
     <section className="content">
-      <form className="AddOfferForm" onSubmit={handleSubmit}>
+      <div className="AddOfferForm">
         <div className="dateDivAddOffer">
           <p className="dateAddOfferP">Donnerstag, 28 Dezember 2021 </p>
           <p
@@ -156,16 +186,6 @@ const TheSection = () => {
 
         <div className="addOfferInputsOutWrap">
           <div className="addOfferInputsInWrap">
-            <div className="addOfferInputsWrap">
-              <label className="addOfferLabelInputs">Geschlecht</label>
-              <input
-                className="addOfferInputShort"
-                type="text"
-                name="sex"
-                value={formValues.sex}
-                onChange={handleChange}
-              ></input>
-            </div>
             <div className="addOfferInputsWrap">
               <label className="addOfferLabelInputs">Wie viele Personen?</label>
               <input
@@ -331,11 +351,15 @@ const TheSection = () => {
           </div>
         </div>
         <div className="addOfferWrapButton">
-          <button className="AddOfferButton" type="submit">
+          <button
+            className="AddOfferButton"
+            type="submit"
+            onClick={handleSubmit}
+          >
             Das Angebot Hinzufügen
           </button>
         </div>
-      </form>
+      </div>
     </section>
   );
 };
@@ -359,3 +383,35 @@ export default TheSection;
                 </div>
               </div>
             </div>*/
+/*const postOfferHandler = () => {
+    Axios.post(
+      "http://localhost:4000/api/v1/offer/add_offer",
+      {
+        title_offer: formValues.title_offer,
+        days_nr: formValues.days_nr,
+        per_hour_money: formValues.per_hour_money,
+        city: formValues.city,
+        neighbourhood: formValues.neighbourhood,
+        persons_nr: formValues.persons_nr,
+        day_name: formValues.day_name,
+        hours_nr: formValues.hours_nr,
+        time_from: formValues.time_from,
+        time_until: formValues.time_until,
+        date: formValues.date,
+        describtion: formValues.describtion,
+        notes_and_requirements: formValues.notes_and_requirements,
+        street: formValues.street,
+        post_code: formValues.post_code,
+        add_to_address: formValues.add_to_address,
+        companyId: companyId,
+      },
+      { headers: { "x-auth-token": `${tokenUser}` } }
+    )
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((err) => {
+        setFormErrors(err.response.data.message);
+        console.log(err);
+      });
+  };*/

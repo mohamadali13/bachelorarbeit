@@ -1,9 +1,24 @@
-import React from "react";
+import Axios from "axios";
+import React, { useEffect } from "react";
 import { useState } from "react";
 import "../../style/HomePageFirma/HomePageFirma.scss";
 import TheOffer from "../Offer/Offer";
 const TheSection = () => {
-  
+  useEffect(() => {
+    console.log(localStorage.getItem("userId"));
+
+    const userId = localStorage.getItem("userId");
+    const userName = localStorage.getItem("name");
+   /* Axios.get(
+      `http://localhost:4000/api/v2/offer/get_own_offers_co/co?ID=${userId}&&UserName=${userName}`
+    )
+      .then((res) => {
+        console.log("get Sucsses");
+      })
+      .catch((err) => {
+        console.log(err);
+      });*/
+  });
   const [loginEmail, setLoginEmail] = useState("");
   let data = [
     { name: "ahmed", price: 123 },
@@ -11,11 +26,11 @@ const TheSection = () => {
   ];
   // api/v1/company
 
-   /**
-    * useeffect -> axios ->post 
-    * offer /:id
-    * 
-    */
+  /**
+   * useeffect -> axios ->post
+   * offer /:id
+   *
+   */
   let offers = data.map((offer) => {
     return <TheOffer offerInfo={offer} />;
   });
