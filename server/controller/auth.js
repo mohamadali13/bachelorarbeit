@@ -49,29 +49,10 @@ module.exports.login = async (req, res) => {
                   .status(400)
                   .json({ message: "Das Passwrot ist falsch" });
               }
-            } else {
-              db.query(
-                "SELECT * FROM admin WHERE email  = ?",
-                [email],
-                async (err, result) => {
-                  if (err) {
-                    return res.status(500).json({ message: "error" });
-                  } else if (result.length > 0) {
-                    const hashedPassword = result[0].password;
-                    if (await bcrypt.compare(password, hashedPassword)) {
-                      return res.status(200).json({ message: "loggedin" });
-                    } else {
-                      return res.status(400).json({
-                        message: "Das Passwrot ist falsch",
-                      });
-                    }
-                  } else {
-                    return res
-                      .status(400)
-                      .json({ message: "Email nicht existiert" });
-                  }
-                }
-              );
+            }else {
+              return res
+                .status(400)
+                .json({ message: "Email nicht existiert" });
             }
           }
         );

@@ -6,7 +6,7 @@ import Axios from "axios";
 import { useNavigate } from "react-router-dom";
 const TheSection = () => {
   const navigate = useNavigate();
-  const initialValues = {
+  /* const initialValues = {
     company_name: "",
     origin: "",
     found_date: "",
@@ -27,17 +27,18 @@ const TheSection = () => {
     mobile_nr_rep: "",
     haus_nr: "",
     post_code: "",
-  };
-  const [formValues, setFormValues] = useState(initialValues);
+  };*/
+  // const [formValues, setFormValues] = useState(initialValues);
   const [formErrors, setFormErrors] = useState("");
   const [isSubmit, setIsSubmit] = useState(false);
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormValues({ ...formValues, [name]: value });
-  };
+  // const handleChange = (e) => {
+  //   const { name, value } = e.target;
+  //   setFormValues({ ...formValues, [name]: value });
+  // };
   const validate = (values) => {
     let errors = "";
+    let errorsState = false;
     const regex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i;
 
     if (
@@ -66,50 +67,96 @@ const TheSection = () => {
       !regex.test(values.re_email_rep)
     ) {
       errors = "Bitte richtige Infos eingeben!";
+      errorsState = true;
     }
 
-    return errors;
+    return { errorsState, errors };
   };
-  useEffect(() => {
-    //  console.log(formErrors);
-    if (formErrors === "" && isSubmit) {
-      //  console.log(formValues);
-      regsHandler();
-    }
-  }, [formErrors, formValues]);
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    setFormErrors(validate(formValues));
-    setIsSubmit(true);
-  };
+  // useEffect(() => {
+  //   //  console.log(formErrors);
+  //   if (formErrors === "" && isSubmit) {
+  //     //  console.log(formValues);
+  //     regsHandler();
+  //   }
+  // }, [formErrors, formValues]);
+  // const handleSubmit = (e) => {
+  //   e.preventDefault();
+  //   setFormErrors(validate(formValues));
+  //   setIsSubmit(true);
+  // };
   const regsHandler = () => {
-    Axios.post("http://localhost:4000/api/v1/auth/signup/co", {
-      company_name: formValues.company_name,
-      origin: formValues.origin,
-      found_date: formValues.found_date,
-      reg_nr: formValues.reg_nr,
-      street: formValues.street,
-      city: formValues.city,
-      tel_nr: formValues.tel_nr,
-      fax_nr: formValues.fax_nr,
-      add_to_address: formValues.add_to_address,
-      first_name_rep: formValues.first_name_rep,
-      last_name_rep: formValues.last_name_rep,
-      email_company: formValues.email_company,
-      email_rep: formValues.email_rep,
-      password: formValues.password,
-      tel_nr_rep: formValues.tel_nr_rep,
-      mobile_nr_rep: formValues.mobile_nr_rep,
-      haus_nr: formValues.haus_nr,
-      post_code: formValues.post_code,
-    })
-      .then((res) => {
-        navigate("/regSucsessPage");
+    let company_name = document.getElementById("company_name").value;
+    let origin = document.getElementById("origin").value;
+    let found_date = document.getElementById("found_date").value;
+    let reg_nr = document.getElementById("reg_nr").value;
+    let street = document.getElementById("street").value;
+    let city = document.getElementById("city").value;
+    let tel_nr = document.getElementById("tel_nr").value;
+    let fax_nr = document.getElementById("fax_nr").value;
+    let add_to_address = document.getElementById("add_to_address").value;
+    let first_name_rep = document.getElementById("first_name_rep").value;
+    let last_name_rep = document.getElementById("last_name_rep").value;
+    let email_company = document.getElementById("email_company").value;
+    let email_rep = document.getElementById("email_rep").value;
+    let password = document.getElementById("password").value;
+    let tel_nr_rep = document.getElementById("tel_nr_rep").value;
+    let mobile_nr_rep = document.getElementById("mobile_nr_rep").value;
+    let haus_nr = document.getElementById("haus_nr").value;
+    let post_code = document.getElementById("post_code").value;
+    let re_password = document.getElementById("re_password").value;
+    let re_email_rep = document.getElementById("re_email_rep").value;
+    let result = validate({
+      company_name,
+      origin,
+      found_date,
+      reg_nr,
+      street,
+      city,
+      tel_nr,
+      fax_nr,
+      add_to_address,
+      first_name_rep,
+      last_name_rep,
+      email_company,
+      email_rep,
+      password,
+      tel_nr_rep,
+      mobile_nr_rep,
+      haus_nr,
+      post_code,
+      re_email_rep,
+      re_password,
+    });
+    if (result.errorsState) setFormErrors(result.errors);
+    else {
+      Axios.post("http://localhost:4000/api/v1/auth/signup/co", {
+        company_name: company_name,
+        origin: origin,
+        found_date: found_date,
+        reg_nr: reg_nr,
+        street: street,
+        city: city,
+        tel_nr: tel_nr,
+        fax_nr: fax_nr,
+        add_to_address: add_to_address,
+        first_name_rep: first_name_rep,
+        last_name_rep: last_name_rep,
+        email_company: email_company,
+        email_rep: email_rep,
+        password: password,
+        tel_nr_rep: tel_nr_rep,
+        mobile_nr_rep: mobile_nr_rep,
+        haus_nr: haus_nr,
+        post_code: post_code,
       })
-      .catch((err) => {
-        setFormErrors(err.response.data.message);
-        console.log(err);
-      });
+        .then((res) => {
+          navigate("/regSucsessPage");
+        })
+        .catch((err) => {
+          setFormErrors(err.response.data.message);
+          console.log(err);
+        });
+    }
   };
   return (
     <section className="content">
@@ -135,8 +182,7 @@ const TheSection = () => {
                   className="ResAFInput"
                   type="text"
                   name="company_name"
-                  value={formValues.company_name}
-                  onChange={handleChange}
+                  id="company_name"
                 />
               </div>
               <div className="regAFRowInWrap">
@@ -145,8 +191,7 @@ const TheSection = () => {
                   className="ResAFInput"
                   type="text"
                   name="origin"
-                  value={formValues.origin}
-                  onChange={handleChange}
+                  id="origin"
                 />
               </div>
             </div>
@@ -159,8 +204,7 @@ const TheSection = () => {
                   className="ResAFInput"
                   type="text"
                   name="found_date"
-                  value={formValues.found_date}
-                  onChange={handleChange}
+                  id="found_date"
                 />
               </div>
               <div className="regAFRowInWrap">
@@ -169,8 +213,7 @@ const TheSection = () => {
                   className="ResAFInput"
                   type="text"
                   name="reg_nr"
-                  value={formValues.reg_nr}
-                  onChange={handleChange}
+                  id="reg_nr"
                 />
               </div>
             </div>
@@ -188,8 +231,7 @@ const TheSection = () => {
                   className="ResAFInput"
                   type="text"
                   name="street"
-                  value={formValues.street}
-                  onChange={handleChange}
+                  id="street"
                 />
               </div>
               <div className="regAFRowInWrap">
@@ -198,8 +240,7 @@ const TheSection = () => {
                   className="ResAFInput"
                   type="text"
                   name="city"
-                  value={formValues.city}
-                  onChange={handleChange}
+                  id="city"
                 />
               </div>
             </div>
@@ -212,8 +253,7 @@ const TheSection = () => {
                   className="ResAFInput"
                   type="text"
                   name="tel_nr"
-                  value={formValues.tel_nr}
-                  onChange={handleChange}
+                  id="tel_nr"
                 />
               </div>
               <div className="regAFRowInWrap">
@@ -222,8 +262,7 @@ const TheSection = () => {
                   className="ResAFInput"
                   type="text"
                   name="fax_nr"
-                  value={formValues.fax_nr}
-                  onChange={handleChange}
+                  id="fax_nr"
                 />
               </div>
             </div>
@@ -236,8 +275,7 @@ const TheSection = () => {
                   className="ResAFInput"
                   type="text"
                   name="haus_nr"
-                  value={formValues.haus_nr}
-                  onChange={handleChange}
+                  id="haus_nr"
                 />
               </div>
               <div className="regAFRowInWrap">
@@ -246,8 +284,7 @@ const TheSection = () => {
                   className="ResAFInput"
                   type="text"
                   name="post_code"
-                  value={formValues.post_code}
-                  onChange={handleChange}
+                  id="post_code"
                 />
               </div>
             </div>
@@ -260,8 +297,7 @@ const TheSection = () => {
                   className="ResAFInput"
                   type="text"
                   name="email_company"
-                  value={formValues.email_company}
-                  onChange={handleChange}
+                  id="email_company"
                 />
               </div>
               <div className="regAFRowInWrap">
@@ -270,8 +306,7 @@ const TheSection = () => {
                   className="ResAFInput"
                   type="text"
                   name="add_to_address"
-                  value={formValues.add_to_address}
-                  onChange={handleChange}
+                  id="add_to_address"
                 />
               </div>
             </div>
@@ -289,8 +324,7 @@ const TheSection = () => {
                   className="ResAFInput"
                   type="text"
                   name="first_name_rep"
-                  value={formValues.first_name_rep}
-                  onChange={handleChange}
+                  id="first_name_rep"
                 />
               </div>
               <div className="regAFRowInWrap">
@@ -299,8 +333,7 @@ const TheSection = () => {
                   className="ResAFInput"
                   type="text"
                   name="last_name_rep"
-                  value={formValues.last_name_rep}
-                  onChange={handleChange}
+                  id="last_name_rep"
                 />
               </div>
             </div>
@@ -314,8 +347,7 @@ const TheSection = () => {
                   className="ResAFInput"
                   type="text"
                   name="email_rep"
-                  value={formValues.email_rep}
-                  onChange={handleChange}
+                  id="email_rep"
                 />
               </div>
               <div className="regAFRowInWrap">
@@ -324,8 +356,7 @@ const TheSection = () => {
                   className="ResAFInput"
                   type="text"
                   name="re_email_rep"
-                  value={formValues.re_email_rep}
-                  onChange={handleChange}
+                  id="re_email_rep"
                 />
               </div>
             </div>
@@ -340,8 +371,7 @@ const TheSection = () => {
                   className="ResAFInput"
                   type="text"
                   name="password"
-                  value={formValues.password}
-                  onChange={handleChange}
+                  id="password"
                 />
               </div>
               <div className="regAFRowInWrap">
@@ -350,8 +380,7 @@ const TheSection = () => {
                   className="ResAFInput"
                   type="text"
                   name="re_password"
-                  value={formValues.re_password}
-                  onChange={handleChange}
+                  id="re_password"
                 />
               </div>
             </div>
@@ -365,8 +394,7 @@ const TheSection = () => {
                   className="ResAFInput"
                   type="text"
                   name="tel_nr_rep"
-                  value={formValues.tel_nr_rep}
-                  onChange={handleChange}
+                  id="tel_nr_rep"
                 />
               </div>
               <div className="regAFRowInWrap">
@@ -375,8 +403,7 @@ const TheSection = () => {
                   className="ResAFInput"
                   type="text"
                   name="mobile_nr_rep"
-                  value={formValues.mobile_nr_rep}
-                  onChange={handleChange}
+                  id="mobile_nr_rep"
                 />
               </div>
             </div>
@@ -388,7 +415,7 @@ const TheSection = () => {
               type="submit"
               value="Sign Up"
               className="signUpFButtonFirma"
-              onClick={handleSubmit}
+              onClick={regsHandler}
             />
           </div>
           <div className="termsFDiv">

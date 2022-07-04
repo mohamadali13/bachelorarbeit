@@ -51,8 +51,6 @@ const TheSection = () => {
       values.re_password.length == 0 ||
       values.haus_nr.length == 0 ||
       values.post_code.length == 0 ||
-      values.co.length == 0 ||
-      values.add_to_address.length == 0 ||
       values.university.length == 0 ||
       values.personal_id_nr.length == 0 ||
       !regex.test(values.email)
@@ -122,7 +120,7 @@ const TheSection = () => {
       personal_id_nr,
     })
       .then((res) => {
-        navigate("/homePageStudent");
+        navigate("/regSucsessPage");
       })
       .catch((err) => {
         setFormErrors(err.response.data.message);
@@ -298,7 +296,7 @@ const TheSection = () => {
                 <input
                   name="password"
                   className="RegASInput"
-                  type="text"
+                  type="password"
                   value={formValues.password}
                   onChange={handleChange}
                 />
@@ -308,7 +306,7 @@ const TheSection = () => {
                 <input
                   name="re_password"
                   className="RegASInput"
-                  type="text"
+                  type="password"
                   value={formValues.re_password}
                   onChange={handleChange}
                 />

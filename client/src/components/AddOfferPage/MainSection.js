@@ -3,13 +3,15 @@ import "../../style/AddOfferPage/AddOfferPage.scss";
 import { useState, useEffect } from "react";
 import Axios from "axios";
 import { useParams, useNavigate } from "react-router-dom";
+import jwt_decode from "jwt-decode";
 const TheSection = () => {
   let companyId = localStorage.getItem("userId");
-  console.log(companyId);
+  //console.log(companyId);
   const userName = localStorage.getItem("name");
   const tokenUser = localStorage.getItem("token");
   const navigate = useNavigate();
-
+  const decoded = jwt_decode(tokenUser);
+ // console.log(decoded.exp);
   const initialValues = {
     title_offer: "",
     days_nr: "",
@@ -68,6 +70,7 @@ const TheSection = () => {
 
   useEffect(() => {
     //  console.log(formErrors);
+    //console.log(decoded);
     if (formErrors === "" && isSubmit) {
       //  console.log(formValues);
       offerPostHandler();

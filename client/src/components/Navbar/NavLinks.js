@@ -13,6 +13,9 @@ const TheNavLinks = () => {
         <li
           onClick={(auth) => {
             localStorage.removeItem("token");
+            localStorage.removeItem("role");
+            localStorage.removeItem("userId");
+            localStorage.removeItem("name");
             navigate("/loginPage");
           }}
         >
