@@ -22,11 +22,10 @@ module.exports.login = async (req, res) => {
               id,
               role: result[0].role,
               name: result[0].first_name + " " + result[0].last_name,
-              userId:result[0].id,
             },
             "jwtSecret",
             {
-              expiresIn: 120,
+             // expiresIn: 120,
             }
           ); //create a token
           return res.status(200).json({ message: "logging succes", token });

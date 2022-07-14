@@ -7,6 +7,7 @@ const TheNavLinks = () => {
   const navigate = useNavigate();
   let auth = localStorage.getItem("token");
   let role = localStorage.getItem("role");
+  let userName = localStorage.getItem("name");
   return (
     <ul id="linksNavigation">
       {auth ? (
@@ -28,16 +29,34 @@ const TheNavLinks = () => {
       )}
       {role === "student" && (
         <li onClick={() => {}}>
+          <a href="#">{`${userName}`}</a>
+        </li>
+      )}
+      {role === "student" && (
+        <li
+          onClick={() => {
+            navigate("/jobStatusForStudent");
+          }}
+        >
           <a href="#">Meine Jobs</a>
         </li>
       )}
       {role === "student" && (
-        <li onClick={() => {}}>
+        <li
+          onClick={() => {
+            navigate("/homePageStudent");
+          }}
+        >
           <a href="#">Jobs</a>
         </li>
       )}
       {role === "company" && (
         <li onClick={() => {}}>
+          <a href="#">{`${userName}`}</a>
+        </li>
+      )}
+      {role === "company" && (
+        <li onClick={() => navigate("/homePageFirma")}>
           <a href="#">Meine Anzeigen</a>
         </li>
       )}
@@ -48,7 +67,7 @@ const TheNavLinks = () => {
       )}
 
       {role === "admin" && (
-        <li onClick={() => {}}>
+        <li onClick={() => navigate("/jobStatusForAdmin")}>
           <a href="#">Jobs</a>
         </li>
       )}

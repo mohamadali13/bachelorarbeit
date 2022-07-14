@@ -11,38 +11,16 @@ const TheSection = () => {
   const tokenUser = localStorage.getItem("token");
   const navigate = useNavigate();
   const decoded = jwt_decode(tokenUser);
- // console.log(decoded.exp);
-  const initialValues = {
-    title_offer: "",
-    days_nr: "",
-    per_hour_money: "",
-    city: "",
-    neighbourhood: "",
-    persons_nr: "",
-    day_name: "",
-    hours_nr: "",
-    time_from: "",
-    time_until: "",
-    date: "",
-    describtion: "",
-    notes_and_requirements: "",
-    street: "",
-    haus_nr: "",
-    post_code: "",
-    add_to_address: "",
-  };
-  const [formValues, setFormValues] = useState(initialValues);
+  // console.log(decoded.exp);
+  
+
   const [formErrors, setFormErrors] = useState("");
   const [isSubmit, setIsSubmit] = useState(false);
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormValues({ ...formValues, [name]: value });
-  };
 
   const validate = (values) => {
     let errors = "";
     const regex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i;
-
+    let errorsState = false;
     if (
       values.title_offer.length == 0 ||
       values.days_nr.length == 0 ||
@@ -63,52 +41,86 @@ const TheSection = () => {
       values.add_to_address.length == 0
     ) {
       errors = "Bitte richtige Infos eingeben!";
+      errorsState = true;
     }
 
-    return errors;
+    return { errors, errorsState };
   };
 
-  useEffect(() => {
-    //  console.log(formErrors);
-    //console.log(decoded);
-    if (formErrors === "" && isSubmit) {
-      //  console.log(formValues);
-      offerPostHandler();
-    }
-  }, [formErrors, formValues]);
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    setFormErrors(validate(formValues));
-    setIsSubmit(true);
-  };
   const offerPostHandler = () => {
-    Axios.post("http://localhost:4000/api/v1/offer/add_offer", {
-      title_offer: formValues.title_offer,
-      days_nr: formValues.days_nr,
-      per_hour_money: formValues.per_hour_money,
-      city: formValues.city,
-      neighbourhood: formValues.neighbourhood,
-      persons_nr: formValues.persons_nr,
-      day_name: formValues.day_name,
-      hours_nr: formValues.hours_nr,
-      time_from: formValues.time_from,
-      time_until: formValues.time_until,
-      date: formValues.date,
-      describtion: formValues.describtion,
-      notes_and_requirements: formValues.notes_and_requirements,
-      street: formValues.street,
-      haus_nr: formValues.haus_nr,
-      post_code: formValues.post_code,
-      add_to_address: formValues.add_to_address,
-      companyId: companyId,
-    },{ headers: { "x-auth-token": `${tokenUser}` } })
-      .then((res) => {
-        navigate("/regSucsessPage");
-      })
-      .catch((err) => {
-        setFormErrors(err.response.data.message);
-        console.log(err);
-      },);
+    let title_offer = document.getElementById("title_offer").value;
+    let days_nr = document.getElementById("days_nr").value;
+    let per_hour_money = document.getElementById("per_hour_money").value;
+    let city = document.getElementById("city").value;
+    let neighbourhood = document.getElementById("neighbourhood").value;
+    let persons_nr = document.getElementById("persons_nr").value;
+    let day_name = document.getElementById("day_name").value;
+    let hours_nr = document.getElementById("hours_nr").value;
+    let time_from = document.getElementById("time_from").value;
+    let time_until = document.getElementById("time_until").value;
+    let date = document.getElementById("date").value;
+    let describtion = document.getElementById("describtion").value;
+    let notes_and_requirements = document.getElementById(
+      "notes_and_requirements"
+    ).value;
+    let street = document.getElementById("street").value;
+    let haus_nr = document.getElementById("haus_nr").value;
+    let post_code = document.getElementById("post_code").value;
+    let add_to_address = document.getElementById("add_to_address").value;
+
+    let result = validate({
+          title_offer,
+          days_nr,
+          per_hour_money,
+          city,
+          neighbourhood,
+          persons_nr,
+          day_name,
+          hours_nr,
+          time_from,
+          time_until,
+          date,
+          describtion,
+          notes_and_requirements,
+          street,
+          haus_nr,
+          post_code,
+          add_to_address,
+    });
+    if (result.errorsState) setFormErrors(result.errors);
+    else {
+      Axios.post(
+        "http://localhost:4000/api/v1/offer/add_offer",
+        {
+          title_offer,
+          days_nr,
+          per_hour_money,
+          city,
+          neighbourhood,
+          persons_nr,
+          day_name,
+          hours_nr,
+          time_from,
+          time_until,
+          date,
+          describtion,
+          notes_and_requirements,
+          street,
+          haus_nr,
+          post_code,
+          add_to_address,
+          companyId: companyId,
+        },
+        { headers: { "x-auth-token": `${tokenUser}` } }
+      )
+        .then((res) => {
+          navigate("/addedSucsessPage");
+        })
+        .catch((err) => {
+          setFormErrors(err.response.data.message);
+          console.log(err);
+        });
+    }
   };
   return (
     <section className="content">
@@ -131,8 +143,7 @@ const TheSection = () => {
               className="addOfferLongInput"
               type="text"
               name="title_offer"
-              value={formValues.title_offer}
-              onChange={handleChange}
+              id="title_offer"
             ></input>
           </div>
         </div>
@@ -145,8 +156,8 @@ const TheSection = () => {
                 className="addOfferInputShort"
                 type="text"
                 name="days_nr"
-                value={formValues.days_nr}
-                onChange={handleChange}
+                id="days_nr"
+
               ></input>
             </div>
             <div className="addOfferInputsWrap">
@@ -155,8 +166,8 @@ const TheSection = () => {
                 className="addOfferInputShort"
                 type="text"
                 name="per_hour_money"
-                value={formValues.per_hour_money}
-                onChange={handleChange}
+                id="per_hour_money"
+              
               ></input>
             </div>
           </div>
@@ -170,8 +181,7 @@ const TheSection = () => {
                 className="addOfferInputShort"
                 type="text"
                 name="city"
-                value={formValues.city}
-                onChange={handleChange}
+                id="city"
               ></input>
             </div>
             <div className="addOfferInputsWrap">
@@ -180,8 +190,7 @@ const TheSection = () => {
                 className="addOfferInputShort"
                 type="text"
                 name="neighbourhood"
-                value={formValues.neighbourhood}
-                onChange={handleChange}
+                id="neighbourhood"
               ></input>
             </div>
           </div>
@@ -195,8 +204,7 @@ const TheSection = () => {
                 className="addOfferInputShort"
                 type="text"
                 name="persons_nr"
-                value={formValues.persons_nr}
-                onChange={handleChange}
+                id="persons_nr"
               ></input>
             </div>
           </div>
@@ -214,8 +222,8 @@ const TheSection = () => {
                   className="addOfferInputShort"
                   type="text"
                   name="day_name"
-                  value={formValues.day_name}
-                  onChange={handleChange}
+                  id="day_name"
+
                 ></input>
               </div>
               <div className="addOfferInputsWrap">
@@ -226,8 +234,7 @@ const TheSection = () => {
                   className="addOfferInputShort"
                   type="text"
                   name="hours_nr"
-                  value={formValues.hours_nr}
-                  onChange={handleChange}
+                  id="hours_nr"
                 ></input>
               </div>
             </div>
@@ -238,8 +245,7 @@ const TheSection = () => {
                   className="addOfferInputShort"
                   type="text"
                   name="time_from"
-                  value={formValues.time_from}
-                  onChange={handleChange}
+                  id="time_from"
                 ></input>
               </div>
               <div className="addOfferInputsWrap">
@@ -248,8 +254,7 @@ const TheSection = () => {
                   className="addOfferInputShort"
                   type="text"
                   name="time_until"
-                  value={formValues.time_until}
-                  onChange={handleChange}
+                  id="time_until"
                 ></input>
               </div>
             </div>
@@ -260,8 +265,8 @@ const TheSection = () => {
                   className="addOfferInputShort"
                   type="text"
                   name="date"
-                  value={formValues.date}
-                  onChange={handleChange}
+                  id="date"
+
                 ></input>
               </div>
             </div>
@@ -279,8 +284,7 @@ const TheSection = () => {
                 className="textAreaAddOffer"
                 type="text"
                 name="describtion"
-                value={formValues.describtion}
-                onChange={handleChange}
+                id="describtion"
               ></textarea>
             </div>
           </div>
@@ -294,8 +298,8 @@ const TheSection = () => {
                 className="textAreaAddOffer"
                 type="text"
                 name="notes_and_requirements"
-                value={formValues.notes_and_requirements}
-                onChange={handleChange}
+                id="notes_and_requirements"
+
               ></textarea>
             </div>
           </div>
@@ -311,8 +315,7 @@ const TheSection = () => {
                     className="addOfferInputShort"
                     type="text"
                     name="street"
-                    value={formValues.street}
-                    onChange={handleChange}
+                    id="street"
                   ></input>
                 </div>
                 <div className="addOfferInputsWrap">
@@ -321,8 +324,7 @@ const TheSection = () => {
                     className="addOfferInputShort"
                     type="text"
                     name="haus_nr"
-                    value={formValues.haus_nr}
-                    onChange={handleChange}
+                    id="haus_nr"
                   ></input>
                 </div>
               </div>
@@ -335,8 +337,7 @@ const TheSection = () => {
                     className="addOfferInputShort"
                     type="text"
                     name="post_code"
-                    value={formValues.post_code}
-                    onChange={handleChange}
+                    id="post_code"
                   ></input>
                 </div>
                 <div className="addOfferInputsWrap">
@@ -345,8 +346,7 @@ const TheSection = () => {
                     className="addOfferInputShort"
                     type="text"
                     name="add_to_address"
-                    value={formValues.add_to_address}
-                    onChange={handleChange}
+                    id="add_to_address"
                   ></input>
                 </div>
               </div>
@@ -357,7 +357,7 @@ const TheSection = () => {
           <button
             className="AddOfferButton"
             type="submit"
-            onClick={handleSubmit}
+            onClick={offerPostHandler}
           >
             Das Angebot Hinzufügen
           </button>

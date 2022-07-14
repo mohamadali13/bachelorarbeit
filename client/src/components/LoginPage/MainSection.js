@@ -57,6 +57,7 @@ const TheSection = () => {
 
           localStorage.setItem("name", decoded.name);
           localStorage.setItem("role", decoded.role);
+          localStorage.setItem("userId", decoded.id);
 
           if (decoded.role == "student") navigate("/homePageStudent");
           else if (decoded.role == "company") navigate("/homePageFirma");

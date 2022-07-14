@@ -7,33 +7,13 @@ import { useNavigate } from "react-router-dom";
 const TheSection = () => {
   // const [studentChacked, setStudentChacked] = useState("");
   const navigate = useNavigate();
-  const initialValues = {
-    first_name: "",
-    last_name: "",
-    birth_date: "",
-    birth_place: "",
-    nationality: "",
-    sex: "",
-    tel_nr: "",
-    mobile_nr: "",
-    email: "",
-    living_place: "",
-    street: "",
-    password: "",
-    haus_nr: "",
-    post_code: "",
-    co: "",
-    add_to_address: "",
-    university: "",
-    personal_id_nr: "",
-  };
-  const [formValues, setFormValues] = useState(initialValues);
+
   const [formErrors, setFormErrors] = useState("");
   const [isSubmit, setIsSubmit] = useState(false);
   const validate = (values) => {
     let errors = "";
     const regex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i;
-
+    let errorsState = false;
     if (
       values.first_name.length == 0 ||
       values.last_name.length == 0 ||
@@ -53,53 +33,41 @@ const TheSection = () => {
       values.post_code.length == 0 ||
       values.university.length == 0 ||
       values.personal_id_nr.length == 0 ||
-      !regex.test(values.email)
+      !regex.test(values.email) ||
+      !regex.test(values.re_email)
     ) {
       errors = "Bitte richtige Infos eingeben!";
+      errorsState = true;
     }
 
-    return errors;
-  };
-  const handleChange = (e) => {
-    //  console.log("pla", e.target);
-    const { name, value } = e.target;
-    setFormValues({ ...formValues, [name]: value });
-  };
-  useEffect(() => {
-    if (formErrors === "" && isSubmit) {
-      console.log("sucess");
-      regsHandle();
-    }
-  }, [formErrors, formValues]);
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    setFormErrors(validate(formValues));
-    setIsSubmit(true);
+    return { errors, errorsState };
   };
 
   function regsHandle() {
     //  const email = formValues.email;
     //  const password = formValues.password;
-    const first_name = formValues.first_name;
-    const last_name = formValues.last_name;
-    const birth_date = formValues.birth_date;
-    const birth_place = formValues.birth_place;
-    const nationality = formValues.nationality;
-    const sex = formValues.sex;
-    const tel_nr = formValues.tel_nr;
-    const mobile_nr = formValues.mobile_nr;
-    const email = formValues.email;
-    const living_place = formValues.living_place;
-    const street = formValues.street;
-    const password = formValues.password;
-    const haus_nr = formValues.haus_nr;
-    const post_code = formValues.post_code;
-    const co = formValues.co;
-    const add_to_address = formValues.add_to_address;
-    const university = formValues.university;
-    const personal_id_nr = formValues.personal_id_nr;
+    let first_name = document.getElementById("first_name").value;
+    let last_name = document.getElementById("last_name").value;
+    let birth_date = document.getElementById("birth_date").value;
+    let birth_place = document.getElementById("birth_place").value;
+    let nationality = document.getElementById("nationality").value;
+    let sex = document.getElementById("sex").value;
+    let tel_nr = document.getElementById("tel_nr").value;
+    let mobile_nr = document.getElementById("mobile_nr").value;
+    let email = document.getElementById("email").value;
+    let living_place = document.getElementById("living_place").value;
+    let street = document.getElementById("street").value;
+    let password = document.getElementById("password").value;
+    let haus_nr = document.getElementById("haus_nr").value;
+    let post_code = document.getElementById("post_code").value;
+    let co = document.getElementById("co").value;
+    let add_to_address = document.getElementById("add_to_address").value;
+    let university = document.getElementById("university").value;
+    let personal_id_nr = document.getElementById("personal_id_nr").value;
+    let re_email = document.getElementById("re_email").value;
+    let re_password = document.getElementById("re_password").value;
 
-    Axios.post("http://localhost:4000/api/v1/auth/signup/st", {
+    let result = validate({
       first_name,
       last_name,
       birth_date,
@@ -114,25 +82,51 @@ const TheSection = () => {
       password,
       haus_nr,
       post_code,
-      co,
-      add_to_address,
+      re_email,
+      re_password,
       university,
       personal_id_nr,
-    })
-      .then((res) => {
-        navigate("/regSucsessPage");
+    });
+    if (result.errorsState) setFormErrors(result.errors);
+    else {
+      Axios.post("http://localhost:4000/api/v1/auth/signup/st", {
+        first_name,
+        last_name,
+        birth_date,
+        birth_place,
+        nationality,
+        sex,
+        tel_nr,
+        mobile_nr,
+        email,
+        living_place,
+        street,
+        password,
+        haus_nr,
+        post_code,
+        co,
+        add_to_address,
+        university,
+        personal_id_nr,
       })
-      .catch((err) => {
-        setFormErrors(err.response.data.message);
-        console.log(err);
-      });
+        .then((res) => {
+          navigate("/regSucsessPage");
+        })
+        .catch((err) => {
+          setFormErrors(err.response.data.message);
+          console.log(err);
+        });
+    }
   }
 
   return (
     <section className="content">
       <div className="regStudentForm">
         <div className="regSLogoImageDiv">
-          <img src={LogoImage} style={{ width: "25%", height: "100%" }} />
+          <img
+            src={LogoImage}
+            style={{ width: "25%", height: "100%", objectFit: "contain" }}
+          />
         </div>
         <div className="regAsSDiv">
           <p id="regAsSText">Registrierung Als Student</p>
@@ -150,10 +144,9 @@ const TheSection = () => {
                 <label className="regASLebel">Vorname</label>
                 <input
                   name="first_name"
+                  id="first_name"
                   className="RegASInput"
                   type="text"
-                  value={formValues.first_name}
-                  onChange={handleChange}
                 />
               </div>
 
@@ -161,10 +154,9 @@ const TheSection = () => {
                 <label className="regASLebel">Name</label>
                 <input
                   name="last_name"
+                  id="last_name"
                   className="RegASInput"
                   type="text"
-                  value={formValues.last_name}
-                  onChange={handleChange}
                 />
               </div>
             </div>
@@ -175,20 +167,18 @@ const TheSection = () => {
                 <label className="regASLebel">Geb.datum</label>
                 <input
                   name="birth_date"
+                  id="birth_date"
                   className="RegASInput"
                   type="text"
-                  value={formValues.birth_date}
-                  onChange={handleChange}
                 />
               </div>
               <div className="rowRegAsSInputInWrap">
                 <label className="regASLebel">Geburtsort</label>
                 <input
+                  id="birth_place"
                   name="birth_place"
                   className="RegASInput"
                   type="text"
-                  value={formValues.birth_place}
-                  onChange={handleChange}
                 />
               </div>
             </div>
@@ -198,22 +188,15 @@ const TheSection = () => {
               <div className="rowRegAsSInputInWrap">
                 <label className="regASLebel">Nationalität</label>
                 <input
+                  id="nationality"
                   name="nationality"
                   className="RegASInput"
                   type="text"
-                  value={formValues.nationality}
-                  onChange={handleChange}
                 />
               </div>
               <div className="rowRegAsSInputInWrap">
                 <label className="regASLebel">Geschlicht</label>
-                <input
-                  name="sex"
-                  className="RegASInput"
-                  type="text"
-                  value={formValues.sex}
-                  onChange={handleChange}
-                />
+                <input name="sex" id="sex" className="RegASInput" type="text" />
               </div>
             </div>
           </div>
@@ -223,20 +206,18 @@ const TheSection = () => {
                 <label className="regASLebel">Tel.Nr</label>
                 <input
                   name="tel_nr"
+                  id="tel_nr"
                   className="RegASInput"
                   type="text"
-                  value={formValues.tel_nr}
-                  onChange={handleChange}
                 />
               </div>
               <div className="rowRegAsSInputInWrap">
                 <label className="regASLebel">Handy.Nr</label>
                 <input
                   name="mobile_nr"
+                  id="mobile_nr"
                   className="RegASInput"
                   type="text"
-                  value={formValues.mobile_nr}
-                  onChange={handleChange}
                 />
               </div>
             </div>
@@ -247,20 +228,18 @@ const TheSection = () => {
                 <label className="regASLebel">Email</label>
                 <input
                   name="email"
+                  id="email"
                   className="RegASInput"
                   type="text"
-                  value={formValues.email}
-                  onChange={handleChange}
                 />
               </div>
               <div className="rowRegAsSInputInWrap">
                 <label className="regASLebel">Re-Email</label>
                 <input
                   name="re_email"
+                  id="re_email"
                   className="RegASInput"
                   type="text"
-                  value={formValues.re_email}
-                  onChange={handleChange}
                 />
               </div>
             </div>
@@ -271,20 +250,18 @@ const TheSection = () => {
                 <label className="regASLebel">Wohnort</label>
                 <input
                   name="living_place"
+                  id="living_place"
                   className="RegASInput"
                   type="text"
-                  value={formValues.living_place}
-                  onChange={handleChange}
                 />
               </div>
               <div className="rowRegAsSInputInWrap">
                 <label className="regASLebel">Straße</label>
                 <input
                   name="street"
+                  id="street"
                   className="RegASInput"
                   type="text"
-                  value={formValues.street}
-                  onChange={handleChange}
                 />
               </div>
             </div>
@@ -295,20 +272,18 @@ const TheSection = () => {
                 <label className="regASLebel">Passwort</label>
                 <input
                   name="password"
+                  id="password"
                   className="RegASInput"
                   type="password"
-                  value={formValues.password}
-                  onChange={handleChange}
                 />
               </div>
               <div className="rowRegAsSInputInWrap">
                 <label className="regASLebel">Re-Passwort</label>
                 <input
                   name="re_password"
+                  id="re_password"
                   className="RegASInput"
                   type="password"
-                  value={formValues.re_password}
-                  onChange={handleChange}
                 />
               </div>
             </div>
@@ -319,20 +294,18 @@ const TheSection = () => {
                 <label className="regASLebel">Haus.Nr</label>
                 <input
                   name="haus_nr"
+                  id="haus_nr"
                   className="RegASInput"
                   type="text"
-                  value={formValues.haus_nr}
-                  onChange={handleChange}
                 />
               </div>
               <div className="rowRegAsSInputInWrap">
                 <label className="regASLebel">Postleitzahl</label>
                 <input
                   name="post_code"
+                  id="post_code"
                   className="RegASInput"
                   type="text"
-                  value={formValues.post_code}
-                  onChange={handleChange}
                 />
               </div>
             </div>
@@ -341,22 +314,15 @@ const TheSection = () => {
             <div className="regASRowIn">
               <div className="rowRegAsSInputInWrap">
                 <label className="regASLebel">C/O</label>
-                <input
-                  name="co"
-                  className="RegASInput"
-                  type="text"
-                  value={formValues.co}
-                  onChange={handleChange}
-                />
+                <input name="co" id="co" className="RegASInput" type="text" />
               </div>
               <div className="rowRegAsSInputInWrap">
                 <label className="regASLebel">Zusatz zur Adresse</label>
                 <input
                   name="add_to_address"
+                  id="add_to_address"
                   className="RegASInput"
                   type="text"
-                  value={formValues.add_to_address}
-                  onChange={handleChange}
                 />
               </div>
             </div>
@@ -367,20 +333,18 @@ const TheSection = () => {
                 <label className="regASLebel">Hochschule</label>
                 <input
                   name="university"
+                  id="university"
                   className="RegASInput"
                   type="text"
-                  value={formValues.university}
-                  onChange={handleChange}
                 />
               </div>
               <div className="rowRegAsSInputInWrap">
                 <label className="regASLebel">Ausweis.Nr</label>
                 <input
                   name="personal_id_nr"
+                  id="personal_id_nr"
                   className="RegASInput"
                   type="text"
-                  value={formValues.personal_id_nr}
-                  onChange={handleChange}
                 />
               </div>
             </div>
@@ -393,7 +357,7 @@ const TheSection = () => {
               type="submit"
               value="Sign Up"
               className="signUpSButton"
-              onClick={handleSubmit}
+              onClick={regsHandle}
             />
           </div>
           <div className="termsSDiv">
@@ -423,3 +387,6 @@ export default TheSection;
                 name="" className="RegASInput" type="file" id="immaInputFile" />
             </div>
           </div>*/
+
+/*
+ */

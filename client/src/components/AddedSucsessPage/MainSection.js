@@ -1,13 +1,11 @@
 import React from "react";
 import { useState } from "react";
 import "../../style/AddedSucsessPage/AddedSucsessPage.scss";
+import { useParams, useNavigate } from "react-router-dom";
+import jwt_decode from "jwt-decode";
 const TheSection = () => {
-  const [titleStelle, setTitleStelle] = useState("");
-  let userId = "12345";
-  let forUserLink = "";
-  let userTpy = "firma";
-  if (userTpy === "firma") forUserLink = "homePageFirma";
-  else if (userTpy === "student") forUserLink = "homePageStudent";
+  const navigate = useNavigate();
+
   return (
     <section className="content">
       <div className="aSWrapDiv">
@@ -19,8 +17,9 @@ const TheSection = () => {
         <div className="zumHomePageButtonASDiv">
           <button
             className="zumHomePageButtonAS"
-            onClick={() =>
-              (window.location.href = `http://localhost:3000/${forUserLink}/${userId}`)
+            onClick={() =>{
+              navigate("/homePageFirma");
+            }
             }
           >
             zum Homepage

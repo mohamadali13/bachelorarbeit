@@ -1,6 +1,6 @@
 const db = require("../db/connection");
 
-module.exports.offerPost =  (req, res) => {
+module.exports.offerPost = (req, res) => {
   const title_offer = req.body.title_offer;
   const days_nr = req.body.days_nr;
   const per_hour_money = req.body.per_hour_money;
@@ -18,8 +18,9 @@ module.exports.offerPost =  (req, res) => {
   const post_code = req.body.post_code;
   const add_to_address = req.body.add_to_address;
   const companyId = req.body.companyId;
+
   db.query(
-    "INSERT INTO job (id_company	,title_job,	days_nr,	per_hour_money,	city,	neighborhood,	persons_nr,	day_name,	hours_nr,	time_from,	time_until,	date,	describtion,	note_and_requirements,	street,	haus_nr,	post_code,	add_to_address) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)",
+    "INSERT INTO job (id_company,	title_job,	days_nr	,per_hour_money,	city,	neighborhood,	persons_nr,	day_name,	hours_nr,	time_from,	time_until,	date	,describtion	,note_and_requirements,	street,	haus_nr	,post_code,	add_to_address) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)",
     [
       companyId,
       title_offer,
@@ -42,6 +43,7 @@ module.exports.offerPost =  (req, res) => {
     ],
     (err, result) => {
       if (err) {
+        console.log(err);
         return res.status(400).json({ message: "error" });
       } else {
         return res.status(200).send("Values Inserted");

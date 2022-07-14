@@ -14,7 +14,7 @@ import JobStatusForAdmin from "./components/JobStatusForAdmin/JobStatusForAdmin"
 import RegSucsessPage from "./components/RegSucsessPage/RegSucsessPage";
 import OfferDetail from "./components/OfferDetails/OfferDetails";
 import ApplayOffer from "./components/ApplyOffer/ApplayOffer";
-import AddedSuscess from "./components/OfferAddSucsessPage/AddedSucsessPage";
+import AddedSuscess from "./components/AddedSucsessPage/AddedSucsessPage";
 import ProtectedRoutes from "./ProtectedRoutes";
 import { useEffect } from "react";
 import jwt_decode from "jwt-decode";
@@ -25,17 +25,17 @@ var jwt = require('jsonwebtoken');
 function App() {
   const navigate = useNavigate();
   
-
+/*  <Route element={<ProtectedRoutes />}>
+        <Route path="addOfferPage" element={<AddOfferPage />} />
+      </Route>*/
   return (
     <Routes>
-      <Route element={<ProtectedRoutes />}>
-        <Route path="addOfferPage" element={<AddOfferPage />} />
-      </Route>
+    
       <Route path="/" exact element={<RegFirmaPage />} />
       <Route path="loginPage" exact element={<LoginPage />} />
       <Route path="addedSucsessPage" exact element={<AddedSuscess />} />
       <Route path="regStudentPage" element={<RegStudentPage />} />
-
+      <Route path="addOfferPage" element={<AddOfferPage />} />
       <Route path="regFirmaPage" exact element={<RegFirmaPage />} />
       <Route path="homePageStudent" exact element={<HomePageStudent />} />
       <Route path="homePageAdmin" exact element={<HomePageAdmin />} />

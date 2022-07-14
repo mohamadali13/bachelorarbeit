@@ -154,7 +154,7 @@ const TheSection = () => {
         })
         .catch((err) => {
           setFormErrors(err.response.data.message);
-          console.log(err);
+          //console.log(err);
         });
     }
   };
@@ -369,7 +369,7 @@ const TheSection = () => {
                 <label className="regAFLebel">Passwort</label>
                 <input
                   className="ResAFInput"
-                  type="text"
+                  type="password"
                   name="password"
                   id="password"
                 />
@@ -378,7 +378,7 @@ const TheSection = () => {
                 <label className="regAFLebel">Re-Passwort</label>
                 <input
                   className="ResAFInput"
-                  type="text"
+                  type="password"
                   name="re_password"
                   id="re_password"
                 />
