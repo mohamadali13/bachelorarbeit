@@ -2,20 +2,22 @@ import React from "react";
 import "../../style/Offer/Offer.scss";
 import { MdLocationOn } from "react-icons/md";
 import { IoIosTime } from "react-icons/io";
+import { useParams, useNavigate } from "react-router-dom";
 const OfferComponent = (props) => {
+  const navigate = useNavigate();
   let name = 10;
-
+  console.log(props);
   return (
     <div className="OfferWrap">
       <div className="titelGeldDiv">
         <div className="GeldOfferDiv">
-          <p className="GeldOfferText">{props.offerInfo.name}</p>
+          <p className="GeldOfferText">{props.offerInfo.id}</p>
           <div className="geldProStundeDiv">
-            <p className="geldProStundeText">{props.offerInfo.price}</p>
+            <p className="geldProStundeText">{props.offerInfo.per_hour_money}</p>
           </div>
         </div>
         <div className="titelOfferDiv">
-          <p className="titelOfferText">LagerHilfe Im Lidl</p>
+          <p className="titelOfferText">{props.offerInfo.title_job}</p>
         </div>
       </div>
       <div className="locationOfferDiv">
@@ -29,10 +31,10 @@ const OfferComponent = (props) => {
               }}
             />
           </div>
-          <p className="cityOfferText">Berlin</p>
+          <p className="cityOfferText">{props.offerInfo.city}</p>
         </div>
         <div className="stadtteilOfferDiv">
-          <p className="stadtteilOfferText">Wedding</p>
+          <p className="stadtteilOfferText">{props.offerInfo.neighborhood}</p>
         </div>
       </div>
       <div className="underLineOffer"></div>
@@ -42,16 +44,16 @@ const OfferComponent = (props) => {
             <IoIosTime style={{ fontSize: "14px" }} />
           </div>
           <div className="dayNameOfferDiv">
-            <p className="dateOfferText">Fr, 01.01.2020</p>
+            <p className="dateOfferText">{props.offerInfo.day_name}, {props.offerInfo.date}</p>
           </div>
         </div>
         <div className="timeOfferDiv">
-          <p className="timeOfferText">14:50 - 20:00</p>
+          <p className="timeOfferText">{props.offerInfo.time_from} - {props.offerInfo.time_until}</p>
         </div>
         <div className="setailsOfferLinkDiv">
-          <a className="detailsOfferLink" href="#">
+          <button className="detailsOfferLink" onClick={()=>navigate('/applayOffer')}>
             Details
-          </a>
+          </button>
         </div>
       </div>
     </div>

@@ -1,22 +1,25 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useState } from "react";
 import "../../style/JobStatusForStudent/JobStatusForStudent.scss";
 import TheOffer from "../Offer/Offer";
 
 const TheSection = () => {
   const [loginEmail, setLoginEmail] = useState("");
-  let data = [
-    { name: "ahmed", price: 123 },
-    { name: "mohamad", price: 1553 },
-  ];
-  let offers = data.map((offer) => {
-    return <TheOffer offerInfo={offer} />;
-  });
-  const [toggleState, setToggleState] = useState(1);
-  const toggleTab = (index) => {
-    setToggleState(index);
-  };
-  console.log(toggleState);
+  // let data = [
+  //   { name: "ahmed", price: 123 },
+  //   { name: "mohamad", price: 1553 },
+  // ];
+  // let offers = data.map((offer) => {
+  //   return <TheOffer offerInfo={offer} />;
+  // });
+  // const [toggleState, setToggleState] = useState(1);
+  // const toggleTab = (index) => {
+  //   setToggleState(index);
+  // };
+  // console.log(toggleState);
+
+  useEffect(()=>{},[]);
+
   return (
     <section className="content">
       <div className="tabWrap">

@@ -65,13 +65,30 @@ const TheNavLinks = () => {
           <a href="#">Anzeige Hinzufügen</a>
         </li>
       )}
-
+      {role === "admin" && (
+        <li onClick={() => {}}>
+          <a href="#">{`${userName}`}</a>
+        </li>
+      )}
       {role === "admin" && (
         <li onClick={() => navigate("/jobStatusForAdmin")}>
           <a href="#">Jobs</a>
         </li>
       )}
-
+      {role === "admin" && (
+        <li onClick={() => navigate("/homePageAdmin")}>
+          <a href="#">Anfragen</a>
+        </li>
+      )}
+      {role === "admin" && (
+        <li
+          onClick={() => {
+            navigate("/allOffersAdmin");
+          }}
+        >
+          <a href="#">All Offers</a>
+        </li>
+      )}
       <li onClick={() => {}}>
         <a href="#">Kontakt</a>
       </li>

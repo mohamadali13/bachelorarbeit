@@ -4,6 +4,8 @@ const auth = require('../middlewares/auth');
 
 router.post("/add_offer", offerController.offerPost);
 
+router.get("/get_all_offers", offerController.getAllOffers);
+
 //router.get all offers
 //get all offers for student
 //get all offers for student

@@ -4,26 +4,25 @@ import { useState } from "react";
 import "../../style/HomePageFirma/HomePageFirma.scss";
 import TheOffer from "../Offer/Offer";
 const TheSection = () => {
+  const [offersData, setOffersData] = useState([]);
   useEffect(() => {
     console.log(localStorage.getItem("userId"));
-
+    
     const userId = localStorage.getItem("userId");
     const userName = localStorage.getItem("name");
-   /* Axios.get(
-      `http://localhost:4000/api/v2/offer/get_own_offers_co/co?ID=${userId}&&UserName=${userName}`
+    Axios.get(
+      `http://localhost:4000/api/v1/offer/get_all_offers`
     )
       .then((res) => {
-        console.log("get Sucsses");
+        console.log(res.data);
+        setOffersData(res.data);
       })
       .catch((err) => {
         console.log(err);
-      });*/
-  });
+      });
+  },[]);
   const [loginEmail, setLoginEmail] = useState("");
-  let data = [
-    { name: "ahmed", price: 123 },
-    { name: "mohamad", price: 1553 },
-  ];
+  
   // api/v1/company
 
   /**
@@ -31,7 +30,7 @@ const TheSection = () => {
    * offer /:id
    *
    */
-  let offers = data.map((offer) => {
+  let offers = offersData.map((offer) => {
     return <TheOffer offerInfo={offer} />;
   });
   const [toggleState, setToggleState] = useState(1);

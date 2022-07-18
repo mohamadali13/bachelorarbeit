@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useEffect } from "react";
+import Axios from "axios";
 import { useState } from "react";
 import "../../style/HomPageStudent/HomePageStudent.scss";
 import Select from "react-select";
@@ -12,14 +13,27 @@ const TheSection = () => {
     { label: "Darmstadt", value: "Darmstadt" },
     { label: "Düsseldorf", value: "Düsseldord" },
   ];
-  let data = [
-    { name: "ahmed", price: 123 },
-    { name: "mohamad", price: 1553 },
-  ];
-  let offers = data.map((offer) => {
+
+  const [offersData, setOffersData] = useState([]);
+  useEffect(() => {
+    console.log(localStorage.getItem("userId"));
+    
+    const userId = localStorage.getItem("userId");
+    const userName = localStorage.getItem("name");
+    Axios.get(
+      `http://localhost:4000/api/v1/offer/get_all_offers`
+    )
+      .then((res) => {
+        console.log(res.data);
+        setOffersData(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  },[]);
+  let offers = offersData.map((offer) => {
     return <TheOffer offerInfo={offer} />;
   });
-
   return (
     <section className="content">
       <div className="homePageStudentWrap">

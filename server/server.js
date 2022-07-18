@@ -17,7 +17,7 @@ app.use(express.urlencoded({ extended: false }));
 
 
 app.use("/api/v1/auth", require('./routes/auth'));
-app.use("/api/v1/offer",authMiddleware, require('./routes/offer'));
+app.use("/api/v1/offer", require('./routes/offer'));
 //app.use("/api/v1/user" )
 app.get("/",authMiddleware, async(req, res)=>{
   res.status(200).json({message:" API"});

@@ -8,6 +8,8 @@ import "../../style/ApplayOffer/ApplayOffer.scss";
 const TheSection = (props) => {
   const [titleStelle, setTitleStelle] = useState("");
 
+  let userRole = localStorage.getItem("role");
+
   return (
     <section className="content">
       <div className="jobDetailsWrap">
@@ -114,9 +116,11 @@ const TheSection = (props) => {
             </div>
           </div>
         </div>
-        <button className="applayButton" onClick={() => {}}>
-          Bewerben
-        </button>
+        {userRole == "student" && (
+          <button className="applayButton" onClick={() => {}}>
+            Bewerben
+          </button>
+        )}
       </div>
     </section>
   );

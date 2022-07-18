@@ -51,3 +51,19 @@ module.exports.offerPost = (req, res) => {
     }
   );
 };
+
+module.exports.getAllOffers = (req, res) => {
+  
+  db.query(
+    "SELECT * FROM job",
+    (err, result) => {
+      if (err) {
+        console.log(err);
+        return res.status(400).json({ message: "error" });
+      } else {
+        console.log(result);
+        return res.status(200).send(result);
+      }
+    }
+  );
+};

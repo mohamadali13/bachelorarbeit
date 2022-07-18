@@ -12,9 +12,11 @@ import AppliedSuscess from "./components/AppliedSucsessPage/AppliedSucsessPage";
 import JobStatusForStudent from "./components/JobStatusForStudent/JobStatusForStudent";
 import JobStatusForAdmin from "./components/JobStatusForAdmin/JobStatusForAdmin";
 import RegSucsessPage from "./components/RegSucsessPage/RegSucsessPage";
-import OfferDetail from "./components/OfferDetails/OfferDetails";
+//import OfferDetail from "./components/OfferDetails/OfferDetails";
 import ApplayOffer from "./components/ApplyOffer/ApplayOffer";
 import AddedSuscess from "./components/AddedSucsessPage/AddedSucsessPage";
+import AllOffersAdmin from "./components/AllOffersAdmin/AllOffersAdmin";
+//import ApplayOffer from "./components/ApplyOffer/ApplayOffer";
 import ProtectedRoutes from "./ProtectedRoutes";
 import { useEffect } from "react";
 import jwt_decode from "jwt-decode";
@@ -34,8 +36,10 @@ function App() {
       <Route path="/" exact element={<RegFirmaPage />} />
       <Route path="loginPage" exact element={<LoginPage />} />
       <Route path="addedSucsessPage" exact element={<AddedSuscess />} />
+      <Route path="applayOffer" exact element={<ApplayOffer />} />
       <Route path="regStudentPage" element={<RegStudentPage />} />
       <Route path="addOfferPage" element={<AddOfferPage />} />
+      <Route path="allOffersAdmin" element={<AllOffersAdmin />} />
       <Route path="regFirmaPage" exact element={<RegFirmaPage />} />
       <Route path="homePageStudent" exact element={<HomePageStudent />} />
       <Route path="homePageAdmin" exact element={<HomePageAdmin />} />
@@ -44,7 +48,7 @@ function App() {
       <Route path="jobStatusForStudent" element={<JobStatusForStudent />} />
       <Route path="jobStatusForAdmin" element={<JobStatusForAdmin />} />
       <Route path="regSucsessPage" element={<RegSucsessPage />} />
-      <Route path="*" element={<p>There's nothing here: 404!</p>} />
+      <Route path="*" element={<p>Page NOT Found: ERROR 404!</p>} />
     </Routes>
   );
 }
