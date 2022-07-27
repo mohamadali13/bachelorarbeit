@@ -1,14 +1,40 @@
 import React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import MainSection from "./MainSection";
 import { Fragment } from "react";
 import { MdLocationOn } from "react-icons/md";
 import { IoIosTime } from "react-icons/io";
 import "../../style/ApplayOffer/ApplayOffer.scss";
+import Axios from "axios";
+import { useParams, useNavigate } from "react-router-dom";
 const TheSection = (props) => {
-  const [titleStelle, setTitleStelle] = useState("");
-
+  const { offer_id } = useParams();
+  const navigate = useNavigate();
   let userRole = localStorage.getItem("role");
+  let [offersData, setOffersData] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const userId = localStorage.getItem("userId");
+  const userName = localStorage.getItem("name");
+  //console.log(offer_id, 'offerid');
+  useEffect(() => {
+    setLoading(true);
+
+    Axios.get(`http://localhost:4000/api/v1/offer/getDetails/${offer_id}`)
+      .then((res) => {
+        console.log(res.data);
+        setOffersData(res.data);
+        setLoading(false);
+        console.log(offersData);
+      })
+      .catch((err) => {
+        console.log(err);
+        setLoading(false);
+      });
+  }, []);
+
+  const [offer] = offersData.filter((offer) => offer.id == offer_id);
+
+  // let summe = parseFloat(offer['hours_nr']) *  parseFloat(offer['per_hour_money']);
 
   return (
     <section className="content">
@@ -18,13 +44,25 @@ const TheSection = (props) => {
             <div className="titelGeldDiv">
               <div className="jobTitleGeldInnerWrap">
                 <div className="GeldjobDiv">
-                  <p className="GeldjobText">123</p>
+                  <p className="GeldjobText">
+                    {!offer
+                      ? null
+                      : parseFloat(
+                          parseFloat(offer["per_hour_money"]) *
+                            parseFloat(offer["hours_nr"])
+                        ).toFixed(2)}{" "}
+                    €
+                  </p>
                   <div className="geldProStundeDiv">
-                    <p className="geldProStundeText">14</p>
+                    <p className="geldProStundeText">
+                      {!offer ? null : offer["per_hour_money"]} € pro Stunde
+                    </p>
                   </div>
                 </div>
                 <div className="titeljobDiv">
-                  <p className="titeljobText">LagerHilfe Im Lidl</p>
+                  <p className="titeljobText">
+                    {!offer ? null : offer["title_job"]}
+                  </p>
                 </div>
               </div>
             </div>
@@ -39,10 +77,12 @@ const TheSection = (props) => {
                     }}
                   />
                 </div>
-                <p className="cityjobText">Berlin</p>
+                <p className="cityjobText">{!offer ? null : offer["city"]}</p>
               </div>
               <div className="stadtteiljobDiv">
-                <p className="stadtteiljobText">Wedding</p>
+                <p className="stadtteiljobText">
+                  {!offer ? null : offer["neighborhood"]}
+                </p>
               </div>
             </div>
             <div className="underLinejob"></div>
@@ -52,14 +92,20 @@ const TheSection = (props) => {
                   <IoIosTime style={{ fontSize: "14px" }} />
                 </div>
                 <div className="dayNamejobDiv">
-                  <p className="datejobText">Fr, 01.01.2020</p>
+                  <p className="datejobText">
+                    {!offer ? null : offer["day_name"]},{" "}
+                    {!offer ? null : offer["date"]}
+                  </p>
                 </div>
               </div>
               <div className="timejobDiv">
-                <p className="timejobText">14:50 - 20:00</p>
+                <p className="timejobText">
+                  {!offer ? null : offer["time_from"]} -{" "}
+                  {!offer ? null : offer["time_until"]}
+                </p>
               </div>
               <div className="jobNrDiv">
-                <p className="jobNrText">JobNr: 78787</p>
+                <p className="jobNrText">{!offer ? null : offer["id"]}</p>
               </div>
             </div>
           </div>
@@ -70,12 +116,7 @@ const TheSection = (props) => {
           </div>
           <div className="jobDetailsDescribeContent">
             <p className="jobDetailsDescribeTextContent">
-              Lorem Ipsum is simply dummy text of the printing and typesetting
-              industry. Lorem Ipsum has been the industry's standard dummy text
-              ever since the 1500s, when an unknown printer took a galley of
-              type and scrambled it to make a type specimen book. It has
-              survived not only five centuries, but also the leap into
-              electronic typesetting, remaining essentially unchanged. It was
+              {!offer ? null : offer["describtion"]}.
             </p>
           </div>
         </div>
@@ -87,10 +128,7 @@ const TheSection = (props) => {
           </div>
           <div className="jobDetailsAnforderungContent">
             <p className="jobDetailsAnforderungContentText">
-              Lorem Ipsum is simply dummy text of the printing and typesetting
-              industry. Lorem Ipsum has been the industry's standard dummy text
-              ever since the 1500s, when an unknown printer took a galley of
-              type and scrambled it to make a type specimen book.
+              {!offer ? null : offer["note_and_requirements"]}.
             </p>
           </div>
         </div>
@@ -99,9 +137,17 @@ const TheSection = (props) => {
             <p className="jobDetailsAdresseText">Adresse</p>
           </div>
           <div className="jobDetailsAdresseInfosWrap">
-            <p className="jobDetailsAdresseInfo">Luxemburger 45,</p>
-            <p className="jobDetailsAdresseInfo"> 12207 Berlin</p>
-            <p className="jobDetailsAdresseInfo">Aldi gegenüber, HinterHaus</p>
+            <p className="jobDetailsAdresseInfo">
+              {!offer ? null : offer["street"]},
+            </p>
+            <p className="jobDetailsAdresseInfo">
+              {" "}
+              {!offer ? null : offer["post_code"]}{" "}
+              {!offer ? null : offer["city"]}
+            </p>
+            <p className="jobDetailsAdresseInfo">
+              {!offer ? null : offer["add_to_address"]}
+            </p>
           </div>
         </div>
         <div className="jobDetailsSchicht">
@@ -110,14 +156,45 @@ const TheSection = (props) => {
           </div>
           <div className="schichtKarteWrap">
             <div className="schichtKarte">
-              <p className="schichtKarteDay">Fri</p>
-              <p className="schichtKarteDate">01.01</p>
-              <p className="schichtKarteTime">15:00 bis 21:00</p>
+              <p className="schichtKarteDay">
+                {!offer ? null : offer["day_name"]}
+              </p>
+              <p className="schichtKarteDate">
+                {!offer ? null : offer["date"]}
+              </p>
+              <p className="schichtKarteTime">
+                {!offer ? null : offer["time_from"]} -{" "}
+                {!offer ? null : offer["time_until"]}
+              </p>
             </div>
           </div>
         </div>
         {userRole == "student" && (
-          <button className="applayButton" onClick={() => {}}>
+          <button
+            className="applayButton"
+            onClick={() => {
+              if (offer) {
+                const id_job = offer["id"];
+                const id_student = userId;
+                const id_company = offer["id_company"];
+                const status = 'req';
+                Axios.post(`http://localhost:4000/api/v1/offer/applay_offer/`, {
+                  id_job,
+                  id_student,
+                  id_company,
+                  status
+                })
+                  .then((res) => {
+                    console.log(res.data);
+                    navigate('/appliedSuscess');
+                  })
+                  .catch((err) => {
+                    console.log(err);
+                    setLoading(false);
+                  });
+              }
+            }}
+          >
             Bewerben
           </button>
         )}

@@ -5,7 +5,7 @@ import { IoIosTime } from "react-icons/io";
 import { useParams, useNavigate } from "react-router-dom";
 const OfferComponent = (props) => {
   const navigate = useNavigate();
-  let name = 10;
+  
   console.log(props);
   return (
     <div className="OfferWrap">
@@ -51,7 +51,7 @@ const OfferComponent = (props) => {
           <p className="timeOfferText">{props.offerInfo.time_from} - {props.offerInfo.time_until}</p>
         </div>
         <div className="setailsOfferLinkDiv">
-          <button className="detailsOfferLink" onClick={()=>navigate('/applayOffer')}>
+          <button className="detailsOfferLink" onClick={()=>navigate(`/applayOffer/${props.offerInfo.id}`)}>
             Details
           </button>
         </div>

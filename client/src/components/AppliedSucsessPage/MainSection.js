@@ -1,9 +1,9 @@
 import React from "react";
 import { useState } from "react";
+import { useParams, useNavigate } from "react-router-dom";
 import "../../style/AppliedSucsessPage/AppliedSucsessPage.scss";
 const TheSection = () => {
-  const [titleStelle, setTitleStelle] = useState("");
-
+  const navigate = useNavigate();
   return (
     <section className="content">
       <div className="aSWrapDiv">
@@ -13,7 +13,7 @@ const TheSection = () => {
           </p>
         </div>
         <div className="zumHomePageButtonASDiv">
-          <button className="zumHomePageButtonAS" onChange={() => {}}>
+          <button className="zumHomePageButtonAS" onClick={() => navigate('/jobStatusForStudent')}>
             zum Homepage
           </button>
         </div>

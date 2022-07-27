@@ -36,7 +36,7 @@ function App() {
       <Route path="/" exact element={<RegFirmaPage />} />
       <Route path="loginPage" exact element={<LoginPage />} />
       <Route path="addedSucsessPage" exact element={<AddedSuscess />} />
-      <Route path="applayOffer" exact element={<ApplayOffer />} />
+      <Route path="applayOffer/:offer_id" exact element={<ApplayOffer />} />
       <Route path="regStudentPage" element={<RegStudentPage />} />
       <Route path="addOfferPage" element={<AddOfferPage />} />
       <Route path="allOffersAdmin" element={<AllOffersAdmin />} />

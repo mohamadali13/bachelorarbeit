@@ -53,17 +53,81 @@ module.exports.offerPost = (req, res) => {
 };
 
 module.exports.getAllOffers = (req, res) => {
-  
+  db.query("SELECT * FROM job", (err, result) => {
+    if (err) {
+      console.log(err);
+      return res.status(400).json({ message: "error" });
+    } else {
+      console.log(result);
+      return res.status(200).send(result);
+    }
+  });
+};
+
+module.exports.getDetails = (req, res) => {
+  let offerId = req.params.id;
+  console.log(offerId);
+
+  db.query("SELECT * FROM job WHERE id = ? ", [offerId], (err, result) => {
+    if (err) {
+      console.log(err);
+      return res.status(400).json({ message: "error" });
+    } else {
+      console.log(result);
+      return res.status(200).send(result);
+    }
+  });
+};
+
+module.exports.applayOffer = (req, res) => {
+  const id_job = req.body.id_job;
+  const id_student = req.body.id_student;
+  const id_company = req.body.id_company;
+  const status = req.body.status;
+
   db.query(
-    "SELECT * FROM job",
+    "INSERT INTO applied (id_job,id_student,	id_company	,status) VALUES (?,?,?,?)",
+    [id_job, id_student, id_company, status],
     (err, result) => {
       if (err) {
         console.log(err);
         return res.status(400).json({ message: "error" });
       } else {
-        console.log(result);
-        return res.status(200).send(result);
+        return res.status(200).send("Values Inserted");
       }
     }
   );
 };
+
+module.exports.getReqApplay = (req, res) =>{
+
+  db.query("SELECT * FROM job WHERE id = ? ", [offerId], (err, result) => {
+    if (err) {
+      console.log(err);
+      return res.status(400).json({ message: "error" });
+    } else {
+      console.log(result);
+      return res.status(200).send(result);
+    }
+  });
+};
+
+module.exports.getAppliedStudent = (req, res)=>{
+  const userId = req.query.userId;
+  const reqStatus = 'req';
+  const appStatus = 'applied';//id job get
+  db.query("SELECT * FROM `applied` WHERE id_student = ? AND (status = ? OR status = ?)",[
+    userId,
+    reqStatus,
+    appStatus
+  ], (err, result) => {
+    if (err) {
+      console.log(err);
+      return res.status(400).json({ message: "error" });
+    } else {
+      console.log(result);
+      return res.status(200).send(result);
+    }
+  });
+};
+

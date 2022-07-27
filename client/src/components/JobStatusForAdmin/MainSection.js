@@ -3,14 +3,26 @@ import { useState } from "react";
 import "../../style/JobStatusForStudent/JobStatusForStudent.scss";
 
 const TheSection = () => {
-  const [loginEmail, setLoginEmail] = useState("");
-  /* let data = [
-    { name: "ahmed", price: 123 },
-    { name: "mohamad", price: 1553 },
-  ];
-  let offers = data.map((offer) => {
-    return <TheOffer offerInfo={offer} />;
-  });*/
+  const [offersData, setOffersData] = useState([]);
+  const [loading, setLoading] = useState(false);
+  useEffect(() => {
+    console.log(localStorage.getItem("userId"));
+    setLoading(true)
+    const userId = localStorage.getItem("userId");
+    const userName = localStorage.getItem("name");
+    Axios.get(
+      `http://localhost:4000/api/v1/offer/get_all_offers`
+    )
+      .then((res) => {
+        console.log(res.data);
+        setOffersData(res.data);
+         setLoading(false)
+      })
+      .catch((err) => {
+        console.log(err);
+         setLoading(false)
+      });
+  },[]);
   const [toggleState, setToggleState] = useState(1);
   const toggleTab = (index) => {
     setToggleState(index);

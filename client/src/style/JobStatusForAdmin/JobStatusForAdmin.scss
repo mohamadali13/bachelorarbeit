@@ -97,6 +97,10 @@
     background-color: green;
     color: white;
     text-align: center;
+    &:active {
+      box-shadow: 0 2px gray;
+      transform: translateY(1px);
+    }
   }
   .finishButton:active {
     box-shadow: 0 2px gray;

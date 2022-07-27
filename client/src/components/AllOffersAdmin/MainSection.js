@@ -5,9 +5,10 @@ import "../../style/HomePageFirma/HomePageFirma.scss";
 import TheOffer from "../Offer/Offer";
 const TheSection = () => {
   const [offersData, setOffersData] = useState([]);
+  const [loading, setLoading] = useState(false);
   useEffect(() => {
     console.log(localStorage.getItem("userId"));
-    
+    setLoading(true)
     const userId = localStorage.getItem("userId");
     const userName = localStorage.getItem("name");
     Axios.get(
@@ -16,9 +17,11 @@ const TheSection = () => {
       .then((res) => {
         console.log(res.data);
         setOffersData(res.data);
+         setLoading(false)
       })
       .catch((err) => {
         console.log(err);
+         setLoading(false)
       });
   },[]);
   // const [loginEmail, setLoginEmail] = useState("");
@@ -33,9 +36,10 @@ const TheSection = () => {
    * offer /:id
    *
    */
-  let offers = offersData.map((offer) => {
+  
+  let offers =!loading && offersData.length > 0 ? offersData.map((offer) => {
     return <TheOffer offerInfo={offer} />;
-  });
+  }): <p>There is no data</p>;
   const [toggleState, setToggleState] = useState(1);
   const toggleTab = (index) => {
     setToggleState(index);
@@ -66,3 +70,9 @@ const TheSection = () => {
 };
 
 export default TheSection;
+
+
+/*SELECT Orders.OrderID, Customers.CustomerName, Shippers.ShipperName
+FROM ((Orders
+INNER JOIN Customers ON Orders.CustomerID = Customers.CustomerID)
+INNER JOIN Shippers ON Orders.ShipperID = Shippers.ShipperID);*/
