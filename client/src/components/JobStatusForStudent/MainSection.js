@@ -68,7 +68,7 @@ const TheSection = () => {
   let offersApplied =
     !loading && offersAppliedData.length > 0 ? (
       offersAppliedData.map((offer) => {
-        return <TheOffer offerInfo={offer} />;
+        return <TheOffer key={offer.id}  offerInfo={offer} />;
       })
     ) : (
       <p>There is no data</p>
@@ -76,7 +76,7 @@ const TheSection = () => {
   let offersUpcomming =
     !loading && offersUpcommingData.length > 0 ? (
       offersUpcommingData.map((offer) => {
-        return <TheOffer offerInfo={offer} />;
+        return <TheOffer key={offer.id} offerInfo={offer} />;
       })
     ) : (
       <p>There is no data</p>
@@ -84,7 +84,7 @@ const TheSection = () => {
   let offersFinished =
     !loading && offersFinishedData.length > 0 ? (
       offersFinishedData.map((offer) => {
-        return <TheOffer offerInfo={offer} />;
+        return <TheOffer key={offer.id}  offerInfo={offer} />;
       })
     ) : (
       <p>There is no data</p>

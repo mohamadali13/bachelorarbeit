@@ -58,7 +58,7 @@ const TheSection = () => {
   let offerCompany =
     !loading && offerCompanyData.length > 0 ? (
       offerCompanyData.map((offer) => {
-        return <TheOffer offerInfo={offer} />;
+        return <TheOffer key ={offer.id} offerInfo={offer} />;
       })
     ) : (
       <p>There is no data</p>
@@ -71,7 +71,8 @@ const TheSection = () => {
             <div className="infoBeworbenFirma">
               <p className="infoBeworbenFirmaText">
                 <p>
-                  {offer["first_name"]} {offer['last_name']} hat sich für Stelle {offer['title_job']} Nr {offer['id']}  beworben
+                  {offer["first_name"]} {offer["last_name"]} hat sich für Stelle{" "}
+                  {offer["title_job"]} Nr {offer["id"]} beworben
                 </p>
               </p>
             </div>
@@ -88,11 +89,26 @@ const TheSection = () => {
           <div className="innerInfoWrap">
             <div className="infoBeworbenFirma">
               <p className="infoBeworbenFirmaText">
-              {offer["first_name"]} {offer['last_name']} wurde für Stelle {offer['title_job']} Nr {offer['id']}  ausgewählt
+                {offer["first_name"]} {offer["last_name"]} wurde für Stelle{" "}
+                {offer["title_job"]} Nr {offer["id"]} ausgewählt
               </p>
-              <button className="finishButton" onClick={() => {
-                Axios.put('',null,    { params: { userId: userId } })
-              }}>
+              <button
+                className="finishButton"
+                onClick={() => {
+                  Axios.put(
+                    `http://localhost:4000/api/v1/offer/finish_offer_applay`,null,{ params: { id_application: offer['id_application']} }
+                  )
+                    .then((res) => {
+                      console.log(res.data);
+                      //navigate('/appliedSuscess');
+                      window.location.reload();
+                    })
+                    .catch((err) => {
+                      console.log(err);
+                      
+                    });
+                }}
+              >
                 Finished
               </button>
             </div>
@@ -109,7 +125,8 @@ const TheSection = () => {
           <div className="innerInfoWrap">
             <div className="infoBeworbenFirma">
               <p className="infoBeworbenFirmaText">
-              {offer["first_name"]} {offer['last_name']} hat die Stelle {offer['title_job']} Nr {offer['id']} erfolgreich beendet.
+                {offer["first_name"]} {offer["last_name"]} hat die Stelle{" "}
+                {offer["title_job"]} Nr {offer["id"]} erfolgreich beendet.
               </p>
             </div>
           </div>
@@ -127,25 +144,25 @@ const TheSection = () => {
       <div className="tabWrap">
         <div className="tabsDiv">
           <div
-            className={toggleState === 1 ? "tab1 tab active" : "tab"}
+            className={toggleState === 1 ? "tab1Company tab active" : "tab"}
             onClick={() => toggleTab(1)}
           >
             Meine Anzeigen
           </div>
           <div
-            className={toggleState === 2 ? "tab2 tab active" : "tab"}
+            className={toggleState === 2 ? "tab2Company tab active" : "tab"}
             onClick={() => toggleTab(2)}
           >
             Beworben
           </div>
           <div
-            className={toggleState === 3 ? "tab3 tab active" : "tab"}
+            className={toggleState === 3 ? "tab3Company tab active" : "tab"}
             onClick={() => toggleTab(3)}
           >
-            upComming
+            Up Comming
           </div>
           <div
-            className={toggleState === 4 ? "tab3 tab active" : "tab"}
+            className={toggleState === 4 ? "tab4Company tab active" : "tab"}
             onClick={() => toggleTab(4)}
           >
             Beendet

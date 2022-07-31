@@ -7,10 +7,21 @@ const OfferComponent = (props) => {
   const navigate = useNavigate();
   
   console.log(props);
+  let statusOffer = props.offerInfo.status;
+let backgroundColorStatus = ()=>{
+  
+  if(statusOffer == 'applied'){
+   return {backgroundColor:'green'};
+  } else if(statusOffer == 'upComming'){
+    return {backgroundColor:'yellow'};
+  } else if (statusOffer == 'finished'){
+    return {backgroundColor:'red'};
+  }
+}
   return (
     <div className="OfferWrap">
-      <div className="titelGeldDiv">
-        <div className="GeldOfferDiv">
+      <div className="titelGeldDiv" style={backgroundColorStatus()}>
+        <div className="GeldOfferDiv" >
           <p className="GeldOfferText">{parseFloat(
                           parseFloat(props.offerInfo.per_hour_money) *
                             parseFloat(props.offerInfo.hours_nr)
@@ -23,6 +34,8 @@ const OfferComponent = (props) => {
         <div className="titelOfferDiv">
           <p className="titelOfferText">{props.offerInfo.title_job}</p>
         </div>
+        <div className="offerNrTextWrap"> <p className="offerNrText">Nr: {props.offerInfo.id}</p></div>
+       
       </div>
       <div className="locationOfferDiv">
         <div className="locationIconAddOfferInnerWrap">

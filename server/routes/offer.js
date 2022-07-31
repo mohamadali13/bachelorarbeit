@@ -20,5 +20,9 @@ router.get("/get_upcomming_company", offerController.getUpcommingCompany);
 router.get("/get_finished_company", offerController.getFinishedCompany);
 
 router.get("/get_offer_company", offerController.getOfferCompany);
-
+router.get("/get_applied_admin", offerController.getAppliedAdmin);
+router.get("/get_upcomming_admin", offerController.getUpcommingAdmin);
+router.get("/get_finished_admin", offerController.getFinishedAdmin);
+router.put("/reject_req_applay", offerController.rejectOffer);
+router.put("/finish_offer_applay", offerController.finishOffer);
 module.exports = router;

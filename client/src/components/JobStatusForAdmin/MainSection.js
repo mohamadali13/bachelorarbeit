@@ -1,33 +1,124 @@
-import React from "react";
-import { useState } from "react";
+import Axios from "axios";
+import React, { useEffect, useState } from "react";
+
 import "../../style/JobStatusForStudent/JobStatusForStudent.scss";
 
 const TheSection = () => {
-  const [offersData, setOffersData] = useState([]);
+  const userId = localStorage.getItem("userId");
+  const userName = localStorage.getItem("name");
+  const [offersAppliedsData, setOffersAppliedsData] = useState([]);
+  const [offersUpcommingData, setOffersUpcommingData] = useState([]);
+  const [offersFinishedData, setOffersFinishedData] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [toggleState, setToggleState] = useState(1);
   useEffect(() => {
-    console.log(localStorage.getItem("userId"));
-    setLoading(true)
-    const userId = localStorage.getItem("userId");
-    const userName = localStorage.getItem("name");
-    Axios.get(
-      `http://localhost:4000/api/v1/offer/get_all_offers`
-    )
-      .then((res) => {
-        console.log(res.data);
-        setOffersData(res.data);
-         setLoading(false)
-      })
+    const reqOne = Axios.get(
+      "http://localhost:4000/api/v1/offer/get_applied_admin"
+    );
+    const reqTwo = Axios.get(
+      "http://localhost:4000/api/v1/offer/get_upcomming_admin"
+    );
+    const reqThree = Axios.get(
+      "http://localhost:4000/api/v1/offer/get_finished_admin"
+    );
+   // console.log(localStorage.getItem("userId"));
+    setLoading(true);
+    Axios.all([reqOne, reqTwo, reqThree])
+      .then(
+        Axios.spread((...responses) => {
+          const responseOne = responses[0].data;
+          const responseTwo = responses[1].data;
+          const responseThree = responses[2].data;
+          console.log("re1", responseOne);
+          console.log("re2", responseTwo);
+          console.log("re3", responseThree);
+
+          setOffersAppliedsData(responseOne);
+          setOffersUpcommingData(responseTwo);
+          setOffersFinishedData(responseThree);
+          setLoading(false);
+        })
+      )
       .catch((err) => {
         console.log(err);
-         setLoading(false)
+        setLoading(false);
       });
-  },[]);
-  const [toggleState, setToggleState] = useState(1);
+  }, [toggleState]);
+  let offersApplied =
+  !loading && offersAppliedsData.length > 0 ? (
+    offersAppliedsData.map((offer) => {
+      return (
+        <div className="innerInfoWrap">
+          <div className="infoBeworbenFirma">
+            <p className="infoBeworbenFirmaText">
+              <p>
+                {offer["first_name"]} {offer["last_name"]} hat sich für Stelle{" "}
+                {offer["title_job"]} Nr {offer["id"]} bei der Firme: {offer['company_name']} beworben
+              </p>
+            </p>
+          </div>
+        </div>
+      );
+    })
+  ) : (
+    <p>There is no data</p>
+  );
+let offersUpcomming =
+  !loading && offersUpcommingData.length > 0 ? (
+    offersUpcommingData.map((offer) => {
+      return (
+        <div className="innerInfoWrap">
+          <div className="infoBeworbenFirma">
+            <p className="infoBeworbenFirmaText">
+              {offer["first_name"]} {offer["last_name"]} wurde für Stelle{" "}
+              {offer["title_job"]} Nr {offer["id"]} bei der Firme: {offer['company_name']}  ausgewählt
+            </p>
+            <button
+            style={{backgroundColor:'red'}}
+              className="finishButton"
+              onClick={() => {
+                Axios.put(
+                  `http://localhost:4000/api/v1/offer/reject_req_applay`,null,{ params: { id_application: offer['id_application']} }
+                )
+                  .then((res) => {
+                    console.log(res.data);
+                    window.location.reload();
+                  })
+                  .catch((err) => {
+                    console.log(err);
+                    
+                  });
+              }}
+            >
+              Absagen
+            </button>
+          </div>
+        </div>
+      );
+    })
+  ) : (
+    <p>There is no data</p>
+  );
+let offersFinished =
+  !loading && offersFinishedData.length > 0 ? (
+    offersFinishedData.map((offer) => {
+      return (
+        <div className="innerInfoWrap">
+          <div className="infoBeworbenFirma">
+            <p className="infoBeworbenFirmaText">
+              {offer["first_name"]} {offer["last_name"]} hat die Stelle{" "}
+              {offer["title_job"]} Nr {offer["id"]} bei der Firme: {offer['company_name']}  erfolgreich beendet.
+            </p>
+          </div>
+        </div>
+      );
+    })
+  ) : (
+    <p>There is no data</p>
+  );
   const toggleTab = (index) => {
     setToggleState(index);
   };
-  console.log(toggleState);
   return (
     <section className="content">
       <div className="tabWrap">
@@ -54,44 +145,10 @@ const TheSection = () => {
         <div className="tabsContentDiv">
           {(() => {
             if (toggleState === 1) {
-              return (
-                <div className="contentTab1">
-                  <div className="contentTab2">
-                    <div className="innerInfoWrap">
-                      <div className="infoBeworbenFirma">
-                        <p className="infoBeworbenFirmaText">
-                          Mohamad hat sich für Stelle Nr 78878 beworben.
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              );
+              return <div className="contentTab1">{offersApplied}</div>;
             } else if (toggleState === 2) {
-              return (
-                <div className="contentTab2">
-                  <div className="innerInfoWrap">
-                    <div className="infoBeworbenFirma">
-                      <p className="infoBeworbenFirmaText">
-                        Mohamad hat wurde für Stelle Nr 54438 ausgewählt.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              );
-            } else
-              return (
-                <div className="contentTab3">
-                  <div className="innerInfoWrap">
-                    <div className="infoBeworbenFirma">
-                      <p className="infoBeworbenFirmaText">
-                        Mohamad hat die Tätigkeit für die Stelle Nr 78878
-                        beendet.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              );
+              return <div className="contentTab2">{offersUpcomming}</div>;
+            } else return <div className="contentTab3">{offersFinished}</div>;
           })()}
         </div>
       </div>
