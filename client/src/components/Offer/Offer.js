@@ -11,9 +11,13 @@ const OfferComponent = (props) => {
     <div className="OfferWrap">
       <div className="titelGeldDiv">
         <div className="GeldOfferDiv">
-          <p className="GeldOfferText">{props.offerInfo.id}</p>
+          <p className="GeldOfferText">{parseFloat(
+                          parseFloat(props.offerInfo.per_hour_money) *
+                            parseFloat(props.offerInfo.hours_nr)
+                        ).toFixed(2)}{" "}
+                    €</p>
           <div className="geldProStundeDiv">
-            <p className="geldProStundeText">{props.offerInfo.per_hour_money}</p>
+            <p className="geldProStundeText">{props.offerInfo.per_hour_money} €</p>
           </div>
         </div>
         <div className="titelOfferDiv">

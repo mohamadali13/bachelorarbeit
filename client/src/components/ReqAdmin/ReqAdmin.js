@@ -18,14 +18,13 @@ const ReqAdmin = (props) => {
       </div>
       <div className="anfrageResHomePageAdmin">
         <button className="approveButtonHomePageAdmin" onClick={() => {
-            console.log(props.reqInfo.id_application)
             Axios.put(
               `http://localhost:4000/api/v1/offer/approve_req_applay`,null,{ params: { id_application: props.reqInfo.id_application} }
             )
               .then((res) => {
                 console.log(res.data);
-                navigate('/appliedSuscess');
-                
+                //navigate('/appliedSuscess');
+                window.location.reload();
               })
               .catch((err) => {
                 console.log(err);

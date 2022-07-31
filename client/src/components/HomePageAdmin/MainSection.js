@@ -24,10 +24,15 @@ const TheSection = () => {
          setLoading(false)
       });
   },[]);
-  let reqs = offersData.map((offer) => {
-    return <ReqAdmin reqInfo={offer} /> ;
-  });
 
+  let reqs = !loading && offersData.length > 0 ? (
+    offersData.map((offer) => {
+      return <ReqAdmin reqInfo={offer} />;
+    })
+  ) : (
+    <p>There is no data</p>
+  );
+ 
   return (
     <section className="content">
       <div className="homePageAmdinWrap">

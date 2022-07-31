@@ -71,7 +71,7 @@ const TheSection = () => {
             <div className="infoBeworbenFirma">
               <p className="infoBeworbenFirmaText">
                 <p>
-                  {offer["first_name"]} hat sich für Stelle Nr 78878 beworben
+                  {offer["first_name"]} {offer['last_name']} hat sich für Stelle {offer['title_job']} Nr {offer['id']}  beworben
                 </p>
               </p>
             </div>
@@ -82,15 +82,17 @@ const TheSection = () => {
       <p>There is no data</p>
     );
   let offersUpcomming =
-    !loading && offerCompanyData.length > 0 ? (
-      offerCompanyData.map((offer) => {
+    !loading && offersUpcommingData.length > 0 ? (
+      offersUpcommingData.map((offer) => {
         return (
           <div className="innerInfoWrap">
             <div className="infoBeworbenFirma">
               <p className="infoBeworbenFirmaText">
-                Mohamad hat sich für Stelle Nr 78878 beendet
+              {offer["first_name"]} {offer['last_name']} wurde für Stelle {offer['title_job']} Nr {offer['id']}  ausgewählt
               </p>
-              <button className="finishButton" onClick={() => {}}>
+              <button className="finishButton" onClick={() => {
+                Axios.put('',null,    { params: { userId: userId } })
+              }}>
                 Finished
               </button>
             </div>
@@ -107,11 +109,8 @@ const TheSection = () => {
           <div className="innerInfoWrap">
             <div className="infoBeworbenFirma">
               <p className="infoBeworbenFirmaText">
-                Mohamad hat sich für Stelle Nr 78878 beendet
+              {offer["first_name"]} {offer['last_name']} hat die Stelle {offer['title_job']} Nr {offer['id']} erfolgreich beendet.
               </p>
-              <button className="finishButton" onClick={() => {}}>
-                Finished
-              </button>
             </div>
           </div>
         );
@@ -119,7 +118,6 @@ const TheSection = () => {
     ) : (
       <p>There is no data</p>
     );
-  console.log(offerCompany, "hhhhhhhhh");
   const toggleTab = (index) => {
     setToggleState(index);
   };
