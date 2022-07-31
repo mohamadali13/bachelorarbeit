@@ -177,7 +177,7 @@ const TheSection = (props) => {
                 const id_job = offer["id"];
                 const id_student = userId;
                 const id_company = offer["id_company"];
-                const status = 'req';
+                const status = 'applied';
                 Axios.post(`http://localhost:4000/api/v1/offer/applay_offer/`, {
                   id_job,
                   id_student,

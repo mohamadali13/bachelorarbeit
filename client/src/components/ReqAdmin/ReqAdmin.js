@@ -1,16 +1,37 @@
-import React from "react";
+import axios from "axios";
+import  Axios  from "axios";
+import React, { useEffect, useState } from "react";
+import { useParams, useNavigate } from "react-router-dom";
 import "../../style/ReqAdmin/ReqAdmin.scss";
 
 const ReqAdmin = (props) => {
+  
+  const [approvClicked, setApprovedClicked] = useState(false);
+  const [rejectedClicked, setRejectedClicked] = useState(false);
+  const navigate = useNavigate();
   return (
     <div className="anfrageHomePageAmdin">
       <div className="anfrageInfoHomePageAdmin">
         <p className="anfrageInfoHomePageAdminText">
-          Mohamad hat sich um die Stelle beworben
+          {props.reqInfo.first_name} {props.reqInfo.last_name} hat sich um die Stelle Nr {props.reqInfo.id} bei {props.reqInfo.company_name} "{props.reqInfo.title_job}" beworben
         </p>
       </div>
       <div className="anfrageResHomePageAdmin">
-        <button className="approveButtonHomePageAdmin" onClick={() => {}}>
+        <button className="approveButtonHomePageAdmin" onClick={() => {
+            console.log(props.reqInfo.id_application)
+            Axios.put(
+              `http://localhost:4000/api/v1/offer/approve_req_applay`,null,{ params: { id_application: props.reqInfo.id_application} }
+            )
+              .then((res) => {
+                console.log(res.data);
+                navigate('/appliedSuscess');
+                
+              })
+              .catch((err) => {
+                console.log(err);
+                
+              });
+         }}>
           Bestätigen
         </button>
         <button className="rejectButtonHompageAdmin" onClick={() => {}}>

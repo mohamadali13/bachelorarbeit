@@ -24,19 +24,23 @@ import TheOffer from "../Offer/Offer";
 const TheSection = () => {
   const userId = localStorage.getItem("userId");
   const userName = localStorage.getItem("name");
-  const [offersData, setOffersData] = useState([]);
+  const [offersAppliedData, setOffersAppliedData] = useState([]);
+  const [offersUpcommingData, setOffersUpcommingData] = useState([]);
+  const [offersFinishedData, setOffersFinishedData] = useState([]);
   const [loading, setLoading] = useState(false);
   const [toggleState, setToggleState] = useState(1);
   useEffect(() => {
     const reqOne = Axios.get(
-      "http://localhost:4000/api/v1/offer/get_all_offers"
-    );
-    const reqTwo = Axios.get(
       "http://localhost:4000/api/v1/offer/get_applied_student",
       { params: { userId: userId } }
     );
+    const reqTwo = Axios.get(
+      "http://localhost:4000/api/v1/offer/get_upComming_student",
+      { params: { userId: userId } }
+    );
     const reqThree = Axios.get(
-      "http://localhost:4000/api/v1/offer/get_all_offers"
+      "http://localhost:4000/api/v1/offer/get_finished_student",
+      { params: { userId: userId } }
     );
     console.log(localStorage.getItem("userId"));
     setLoading(true);
@@ -49,6 +53,11 @@ const TheSection = () => {
           console.log("re1", responseOne);
           console.log("re2", responseTwo);
           console.log("re3", responseThree);
+
+          setOffersAppliedData(responseOne);
+          setOffersUpcommingData(responseTwo);
+          setOffersFinishedData(responseThree);
+          setLoading(false);
         })
       )
       .catch((err) => {
@@ -56,15 +65,31 @@ const TheSection = () => {
         setLoading(false);
       });
   }, [toggleState]);
-  let offers =
-    !loading && offersData.length > 0 ? (
-      offersData.map((offer) => {
+  let offersApplied =
+    !loading && offersAppliedData.length > 0 ? (
+      offersAppliedData.map((offer) => {
         return <TheOffer offerInfo={offer} />;
       })
     ) : (
       <p>There is no data</p>
     );
-
+  let offersUpcomming =
+    !loading && offersUpcommingData.length > 0 ? (
+      offersUpcommingData.map((offer) => {
+        return <TheOffer offerInfo={offer} />;
+      })
+    ) : (
+      <p>There is no data</p>
+    );
+  let offersFinished =
+    !loading && offersFinishedData.length > 0 ? (
+      offersFinishedData.map((offer) => {
+        return <TheOffer offerInfo={offer} />;
+      })
+    ) : (
+      <p>There is no data</p>
+    );
+console.log(offersApplied,'hhhhhhhhh');
   const toggleTab = (index) => {
     setToggleState(index);
   };
@@ -94,10 +119,10 @@ const TheSection = () => {
         <div className="tabsContentDiv">
           {(() => {
             if (toggleState === 1) {
-              return <div className="contentTab1">{offers}</div>;
+              return <div className="contentTab1">{offersApplied}</div>;
             } else if (toggleState === 2) {
-              return <div className="contentTab2"></div>;
-            } else return <div className="contentTab3"></div>;
+              return <div className="contentTab2">{offersUpcomming}</div>;
+            } else return <div className="contentTab3">{offersFinished}</div>;
           })()}
         </div>
       </div>

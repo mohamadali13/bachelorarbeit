@@ -66,7 +66,7 @@ module.exports.getAllOffers = (req, res) => {
 
 module.exports.getDetails = (req, res) => {
   let offerId = req.params.id;
-  console.log(offerId);
+ // console.log(offerId);
 
   db.query("SELECT * FROM job WHERE id = ? ", [offerId], (err, result) => {
     if (err) {
@@ -99,28 +99,100 @@ module.exports.applayOffer = (req, res) => {
   );
 };
 
-module.exports.getReqApplay = (req, res) =>{
-
-  db.query("SELECT * FROM job WHERE id = ? ", [offerId], (err, result) => {
-    if (err) {
-      console.log(err);
-      return res.status(400).json({ message: "error" });
-    } else {
-      console.log(result);
-      return res.status(200).send(result);
+module.exports.getApplayReq = (req, res) => {
+  db.query(
+    "SELECT student.first_name, student.last_name, company.company_name, job.id, job.title_job, applied.id_application FROM `applied` INNER JOIN job ON applied.id_job = job.id INNER JOIN student ON applied.id_student = student.id INNER JOIN company ON applied.id_company = company.id WHERE  status = 'applied' ",
+    (err, result) => {
+      if (err) {
+        console.log(err);
+        return res.status(400).json({ message: "error" });
+      } else {
+        console.log(result);
+        return res.status(200).send(result);
+      }
     }
-  });
+  );
 };
 
-module.exports.getAppliedStudent = (req, res)=>{
+module.exports.getAppliedStudent = (req, res) => {
   const userId = req.query.userId;
-  const reqStatus = 'req';
-  const appStatus = 'applied';//id job get
-  db.query("SELECT * FROM `applied` WHERE id_student = ? AND (status = ? OR status = ?)",[
-    userId,
-    reqStatus,
-    appStatus
-  ], (err, result) => {
+  
+  const appStatus = "applied"; //id job get
+  db.query(
+    "SELECT * FROM `applied` INNER JOIN job ON applied.id_job = job.id WHERE id_student = ? AND status = ? ",
+    [userId, appStatus],
+    (err, result) => {
+      if (err) {
+        console.log(err);
+        return res.status(400).json({ message: "error" });
+      } else {
+        console.log(result);
+        return res.status(200).send(result);
+      }
+    }
+  );
+};
+
+module.exports.approveReq = (req, res) => {
+  const id_application = req.query.id_application;
+  const appliedStatus = "upComming";
+  db.query(
+    "UPDATE applied SET status = ? WHERE id_application = ?",
+    [appliedStatus, id_application],
+    (err, result) => {
+      if (err) {
+        console.log(err);
+        return res.status(400).json({ message: "error" });
+      } else {
+        console.log(result);
+        return res.status(200).send(result);
+      }
+    }
+  );
+};
+
+module.exports.getUpcommingStudent = (req, res) => {
+  const userId = req.query.userId;
+  
+  const appStatus = "upComming"; 
+  db.query(
+    "SELECT * FROM `applied` INNER JOIN job ON applied.id_job = job.id WHERE id_student = ? AND status = ? ",
+    [userId, appStatus],
+    (err, result) => {
+      if (err) {
+        console.log(err);
+        return res.status(400).json({ message: "error" });
+      } else {
+        console.log(result);
+        return res.status(200).send(result);
+      }
+    }
+  );
+};
+
+module.exports.getFinishedStudent = (req, res) => {
+  const userId = req.query.userId;
+  
+  const appStatus = "finished"; 
+  db.query(
+    "SELECT * FROM `applied` INNER JOIN job ON applied.id_job = job.id WHERE id_student = ? AND status = ? ",
+    [userId, appStatus],
+    (err, result) => {
+      if (err) {
+        console.log(err);
+        return res.status(400).json({ message: "error" });
+      } else {
+        console.log(result);
+        return res.status(200).send(result);
+      }
+    }
+  );
+};
+
+module.exports.getOfferCompany = (req, res) => {
+  const userId = req.query.userId;
+  
+  db.query("SELECT * FROM job WHERE id_company = ?",[userId], (err, result) => {
     if (err) {
       console.log(err);
       return res.status(400).json({ message: "error" });
@@ -130,4 +202,84 @@ module.exports.getAppliedStudent = (req, res)=>{
     }
   });
 };
+
+module.exports.getAppliedCompany = (req, res) => {
+  const userId = req.query.userId;
+  
+  const appStatus = "applied"; //id job get
+  db.query(
+    "SELECT job.id ,student.first_name, student.last_name, job.title_job FROM `applied` INNER JOIN job ON applied.id_job = job.id INNER JOIN student ON applied.id_student = student.id WHERE applied.id_company = ? AND status = ?",
+    [userId, appStatus],
+    (err, result) => {
+      if (err) {
+        console.log(err);
+        return res.status(400).json({ message: "error" });
+      } else {
+        console.log(result);
+        return res.status(200).send(result);
+      }
+    }
+  );
+};
+
+module.exports.getUpcommingCompany = (req, res) => {
+  const userId = req.query.userId;
+  
+  const appStatus = "upComming"; //id job get
+  db.query(
+    "SELECT job.id ,student.first_name, student.last_name, job.title_job FROM `applied` INNER JOIN job ON applied.id_job = job.id INNER JOIN student ON applied.id_student = student.id WHERE applied.id_company = ? AND status = ?",
+    [userId, appStatus],
+    (err, result) => {
+      if (err) {
+        console.log(err);
+        return res.status(400).json({ message: "error" });
+      } else {
+        console.log(result);
+        return res.status(200).send(result);
+      }
+    }
+  );
+};
+module.exports.getFinishedCompany = (req, res) => {
+  const userId = req.query.userId;
+  
+  const appStatus = "finished"; //id job get
+  db.query(
+    "SELECT job.id ,student.first_name, student.last_name, job.title_job FROM `applied` INNER JOIN job ON applied.id_job = job.id INNER JOIN student ON applied.id_student = student.id WHERE applied.id_company = ? AND status = ?",
+    [userId, appStatus],
+    (err, result) => {
+      if (err) {
+        console.log(err);
+        return res.status(400).json({ message: "error" });
+      } else {
+        console.log(result);
+        return res.status(200).send(result);
+      }
+    }
+  );
+};
+
+
+module.exports.getUpcommingAdmin = (req, res) => {
+  const userId = req.query.userId;
+  
+  const appStatus = "upComming"; 
+  db.query(
+    "SELECT * FROM `applied` INNER JOIN job ON applied.id_job = job.id WHERE  status = ? ",
+    [userId, appStatus],
+    (err, result) => {
+      if (err) {
+        console.log(err);
+        return res.status(400).json({ message: "error" });
+      } else {
+        console.log(result);
+        return res.status(200).send(result);
+      }
+    }
+  );
+};
+
+
+
+
 

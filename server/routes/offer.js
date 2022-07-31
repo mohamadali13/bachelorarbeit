@@ -1,6 +1,6 @@
-const  router = require('express').Router();
+const router = require("express").Router();
 const offerController = require("../controller/offer");
-const auth = require('../middlewares/auth');
+const auth = require("../middlewares/auth");
 
 router.post("/add_offer", offerController.offerPost);
 
@@ -11,18 +11,14 @@ router.get("/getDetails/:id", offerController.getDetails);
 router.post("/applay_offer", offerController.applayOffer);
 
 router.get("/get_applied_student", offerController.getAppliedStudent);
-//router.get all offers
-//get all offers for student
-//get all offers for student
-//get all offers upcomming for admin
-//get all offers upcomming for company
-//get all offers upcomming for student
-//get all offer finished for admin
-//get all offers finished for Company
-//get all offers finsished for student
-// get details for offer 
-// change to upcoming admin
-//change to finsished company
- 
+router.get("/get_reqs", offerController.getApplayReq);
+router.put("/approve_req_applay", offerController.approveReq);
+router.get("/get_upComming_student", offerController.getUpcommingStudent);
+router.get("/get_finished_student", offerController.getFinishedStudent);
+router.get("/get_applied_company", offerController.getAppliedCompany);
+router.get("/get_upcomming_company", offerController.getUpcommingCompany);
+router.get("/get_finished_company", offerController.getFinishedCompany);
+
+router.get("/get_offer_company", offerController.getOfferCompany);
 
 module.exports = router;

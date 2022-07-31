@@ -68,6 +68,12 @@
   flex-flow: column wrap;
   align-items: center;
 }
+.contentTab4 {
+  width: 100%;
+  display: flex;
+  flex-flow: column wrap;
+  align-items: center;
+}
 .innerInfoWrap {
   width: 50%;
   background-color: rgb(179, 79, 79);
@@ -75,10 +81,11 @@
   border: 1px solid gray;
   border-radius: 10px;
   padding: 1em;
+  margin-bottom: 1.5em;
 }
 .infoBeworbenFirma {
   width: 100%;
-  margin-bottom: 0.5em;
+ margin-bottom: 1.5em;
 
   display: flex;
   flex-flow: column wrap;
