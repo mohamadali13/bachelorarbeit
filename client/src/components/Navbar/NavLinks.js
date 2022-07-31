@@ -56,13 +56,13 @@ const TheNavLinks = () => {
         </li>
       )}
       {role === "company" && (
-        <li onClick={() => navigate("/homePageFirma")}>
-          <a href="#">Meine Anzeigen</a>
+        <li onClick={() => navigate("/addOfferPage")}>
+          <a href="#">Anzeige Hinzufügen</a>
         </li>
       )}
       {role === "company" && (
-        <li onClick={() => navigate("/addOfferPage")}>
-          <a href="#">Anzeige Hinzufügen</a>
+        <li onClick={() => navigate("/homePageFirma")}>
+          <a href="#">Home</a>
         </li>
       )}
       {role === "admin" && (
