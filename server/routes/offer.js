@@ -1,6 +1,5 @@
 const router = require("express").Router();
 const offerController = require("../controller/offer");
-const auth = require("../middlewares/auth");
 
 router.post("/add_offer", offerController.offerPost);
 

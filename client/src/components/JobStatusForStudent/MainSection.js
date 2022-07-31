@@ -42,7 +42,7 @@ const TheSection = () => {
       "http://localhost:4000/api/v1/offer/get_finished_student",
       { params: { userId: userId } }
     );
-    console.log(localStorage.getItem("userId"));
+
     setLoading(true);
     Axios.all([reqOne, reqTwo, reqThree])
       .then(
@@ -50,9 +50,6 @@ const TheSection = () => {
           const responseOne = responses[0].data;
           const responseTwo = responses[1].data;
           const responseThree = responses[2].data;
-          console.log("re1", responseOne);
-          console.log("re2", responseTwo);
-          console.log("re3", responseThree);
 
           setOffersAppliedData(responseOne);
           setOffersUpcommingData(responseTwo);
@@ -68,7 +65,7 @@ const TheSection = () => {
   let offersApplied =
     !loading && offersAppliedData.length > 0 ? (
       offersAppliedData.map((offer) => {
-        return <TheOffer key={offer.id}  offerInfo={offer} />;
+        return <TheOffer key={offer.id} offerInfo={offer} />;
       })
     ) : (
       <p>There is no data</p>
@@ -84,12 +81,12 @@ const TheSection = () => {
   let offersFinished =
     !loading && offersFinishedData.length > 0 ? (
       offersFinishedData.map((offer) => {
-        return <TheOffer key={offer.id}  offerInfo={offer} />;
+        return <TheOffer key={offer.id} offerInfo={offer} />;
       })
     ) : (
       <p>There is no data</p>
     );
-console.log(offersApplied,'hhhhhhhhh');
+
   const toggleTab = (index) => {
     setToggleState(index);
   };

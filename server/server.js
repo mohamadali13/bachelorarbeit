@@ -14,14 +14,12 @@ require("dotenv").config();
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
-
-
-app.use("/api/v1/auth", require('./routes/auth'));
-app.use("/api/v1/offer", require('./routes/offer'));
+app.use("/api/v1/auth", authMiddleware, require("./routes/auth"));
+app.use("/api/v1/offer", require("./routes/offer"));
 //app.use("/api/v1/user" )
-app.get("/",authMiddleware, async(req, res)=>{
-  res.status(200).json({message:" API"});
-})
+app.get("/", authMiddleware, async (req, res) => {
+  res.status(200).json({ message: " API" });
+});
 
 app.listen(PORT, () => {
   console.log(`The app listening on Port ${PORT}`);

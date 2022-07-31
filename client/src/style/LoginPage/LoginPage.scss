@@ -23,7 +23,6 @@
   border-top-left-radius: 20px;
   width: 100%;
   height: 5em;
-
 }
 .loginFormInnerWrap {
   display: flex;
@@ -38,40 +37,40 @@
   display: flex;
   justify-content: center;
 }
-.loginRowIn{
+.loginRowIn {
   width: 50%;
   display: flex;
   justify-content: center;
   margin: 1em;
 }
-.loginRowInWrap{
+.loginRowInWrap {
   width: 100%;
   display: flex;
   justify-content: center;
 }
-.loginLebel{
+.loginLebel {
   width: 30%;
 }
-.loginInput{
+.loginInput {
   border-radius: 5px;
   height: 2em;
   border-width: 0;
   flex: 1;
 }
-.loginButtonDivANDTerms{
+.loginButtonDivANDTerms {
   width: 100%;
   display: flex;
   flex-flow: row wrap;
   justify-content: center;
 }
-.loginButtonDivANDTerms{
+.loginButtonDivANDTerms {
   width: 100%;
   display: flex;
   flex-flow: column wrap;
   text-align: center;
   justify-content: center;
 }
-.loginButton{
+.loginButton {
   width: 50%;
   flex: 1;
   height: 2em;
@@ -88,7 +87,7 @@
     transform: translateY(1px);
   }
 }
-.termsloginDiv{
+.termsloginDiv {
   display: flex;
   flex-flow: row wrap;
   margin-bottom: 0.5em;
@@ -98,16 +97,15 @@
   flex: 1;
   margin-top: 0.5em;
 }
-#scaleslogin{
+#scaleslogin {
   margin: auto 0;
 }
 
-
-@media only screen and (max-width: 768px)  {
-  #loginForm{
+@media only screen and (max-width: 768px) {
+  #loginForm {
     width: 90%;
   }
-  .loginRowIn{
+  .loginRowIn {
     width: 90%;
   }
 }

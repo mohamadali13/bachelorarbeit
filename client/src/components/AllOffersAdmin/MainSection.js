@@ -7,62 +7,36 @@ const TheSection = () => {
   const [offersData, setOffersData] = useState([]);
   const [loading, setLoading] = useState(false);
   useEffect(() => {
-    console.log(localStorage.getItem("userId"));
-    setLoading(true)
-    const userId = localStorage.getItem("userId");
-    const userName = localStorage.getItem("name");
-    Axios.get(
-      `http://localhost:4000/api/v1/offer/get_all_offers`
-    )
+    setLoading(true);
+
+    Axios.get(`http://localhost:4000/api/v1/offer/get_all_offers`)
       .then((res) => {
-        console.log(res.data);
         setOffersData(res.data);
-         setLoading(false)
+        setLoading(false);
       })
       .catch((err) => {
         console.log(err);
-         setLoading(false)
+        setLoading(false);
       });
-  },[]);
-  // const [loginEmail, setLoginEmail] = useState("");
-  // let data = [
-  //   { name: "ahmed", price: 123 },
-  //   { name: "mohamad", price: 1553 },
-  // ];
-  // api/v1/company
+  }, []);
 
-  /**
-   * useeffect -> axios ->post
-   * offer /:id
-   *
-   */
-  
-  let offers =!loading && offersData.length > 0 ? offersData.map((offer) => {
-    return <TheOffer offerInfo={offer} />;
-  }): <p>There is no data</p>;
-  const [toggleState, setToggleState] = useState(1);
-  const toggleTab = (index) => {
-    setToggleState(index);
-  };
-  console.log(toggleState);
+  let offers =
+    !loading && offersData.length > 0 ? (
+      offersData.map((offer) => {
+        return <TheOffer key={offer.id} offerInfo={offer} />;
+      })
+    ) : (
+      <p>There is no data</p>
+    );
+
   return (
     <section className="content">
       <div className="tabWrap">
         <div className="tabsDiv">
-          <div
-            className={toggleState === 1 ? "tab1 tab active" : "tab"}
-            onClick={() => toggleTab(1)}
-          >
-            All Offers
-          </div>
-
+          <div className={"tab1 tab active"}>All Offers</div>
         </div>
         <div className="tabsContentDiv">
-          {(() => {
-            if (toggleState === 1) {
-              return <div className="contentTab1">{offers}</div>;
-            } 
-          })()}
+          <div className="contentTab1">{offers}</div>;
         </div>
       </div>
     </section>
@@ -70,9 +44,3 @@ const TheSection = () => {
 };
 
 export default TheSection;
-
-
-/*SELECT Orders.OrderID, Customers.CustomerName, Shippers.ShipperName
-FROM ((Orders
-INNER JOIN Customers ON Orders.CustomerID = Customers.CustomerID)
-INNER JOIN Shippers ON Orders.ShipperID = Shippers.ShipperID);*/

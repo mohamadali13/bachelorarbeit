@@ -29,7 +29,6 @@ const TheSection = () => {
       "http://localhost:4000/api/v1/offer/get_finished_company",
       { params: { userId: userId } }
     );
-    console.log(localStorage.getItem("userId"));
     setLoading(true);
     Axios.all([reqOne, reqTwo, reqThree, reqFour])
       .then(
@@ -38,10 +37,6 @@ const TheSection = () => {
           const responseTwo = responses[1].data;
           const responseThree = responses[2].data;
           const responseFour = responses[3].data;
-          console.log("re1", responseOne);
-          console.log("re2", responseTwo);
-          console.log("re3", responseThree);
-          console.log("re4", responseFour);
 
           setOfferCompanyData(responseOne);
           setOffersAppliedsData(responseTwo);
@@ -58,7 +53,7 @@ const TheSection = () => {
   let offerCompany =
     !loading && offerCompanyData.length > 0 ? (
       offerCompanyData.map((offer) => {
-        return <TheOffer key ={offer.id} offerInfo={offer} />;
+        return <TheOffer key={offer.id} offerInfo={offer} />;
       })
     ) : (
       <p>There is no data</p>
@@ -96,16 +91,17 @@ const TheSection = () => {
                 className="finishButton"
                 onClick={() => {
                   Axios.put(
-                    `http://localhost:4000/api/v1/offer/finish_offer_applay`,null,{ params: { id_application: offer['id_application']} }
+                    `http://localhost:4000/api/v1/offer/finish_offer_applay`,
+                    null,
+                    { params: { id_application: offer["id_application"] } }
                   )
                     .then((res) => {
-                      console.log(res.data);
+                      //console.log(res.data);
                       //navigate('/appliedSuscess');
                       window.location.reload();
                     })
                     .catch((err) => {
                       console.log(err);
-                      
                     });
                 }}
               >
@@ -138,7 +134,7 @@ const TheSection = () => {
   const toggleTab = (index) => {
     setToggleState(index);
   };
-  console.log(toggleState);
+
   return (
     <section className="content">
       <div className="tabWrap">

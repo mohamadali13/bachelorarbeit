@@ -6,36 +6,10 @@ import Axios from "axios";
 import { useNavigate } from "react-router-dom";
 const TheSection = () => {
   const navigate = useNavigate();
-  /* const initialValues = {
-    company_name: "",
-    origin: "",
-    found_date: "",
-    reg_nr: "",
-    street: "",
-    city: "",
-    tel_nr: "",
-    fax_nr: "",
-    add_to_address: "",
-    first_name_rep: "",
-    last_name_rep: "",
-    email_company: "",
-    email_rep: "",
-    re_email_rep: "",
-    password: "",
-    re_password: "",
-    tel_nr_rep: "",
-    mobile_nr_rep: "",
-    haus_nr: "",
-    post_code: "",
-  };*/
-  // const [formValues, setFormValues] = useState(initialValues);
+
   const [formErrors, setFormErrors] = useState("");
   const [isSubmit, setIsSubmit] = useState(false);
 
-  // const handleChange = (e) => {
-  //   const { name, value } = e.target;
-  //   setFormValues({ ...formValues, [name]: value });
-  // };
   const validate = (values) => {
     let errors = "";
     let errorsState = false;
@@ -72,18 +46,7 @@ const TheSection = () => {
 
     return { errorsState, errors };
   };
-  // useEffect(() => {
-  //   //  console.log(formErrors);
-  //   if (formErrors === "" && isSubmit) {
-  //     //  console.log(formValues);
-  //     regsHandler();
-  //   }
-  // }, [formErrors, formValues]);
-  // const handleSubmit = (e) => {
-  //   e.preventDefault();
-  //   setFormErrors(validate(formValues));
-  //   setIsSubmit(true);
-  // };
+
   const regsHandler = () => {
     let company_name = document.getElementById("company_name").value;
     let origin = document.getElementById("origin").value;
@@ -154,7 +117,6 @@ const TheSection = () => {
         })
         .catch((err) => {
           setFormErrors(err.response.data.message);
-          //console.log(err);
         });
     }
   };

@@ -1,9 +1,6 @@
 import React from "react";
-import { useState } from "react";
 import "../../style/RegSucsessPage/RegSucsessPage.scss";
 const TheSection = () => {
-  const [titleStelle, setTitleStelle] = useState("");
-
   return (
     <section className="content">
       <div className="rSWrapDiv">

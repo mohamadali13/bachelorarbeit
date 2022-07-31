@@ -21,7 +21,7 @@ const TheSection = () => {
     const reqThree = Axios.get(
       "http://localhost:4000/api/v1/offer/get_finished_admin"
     );
-   // console.log(localStorage.getItem("userId"));
+    // console.log(localStorage.getItem("userId"));
     setLoading(true);
     Axios.all([reqOne, reqTwo, reqThree])
       .then(
@@ -29,9 +29,6 @@ const TheSection = () => {
           const responseOne = responses[0].data;
           const responseTwo = responses[1].data;
           const responseThree = responses[2].data;
-          console.log("re1", responseOne);
-          console.log("re2", responseTwo);
-          console.log("re3", responseThree);
 
           setOffersAppliedsData(responseOne);
           setOffersUpcommingData(responseTwo);
@@ -45,77 +42,81 @@ const TheSection = () => {
       });
   }, [toggleState]);
   let offersApplied =
-  !loading && offersAppliedsData.length > 0 ? (
-    offersAppliedsData.map((offer) => {
-      return (
-        <div className="innerInfoWrap">
-          <div className="infoBeworbenFirma">
-            <p className="infoBeworbenFirmaText">
-              <p>
-                {offer["first_name"]} {offer["last_name"]} hat sich für Stelle{" "}
-                {offer["title_job"]} Nr {offer["id"]} bei der Firme: {offer['company_name']} beworben
+    !loading && offersAppliedsData.length > 0 ? (
+      offersAppliedsData.map((offer) => {
+        return (
+          <div className="innerInfoWrap" key={offer["id"]}>
+            <div className="infoBeworbenFirma">
+              <p className="infoBeworbenFirmaText">
+                <span key={offer["id"]}>
+                  {offer["first_name"]} {offer["last_name"]} hat sich für Stelle{" "}
+                  {offer["title_job"]} Nr {offer["id"]} bei der Firme:{" "}
+                  {offer["company_name"]} beworben
+                </span>
               </p>
-            </p>
+            </div>
           </div>
-        </div>
-      );
-    })
-  ) : (
-    <p>There is no data</p>
-  );
-let offersUpcomming =
-  !loading && offersUpcommingData.length > 0 ? (
-    offersUpcommingData.map((offer) => {
-      return (
-        <div className="innerInfoWrap">
-          <div className="infoBeworbenFirma">
-            <p className="infoBeworbenFirmaText">
-              {offer["first_name"]} {offer["last_name"]} wurde für Stelle{" "}
-              {offer["title_job"]} Nr {offer["id"]} bei der Firme: {offer['company_name']}  ausgewählt
-            </p>
-            <button
-            style={{backgroundColor:'red'}}
-              className="finishButton"
-              onClick={() => {
-                Axios.put(
-                  `http://localhost:4000/api/v1/offer/reject_req_applay`,null,{ params: { id_application: offer['id_application']} }
-                )
-                  .then((res) => {
-                    console.log(res.data);
-                    window.location.reload();
-                  })
-                  .catch((err) => {
-                    console.log(err);
-                    
-                  });
-              }}
-            >
-              Absagen
-            </button>
+        );
+      })
+    ) : (
+      <p>There is no data</p>
+    );
+  let offersUpcomming =
+    !loading && offersUpcommingData.length > 0 ? (
+      offersUpcommingData.map((offer) => {
+        return (
+          <div className="innerInfoWrap" key={offer["id"]}>
+            <div className="infoBeworbenFirma">
+              <span className="infoBeworbenFirmaText" key={offer["id"]}>
+                {offer["first_name"]} {offer["last_name"]} wurde für Stelle{" "}
+                {offer["title_job"]} Nr {offer["id"]} bei der Firme:{" "}
+                {offer["company_name"]} ausgewählt
+              </span>
+              <button
+                style={{ backgroundColor: "red" }}
+                className="finishButton"
+                onClick={() => {
+                  Axios.put(
+                    `http://localhost:4000/api/v1/offer/reject_req_applay`,
+                    null,
+                    { params: { id_application: offer["id_application"] } }
+                  )
+                    .then((res) => {
+                      console.log(res.data);
+                      window.location.reload();
+                    })
+                    .catch((err) => {
+                      console.log(err);
+                    });
+                }}
+              >
+                Absagen
+              </button>
+            </div>
           </div>
-        </div>
-      );
-    })
-  ) : (
-    <p>There is no data</p>
-  );
-let offersFinished =
-  !loading && offersFinishedData.length > 0 ? (
-    offersFinishedData.map((offer) => {
-      return (
-        <div className="innerInfoWrap">
-          <div className="infoBeworbenFirma">
-            <p className="infoBeworbenFirmaText">
-              {offer["first_name"]} {offer["last_name"]} hat die Stelle{" "}
-              {offer["title_job"]} Nr {offer["id"]} bei der Firme: {offer['company_name']}  erfolgreich beendet.
-            </p>
+        );
+      })
+    ) : (
+      <p>There is no data</p>
+    );
+  let offersFinished =
+    !loading && offersFinishedData.length > 0 ? (
+      offersFinishedData.map((offer) => {
+        return (
+          <div className="innerInfoWrap" key={offer["id"]}>
+            <div className="infoBeworbenFirma">
+              <span className="infoBeworbenFirmaText">
+                {offer["first_name"]} {offer["last_name"]} hat die Stelle{" "}
+                {offer["title_job"]} Nr {offer["id"]} bei der Firme:{" "}
+                {offer["company_name"]} erfolgreich beendet.
+              </span>
+            </div>
           </div>
-        </div>
-      );
-    })
-  ) : (
-    <p>There is no data</p>
-  );
+        );
+      })
+    ) : (
+      <p>There is no data</p>
+    );
   const toggleTab = (index) => {
     setToggleState(index);
   };

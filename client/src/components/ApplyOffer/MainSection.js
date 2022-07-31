@@ -14,17 +14,14 @@ const TheSection = (props) => {
   let [offersData, setOffersData] = useState([]);
   const [loading, setLoading] = useState(false);
   const userId = localStorage.getItem("userId");
-  const userName = localStorage.getItem("name");
-  //console.log(offer_id, 'offerid');
+
   useEffect(() => {
     setLoading(true);
 
     Axios.get(`http://localhost:4000/api/v1/offer/getDetails/${offer_id}`)
       .then((res) => {
-        console.log(res.data);
         setOffersData(res.data);
         setLoading(false);
-        console.log(offersData);
       })
       .catch((err) => {
         console.log(err);
@@ -33,8 +30,6 @@ const TheSection = (props) => {
   }, []);
 
   const [offer] = offersData.filter((offer) => offer.id == offer_id);
-
-  // let summe = parseFloat(offer['hours_nr']) *  parseFloat(offer['per_hour_money']);
 
   return (
     <section className="content">
@@ -177,16 +172,16 @@ const TheSection = (props) => {
                 const id_job = offer["id"];
                 const id_student = userId;
                 const id_company = offer["id_company"];
-                const status = 'applied';
+                const status = "applied";
                 Axios.post(`http://localhost:4000/api/v1/offer/applay_offer/`, {
                   id_job,
                   id_student,
                   id_company,
-                  status
+                  status,
                 })
                   .then((res) => {
                     console.log(res.data);
-                    navigate('/appliedSuscess');
+                    navigate("/appliedSuscess");
                   })
                   .catch((err) => {
                     console.log(err);

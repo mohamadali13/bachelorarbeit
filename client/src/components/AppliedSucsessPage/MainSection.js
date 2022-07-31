@@ -1,6 +1,5 @@
 import React from "react";
-import { useState } from "react";
-import { useParams, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import "../../style/AppliedSucsessPage/AppliedSucsessPage.scss";
 const TheSection = () => {
   const navigate = useNavigate();
@@ -13,7 +12,10 @@ const TheSection = () => {
           </p>
         </div>
         <div className="zumHomePageButtonASDiv">
-          <button className="zumHomePageButtonAS" onClick={() => navigate('/jobStatusForStudent')}>
+          <button
+            className="zumHomePageButtonAS"
+            onClick={() => navigate("/jobStatusForStudent")}
+          >
             zum Homepage
           </button>
         </div>

@@ -5,7 +5,6 @@ import { useState, useEffect } from "react";
 import Axios from "axios";
 import { useNavigate } from "react-router-dom";
 const TheSection = () => {
-  // const [studentChacked, setStudentChacked] = useState("");
   const navigate = useNavigate();
 
   const [formErrors, setFormErrors] = useState("");
@@ -44,8 +43,6 @@ const TheSection = () => {
   };
 
   function regsHandle() {
-    //  const email = formValues.email;
-    //  const password = formValues.password;
     let first_name = document.getElementById("first_name").value;
     let last_name = document.getElementById("last_name").value;
     let birth_date = document.getElementById("birth_date").value;
@@ -114,7 +111,6 @@ const TheSection = () => {
         })
         .catch((err) => {
           setFormErrors(err.response.data.message);
-          console.log(err);
         });
     }
   }

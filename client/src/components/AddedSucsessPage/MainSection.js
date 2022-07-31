@@ -1,8 +1,7 @@
 import React from "react";
-import { useState } from "react";
 import "../../style/AddedSucsessPage/AddedSucsessPage.scss";
-import { useParams, useNavigate } from "react-router-dom";
-import jwt_decode from "jwt-decode";
+import { useNavigate } from "react-router-dom";
+
 const TheSection = () => {
   const navigate = useNavigate();
 
@@ -17,10 +16,9 @@ const TheSection = () => {
         <div className="zumHomePageButtonASDiv">
           <button
             className="zumHomePageButtonAS"
-            onClick={() =>{
+            onClick={() => {
               navigate("/homePageFirma");
-            }
-            }
+            }}
           >
             zum Homepage
           </button>

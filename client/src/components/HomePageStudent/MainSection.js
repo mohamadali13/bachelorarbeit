@@ -16,23 +16,18 @@ const TheSection = () => {
 
   const [offersData, setOffersData] = useState([]);
   useEffect(() => {
-    console.log(localStorage.getItem("userId"));
-    
     const userId = localStorage.getItem("userId");
     const userName = localStorage.getItem("name");
-    Axios.get(
-      `http://localhost:4000/api/v1/offer/get_all_offers`
-    )
+    Axios.get(`http://localhost:4000/api/v1/offer/get_all_offers`)
       .then((res) => {
-        console.log(res.data);
         setOffersData(res.data);
       })
       .catch((err) => {
         console.log(err);
       });
-  },[]);
+  }, []);
   let offers = offersData.map((offer) => {
-    return <TheOffer offerInfo={offer} />;
+    return <TheOffer key={offer.id} offerInfo={offer} />;
   });
   return (
     <section className="content">
