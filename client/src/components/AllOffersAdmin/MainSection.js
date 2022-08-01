@@ -6,10 +6,15 @@ import TheOffer from "../Offer/Offer";
 const TheSection = () => {
   const [offersData, setOffersData] = useState([]);
   const [loading, setLoading] = useState(false);
+  const tokenUser = localStorage.getItem("token");
+  const user_role = localStorage.getItem("role");
   useEffect(() => {
     setLoading(true);
 
-    Axios.get(`http://localhost:4000/api/v1/offer/get_all_offers`)
+    Axios.get(`http://localhost:4000/api/v1/offer/get_all_offers`, {
+      headers: { "x-auth-token": `${tokenUser}`, role: `${user_role}` },
+    })
+
       .then((res) => {
         setOffersData(res.data);
         setLoading(false);

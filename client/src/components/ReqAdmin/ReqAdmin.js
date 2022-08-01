@@ -5,6 +5,8 @@ import "../../style/ReqAdmin/ReqAdmin.scss";
 
 const ReqAdmin = (props) => {
   const navigate = useNavigate();
+  const tokenUser = localStorage.getItem('token');
+  const user_role = localStorage.getItem('role');
   return (
     <div className="anfrageHomePageAmdin">
       <div className="anfrageInfoHomePageAdmin">
@@ -21,7 +23,14 @@ const ReqAdmin = (props) => {
             Axios.put(
               `http://localhost:4000/api/v1/offer/approve_req_applay`,
               null,
-              { params: { id_application: props.reqInfo.id_application } }
+
+              {
+                params: { id_application: props.reqInfo.id_application },
+                headers: {
+                  "x-auth-token": `${tokenUser}`,
+                  role: `${user_role}`,
+                },
+              }
             )
               .then((res) => {
                 window.location.reload();
@@ -39,7 +48,13 @@ const ReqAdmin = (props) => {
             Axios.put(
               `http://localhost:4000/api/v1/offer/reject_req_applay`,
               null,
-              { params: { id_application: props.reqInfo.id_application } }
+              {
+                params: { id_application: props.reqInfo.id_application },
+                headers: {
+                  "x-auth-token": `${tokenUser}`,
+                  role: `${user_role}`,
+                },
+              }
             )
               .then((res) => {
                 window.location.reload();

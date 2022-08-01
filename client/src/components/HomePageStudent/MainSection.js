@@ -5,6 +5,10 @@ import "../../style/HomPageStudent/HomePageStudent.scss";
 import Select from "react-select";
 import TheOffer from "../Offer/Offer";
 const TheSection = () => {
+  const userId = localStorage.getItem("userId");
+  const userName = localStorage.getItem("name");
+  const tokenUser = localStorage.getItem('token');
+  const user_role = localStorage.getItem('role');
   const listOfCitesHomePageStudent = [
     { label: "Berlin", value: "Berlin" },
     { label: "Frankfurt", value: "Frankfurt" },
@@ -16,9 +20,12 @@ const TheSection = () => {
 
   const [offersData, setOffersData] = useState([]);
   useEffect(() => {
-    const userId = localStorage.getItem("userId");
-    const userName = localStorage.getItem("name");
-    Axios.get(`http://localhost:4000/api/v1/offer/get_all_offers`)
+    Axios.get(`http://localhost:4000/api/v1/offer/get_all_offers`, 
+      {
+        params: { userId: userId },
+        headers: { "x-auth-token": `${tokenUser}`, 'role': `${user_role}` },
+      },
+    )
       .then((res) => {
         setOffersData(res.data);
       })

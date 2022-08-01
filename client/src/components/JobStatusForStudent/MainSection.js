@@ -3,27 +3,12 @@ import React, { useEffect, useState } from "react";
 
 import "../../style/JobStatusForStudent/JobStatusForStudent.scss";
 import TheOffer from "../Offer/Offer";
-/*useEffect(() => {
-    console.log(localStorage.getItem("userId"));
-    setLoading(true)
-    const userId = localStorage.getItem("userId");
-    const userName = localStorage.getItem("name");
-    Axios.get(
-      `http://localhost:4000/api/v1/offer/get_all_offers`
-    )
-      .then((res) => {
-        console.log(res.data);
-        setOffersData(res.data);
-         setLoading(false)
-      })
-      .catch((err) => {
-        console.log(err);
-         setLoading(false)
-      });
-  },[]);*/
+
 const TheSection = () => {
   const userId = localStorage.getItem("userId");
   const userName = localStorage.getItem("name");
+  const tokenUser = localStorage.getItem("token");
+  const user_role = localStorage.getItem("role");
   const [offersAppliedData, setOffersAppliedData] = useState([]);
   const [offersUpcommingData, setOffersUpcommingData] = useState([]);
   const [offersFinishedData, setOffersFinishedData] = useState([]);
@@ -32,15 +17,24 @@ const TheSection = () => {
   useEffect(() => {
     const reqOne = Axios.get(
       "http://localhost:4000/api/v1/offer/get_applied_student",
-      { params: { userId: userId } }
+      {
+        params: { userId: userId },
+        headers: { "x-auth-token": `${tokenUser}`, 'role': `${user_role}` },
+      }
     );
     const reqTwo = Axios.get(
       "http://localhost:4000/api/v1/offer/get_upComming_student",
-      { params: { userId: userId } }
+      {
+        params: { userId: userId },
+        headers: { "x-auth-token": `${tokenUser}`, 'role': `${user_role}` },
+      }
     );
     const reqThree = Axios.get(
       "http://localhost:4000/api/v1/offer/get_finished_student",
-      { params: { userId: userId } }
+      {
+        params: { userId: userId },
+        headers: { "x-auth-token": `${tokenUser}`, 'role': `${user_role}` },
+      }
     );
 
     setLoading(true);

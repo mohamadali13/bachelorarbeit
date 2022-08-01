@@ -1,10 +1,8 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import MainSection from "./MainSection";
-import { Fragment } from "react";
 import { MdLocationOn } from "react-icons/md";
 import { IoIosTime } from "react-icons/io";
-import "../../style/ApplayOffer/ApplayOffer.scss";
+import "../../style/DetailsOffer/DetailsOffer.scss";
 import Axios from "axios";
 import { useParams, useNavigate } from "react-router-dom";
 const TheSection = (props) => {
@@ -14,11 +12,15 @@ const TheSection = (props) => {
   let [offersData, setOffersData] = useState([]);
   const [loading, setLoading] = useState(false);
   const userId = localStorage.getItem("userId");
-
+  const tokenUser = localStorage.getItem("token");
+  const user_role = localStorage.getItem("role");
   useEffect(() => {
     setLoading(true);
 
-    Axios.get(`http://localhost:4000/api/v1/offer/getDetails/${offer_id}`)
+    Axios.get(`http://localhost:4000/api/v1/offer/getDetails/${offer_id}`, {
+      params: { userId: userId },
+      headers: { "x-auth-token": `${tokenUser}`, role: `${user_role}` },
+    })
       .then((res) => {
         setOffersData(res.data);
         setLoading(false);
@@ -164,7 +166,7 @@ const TheSection = (props) => {
             </div>
           </div>
         </div>
-        {userRole == "student" && (
+        {user_role == "student" && (
           <button
             className="applayButton"
             onClick={() => {
@@ -173,12 +175,22 @@ const TheSection = (props) => {
                 const id_student = userId;
                 const id_company = offer["id_company"];
                 const status = "applied";
-                Axios.post(`http://localhost:4000/api/v1/offer/applay_offer/`, {
-                  id_job,
-                  id_student,
-                  id_company,
-                  status,
-                })
+                Axios.post(
+                  `http://localhost:4000/api/v1/offer/applay_offer/`,
+                  {
+                    id_job,
+                    id_student,
+                    id_company,
+                    status,
+                  },
+                  {
+                    params: { userId: userId },
+                    headers: {
+                      "x-auth-token": `${tokenUser}`,
+                      role: `${user_role}`,
+                    },
+                  }
+                )
                   .then((res) => {
                     console.log(res.data);
                     navigate("/appliedSuscess");

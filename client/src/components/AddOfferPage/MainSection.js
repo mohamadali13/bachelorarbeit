@@ -6,20 +6,18 @@ import { useParams, useNavigate } from "react-router-dom";
 import jwt_decode from "jwt-decode";
 const TheSection = () => {
   let companyId = localStorage.getItem("userId");
-  //console.log(companyId);
+  let user_role = localStorage.getItem("role");
   const userName = localStorage.getItem("name");
   const tokenUser = localStorage.getItem("token");
   const navigate = useNavigate();
   const decoded = jwt_decode(tokenUser);
   // console.log(decoded.exp);
-  
 
   const [formErrors, setFormErrors] = useState("");
   const [isSubmit, setIsSubmit] = useState(false);
 
   const validate = (values) => {
     let errors = "";
-    const regex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i;
     let errorsState = false;
     if (
       values.title_offer.length == 0 ||
@@ -69,23 +67,23 @@ const TheSection = () => {
     let add_to_address = document.getElementById("add_to_address").value;
 
     let result = validate({
-          title_offer,
-          days_nr,
-          per_hour_money,
-          city,
-          neighbourhood,
-          persons_nr,
-          day_name,
-          hours_nr,
-          time_from,
-          time_until,
-          date,
-          describtion,
-          notes_and_requirements,
-          street,
-          haus_nr,
-          post_code,
-          add_to_address,
+      title_offer,
+      days_nr,
+      per_hour_money,
+      city,
+      neighbourhood,
+      persons_nr,
+      day_name,
+      hours_nr,
+      time_from,
+      time_until,
+      date,
+      describtion,
+      notes_and_requirements,
+      street,
+      haus_nr,
+      post_code,
+      add_to_address,
     });
     if (result.errorsState) setFormErrors(result.errors);
     else {
@@ -111,7 +109,10 @@ const TheSection = () => {
           add_to_address,
           companyId: companyId,
         },
-        { headers: { "x-auth-token": `${tokenUser}` } }
+        {
+          params: { userId: userId },
+          headers: { "x-auth-token": `${tokenUser}`, role: `${user_role}` },
+        }
       )
         .then((res) => {
           navigate("/addedSucsessPage");
@@ -157,7 +158,6 @@ const TheSection = () => {
                 type="text"
                 name="days_nr"
                 id="days_nr"
-
               ></input>
             </div>
             <div className="addOfferInputsWrap">
@@ -167,7 +167,6 @@ const TheSection = () => {
                 type="text"
                 name="per_hour_money"
                 id="per_hour_money"
-              
               ></input>
             </div>
           </div>
@@ -223,7 +222,6 @@ const TheSection = () => {
                   type="text"
                   name="day_name"
                   id="day_name"
-
                 ></input>
               </div>
               <div className="addOfferInputsWrap">
@@ -266,7 +264,6 @@ const TheSection = () => {
                   type="text"
                   name="date"
                   id="date"
-
                 ></input>
               </div>
             </div>
@@ -299,7 +296,6 @@ const TheSection = () => {
                 type="text"
                 name="notes_and_requirements"
                 id="notes_and_requirements"
-
               ></textarea>
             </div>
           </div>
@@ -368,53 +364,3 @@ const TheSection = () => {
 };
 
 export default TheSection;
-/*<div className="addOfferInputsInWrap" id="buttonAddSchicht">
-              <div className="addOfferInputsWrap">
-                <button className="buttonAddSchicht" onClick={() => {}}>
-                  Hinzufügen
-                </button>
-              </div>
-            </div>
-            <div className="schichtenItems">
-              <div className="buttonAddSchichtInnerWrap">
-                <div className="schichtNr">Schicht 1 &nbsp;</div>
-                <div className="schichtInfosTable">
-                  <div className="schichtInfoCol">re</div>
-                  <div className="schichtInfoCol">r</div>
-                  <div className="schichtInfoCol">ra</div>
-                  <div className="schichtInfoCol">d</div>
-                </div>
-              </div>
-            </div>*/
-/*const postOfferHandler = () => {
-    Axios.post(
-      "http://localhost:4000/api/v1/offer/add_offer",
-      {
-        title_offer: formValues.title_offer,
-        days_nr: formValues.days_nr,
-        per_hour_money: formValues.per_hour_money,
-        city: formValues.city,
-        neighbourhood: formValues.neighbourhood,
-        persons_nr: formValues.persons_nr,
-        day_name: formValues.day_name,
-        hours_nr: formValues.hours_nr,
-        time_from: formValues.time_from,
-        time_until: formValues.time_until,
-        date: formValues.date,
-        describtion: formValues.describtion,
-        notes_and_requirements: formValues.notes_and_requirements,
-        street: formValues.street,
-        post_code: formValues.post_code,
-        add_to_address: formValues.add_to_address,
-        companyId: companyId,
-      },
-      { headers: { "x-auth-token": `${tokenUser}` } }
-    )
-      .then((res) => {
-        console.log(res);
-      })
-      .catch((err) => {
-        setFormErrors(err.response.data.message);
-        console.log(err);
-      });
-  };*/

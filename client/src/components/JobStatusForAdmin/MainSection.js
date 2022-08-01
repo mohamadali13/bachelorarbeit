@@ -6,6 +6,8 @@ import "../../style/JobStatusForStudent/JobStatusForStudent.scss";
 const TheSection = () => {
   const userId = localStorage.getItem("userId");
   const userName = localStorage.getItem("name");
+  const tokenUser = localStorage.getItem('token');
+  const user_role = localStorage.getItem('role');;
   const [offersAppliedsData, setOffersAppliedsData] = useState([]);
   const [offersUpcommingData, setOffersUpcommingData] = useState([]);
   const [offersFinishedData, setOffersFinishedData] = useState([]);
@@ -13,13 +15,25 @@ const TheSection = () => {
   const [toggleState, setToggleState] = useState(1);
   useEffect(() => {
     const reqOne = Axios.get(
-      "http://localhost:4000/api/v1/offer/get_applied_admin"
+      "http://localhost:4000/api/v1/offer/get_applied_admin",
+      {
+        params: { userId: userId },
+        headers: { "x-auth-token": `${tokenUser}`, 'role': `${user_role}` },
+      },
     );
     const reqTwo = Axios.get(
-      "http://localhost:4000/api/v1/offer/get_upcomming_admin"
+      "http://localhost:4000/api/v1/offer/get_upcomming_admin",
+      {
+        params: { userId: userId },
+        headers: { "x-auth-token": `${tokenUser}`, 'role': `${user_role}` },
+      },
     );
     const reqThree = Axios.get(
-      "http://localhost:4000/api/v1/offer/get_finished_admin"
+      "http://localhost:4000/api/v1/offer/get_finished_admin",
+      {
+        params: { userId: userId },
+        headers: { "x-auth-token": `${tokenUser}`, 'role': `${user_role}` },
+      },
     );
     // console.log(localStorage.getItem("userId"));
     setLoading(true);

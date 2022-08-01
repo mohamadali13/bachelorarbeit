@@ -13,10 +13,10 @@ import JobStatusForStudent from "./components/JobStatusForStudent/JobStatusForSt
 import JobStatusForAdmin from "./components/JobStatusForAdmin/JobStatusForAdmin";
 import RegSucsessPage from "./components/RegSucsessPage/RegSucsessPage";
 //import OfferDetail from "./components/OfferDetails/OfferDetails";
-import ApplayOffer from "./components/ApplyOffer/ApplayOffer";
+import DetailsOffer from "./components/DetailsOffer/DetailsOffer";
 import AddedSuscess from "./components/AddedSucsessPage/AddedSucsessPage";
 import AllOffersAdmin from "./components/AllOffersAdmin/AllOffersAdmin";
-//import ApplayOffer from "./components/ApplyOffer/ApplayOffer";
+
 import ProtectedRoutes from "./ProtectedRoutes";
 import { useEffect } from "react";
 import jwt_decode from "jwt-decode";
@@ -36,7 +36,7 @@ function App() {
       <Route path="/" exact element={<RegFirmaPage />} />
       <Route path="loginPage" exact element={<LoginPage />} />
       <Route path="addedSucsessPage" exact element={<AddedSuscess />} />
-      <Route path="applayOffer/:offer_id" exact element={<ApplayOffer />} />
+      <Route path="detailsOffer/:offer_id" exact element={<DetailsOffer />} />
       <Route path="regStudentPage" element={<RegStudentPage />} />
       <Route path="addOfferPage" element={<AddOfferPage />} />
       <Route path="allOffersAdmin" element={<AllOffersAdmin />} />

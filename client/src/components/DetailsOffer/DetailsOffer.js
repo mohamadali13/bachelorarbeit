@@ -4,7 +4,7 @@ import MainSection from "./MainSection";
 import { Fragment } from "react";
 import "../../style/bodySection.scss";
 
-const ApplayOffer = (props) => {
+const DetailsOffer = (props) => {
   return (
     <Fragment>
       <TheNavBar />
@@ -14,4 +14,4 @@ const ApplayOffer = (props) => {
   );
 };
 
-export default ApplayOffer;
+export default DetailsOffer;

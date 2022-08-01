@@ -6,6 +6,8 @@ import TheOffer from "../Offer/Offer";
 const TheSection = () => {
   const userId = localStorage.getItem("userId");
   const userName = localStorage.getItem("name");
+  const tokenUser = localStorage.getItem("token");
+  const user_role = localStorage.getItem("role");
   const [offerCompanyData, setOfferCompanyData] = useState([]);
   const [offersUpcommingData, setOffersUpcommingData] = useState([]);
   const [offersFinishedData, setOffersFinishedData] = useState([]);
@@ -15,19 +17,31 @@ const TheSection = () => {
   useEffect(() => {
     const reqOne = Axios.get(
       "http://localhost:4000/api/v1/offer/get_offer_company",
-      { params: { userId: userId } }
+      {
+        params: { userId: userId },
+        headers: { "x-auth-token": `${tokenUser}`, role: `${user_role}` },
+      }
     );
     const reqTwo = Axios.get(
       "http://localhost:4000/api/v1/offer/get_applied_company",
-      { params: { userId: userId } }
+      {
+        params: { userId: userId },
+        headers: { "x-auth-token": `${tokenUser}`, role: `${user_role}` },
+      }
     );
     const reqThree = Axios.get(
       "http://localhost:4000/api/v1/offer/get_upcomming_company",
-      { params: { userId: userId } }
+      {
+        params: { userId: userId },
+        headers: { "x-auth-token": `${tokenUser}`, role: `${user_role}` },
+      }
     );
     const reqFour = Axios.get(
       "http://localhost:4000/api/v1/offer/get_finished_company",
-      { params: { userId: userId } }
+      {
+        params: { userId: userId },
+        headers: { "x-auth-token": `${tokenUser}`, role: `${user_role}` },
+      }
     );
     setLoading(true);
     Axios.all([reqOne, reqTwo, reqThree, reqFour])
@@ -93,7 +107,13 @@ const TheSection = () => {
                   Axios.put(
                     `http://localhost:4000/api/v1/offer/finish_offer_applay`,
                     null,
-                    { params: { id_application: offer["id_application"] } }
+                    {
+                      params: { userId: userId },
+                      headers: {
+                        "x-auth-token": `${tokenUser}`,
+                        role: `${user_role}`,
+                      },
+                    }
                   )
                     .then((res) => {
                       //console.log(res.data);
