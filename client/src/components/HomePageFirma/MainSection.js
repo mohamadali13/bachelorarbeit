@@ -76,13 +76,13 @@ const TheSection = () => {
     !loading && offersAppliedsData.length > 0 ? (
       offersAppliedsData.map((offer) => {
         return (
-          <div className="innerInfoWrap">
+          <div className="innerInfoWrap" key={offer.id}>
             <div className="infoBeworbenFirma">
               <p className="infoBeworbenFirmaText">
-                <p>
+                <span>
                   {offer["first_name"]} {offer["last_name"]} hat sich für Stelle{" "}
                   {offer["title_job"]} Nr {offer["id"]} beworben
-                </p>
+                </span>
               </p>
             </div>
           </div>
@@ -95,12 +95,12 @@ const TheSection = () => {
     !loading && offersUpcommingData.length > 0 ? (
       offersUpcommingData.map((offer) => {
         return (
-          <div className="innerInfoWrap">
+          <div className="innerInfoWrap" key={offer.id}>
             <div className="infoBeworbenFirma">
-              <p className="infoBeworbenFirmaText">
+              <span className="infoBeworbenFirmaText">
                 {offer["first_name"]} {offer["last_name"]} wurde für Stelle{" "}
                 {offer["title_job"]} Nr {offer["id"]} ausgewählt
-              </p>
+              </span>
               <button
                 className="finishButton"
                 onClick={() => {

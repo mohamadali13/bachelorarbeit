@@ -231,8 +231,23 @@
   border-radius: 5px;
   border: 0;
   padding: 0.5em;
+  color: white;
   cursor: pointer;
   background-color: $form-login-Button-background-color;
+  &:active {
+    box-shadow: 0 2px gray;
+    transform: translateY(1px);
+  }
+}
+.deleteButton{
+  margin-bottom: 1em;
+  width: 80%;
+  border-radius: 5px;
+  border: 0;
+  padding: 0.5em;
+  cursor: pointer;
+  background-color:red;
+  color: white;
   &:active {
     box-shadow: 0 2px gray;
     transform: translateY(1px);

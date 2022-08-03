@@ -8,7 +8,6 @@ import { useParams, useNavigate } from "react-router-dom";
 const TheSection = (props) => {
   const { offer_id } = useParams();
   const navigate = useNavigate();
-  let userRole = localStorage.getItem("role");
   let [offersData, setOffersData] = useState([]);
   const [loading, setLoading] = useState(false);
   const userId = localStorage.getItem("userId");
@@ -203,6 +202,38 @@ const TheSection = (props) => {
             }}
           >
             Bewerben
+          </button>
+        )}
+        {user_role == "company" && (
+          <button
+            className="deleteButton"
+            onClick={() => {
+              if (offer) {
+                const id_job = offer["id"];
+                console.log(id_job)
+                Axios.delete(
+                  `http://localhost:4000/api/v1/offer/delete_offer`,
+           
+                  {
+                    params: { userId: userId,id_job:id_job },
+                    headers: {
+                      "x-auth-token": `${tokenUser}`,
+                      role: `${user_role}`,
+                    },
+                  }
+                )
+                  .then((res) => {
+                    console.log(res.data);
+                    navigate("/deletedSuscess");
+                  })
+                  .catch((err) => {
+                    console.log(err);
+                    setLoading(false);
+                  });
+              }
+            }}
+          >
+            Anzeige Löschen
           </button>
         )}
       </div>

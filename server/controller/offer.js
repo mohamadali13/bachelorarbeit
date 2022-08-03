@@ -349,3 +349,18 @@ module.exports.finishOffer = (req, res) => {
     }
   );
 };
+
+module.exports.delteOffer =(req,res) =>{
+  const id_job = req.query.id_job;
+   console.log(id_job);
+
+  db.query("DELETE  FROM job WHERE id = ? ", [id_job], (err, result) => {
+    if (err) {
+      console.log(err);
+      return res.status(400).json({ message: "error" });
+    } else {
+      console.log(result);
+      return res.status(200).send(result);
+    }
+  });
+}

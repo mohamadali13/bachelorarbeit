@@ -83,4 +83,9 @@ router.put(
   [auth, authRoleCompany],
   offerController.finishOffer
 );
+router.delete(
+  "/delete_offer",
+  [auth, authRoleCompany],
+  offerController.delteOffer
+);
 module.exports = router;

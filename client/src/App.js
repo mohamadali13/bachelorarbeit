@@ -15,6 +15,7 @@ import RegSucsessPage from "./components/RegSucsessPage/RegSucsessPage";
 //import OfferDetail from "./components/OfferDetails/OfferDetails";
 import DetailsOffer from "./components/DetailsOffer/DetailsOffer";
 import AddedSuscess from "./components/AddedSucsessPage/AddedSucsessPage";
+import DeletedSuscess from "./components/DeletedAccess/DeletedSucsessPage";
 import AllOffersAdmin from "./components/AllOffersAdmin/AllOffersAdmin";
 
 import ProtectedRoutes from "./ProtectedRoutes";
@@ -36,6 +37,7 @@ function App() {
       <Route path="/" exact element={<RegFirmaPage />} />
       <Route path="loginPage" exact element={<LoginPage />} />
       <Route path="addedSucsessPage" exact element={<AddedSuscess />} />
+      <Route path="deletedSucsessPage" exact element={<DeletedSuscess />} />
       <Route path="detailsOffer/:offer_id" exact element={<DetailsOffer />} />
       <Route path="regStudentPage" element={<RegStudentPage />} />
       <Route path="addOfferPage" element={<AddOfferPage />} />
