@@ -21,35 +21,38 @@ import AllOffersAdmin from "./components/AllOffersAdmin/AllOffersAdmin";
 import ProtectedRoutes from "./ProtectedRoutes";
 import { useEffect } from "react";
 import jwt_decode from "jwt-decode";
-import { isJwtExpired } from 'jwt-check-expiration';
+import { isJwtExpired } from "jwt-check-expiration";
 
-var jwt = require('jsonwebtoken');
+var jwt = require("jsonwebtoken");
 
 function App() {
   const navigate = useNavigate();
-  
-/*  <Route element={<ProtectedRoutes />}>
+
+  /*  <Route element={<ProtectedRoutes />}>
         <Route path="addOfferPage" element={<AddOfferPage />} />
       </Route>*/
   return (
     <Routes>
-    
-      <Route path="/" exact element={<RegFirmaPage />} />
+      <Route element={<ProtectedRoutes />}>
+        <Route path="addOfferPage" element={<AddOfferPage />} />
+        <Route path="addedSucsessPage" exact element={<AddedSuscess />} />
+        <Route path="deletedSucsessPage" exact element={<DeletedSuscess />} />
+        <Route path="detailsOffer/:offer_id" exact element={<DetailsOffer />} />
+        <Route path="regStudentPage" element={<RegStudentPage />} />
+
+        <Route path="allOffersAdmin" element={<AllOffersAdmin />} />
+        <Route path="regFirmaPage" exact element={<RegFirmaPage />} />
+        <Route path="homePageStudent" exact element={<HomePageStudent />} />
+        <Route path="homePageAdmin" exact element={<HomePageAdmin />} />
+        <Route path="homePageFirma" exact element={<HomePageFirma />} />
+        <Route path="appliedSuscess" exact element={<AppliedSuscess />} />
+        <Route path="jobStatusForStudent" element={<JobStatusForStudent />} />
+        <Route path="jobStatusForAdmin" element={<JobStatusForAdmin />} />
+        <Route path="regSucsessPage" element={<RegSucsessPage />} />
+      </Route>
+      <Route path="/" exact element={<LandingPage />} />
       <Route path="loginPage" exact element={<LoginPage />} />
-      <Route path="addedSucsessPage" exact element={<AddedSuscess />} />
-      <Route path="deletedSucsessPage" exact element={<DeletedSuscess />} />
-      <Route path="detailsOffer/:offer_id" exact element={<DetailsOffer />} />
-      <Route path="regStudentPage" element={<RegStudentPage />} />
-      <Route path="addOfferPage" element={<AddOfferPage />} />
-      <Route path="allOffersAdmin" element={<AllOffersAdmin />} />
-      <Route path="regFirmaPage" exact element={<RegFirmaPage />} />
-      <Route path="homePageStudent" exact element={<HomePageStudent />} />
-      <Route path="homePageAdmin" exact element={<HomePageAdmin />} />
-      <Route path="homePageFirma" exact element={<HomePageFirma />} />
-      <Route path="appliedSuscess" exact element={<AppliedSuscess />} />
-      <Route path="jobStatusForStudent" element={<JobStatusForStudent />} />
-      <Route path="jobStatusForAdmin" element={<JobStatusForAdmin />} />
-      <Route path="regSucsessPage" element={<RegSucsessPage />} />
+
       <Route path="*" element={<p>Page NOT Found: ERROR 404!</p>} />
     </Routes>
   );
