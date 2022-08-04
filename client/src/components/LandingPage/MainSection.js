@@ -1,8 +1,9 @@
 import React from "react";
 import "../../style/LandingPage/LandingPage.scss";
 import "../../style/bodySection.scss";
-
+import { useNavigate } from "react-router-dom";
 const theSection = () => {
+  const navigate = useNavigate();
   return (
     <section className="content">
       <div className="signUpBox">
@@ -51,9 +52,8 @@ const theSection = () => {
         <button
           className="sigUpButtom"
           type="button"
-          onClick={(e) => {
-            e.preventDefault();
-            window.location.href = "http://localhost:3000/regFirmaPage";
+          onClick={() => {
+            navigate("/regFirmaPage");
           }}
         >
           Sign Up
@@ -102,9 +102,8 @@ const theSection = () => {
         <button
           className="sigUpButtom"
           type="button"
-          onClick={(e) => {
-            e.preventDefault();
-            window.location.href = "http://localhost:3000/regStudentPage";
+          onClick={() => {
+            navigate("/regStudentPage");
           }}
         >
           Sign Up

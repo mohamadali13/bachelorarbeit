@@ -38,10 +38,9 @@ function App() {
         <Route path="addedSucsessPage" exact element={<AddedSuscess />} />
         <Route path="deletedSucsessPage" exact element={<DeletedSuscess />} />
         <Route path="detailsOffer/:offer_id" exact element={<DetailsOffer />} />
-        <Route path="regStudentPage" element={<RegStudentPage />} />
 
         <Route path="allOffersAdmin" element={<AllOffersAdmin />} />
-        <Route path="regFirmaPage" exact element={<RegFirmaPage />} />
+
         <Route path="homePageStudent" exact element={<HomePageStudent />} />
         <Route path="homePageAdmin" exact element={<HomePageAdmin />} />
         <Route path="homePageFirma" exact element={<HomePageFirma />} />
@@ -52,7 +51,8 @@ function App() {
       </Route>
       <Route path="/" exact element={<LandingPage />} />
       <Route path="loginPage" exact element={<LoginPage />} />
-
+      <Route path="regFirmaPage" exact element={<RegFirmaPage />} />
+      <Route path="regStudentPage" element={<RegStudentPage />} />
       <Route path="*" element={<p>Page NOT Found: ERROR 404!</p>} />
     </Routes>
   );
