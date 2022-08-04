@@ -7,30 +7,18 @@ import AddOfferPage from "./components/AddOfferPage/AddOfferPage";
 import HomePageStudent from "./components/HomePageStudent/HomePageStudent";
 import HomePageAdmin from "./components/HomePageAdmin/HomePageAdmin";
 import HomePageFirma from "./components/HomePageFirma/HomePageFirma";
-import { Routes, Route, useNavigate } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import AppliedSuscess from "./components/AppliedSucsessPage/AppliedSucsessPage";
 import JobStatusForStudent from "./components/JobStatusForStudent/JobStatusForStudent";
 import JobStatusForAdmin from "./components/JobStatusForAdmin/JobStatusForAdmin";
 import RegSucsessPage from "./components/RegSucsessPage/RegSucsessPage";
-//import OfferDetail from "./components/OfferDetails/OfferDetails";
 import DetailsOffer from "./components/DetailsOffer/DetailsOffer";
 import AddedSuscess from "./components/AddedSucsessPage/AddedSucsessPage";
 import DeletedSuscess from "./components/DeletedAccess/DeletedSucsessPage";
 import AllOffersAdmin from "./components/AllOffersAdmin/AllOffersAdmin";
-
 import ProtectedRoutes from "./ProtectedRoutes";
-import { useEffect } from "react";
-import jwt_decode from "jwt-decode";
-import { isJwtExpired } from "jwt-check-expiration";
-
-var jwt = require("jsonwebtoken");
 
 function App() {
-  const navigate = useNavigate();
-
-  /*  <Route element={<ProtectedRoutes />}>
-        <Route path="addOfferPage" element={<AddOfferPage />} />
-      </Route>*/
   return (
     <Routes>
       <Route element={<ProtectedRoutes />}>
@@ -38,9 +26,7 @@ function App() {
         <Route path="addedSucsessPage" exact element={<AddedSuscess />} />
         <Route path="deletedSucsessPage" exact element={<DeletedSuscess />} />
         <Route path="detailsOffer/:offer_id" exact element={<DetailsOffer />} />
-
         <Route path="allOffersAdmin" element={<AllOffersAdmin />} />
-
         <Route path="homePageStudent" exact element={<HomePageStudent />} />
         <Route path="homePageAdmin" exact element={<HomePageAdmin />} />
         <Route path="homePageFirma" exact element={<HomePageFirma />} />
