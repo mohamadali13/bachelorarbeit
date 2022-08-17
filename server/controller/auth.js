@@ -42,11 +42,21 @@ module.exports.login = async (req, res) => {
             } else if (result.length > 0) {
               const hashedPassword = result[0].password;
               if (await bcrypt.compare(password, hashedPassword)) {
-                return res.status(200).json({ message: "loggedin" });
+                const id = result[0].id; // take the id for the user for Token
+                const token = await jwt.sign(
+                  {
+                    id,
+                    role: result[0].role,
+                    name: result[0].company_name,
+                  },
+                  "jwtSecret",
+                  {
+                   // expiresIn: 120,
+                  }
+                ); //create a token
+                return res.status(200).json({ message: "logging succes", token });
               } else {
-                return res
-                  .status(400)
-                  .json({ message: "Das Passwrot ist falsch" });
+                return res.status(400).json({ message: "Das Passwrot ist falsch" });
               }
             }else {
               return res
