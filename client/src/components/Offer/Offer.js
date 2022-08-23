@@ -78,7 +78,7 @@ const OfferComponent = (props) => {
         <div className="setailsOfferLinkDiv">
           <button
             className="detailsOfferLink"
-            onClick={() => navigate(`/applayOffer/${props.offerInfo.id}`)}
+            onClick={() => navigate(`/detailsOffer/${props.offerInfo.id}`)}
           >
             Details
           </button>

@@ -11,7 +11,7 @@ const TheSection = () => {
   const tokenUser = localStorage.getItem("token");
   const navigate = useNavigate();
   const decoded = jwt_decode(tokenUser);
-  // console.log(decoded.exp);
+   console.log(companyId);
 
   const [formErrors, setFormErrors] = useState("");
   const [isSubmit, setIsSubmit] = useState(false);
@@ -110,7 +110,7 @@ const TheSection = () => {
           companyId: companyId,
         },
         {
-          params: { userId: userId },
+          params: { userId: companyId },
           headers: { "x-auth-token": `${tokenUser}`, role: `${user_role}` },
         }
       )
