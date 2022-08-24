@@ -127,7 +127,6 @@ const TheSection = () => {
     <section className="content">
       <div className="AddOfferForm">
         <div className="dateDivAddOffer">
-          <p className="dateAddOfferP">Donnerstag, 28 Dezember 2021 </p>
           <p
             className="errorText"
             style={{ margin: "1em", fontWeight: "bold", color: "red" }}

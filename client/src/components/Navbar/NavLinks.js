@@ -20,11 +20,11 @@ const TheNavLinks = () => {
             navigate("/loginPage");
           }}
         >
-          <a href="#">Logout</a>
+          <a href="#">Ausloggen</a>
         </li>
       ) : (
         <li onClick={() => navigate("/loginPage")}>
-          <a href="#">Login</a>
+          <a href="#">Anmelden</a>
         </li>
       )}
       {role === "student" && (
@@ -86,7 +86,7 @@ const TheNavLinks = () => {
             navigate("/allOffersAdmin");
           }}
         >
-          <a href="#">All Offers</a>
+          <a href="#">Alle Angebote</a>
         </li>
       )}
       <li onClick={() => {}}>
