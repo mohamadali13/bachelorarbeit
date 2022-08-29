@@ -10,7 +10,8 @@ const theSection = () => {
         <div>
           <p className="titleSignBox">
             {" "}
-            Sie suchen vorqualifiziertes studentisches Personal in Zeitarbeit{" "}
+            Sind Sie auf der Such für Zeitarbeit nach Studenten, die
+            vorqualifiziert?{" "}
           </p>
         </div>
         <div className="vorteileSignBox">
@@ -18,33 +19,28 @@ const theSection = () => {
             <li>
               <div className="greenMark">✔</div>
               <p className="vorteileBeschreibung">
-                Unsere automatischen Prozesse machen eine überdurchschnittlich
-                schnelle Personalfindung und -buchung möglich, wenn nötig
-                innerhalb von 24 Stunden{" "}
+                Bencom bietet eine schnelle Personalfindung und -buchung, bei
+                Notwendigkeit innerhalb von 24 Stunden{" "}
               </p>
             </li>
             <li>
               <div className="greenMark">✔</div>
               <p className="vorteileBeschreibung">
-                Unsere Technologien gewähren eine unkomplizierte
-                Auftragsabwicklung und dank klarer digitaler Buchungsprozesse
-                einen geringen Verwaltungsaufwand für Sie
+                Bencom gewährt eine unkomplizierte Auftragsabwicklung und einen
+                geringen Verwaltungsaufwand für Sie .
               </p>
             </li>
             <li>
               <div className="greenMark">✔</div>
               <p className="vorteileBeschreibung">
                 Wir sind jeden Tag persönlich für Sie erreichbar und
-                unterstützen Sie und Ihre Kollegen gerne bei der Nutzung unserer
-                Buchungsplattform
+                unterstützen Sie gerne bei der Nutzung unserer Buchungsplattform
               </p>
             </li>
             <li>
               <div className="greenMark">✔</div>
               <p className="vorteileBeschreibung">
-                Wir lernen unsere Studenten persönlich kennen, bieten ihnen auf
-                Wunsch Schulungen an und führen ein transparentes
-                Leistungs-Bewertungssystem
+                Es werden unserer Studenten Schulungen angeboten
               </p>
             </li>
           </ul>
@@ -63,7 +59,7 @@ const theSection = () => {
         <div>
           <p className="titleSignBox">
             {" "}
-            Du bist Student und suchst flexible Jobs auf Stundenbasis?{" "}
+            Du bist ein Student, der nach flexibler Jobs mit getem Gehalt sucht?{" "}
           </p>
         </div>
         <div className="vorteileSignBox">
@@ -71,30 +67,29 @@ const theSection = () => {
             <li>
               <div className="greenMark">✔</div>
               <p className="vorteileBeschreibung">
-                {" "}
-                Keine Vorerfahrung? Kein Problem! Arbeite im Einzelhandel,
-                Event- oder Logistikbereich
+                {""}
+                Du hast noch keine Erfahrung? es ist kein Problem , du kannst
+                Jobs, die keine unbedingt Vorerfahrung brauchen,finden
               </p>
             </li>
             <li>
               <div className="greenMark">✔</div>
               <p className="vorteileBeschreibung">
                 {" "}
-                Such Dir einen Job für morgen oder für nächste Woche
+                Finde Dir einen Job für morgen oder für nächste Woche
               </p>
             </li>
             <li>
               <div className="greenMark">✔</div>
               <p className="vorteileBeschreibung">
-                11,00€/h Mindestlohn und 50% Gehalt gibt es wenige Tage nach
-                Feierabend, den Rest im Folgemonat{" "}
+                12,50 €/Stunde Mindestlohn{" "}
               </p>
             </li>
             <li>
               <div className="greenMark">✔</div>
               <p className="vorteileBeschreibung">
-                Erweitere Deine Skills für mehr Jobangebote und nimm an einer
-                unserer Schulungen teil
+                Du kannst deine Skills für mehr und mehr Jobanbote erweitern,
+                indem du unsere Schulung für Kasse und Logistik besuchst
               </p>
             </li>
           </ul>

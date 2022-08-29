@@ -57,7 +57,7 @@ const TheNavLinks = () => {
       )}
       {role === "company" && (
         <li onClick={() => navigate("/addOfferPage")}>
-          <a href="#">Anzeige Hinzufügen</a>
+          <a href="#">Angebot Hinzufügen</a>
         </li>
       )}
       {role === "company" && (
