@@ -105,7 +105,7 @@ const TheSection = () => {
             <div className="loginbuttonDiv">
               <input
                 type="submit"
-                value="Login"
+                value="Anmelden"
                 className="loginButton"
                 onClick={handleLogin}
               />

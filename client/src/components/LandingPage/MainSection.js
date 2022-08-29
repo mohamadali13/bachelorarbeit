@@ -52,7 +52,7 @@ const theSection = () => {
             navigate("/regFirmaPage");
           }}
         >
-          Sign Up
+          Registrieren
         </button>
       </div>
       <div className="signUpBox">
@@ -101,7 +101,7 @@ const theSection = () => {
             navigate("/regStudentPage");
           }}
         >
-          Sign Up
+          Registrieren
         </button>
       </div>
     </section>
