@@ -375,7 +375,7 @@ const TheSection = () => {
           <div className="signUpFbuttonDiv">
             <input
               type="submit"
-              value="Sign Up"
+              value="Registrieren"
               className="signUpFButtonFirma"
               onClick={regsHandler}
             />

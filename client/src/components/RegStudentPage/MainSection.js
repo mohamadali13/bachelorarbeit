@@ -351,7 +351,7 @@ const TheSection = () => {
             <input
               name="submit"
               type="submit"
-              value="Sign Up"
+              value="Registrieren"
               className="signUpSButton"
               onClick={regsHandle}
             />
