@@ -2,7 +2,7 @@ import React from "react";
 import "../../style/LandingPage/LandingPage.scss";
 import "../../style/bodySection.scss";
 import { useNavigate } from "react-router-dom";
-const theSection = () => {
+const TheSection = () => {
   const navigate = useNavigate();
   return (
     <section className="content">
@@ -108,4 +108,4 @@ const theSection = () => {
   );
 };
 
-export default theSection;
+export default TheSection;

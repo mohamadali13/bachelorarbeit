@@ -6,7 +6,7 @@ import { Fragment } from "react";
 import "../../style/LandingPage/LandingPage.scss";
 import "../../style/bodySection.scss";
 
-const landingPage = () => {
+const LandingPage = () => {
   return (
     <Fragment>
       <TheNavBar />
@@ -18,4 +18,4 @@ const landingPage = () => {
   );
 };
 
-export default landingPage;
+export default LandingPage;

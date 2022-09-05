@@ -4,7 +4,7 @@ import MainSection from "./MainSection";
 import { Fragment } from "react";
 import "../../style/bodySection.scss";
 
-const appliedSuscess = () => {
+const AppliedSuscess = () => {
   return (
     <Fragment>
       <TheNavBar />
@@ -14,4 +14,4 @@ const appliedSuscess = () => {
   );
 };
 
-export default appliedSuscess;
+export default AppliedSuscess;

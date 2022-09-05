@@ -4,7 +4,7 @@ import MainSection from "./MainSection";
 import { Fragment } from "react";
 import "../../style/bodySection.scss";
 
-const regSuscess = () => {
+const RegSuscess = () => {
   return (
     <Fragment>
       <TheNavBar />
@@ -14,4 +14,4 @@ const regSuscess = () => {
   );
 };
 
-export default regSuscess;
+export default RegSuscess;

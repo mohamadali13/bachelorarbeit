@@ -5,7 +5,7 @@ import MainSection from "./MainSection";
 import { Fragment } from "react";
 import "../../style/bodySection.scss";
 
-const loginPage = () => {
+const LoginPage = () => {
   return (
     <Fragment>
       <TheNavBar />
@@ -17,4 +17,4 @@ const loginPage = () => {
   );
 };
 
-export default loginPage;
+export default LoginPage;

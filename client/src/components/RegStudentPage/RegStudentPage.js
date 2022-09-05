@@ -5,7 +5,7 @@ import MainSection from "./MainSection";
 import { Fragment } from "react";
 import "../../style/bodySection.scss";
 
-const regStudent = () => {
+const RegStudent = () => {
   return (
     <Fragment>
       <TheNavBar />
@@ -17,4 +17,4 @@ const regStudent = () => {
   );
 };
 
-export default regStudent;
+export default RegStudent;

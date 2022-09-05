@@ -4,7 +4,7 @@ import MainSection from "./MainSection";
 import { Fragment } from "react";
 import "../../style/bodySection.scss";
 
-const addOffer = () => {
+const AddOffer = () => {
   return (
     <Fragment>
       <TheNavBar />
@@ -14,4 +14,4 @@ const addOffer = () => {
   );
 };
 
-export default addOffer;
+export default AddOffer;

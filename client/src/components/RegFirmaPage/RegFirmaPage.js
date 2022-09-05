@@ -5,7 +5,7 @@ import MainSection from "./MainSection";
 import { Fragment } from "react";
 import "../../style/bodySection.scss";
 
-const regFirma = () => {
+const RegFirma = () => {
   return (
     <Fragment>
       <TheNavBar />
@@ -17,4 +17,4 @@ const regFirma = () => {
   );
 };
 
-export default regFirma;
+export default RegFirma;
