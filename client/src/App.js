@@ -33,9 +33,9 @@ function App() {
         <Route path="appliedSuscess" exact element={<AppliedSuscess />} />
         <Route path="jobStatusForStudent" element={<JobStatusForStudent />} />
         <Route path="jobStatusForAdmin" element={<JobStatusForAdmin />} />
-        <Route path="regSucsessPage" element={<RegSucsessPage />} />
       </Route>
       <Route path="/" exact element={<LandingPage />} />
+      <Route path="regSucsessPage" element={<RegSucsessPage />} />
       <Route path="loginPage" exact element={<LoginPage />} />
       <Route path="regFirmaPage" exact element={<RegFirmaPage />} />
       <Route path="regStudentPage" element={<RegStudentPage />} />

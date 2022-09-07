@@ -24,12 +24,12 @@ const TheNavLinks = () => {
           <a href="#">Ausloggen</a>
         </li>
       ) : (
-        <li >
-          {
-            url == '/loginPage'? <a onClick={() => navigate("/")}>Registrieren</a>:
+        <li>
+          {url == "/loginPage" ? (
+            <a onClick={() => navigate("/")}>Registrieren</a>
+          ) : (
             <a onClick={() => navigate("/loginPage")}>Anmelden</a>
-          }
-          
+          )}
         </li>
       )}
       {role === "student" && (

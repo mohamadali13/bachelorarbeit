@@ -6,7 +6,6 @@ module.exports.login = async (req, res) => {
   const email = req.body.email;
   const password = req.body.password;
 
-  
   db.query(
     "SELECT * FROM student WHERE email  = ?",
     [email],
@@ -25,7 +24,7 @@ module.exports.login = async (req, res) => {
             },
             "jwtSecret",
             {
-             // expiresIn: 120,
+              // expiresIn: 120,
             }
           ); //create a token
           return res.status(200).json({ message: "logging succes", token });
@@ -51,17 +50,19 @@ module.exports.login = async (req, res) => {
                   },
                   "jwtSecret",
                   {
-                   // expiresIn: 120,
+                    // expiresIn: 120,
                   }
                 ); //create a token
-                return res.status(200).json({ message: "logging succes", token });
+                return res
+                  .status(200)
+                  .json({ message: "logging succes", token });
               } else {
-                return res.status(400).json({ message: "Das Passwrot ist falsch" });
+                return res
+                  .status(400)
+                  .json({ message: "Das Passwrot ist falsch" });
               }
-            }else {
-              return res
-                .status(400)
-                .json({ message: "Email nicht existiert" });
+            } else {
+              return res.status(400).json({ message: "Email nicht existiert" });
             }
           }
         );
@@ -90,11 +91,13 @@ module.exports.signupCo = async (req, res) => {
   const haus_nr = req.body.haus_nr;
   const post_code = req.body.post_code;
   const hashedPassword = await bcrypt.hash(req.body.password, 10);
+  console.log(email_rep);
   db.query(
     "SELECT COUNT(*) AS co FROM company WHERE email_rep = ?",
     [email_rep],
     (err, result) => {
-      const exist1 = result[0].co;
+      const exist1 = result[0];
+
       if (exist1 > 0) {
         return res.status(400).json({ message: "Email ist bereits existiert" });
       } else {
@@ -102,7 +105,7 @@ module.exports.signupCo = async (req, res) => {
           "SELECT COUNT(*) AS co FROM student WHERE email = ?",
           [email_rep],
           (err, result) => {
-            const exist2 = result[0].co;
+            const exist2 = result[0];
             if (exist2 > 0) {
               return res
                 .status(400)
@@ -211,7 +214,9 @@ module.exports.signupSt = async (req, res) => {
                 ],
                 (err, result) => {
                   if (err) {
-                    return res.status(400).json({ message: "error with database" });
+                    return res
+                      .status(400)
+                      .json({ message: "error with database" });
                   } else {
                     return res.status(200).json({ message: "done" });
                   }
