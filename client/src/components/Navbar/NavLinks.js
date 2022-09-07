@@ -27,7 +27,7 @@ const TheNavLinks = () => {
         <li >
           {
             url == '/loginPage'? <a onClick={() => navigate("/")}>Registrieren</a>:
-            <a onClick={() => navigate("/loginPage")}>Anmleden</a>
+            <a onClick={() => navigate("/loginPage")}>Anmelden</a>
           }
           
         </li>
