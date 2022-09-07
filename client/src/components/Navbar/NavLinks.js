@@ -8,6 +8,7 @@ const TheNavLinks = () => {
   let auth = localStorage.getItem("token");
   let role = localStorage.getItem("role");
   let userName = localStorage.getItem("name");
+  var url = window.location.pathname;
   return (
     <ul id="linksNavigation">
       {auth ? (
@@ -23,8 +24,12 @@ const TheNavLinks = () => {
           <a href="#">Ausloggen</a>
         </li>
       ) : (
-        <li onClick={() => navigate("/loginPage")}>
-          <a href="#">Anmelden</a>
+        <li >
+          {
+            url == '/loginPage'? <a onClick={() => navigate("/")}>Registrieren</a>:
+            <a onClick={() => navigate("/loginPage")}>Anmleden</a>
+          }
+          
         </li>
       )}
       {role === "student" && (
