@@ -114,3 +114,8 @@
   box-shadow: 0 2px gray;
   transform: translateY(1px);
 }
+@media only screen and (max-width: 768px) {
+  .tabWrap{
+    width: 100%;
+  }
+}

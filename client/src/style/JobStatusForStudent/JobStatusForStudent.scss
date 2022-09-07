@@ -102,3 +102,8 @@
 .tab3 {
   background-color: red;
 }
+@media only screen and (max-width: 768px) {
+  .tabWrap{
+    width: 100%;
+  }
+}
