@@ -6,25 +6,27 @@ const TheSection = () => {
   const navigate = useNavigate();
 
   return (
-    <section className="content">
-      <div className="aSWrapDiv">
-        <div className="aSMessageWrap">
-          <p className="apSucsessMessageText">
-            Glückwunsch! Du Hast deine Anzeige erforgreich hinzugefügt!
-          </p>
+    <body>
+      <section className="content">
+        <div className="aSWrapDiv">
+          <div className="aSMessageWrap">
+            <p className="apSucsessMessageText">
+              Glückwunsch! Du Hast deine Anzeige erforgreich hinzugefügt!
+            </p>
+          </div>
+          <div className="zumHomePageButtonASDiv">
+            <button
+              className="zumHomePageButtonAS"
+              onClick={() => {
+                navigate("/homePageFirma");
+              }}
+            >
+              zum Homepage
+            </button>
+          </div>
         </div>
-        <div className="zumHomePageButtonASDiv">
-          <button
-            className="zumHomePageButtonAS"
-            onClick={() => {
-              navigate("/homePageFirma");
-            }}
-          >
-            zum Homepage
-          </button>
-        </div>
-      </div>
-    </section>
+      </section>
+    </body>
   );
 };
 

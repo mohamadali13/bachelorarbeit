@@ -116,273 +116,271 @@ const TheSection = () => {
   }
 
   return (
-    <section className="content">
-      <div className="regStudentForm">
-        <div className="regSLogoImageDiv">
-          <img
-            src={LogoImage}
-            style={{ width: "25%", height: "100%", objectFit: "contain" }}
-          />
-        </div>
-        <div className="regAsSDiv">
-          <p id="regAsSText">Registrierung Als Student</p>
-          <p
-            className="errorText"
-            style={{ margin: "1em", fontWeight: "bold", color: "red" }}
-          >
-            {formErrors}
-          </p>
-        </div>
-        <div className="regASINForm">
-          <div className="regASRow">
-            <div className="regASRowIn">
-              <div className="rowRegAsSInputInWrap">
-                <label className="regASLebel">Vorname</label>
-                <input
-                  name="first_name"
-                  id="first_name"
-                  className="RegASInput"
-                  type="text"
-                />
-              </div>
-
-              <div className="rowRegAsSInputInWrap">
-                <label className="regASLebel">Name</label>
-                <input
-                  name="last_name"
-                  id="last_name"
-                  className="RegASInput"
-                  type="text"
-                />
-              </div>
-            </div>
-          </div>
-          <div className="regASRow">
-            <div className="regASRowIn">
-              <div className="rowRegAsSInputInWrap">
-                <label className="regASLebel">Geb.datum</label>
-                <input
-                  name="birth_date"
-                  id="birth_date"
-                  className="RegASInput"
-                  type="text"
-                />
-              </div>
-              <div className="rowRegAsSInputInWrap">
-                <label className="regASLebel">Geburtsort</label>
-                <input
-                  id="birth_place"
-                  name="birth_place"
-                  className="RegASInput"
-                  type="text"
-                />
-              </div>
-            </div>
-          </div>
-          <div className="regASRow">
-            <div className="regASRowIn">
-              <div className="rowRegAsSInputInWrap">
-                <label className="regASLebel">Nationalität</label>
-                <input
-                  id="nationality"
-                  name="nationality"
-                  className="RegASInput"
-                  type="text"
-                />
-              </div>
-              <div className="rowRegAsSInputInWrap">
-                <label className="regASLebel">Geschlicht</label>
-                <input name="sex" id="sex" className="RegASInput" type="text" />
-              </div>
-            </div>
-          </div>
-          <div className="regASRow">
-            <div className="regASRowIn">
-              <div className="rowRegAsSInputInWrap">
-                <label className="regASLebel">Tel.Nr</label>
-                <input
-                  name="tel_nr"
-                  id="tel_nr"
-                  className="RegASInput"
-                  type="text"
-                />
-              </div>
-              <div className="rowRegAsSInputInWrap">
-                <label className="regASLebel">Handy.Nr</label>
-                <input
-                  name="mobile_nr"
-                  id="mobile_nr"
-                  className="RegASInput"
-                  type="text"
-                />
-              </div>
-            </div>
-          </div>
-          <div className="regASRow">
-            <div className="regASRowIn">
-              <div className="rowRegAsSInputInWrap">
-                <label className="regASLebel">Email</label>
-                <input
-                  name="email"
-                  id="email"
-                  className="RegASInput"
-                  type="text"
-                />
-              </div>
-              <div className="rowRegAsSInputInWrap">
-                <label className="regASLebel">Re-Email</label>
-                <input
-                  name="re_email"
-                  id="re_email"
-                  className="RegASInput"
-                  type="text"
-                />
-              </div>
-            </div>
-          </div>
-          <div className="regASRow">
-            <div className="regASRowIn">
-              <div className="rowRegAsSInputInWrap">
-                <label className="regASLebel">Wohnort</label>
-                <input
-                  name="living_place"
-                  id="living_place"
-                  className="RegASInput"
-                  type="text"
-                />
-              </div>
-              <div className="rowRegAsSInputInWrap">
-                <label className="regASLebel">Straße</label>
-                <input
-                  name="street"
-                  id="street"
-                  className="RegASInput"
-                  type="text"
-                />
-              </div>
-            </div>
-          </div>
-          <div className="regASRow">
-            <div className="regASRowIn">
-              <div className="rowRegAsSInputInWrap">
-                <label className="regASLebel">Passwort</label>
-                <input
-                  name="password"
-                  id="password"
-                  className="RegASInput"
-                  type="password"
-                />
-              </div>
-              <div className="rowRegAsSInputInWrap">
-                <label className="regASLebel">Re-Passwort</label>
-                <input
-                  name="re_password"
-                  id="re_password"
-                  className="RegASInput"
-                  type="password"
-                />
-              </div>
-            </div>
-          </div>
-          <div className="regASRow">
-            <div className="regASRowIn">
-              <div className="rowRegAsSInputInWrap">
-                <label className="regASLebel">Haus.Nr</label>
-                <input
-                  name="haus_nr"
-                  id="haus_nr"
-                  className="RegASInput"
-                  type="text"
-                />
-              </div>
-              <div className="rowRegAsSInputInWrap">
-                <label className="regASLebel">Postleitzahl</label>
-                <input
-                  name="post_code"
-                  id="post_code"
-                  className="RegASInput"
-                  type="text"
-                />
-              </div>
-            </div>
-          </div>
-          <div className="regASRow">
-            <div className="regASRowIn">
-              <div className="rowRegAsSInputInWrap">
-                <label className="regASLebel">C/O</label>
-                <input name="co" id="co" className="RegASInput" type="text" />
-              </div>
-              <div className="rowRegAsSInputInWrap">
-                <label className="regASLebel">Zusatz zur Adresse</label>
-                <input
-                  name="add_to_address"
-                  id="add_to_address"
-                  className="RegASInput"
-                  type="text"
-                />
-              </div>
-            </div>
-          </div>
-          <div className="regASRow">
-            <div className="regASRowIn">
-              <div className="rowRegAsSInputInWrap">
-                <label className="regASLebel">Hochschule</label>
-                <input
-                  name="university"
-                  id="university"
-                  className="RegASInput"
-                  type="text"
-                />
-              </div>
-              <div className="rowRegAsSInputInWrap">
-                <label className="regASLebel">Ausweis.Nr</label>
-                <input
-                  name="personal_id_nr"
-                  id="personal_id_nr"
-                  className="RegASInput"
-                  type="text"
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-        <div className="signUpSButtonDivANDTerms">
-          <div className="signUpSbuttonDiv">
-            <input
-              name="submit"
-              type="submit"
-              value="Registrieren"
-              className="signUpSButton"
-              onClick={regsHandle}
+    <body>
+      <section className="content">
+        <div className="regStudentForm">
+          <div className="regSLogoImageDiv">
+            <img
+              src={LogoImage}
+              style={{ width: "25%", height: "100%", objectFit: "contain" }}
             />
           </div>
-          <div className="termsSDiv">
-            <div className="checkboxWrap">
-              <input type="checkbox" id="scales" name="scales"></input>
+          <div className="regAsSDiv">
+            <p id="regAsSText">Registrierung Als Student</p>
+            <p
+              className="errorText"
+              style={{ margin: "1em", fontWeight: "bold", color: "red" }}
+            >
+              {formErrors}
+            </p>
+          </div>
+          <div className="regASINForm">
+            <div className="regASRow">
+              <div className="regASRowIn">
+                <div className="rowRegAsSInputInWrap">
+                  <label className="regASLebel">Vorname</label>
+                  <input
+                    name="first_name"
+                    id="first_name"
+                    className="RegASInput"
+                    type="text"
+                  />
+                </div>
+
+                <div className="rowRegAsSInputInWrap">
+                  <label className="regASLebel">Name</label>
+                  <input
+                    name="last_name"
+                    id="last_name"
+                    className="RegASInput"
+                    type="text"
+                  />
+                </div>
+              </div>
             </div>
-            <div className="acceptTermsText">
-              <p className="acceptTermsText">
-                I agree with the{" "}
-                <a href="" className="TermsANDCondText">
-                  Terms & Conditions
-                </a>
-              </p>
+            <div className="regASRow">
+              <div className="regASRowIn">
+                <div className="rowRegAsSInputInWrap">
+                  <label className="regASLebel">Geb.datum</label>
+                  <input
+                    name="birth_date"
+                    id="birth_date"
+                    className="RegASInput"
+                    type="text"
+                  />
+                </div>
+                <div className="rowRegAsSInputInWrap">
+                  <label className="regASLebel">Geburtsort</label>
+                  <input
+                    id="birth_place"
+                    name="birth_place"
+                    className="RegASInput"
+                    type="text"
+                  />
+                </div>
+              </div>
+            </div>
+            <div className="regASRow">
+              <div className="regASRowIn">
+                <div className="rowRegAsSInputInWrap">
+                  <label className="regASLebel">Nationalität</label>
+                  <input
+                    id="nationality"
+                    name="nationality"
+                    className="RegASInput"
+                    type="text"
+                  />
+                </div>
+                <div className="rowRegAsSInputInWrap">
+                  <label className="regASLebel">Geschlicht</label>
+                  <input
+                    name="sex"
+                    id="sex"
+                    className="RegASInput"
+                    type="text"
+                  />
+                </div>
+              </div>
+            </div>
+            <div className="regASRow">
+              <div className="regASRowIn">
+                <div className="rowRegAsSInputInWrap">
+                  <label className="regASLebel">Tel.Nr</label>
+                  <input
+                    name="tel_nr"
+                    id="tel_nr"
+                    className="RegASInput"
+                    type="text"
+                  />
+                </div>
+                <div className="rowRegAsSInputInWrap">
+                  <label className="regASLebel">Handy.Nr</label>
+                  <input
+                    name="mobile_nr"
+                    id="mobile_nr"
+                    className="RegASInput"
+                    type="text"
+                  />
+                </div>
+              </div>
+            </div>
+            <div className="regASRow">
+              <div className="regASRowIn">
+                <div className="rowRegAsSInputInWrap">
+                  <label className="regASLebel">Email</label>
+                  <input
+                    name="email"
+                    id="email"
+                    className="RegASInput"
+                    type="text"
+                  />
+                </div>
+                <div className="rowRegAsSInputInWrap">
+                  <label className="regASLebel">Re-Email</label>
+                  <input
+                    name="re_email"
+                    id="re_email"
+                    className="RegASInput"
+                    type="text"
+                  />
+                </div>
+              </div>
+            </div>
+            <div className="regASRow">
+              <div className="regASRowIn">
+                <div className="rowRegAsSInputInWrap">
+                  <label className="regASLebel">Wohnort</label>
+                  <input
+                    name="living_place"
+                    id="living_place"
+                    className="RegASInput"
+                    type="text"
+                  />
+                </div>
+                <div className="rowRegAsSInputInWrap">
+                  <label className="regASLebel">Straße</label>
+                  <input
+                    name="street"
+                    id="street"
+                    className="RegASInput"
+                    type="text"
+                  />
+                </div>
+              </div>
+            </div>
+            <div className="regASRow">
+              <div className="regASRowIn">
+                <div className="rowRegAsSInputInWrap">
+                  <label className="regASLebel">Passwort</label>
+                  <input
+                    name="password"
+                    id="password"
+                    className="RegASInput"
+                    type="password"
+                  />
+                </div>
+                <div className="rowRegAsSInputInWrap">
+                  <label className="regASLebel">Re-Passwort</label>
+                  <input
+                    name="re_password"
+                    id="re_password"
+                    className="RegASInput"
+                    type="password"
+                  />
+                </div>
+              </div>
+            </div>
+            <div className="regASRow">
+              <div className="regASRowIn">
+                <div className="rowRegAsSInputInWrap">
+                  <label className="regASLebel">Haus.Nr</label>
+                  <input
+                    name="haus_nr"
+                    id="haus_nr"
+                    className="RegASInput"
+                    type="text"
+                  />
+                </div>
+                <div className="rowRegAsSInputInWrap">
+                  <label className="regASLebel">Postleitzahl</label>
+                  <input
+                    name="post_code"
+                    id="post_code"
+                    className="RegASInput"
+                    type="text"
+                  />
+                </div>
+              </div>
+            </div>
+            <div className="regASRow">
+              <div className="regASRowIn">
+                <div className="rowRegAsSInputInWrap">
+                  <label className="regASLebel">C/O</label>
+                  <input name="co" id="co" className="RegASInput" type="text" />
+                </div>
+                <div className="rowRegAsSInputInWrap">
+                  <label className="regASLebel">Zusatz zur Adresse</label>
+                  <input
+                    name="add_to_address"
+                    id="add_to_address"
+                    className="RegASInput"
+                    type="text"
+                  />
+                </div>
+              </div>
+            </div>
+            <div className="regASRow">
+              <div className="regASRowIn">
+                <div className="rowRegAsSInputInWrap">
+                  <label className="regASLebel">Hochschule</label>
+                  <input
+                    name="university"
+                    id="university"
+                    className="RegASInput"
+                    type="text"
+                  />
+                </div>
+                <div className="rowRegAsSInputInWrap">
+                  <label className="regASLebel">Ausweis.Nr</label>
+                  <input
+                    name="personal_id_nr"
+                    id="personal_id_nr"
+                    className="RegASInput"
+                    type="text"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="signUpSButtonDivANDTerms">
+            <div className="signUpSbuttonDiv">
+              <input
+                name="submit"
+                type="submit"
+                value="Registrieren"
+                className="signUpSButton"
+                onClick={regsHandle}
+              />
+            </div>
+            <div className="termsSDiv">
+              <div className="checkboxWrap">
+                <input type="checkbox" id="scales" name="scales"></input>
+              </div>
+              <div className="acceptTermsText">
+                <p className="acceptTermsText">
+                  I agree with the{" "}
+                  <a href="" className="TermsANDCondText">
+                    Terms & Conditions
+                  </a>
+                </p>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </body>
   );
 };
 
 export default TheSection;
-/* <div className="regASRow">
-            <div className="regASRowIn" id="immaInputFileLabel">
-              <label className="regASLebel">Immatr.Hochladen</label>
-              <input
-                name="" className="RegASInput" type="file" id="immaInputFile" />
-            </div>
-          </div>*/
 
-/*
- */

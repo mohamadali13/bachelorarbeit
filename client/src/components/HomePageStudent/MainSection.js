@@ -7,8 +7,8 @@ import TheOffer from "../Offer/Offer";
 const TheSection = () => {
   const userId = localStorage.getItem("userId");
   const userName = localStorage.getItem("name");
-  const tokenUser = localStorage.getItem('token');
-  const user_role = localStorage.getItem('role');
+  const tokenUser = localStorage.getItem("token");
+  const user_role = localStorage.getItem("role");
   const listOfCitesHomePageStudent = [
     { label: "Berlin", value: "Berlin" },
     { label: "Frankfurt", value: "Frankfurt" },
@@ -20,12 +20,10 @@ const TheSection = () => {
 
   const [offersData, setOffersData] = useState([]);
   useEffect(() => {
-    Axios.get(`http://localhost:4000/api/v1/offer/get_all_offers`, 
-      {
-        params: { userId: userId },
-        headers: { "x-auth-token": `${tokenUser}`, 'role': `${user_role}` },
-      },
-    )
+    Axios.get(`http://localhost:4000/api/v1/offer/get_all_offers`, {
+      params: { userId: userId },
+      headers: { "x-auth-token": `${tokenUser}`, role: `${user_role}` },
+    })
       .then((res) => {
         setOffersData(res.data);
       })
@@ -37,19 +35,21 @@ const TheSection = () => {
     return <TheOffer key={offer.id} offerInfo={offer} />;
   });
   return (
-    <section className="content">
-      <div className="homePageStudentWrap">
-        <div className="selectCityHomePageStadtStudent">
-          <Select
-            options={listOfCitesHomePageStudent}
-            onChange={(opt) => {
-              console.log(opt.value);
-            }}
-          />
+    <body>
+      <section className="content">
+        <div className="homePageStudentWrap">
+          <div className="selectCityHomePageStadtStudent">
+            <Select
+              options={listOfCitesHomePageStudent}
+              onChange={(opt) => {
+                console.log(opt.value);
+              }}
+            />
+          </div>
+          <div className="offersHomePageStudent">{offers}</div>
         </div>
-        <div className="offersHomePageStudent">{offers}</div>
-      </div>
-    </section>
+      </section>
+    </body>
   );
 };
 

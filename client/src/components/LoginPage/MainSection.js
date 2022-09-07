@@ -60,6 +60,7 @@ const TheSection = () => {
   }
 
   return (
+    <body>
     <section className="content">
       <div id="loginForm">
         <div className="loginLogoImageDiv">
@@ -127,6 +128,7 @@ const TheSection = () => {
         </div>
       </div>
     </section>
+    </body>
   );
 };
 

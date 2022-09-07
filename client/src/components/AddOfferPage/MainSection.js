@@ -11,7 +11,7 @@ const TheSection = () => {
   const tokenUser = localStorage.getItem("token");
   const navigate = useNavigate();
   const decoded = jwt_decode(tokenUser);
-   console.log(companyId);
+  console.log(companyId);
 
   const [formErrors, setFormErrors] = useState("");
   const [isSubmit, setIsSubmit] = useState(false);
@@ -124,241 +124,247 @@ const TheSection = () => {
     }
   };
   return (
-    <section className="content">
-      <div className="AddOfferForm">
-        <div className="dateDivAddOffer">
-          <p
-            className="errorText"
-            style={{ margin: "1em", fontWeight: "bold", color: "red" }}
-          >
-            {formErrors}
-          </p>
-          <div className="underLineBetween"></div>
-        </div>
+    <body>
+      <section className="content">
+        <div className="AddOfferForm">
+          <div className="dateDivAddOffer">
+            <p
+              className="errorText"
+              style={{ margin: "1em", fontWeight: "bold", color: "red" }}
+            >
+              {formErrors}
+            </p>
+            <div className="underLineBetween"></div>
+          </div>
 
-        <div className="addOfferInputLongOutWrap">
-          <div className="addOfferInputLongInWrap">
-            <label className="addOfferLabel">Title der Stelle</label>
-            <input
-              className="addOfferLongInput"
-              type="text"
-              name="title_offer"
-              id="title_offer"
-            ></input>
+          <div className="addOfferInputLongOutWrap">
+            <div className="addOfferInputLongInWrap">
+              <label className="addOfferLabel">Title der Stelle</label>
+              <input
+                className="addOfferLongInput"
+                type="text"
+                name="title_offer"
+                id="title_offer"
+              ></input>
+            </div>
           </div>
-        </div>
 
-        <div className="addOfferInputsOutWrap">
-          <div className="addOfferInputsInWrap">
-            <div className="addOfferInputsWrap">
-              <label className="addOfferLabelInputs">Wie viele Tage?</label>
-              <input
-                className="addOfferInputShort"
-                type="text"
-                name="days_nr"
-                id="days_nr"
-              ></input>
-            </div>
-            <div className="addOfferInputsWrap">
-              <label className="addOfferLabelInputs">€ Pro Stunde</label>
-              <input
-                className="addOfferInputShort"
-                type="text"
-                name="per_hour_money"
-                id="per_hour_money"
-              ></input>
-            </div>
-          </div>
-        </div>
-
-        <div className="addOfferInputsOutWrap">
-          <div className="addOfferInputsInWrap">
-            <div className="addOfferInputsWrap">
-              <label className="addOfferLabelInputs">Stadt</label>
-              <input
-                className="addOfferInputShort"
-                type="text"
-                name="city"
-                id="city"
-              ></input>
-            </div>
-            <div className="addOfferInputsWrap">
-              <label className="addOfferLabelInputs">Stadtteil</label>
-              <input
-                className="addOfferInputShort"
-                type="text"
-                name="neighbourhood"
-                id="neighbourhood"
-              ></input>
-            </div>
-          </div>
-        </div>
-
-        <div className="addOfferInputsOutWrap">
-          <div className="addOfferInputsInWrap">
-            <div className="addOfferInputsWrap">
-              <label className="addOfferLabelInputs">Wie viele Personen?</label>
-              <input
-                className="addOfferInputShort"
-                type="text"
-                name="persons_nr"
-                id="persons_nr"
-              ></input>
-            </div>
-          </div>
-          <div className="underLineBetween"></div>
-        </div>
-        <div className="schichteHinzu">
-          <div className="titleAddOfferSection">
-            <p className="titleAddOfferText">Schichte Hinzufügen</p>
-          </div>
           <div className="addOfferInputsOutWrap">
             <div className="addOfferInputsInWrap">
               <div className="addOfferInputsWrap">
-                <label className="addOfferLabelInputs">Tag</label>
+                <label className="addOfferLabelInputs">Wie viele Tage?</label>
                 <input
                   className="addOfferInputShort"
                   type="text"
-                  name="day_name"
-                  id="day_name"
+                  name="days_nr"
+                  id="days_nr"
                 ></input>
               </div>
               <div className="addOfferInputsWrap">
+                <label className="addOfferLabelInputs">€ Pro Stunde</label>
+                <input
+                  className="addOfferInputShort"
+                  type="text"
+                  name="per_hour_money"
+                  id="per_hour_money"
+                ></input>
+              </div>
+            </div>
+          </div>
+
+          <div className="addOfferInputsOutWrap">
+            <div className="addOfferInputsInWrap">
+              <div className="addOfferInputsWrap">
+                <label className="addOfferLabelInputs">Stadt</label>
+                <input
+                  className="addOfferInputShort"
+                  type="text"
+                  name="city"
+                  id="city"
+                ></input>
+              </div>
+              <div className="addOfferInputsWrap">
+                <label className="addOfferLabelInputs">Stadtteil</label>
+                <input
+                  className="addOfferInputShort"
+                  type="text"
+                  name="neighbourhood"
+                  id="neighbourhood"
+                ></input>
+              </div>
+            </div>
+          </div>
+
+          <div className="addOfferInputsOutWrap">
+            <div className="addOfferInputsInWrap">
+              <div className="addOfferInputsWrap">
                 <label className="addOfferLabelInputs">
-                  Wie viele Stunden?
+                  Wie viele Personen?
                 </label>
                 <input
                   className="addOfferInputShort"
                   type="text"
-                  name="hours_nr"
-                  id="hours_nr"
+                  name="persons_nr"
+                  id="persons_nr"
                 ></input>
               </div>
             </div>
-            <div className="addOfferInputsInWrap">
-              <div className="addOfferInputsWrap">
-                <label className="addOfferLabelInputs">Zeit-von</label>
-                <input
-                  className="addOfferInputShort"
-                  type="text"
-                  name="time_from"
-                  id="time_from"
-                ></input>
-              </div>
-              <div className="addOfferInputsWrap">
-                <label className="addOfferLabelInputs">Zeit-bis</label>
-                <input
-                  className="addOfferInputShort"
-                  type="text"
-                  name="time_until"
-                  id="time_until"
-                ></input>
-              </div>
-            </div>
-            <div className="addOfferInputsInWrap" id="addOfferInputsInWrap">
-              <div className="addOfferInputsWrap">
-                <label className="addOfferLabelInputs">Datum</label>
-                <input
-                  className="addOfferInputShort"
-                  type="text"
-                  name="date"
-                  id="date"
-                ></input>
-              </div>
-            </div>
+            <div className="underLineBetween"></div>
           </div>
-        </div>
-        <div className="underLineBetween"></div>
-        <div className="addOfferBottomSectionWrap">
-          <div className="beschreibungAddOffer">
-            <div className="titeBottomDivAddOffer">
-              <p className="titeBottomAddOfferText">Beschreibung</p>
-            </div>
-            <div className="textareaWrapAddOffer">
-              <textarea
-                maxLength="200"
-                className="textAreaAddOffer"
-                type="text"
-                name="describtion"
-                id="describtion"
-              ></textarea>
-            </div>
-          </div>
-          <div className="hinweiseAddOffer">
-            <div className="titeBottomDivAddOffer">
-              <p className="titeBottomAddOfferText">Hinweise & Anforderungen</p>
-            </div>
-            <div className="textareaWrapAddOffer">
-              <textarea
-                maxLength="200"
-                className="textAreaAddOffer"
-                type="text"
-                name="notes_and_requirements"
-                id="notes_and_requirements"
-              ></textarea>
-            </div>
-          </div>
-          <div className="adresseAddOffer">
-            <div className="titeBottomDivAddOffer">
-              <p className="titeBottomAddOfferText">Adresse</p>
+          <div className="schichteHinzu">
+            <div className="titleAddOfferSection">
+              <p className="titleAddOfferText">Schichte Hinzufügen</p>
             </div>
             <div className="addOfferInputsOutWrap">
               <div className="addOfferInputsInWrap">
                 <div className="addOfferInputsWrap">
-                  <label className="addOfferLabelInputs">Straße</label>
+                  <label className="addOfferLabelInputs">Tag</label>
                   <input
                     className="addOfferInputShort"
                     type="text"
-                    name="street"
-                    id="street"
+                    name="day_name"
+                    id="day_name"
                   ></input>
                 </div>
                 <div className="addOfferInputsWrap">
-                  <label className="addOfferLabelInputs">Haus.Nr</label>
+                  <label className="addOfferLabelInputs">
+                    Wie viele Stunden?
+                  </label>
                   <input
                     className="addOfferInputShort"
                     type="text"
-                    name="haus_nr"
-                    id="haus_nr"
+                    name="hours_nr"
+                    id="hours_nr"
                   ></input>
                 </div>
               </div>
-            </div>
-            <div className="addOfferInputsOutWrap">
               <div className="addOfferInputsInWrap">
                 <div className="addOfferInputsWrap">
-                  <label className="addOfferLabelInputs">Postleitzahl</label>
+                  <label className="addOfferLabelInputs">Zeit-von</label>
                   <input
                     className="addOfferInputShort"
                     type="text"
-                    name="post_code"
-                    id="post_code"
+                    name="time_from"
+                    id="time_from"
                   ></input>
                 </div>
                 <div className="addOfferInputsWrap">
-                  <label className="addOfferLabelInputs">Zusätlich</label>
+                  <label className="addOfferLabelInputs">Zeit-bis</label>
                   <input
                     className="addOfferInputShort"
                     type="text"
-                    name="add_to_address"
-                    id="add_to_address"
+                    name="time_until"
+                    id="time_until"
+                  ></input>
+                </div>
+              </div>
+              <div className="addOfferInputsInWrap" id="addOfferInputsInWrap">
+                <div className="addOfferInputsWrap">
+                  <label className="addOfferLabelInputs">Datum</label>
+                  <input
+                    className="addOfferInputShort"
+                    type="text"
+                    name="date"
+                    id="date"
                   ></input>
                 </div>
               </div>
             </div>
           </div>
+          <div className="underLineBetween"></div>
+          <div className="addOfferBottomSectionWrap">
+            <div className="beschreibungAddOffer">
+              <div className="titeBottomDivAddOffer">
+                <p className="titeBottomAddOfferText">Beschreibung</p>
+              </div>
+              <div className="textareaWrapAddOffer">
+                <textarea
+                  maxLength="200"
+                  className="textAreaAddOffer"
+                  type="text"
+                  name="describtion"
+                  id="describtion"
+                ></textarea>
+              </div>
+            </div>
+            <div className="hinweiseAddOffer">
+              <div className="titeBottomDivAddOffer">
+                <p className="titeBottomAddOfferText">
+                  Hinweise & Anforderungen
+                </p>
+              </div>
+              <div className="textareaWrapAddOffer">
+                <textarea
+                  maxLength="200"
+                  className="textAreaAddOffer"
+                  type="text"
+                  name="notes_and_requirements"
+                  id="notes_and_requirements"
+                ></textarea>
+              </div>
+            </div>
+            <div className="adresseAddOffer">
+              <div className="titeBottomDivAddOffer">
+                <p className="titeBottomAddOfferText">Adresse</p>
+              </div>
+              <div className="addOfferInputsOutWrap">
+                <div className="addOfferInputsInWrap">
+                  <div className="addOfferInputsWrap">
+                    <label className="addOfferLabelInputs">Straße</label>
+                    <input
+                      className="addOfferInputShort"
+                      type="text"
+                      name="street"
+                      id="street"
+                    ></input>
+                  </div>
+                  <div className="addOfferInputsWrap">
+                    <label className="addOfferLabelInputs">Haus.Nr</label>
+                    <input
+                      className="addOfferInputShort"
+                      type="text"
+                      name="haus_nr"
+                      id="haus_nr"
+                    ></input>
+                  </div>
+                </div>
+              </div>
+              <div className="addOfferInputsOutWrap">
+                <div className="addOfferInputsInWrap">
+                  <div className="addOfferInputsWrap">
+                    <label className="addOfferLabelInputs">Postleitzahl</label>
+                    <input
+                      className="addOfferInputShort"
+                      type="text"
+                      name="post_code"
+                      id="post_code"
+                    ></input>
+                  </div>
+                  <div className="addOfferInputsWrap">
+                    <label className="addOfferLabelInputs">Zusätlich</label>
+                    <input
+                      className="addOfferInputShort"
+                      type="text"
+                      name="add_to_address"
+                      id="add_to_address"
+                    ></input>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="addOfferWrapButton">
+            <button
+              className="AddOfferButton"
+              type="submit"
+              onClick={offerPostHandler}
+            >
+              Das Angebot Hinzufügen
+            </button>
+          </div>
         </div>
-        <div className="addOfferWrapButton">
-          <button
-            className="AddOfferButton"
-            type="submit"
-            onClick={offerPostHandler}
-          >
-            Das Angebot Hinzufügen
-          </button>
-        </div>
-      </div>
-    </section>
+      </section>
+    </body>
   );
 };
 

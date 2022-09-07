@@ -6,8 +6,8 @@ import "../../style/JobStatusForStudent/JobStatusForStudent.scss";
 const TheSection = () => {
   const userId = localStorage.getItem("userId");
   const userName = localStorage.getItem("name");
-  const tokenUser = localStorage.getItem('token');
-  const user_role = localStorage.getItem('role');;
+  const tokenUser = localStorage.getItem("token");
+  const user_role = localStorage.getItem("role");
   const [offersAppliedsData, setOffersAppliedsData] = useState([]);
   const [offersUpcommingData, setOffersUpcommingData] = useState([]);
   const [offersFinishedData, setOffersFinishedData] = useState([]);
@@ -18,22 +18,22 @@ const TheSection = () => {
       "http://localhost:4000/api/v1/offer/get_applied_admin",
       {
         params: { userId: userId },
-        headers: { "x-auth-token": `${tokenUser}`, 'role': `${user_role}` },
-      },
+        headers: { "x-auth-token": `${tokenUser}`, role: `${user_role}` },
+      }
     );
     const reqTwo = Axios.get(
       "http://localhost:4000/api/v1/offer/get_upcomming_admin",
       {
         params: { userId: userId },
-        headers: { "x-auth-token": `${tokenUser}`, 'role': `${user_role}` },
-      },
+        headers: { "x-auth-token": `${tokenUser}`, role: `${user_role}` },
+      }
     );
     const reqThree = Axios.get(
       "http://localhost:4000/api/v1/offer/get_finished_admin",
       {
         params: { userId: userId },
-        headers: { "x-auth-token": `${tokenUser}`, 'role': `${user_role}` },
-      },
+        headers: { "x-auth-token": `${tokenUser}`, role: `${user_role}` },
+      }
     );
     // console.log(localStorage.getItem("userId"));
     setLoading(true);
@@ -135,39 +135,41 @@ const TheSection = () => {
     setToggleState(index);
   };
   return (
-    <section className="content">
-      <div className="tabWrap">
-        <div className="tabsDiv">
-          <div
-            className={toggleState === 1 ? "tab1 tab active" : "tab"}
-            onClick={() => toggleTab(1)}
-          >
-            Beworben
+    <body>
+      <section className="content">
+        <div className="tabWrap">
+          <div className="tabsDiv">
+            <div
+              className={toggleState === 1 ? "tab1 tab active" : "tab"}
+              onClick={() => toggleTab(1)}
+            >
+              Beworben
+            </div>
+            <div
+              className={toggleState === 2 ? "tab2 tab active" : "tab"}
+              onClick={() => toggleTab(2)}
+            >
+              Anstehend
+            </div>
+            <div
+              className={toggleState === 3 ? "tab3 tab active" : "tab"}
+              onClick={() => toggleTab(3)}
+            >
+              Beendet
+            </div>
           </div>
-          <div
-            className={toggleState === 2 ? "tab2 tab active" : "tab"}
-            onClick={() => toggleTab(2)}
-          >
-            Anstehend
-          </div>
-          <div
-            className={toggleState === 3 ? "tab3 tab active" : "tab"}
-            onClick={() => toggleTab(3)}
-          >
-            Beendet
+          <div className="tabsContentDiv">
+            {(() => {
+              if (toggleState === 1) {
+                return <div className="contentTab1">{offersApplied}</div>;
+              } else if (toggleState === 2) {
+                return <div className="contentTab2">{offersUpcomming}</div>;
+              } else return <div className="contentTab3">{offersFinished}</div>;
+            })()}
           </div>
         </div>
-        <div className="tabsContentDiv">
-          {(() => {
-            if (toggleState === 1) {
-              return <div className="contentTab1">{offersApplied}</div>;
-            } else if (toggleState === 2) {
-              return <div className="contentTab2">{offersUpcomming}</div>;
-            } else return <div className="contentTab3">{offersFinished}</div>;
-          })()}
-        </div>
-      </div>
-    </section>
+      </section>
+    </body>
   );
 };
 

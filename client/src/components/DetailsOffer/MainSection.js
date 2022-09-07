@@ -33,211 +33,213 @@ const TheSection = (props) => {
   const [offer] = offersData.filter((offer) => offer.id == offer_id);
 
   return (
-    <section className="content">
-      <div className="jobDetailsWrap">
-        <div className="jobDetailsInfo">
-          <div className="jobWrap">
-            <div className="titelGeldDiv">
-              <div className="jobTitleGeldInnerWrap">
-                <div className="GeldjobDiv">
-                  <p className="GeldjobText">
-                    {!offer
-                      ? null
-                      : parseFloat(
-                          parseFloat(offer["per_hour_money"]) *
-                            parseFloat(offer["hours_nr"])
-                        ).toFixed(2)}{" "}
-                    €
-                  </p>
-                  <div className="geldProStundeDiv">
-                    <p className="geldProStundeText">
-                      {!offer ? null : offer["per_hour_money"]} € pro Stunde
+    <body>
+      <section className="content">
+        <div className="jobDetailsWrap">
+          <div className="jobDetailsInfo">
+            <div className="jobWrap">
+              <div className="titelGeldDiv">
+                <div className="jobTitleGeldInnerWrap">
+                  <div className="GeldjobDiv">
+                    <p className="GeldjobText">
+                      {!offer
+                        ? null
+                        : parseFloat(
+                            parseFloat(offer["per_hour_money"]) *
+                              parseFloat(offer["hours_nr"])
+                          ).toFixed(2)}{" "}
+                      €
+                    </p>
+                    <div className="geldProStundeDiv">
+                      <p className="geldProStundeText">
+                        {!offer ? null : offer["per_hour_money"]} € pro Stunde
+                      </p>
+                    </div>
+                  </div>
+                  <div className="titeljobDiv">
+                    <p className="titeljobText">
+                      {!offer ? null : offer["title_job"]}
                     </p>
                   </div>
                 </div>
-                <div className="titeljobDiv">
-                  <p className="titeljobText">
-                    {!offer ? null : offer["title_job"]}
+              </div>
+              <div className="locationjobDiv">
+                <div className="locationIconAddjobInnerWrap">
+                  <div className="locationIconjobDiv">
+                    <MdLocationOn
+                      style={{
+                        backgroundColor: "none",
+                        marginRight: "0.2em",
+                        fontSize: "14px",
+                      }}
+                    />
+                  </div>
+                  <p className="cityjobText">{!offer ? null : offer["city"]}</p>
+                </div>
+                <div className="stadtteiljobDiv">
+                  <p className="stadtteiljobText">
+                    {!offer ? null : offer["neighborhood"]}
                   </p>
                 </div>
               </div>
-            </div>
-            <div className="locationjobDiv">
-              <div className="locationIconAddjobInnerWrap">
-                <div className="locationIconjobDiv">
-                  <MdLocationOn
-                    style={{
-                      backgroundColor: "none",
-                      marginRight: "0.2em",
-                      fontSize: "14px",
-                    }}
-                  />
+              <div className="underLinejob"></div>
+              <div className="timeDetalisjobDiv">
+                <div className="datejobDIv">
+                  <div className="timeIconjobDiv">
+                    <IoIosTime style={{ fontSize: "14px" }} />
+                  </div>
+                  <div className="dayNamejobDiv">
+                    <p className="datejobText">
+                      {!offer ? null : offer["day_name"]},{" "}
+                      {!offer ? null : offer["date"]}
+                    </p>
+                  </div>
                 </div>
-                <p className="cityjobText">{!offer ? null : offer["city"]}</p>
+                <div className="timejobDiv">
+                  <p className="timejobText">
+                    {!offer ? null : offer["time_from"]} -{" "}
+                    {!offer ? null : offer["time_until"]}
+                  </p>
+                </div>
+                <div className="jobNrDiv">
+                  <p className="jobNrText">{!offer ? null : offer["id"]}</p>
+                </div>
               </div>
-              <div className="stadtteiljobDiv">
-                <p className="stadtteiljobText">
-                  {!offer ? null : offer["neighborhood"]}
+            </div>
+          </div>
+          <div className="jobDetailsDescribe">
+            <div className="jobDetailsDescribeTextDiv">
+              <p className="jobDetailsDescribeText">Beschreiben</p>
+            </div>
+            <div className="jobDetailsDescribeContent">
+              <p className="jobDetailsDescribeTextContent">
+                {!offer ? null : offer["describtion"]}.
+              </p>
+            </div>
+          </div>
+          <div className="jobDetailsAnforderung">
+            <div className="jobDetailsAnforderungTextDiv">
+              <p className="jobDetailsAnforderungText">
+                Anforderung Und Hinweise
+              </p>
+            </div>
+            <div className="jobDetailsAnforderungContent">
+              <p className="jobDetailsAnforderungContentText">
+                {!offer ? null : offer["note_and_requirements"]}.
+              </p>
+            </div>
+          </div>
+          <div className="jobDetailsAdresse">
+            <div className="jobDetailsAdresseTextDiv">
+              <p className="jobDetailsAdresseText">Adresse</p>
+            </div>
+            <div className="jobDetailsAdresseInfosWrap">
+              <p className="jobDetailsAdresseInfo">
+                {!offer ? null : offer["street"]},
+              </p>
+              <p className="jobDetailsAdresseInfo">
+                {" "}
+                {!offer ? null : offer["post_code"]}{" "}
+                {!offer ? null : offer["city"]}
+              </p>
+              <p className="jobDetailsAdresseInfo">
+                {!offer ? null : offer["add_to_address"]}
+              </p>
+            </div>
+          </div>
+          <div className="jobDetailsSchicht">
+            <div className="jobDetailsSchichtTextDiv">
+              <p className="jobDetailsSchichtText">Schichte</p>
+            </div>
+            <div className="schichtKarteWrap">
+              <div className="schichtKarte">
+                <p className="schichtKarteDay">
+                  {!offer ? null : offer["day_name"]}
                 </p>
-              </div>
-            </div>
-            <div className="underLinejob"></div>
-            <div className="timeDetalisjobDiv">
-              <div className="datejobDIv">
-                <div className="timeIconjobDiv">
-                  <IoIosTime style={{ fontSize: "14px" }} />
-                </div>
-                <div className="dayNamejobDiv">
-                  <p className="datejobText">
-                    {!offer ? null : offer["day_name"]},{" "}
-                    {!offer ? null : offer["date"]}
-                  </p>
-                </div>
-              </div>
-              <div className="timejobDiv">
-                <p className="timejobText">
+                <p className="schichtKarteDate">
+                  {!offer ? null : offer["date"]}
+                </p>
+                <p className="schichtKarteTime">
                   {!offer ? null : offer["time_from"]} -{" "}
                   {!offer ? null : offer["time_until"]}
                 </p>
               </div>
-              <div className="jobNrDiv">
-                <p className="jobNrText">{!offer ? null : offer["id"]}</p>
-              </div>
             </div>
           </div>
-        </div>
-        <div className="jobDetailsDescribe">
-          <div className="jobDetailsDescribeTextDiv">
-            <p className="jobDetailsDescribeText">Beschreiben</p>
-          </div>
-          <div className="jobDetailsDescribeContent">
-            <p className="jobDetailsDescribeTextContent">
-              {!offer ? null : offer["describtion"]}.
-            </p>
-          </div>
-        </div>
-        <div className="jobDetailsAnforderung">
-          <div className="jobDetailsAnforderungTextDiv">
-            <p className="jobDetailsAnforderungText">
-              Anforderung Und Hinweise
-            </p>
-          </div>
-          <div className="jobDetailsAnforderungContent">
-            <p className="jobDetailsAnforderungContentText">
-              {!offer ? null : offer["note_and_requirements"]}.
-            </p>
-          </div>
-        </div>
-        <div className="jobDetailsAdresse">
-          <div className="jobDetailsAdresseTextDiv">
-            <p className="jobDetailsAdresseText">Adresse</p>
-          </div>
-          <div className="jobDetailsAdresseInfosWrap">
-            <p className="jobDetailsAdresseInfo">
-              {!offer ? null : offer["street"]},
-            </p>
-            <p className="jobDetailsAdresseInfo">
-              {" "}
-              {!offer ? null : offer["post_code"]}{" "}
-              {!offer ? null : offer["city"]}
-            </p>
-            <p className="jobDetailsAdresseInfo">
-              {!offer ? null : offer["add_to_address"]}
-            </p>
-          </div>
-        </div>
-        <div className="jobDetailsSchicht">
-          <div className="jobDetailsSchichtTextDiv">
-            <p className="jobDetailsSchichtText">Schichte</p>
-          </div>
-          <div className="schichtKarteWrap">
-            <div className="schichtKarte">
-              <p className="schichtKarteDay">
-                {!offer ? null : offer["day_name"]}
-              </p>
-              <p className="schichtKarteDate">
-                {!offer ? null : offer["date"]}
-              </p>
-              <p className="schichtKarteTime">
-                {!offer ? null : offer["time_from"]} -{" "}
-                {!offer ? null : offer["time_until"]}
-              </p>
-            </div>
-          </div>
-        </div>
-        {user_role == "student" && (
-          <button
-            className="applayButton"
-            onClick={() => {
-              if (offer) {
-                const id_job = offer["id"];
-                const id_student = userId;
-                const id_company = offer["id_company"];
-                const status = "applied";
-                Axios.post(
-                  `http://localhost:4000/api/v1/offer/applay_offer/`,
-                  {
-                    id_job,
-                    id_student,
-                    id_company,
-                    status,
-                  },
-                  {
-                    params: { userId: userId },
-                    headers: {
-                      "x-auth-token": `${tokenUser}`,
-                      role: `${user_role}`,
+          {user_role == "student" && (
+            <button
+              className="applayButton"
+              onClick={() => {
+                if (offer) {
+                  const id_job = offer["id"];
+                  const id_student = userId;
+                  const id_company = offer["id_company"];
+                  const status = "applied";
+                  Axios.post(
+                    `http://localhost:4000/api/v1/offer/applay_offer/`,
+                    {
+                      id_job,
+                      id_student,
+                      id_company,
+                      status,
                     },
-                  }
-                )
-                  .then((res) => {
-                    console.log(res.data);
-                    navigate("/appliedSuscess");
-                  })
-                  .catch((err) => {
-                    console.log(err);
-                    setLoading(false);
-                  });
-              }
-            }}
-          >
-            Bewerben
-          </button>
-        )}
-        {user_role == "company" && (
-          <button
-            className="deleteButton"
-            onClick={() => {
-              if (offer) {
-                const id_job = offer["id"];
-                console.log(id_job)
-                Axios.delete(
-                  `http://localhost:4000/api/v1/offer/delete_offer`,
-           
-                  {
-                    params: { userId: userId,id_job:id_job },
-                    headers: {
-                      "x-auth-token": `${tokenUser}`,
-                      role: `${user_role}`,
-                    },
-                  }
-                )
-                  .then((res) => {
-                    console.log(res.data);
-                    navigate("/deletedSuscess");
-                  })
-                  .catch((err) => {
-                    console.log(err);
-                    setLoading(false);
-                  });
-              }
-            }}
-          >
-            Anzeige Löschen
-          </button>
-        )}
-      </div>
-    </section>
+                    {
+                      params: { userId: userId },
+                      headers: {
+                        "x-auth-token": `${tokenUser}`,
+                        role: `${user_role}`,
+                      },
+                    }
+                  )
+                    .then((res) => {
+                      console.log(res.data);
+                      navigate("/appliedSuscess");
+                    })
+                    .catch((err) => {
+                      console.log(err);
+                      setLoading(false);
+                    });
+                }
+              }}
+            >
+              Bewerben
+            </button>
+          )}
+          {user_role == "company" && (
+            <button
+              className="deleteButton"
+              onClick={() => {
+                if (offer) {
+                  const id_job = offer["id"];
+                  console.log(id_job);
+                  Axios.delete(
+                    `http://localhost:4000/api/v1/offer/delete_offer`,
+
+                    {
+                      params: { userId: userId, id_job: id_job },
+                      headers: {
+                        "x-auth-token": `${tokenUser}`,
+                        role: `${user_role}`,
+                      },
+                    }
+                  )
+                    .then((res) => {
+                      console.log(res.data);
+                      navigate("/deletedSuscess");
+                    })
+                    .catch((err) => {
+                      console.log(err);
+                      setLoading(false);
+                    });
+                }
+              }}
+            >
+              Anzeige Löschen
+            </button>
+          )}
+        </div>
+      </section>
+    </body>
   );
 };
 

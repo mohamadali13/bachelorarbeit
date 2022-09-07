@@ -121,277 +121,279 @@ const TheSection = () => {
     }
   };
   return (
-    <section className="content">
-      <div className="regFirmaForm">
-        <div className="regFLogoImageDiv">
-          <img src={LogoImage} style={{ width: "25%", height: "100%" }} />
-        </div>
-        <div className="regAsFDiv">
-          <p id="regAsFText">Registrierung Als Unternehmen</p>
-          <p
-            className="errorText"
-            style={{ margin: "1em", fontWeight: "bold", color: "red" }}
-          >
-            {formErrors}
-          </p>
-        </div>
-        <div className="regAFINForm">
-          <div className="regAFRow">
-            <div className="regAFRowIn">
-              <div className="regAFRowInWrap">
-                <label className="regAFLebel">Firma</label>
-                <input
-                  className="ResAFInput"
-                  type="text"
-                  name="company_name"
-                  id="company_name"
-                />
-              </div>
-              <div className="regAFRowInWrap">
-                <label className="regAFLebel">Herkunft</label>
-                <input
-                  className="ResAFInput"
-                  type="text"
-                  name="origin"
-                  id="origin"
-                />
-              </div>
-            </div>
+    <body>
+      <section className="content">
+        <div className="regFirmaForm">
+          <div className="regFLogoImageDiv">
+            <img src={LogoImage} style={{ width: "25%", height: "100%" }} />
           </div>
-          <div className="regASRow">
-            <div className="regAFRowIn">
-              <div className="regAFRowInWrap">
-                <label className="regAFLebel">Grundsdatum</label>
-                <input
-                  className="ResAFInput"
-                  type="text"
-                  name="found_date"
-                  id="found_date"
-                />
-              </div>
-              <div className="regAFRowInWrap">
-                <label className="regAFLebel">Reg.Nr</label>
-                <input
-                  className="ResAFInput"
-                  type="text"
-                  name="reg_nr"
-                  id="reg_nr"
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-        <div className="regAsFDiv">
-          <p id="regAsFText">Adresse</p>
-        </div>
-        <div className="regAFINForm">
-          <div className="regAFRow">
-            <div className="regAFRowIn">
-              <div className="regAFRowInWrap">
-                <label className="regAFLebel">Straße</label>
-                <input
-                  className="ResAFInput"
-                  type="text"
-                  name="street"
-                  id="street"
-                />
-              </div>
-              <div className="regAFRowInWrap">
-                <label className="regAFLebel">Stadt</label>
-                <input
-                  className="ResAFInput"
-                  type="text"
-                  name="city"
-                  id="city"
-                />
-              </div>
-            </div>
-          </div>
-          <div className="regASRow">
-            <div className="regAFRowIn">
-              <div className="regAFRowInWrap">
-                <label className="regAFLebel">Tel.Nr</label>
-                <input
-                  className="ResAFInput"
-                  type="text"
-                  name="tel_nr"
-                  id="tel_nr"
-                />
-              </div>
-              <div className="regAFRowInWrap">
-                <label className="regAFLebel">Fax.Nr</label>
-                <input
-                  className="ResAFInput"
-                  type="text"
-                  name="fax_nr"
-                  id="fax_nr"
-                />
-              </div>
-            </div>
-          </div>
-          <div className="regASRow">
-            <div className="regAFRowIn">
-              <div className="regAFRowInWrap">
-                <label className="regAFLebel">Haus.Nr</label>
-                <input
-                  className="ResAFInput"
-                  type="text"
-                  name="haus_nr"
-                  id="haus_nr"
-                />
-              </div>
-              <div className="regAFRowInWrap">
-                <label className="regAFLebel">Postleitzahl</label>
-                <input
-                  className="ResAFInput"
-                  type="text"
-                  name="post_code"
-                  id="post_code"
-                />
-              </div>
-            </div>
-          </div>
-          <div className="regASRow">
-            <div className="regAFRowIn">
-              <div className="regAFRowInWrap">
-                <label className="regAFLebel">Email</label>
-                <input
-                  className="ResAFInput"
-                  type="text"
-                  name="email_company"
-                  id="email_company"
-                />
-              </div>
-              <div className="regAFRowInWrap">
-                <label className="regAFLebel">Zusätlich</label>
-                <input
-                  className="ResAFInput"
-                  type="text"
-                  name="add_to_address"
-                  id="add_to_address"
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-        <div className="regAsFDiv">
-          <p id="regAsFText">Vertreten durch</p>
-        </div>
-        <div className="regAFINForm">
-          <div className="regAFRow">
-            <div className="regAFRowIn">
-              <div className="regAFRowInWrap">
-                <label className="regAFLebel">Vorname</label>
-                <input
-                  className="ResAFInput"
-                  type="text"
-                  name="first_name_rep"
-                  id="first_name_rep"
-                />
-              </div>
-              <div className="regAFRowInWrap">
-                <label className="regAFLebel">Name</label>
-                <input
-                  className="ResAFInput"
-                  type="text"
-                  name="last_name_rep"
-                  id="last_name_rep"
-                />
-              </div>
-            </div>
-          </div>
-
-          <div className="regASRow">
-            <div className="regAFRowIn">
-              <div className="regAFRowInWrap">
-                <label className="regAFLebel">Email</label>
-                <input
-                  className="ResAFInput"
-                  type="text"
-                  name="email_rep"
-                  id="email_rep"
-                />
-              </div>
-              <div className="regAFRowInWrap">
-                <label className="regAFLebel">Re-Email</label>
-                <input
-                  className="ResAFInput"
-                  type="text"
-                  name="re_email_rep"
-                  id="re_email_rep"
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-        <div className="regAFINForm">
-          <div className="regAFRow">
-            <div className="regAFRowIn">
-              <div className="regAFRowInWrap">
-                <label className="regAFLebel">Passwort</label>
-                <input
-                  className="ResAFInput"
-                  type="password"
-                  name="password"
-                  id="password"
-                />
-              </div>
-              <div className="regAFRowInWrap">
-                <label className="regAFLebel">Re-Passwort</label>
-                <input
-                  className="ResAFInput"
-                  type="password"
-                  name="re_password"
-                  id="re_password"
-                />
-              </div>
-            </div>
-          </div>
-
-          <div className="regASRow">
-            <div className="regAFRowIn">
-              <div className="regAFRowInWrap">
-                <label className="regAFLebel">Tel.Nr</label>
-                <input
-                  className="ResAFInput"
-                  type="text"
-                  name="tel_nr_rep"
-                  id="tel_nr_rep"
-                />
-              </div>
-              <div className="regAFRowInWrap">
-                <label className="regAFLebel">Handy.Nr</label>
-                <input
-                  className="ResAFInput"
-                  type="text"
-                  name="mobile_nr_rep"
-                  id="mobile_nr_rep"
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-        <div className="signUpFButtonDivANDTerms">
-          <div className="signUpFbuttonDiv">
-            <input
-              type="submit"
-              value="Registrieren"
-              className="signUpFButtonFirma"
-              onClick={regsHandler}
-            />
-          </div>
-          <div className="termsFDiv">
-            <input type="checkbox" id="scalesF" name="scalesF"></input>
-            <p className="acceptTermsTextFirma">
-              I agree with the{" "}
-              <a href="" className="TermsANDCondText">
-                Terms & Conditions
-              </a>
+          <div className="regAsFDiv">
+            <p id="regAsFText">Registrierung Als Unternehmen</p>
+            <p
+              className="errorText"
+              style={{ margin: "1em", fontWeight: "bold", color: "red" }}
+            >
+              {formErrors}
             </p>
           </div>
+          <div className="regAFINForm">
+            <div className="regAFRow">
+              <div className="regAFRowIn">
+                <div className="regAFRowInWrap">
+                  <label className="regAFLebel">Firma</label>
+                  <input
+                    className="ResAFInput"
+                    type="text"
+                    name="company_name"
+                    id="company_name"
+                  />
+                </div>
+                <div className="regAFRowInWrap">
+                  <label className="regAFLebel">Herkunft</label>
+                  <input
+                    className="ResAFInput"
+                    type="text"
+                    name="origin"
+                    id="origin"
+                  />
+                </div>
+              </div>
+            </div>
+            <div className="regASRow">
+              <div className="regAFRowIn">
+                <div className="regAFRowInWrap">
+                  <label className="regAFLebel">Grundsdatum</label>
+                  <input
+                    className="ResAFInput"
+                    type="text"
+                    name="found_date"
+                    id="found_date"
+                  />
+                </div>
+                <div className="regAFRowInWrap">
+                  <label className="regAFLebel">Reg.Nr</label>
+                  <input
+                    className="ResAFInput"
+                    type="text"
+                    name="reg_nr"
+                    id="reg_nr"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="regAsFDiv">
+            <p id="regAsFText">Adresse</p>
+          </div>
+          <div className="regAFINForm">
+            <div className="regAFRow">
+              <div className="regAFRowIn">
+                <div className="regAFRowInWrap">
+                  <label className="regAFLebel">Straße</label>
+                  <input
+                    className="ResAFInput"
+                    type="text"
+                    name="street"
+                    id="street"
+                  />
+                </div>
+                <div className="regAFRowInWrap">
+                  <label className="regAFLebel">Stadt</label>
+                  <input
+                    className="ResAFInput"
+                    type="text"
+                    name="city"
+                    id="city"
+                  />
+                </div>
+              </div>
+            </div>
+            <div className="regASRow">
+              <div className="regAFRowIn">
+                <div className="regAFRowInWrap">
+                  <label className="regAFLebel">Tel.Nr</label>
+                  <input
+                    className="ResAFInput"
+                    type="text"
+                    name="tel_nr"
+                    id="tel_nr"
+                  />
+                </div>
+                <div className="regAFRowInWrap">
+                  <label className="regAFLebel">Fax.Nr</label>
+                  <input
+                    className="ResAFInput"
+                    type="text"
+                    name="fax_nr"
+                    id="fax_nr"
+                  />
+                </div>
+              </div>
+            </div>
+            <div className="regASRow">
+              <div className="regAFRowIn">
+                <div className="regAFRowInWrap">
+                  <label className="regAFLebel">Haus.Nr</label>
+                  <input
+                    className="ResAFInput"
+                    type="text"
+                    name="haus_nr"
+                    id="haus_nr"
+                  />
+                </div>
+                <div className="regAFRowInWrap">
+                  <label className="regAFLebel">Postleitzahl</label>
+                  <input
+                    className="ResAFInput"
+                    type="text"
+                    name="post_code"
+                    id="post_code"
+                  />
+                </div>
+              </div>
+            </div>
+            <div className="regASRow">
+              <div className="regAFRowIn">
+                <div className="regAFRowInWrap">
+                  <label className="regAFLebel">Email</label>
+                  <input
+                    className="ResAFInput"
+                    type="text"
+                    name="email_company"
+                    id="email_company"
+                  />
+                </div>
+                <div className="regAFRowInWrap">
+                  <label className="regAFLebel">Zusätlich</label>
+                  <input
+                    className="ResAFInput"
+                    type="text"
+                    name="add_to_address"
+                    id="add_to_address"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="regAsFDiv">
+            <p id="regAsFText">Vertreten durch</p>
+          </div>
+          <div className="regAFINForm">
+            <div className="regAFRow">
+              <div className="regAFRowIn">
+                <div className="regAFRowInWrap">
+                  <label className="regAFLebel">Vorname</label>
+                  <input
+                    className="ResAFInput"
+                    type="text"
+                    name="first_name_rep"
+                    id="first_name_rep"
+                  />
+                </div>
+                <div className="regAFRowInWrap">
+                  <label className="regAFLebel">Name</label>
+                  <input
+                    className="ResAFInput"
+                    type="text"
+                    name="last_name_rep"
+                    id="last_name_rep"
+                  />
+                </div>
+              </div>
+            </div>
+
+            <div className="regASRow">
+              <div className="regAFRowIn">
+                <div className="regAFRowInWrap">
+                  <label className="regAFLebel">Email</label>
+                  <input
+                    className="ResAFInput"
+                    type="text"
+                    name="email_rep"
+                    id="email_rep"
+                  />
+                </div>
+                <div className="regAFRowInWrap">
+                  <label className="regAFLebel">Re-Email</label>
+                  <input
+                    className="ResAFInput"
+                    type="text"
+                    name="re_email_rep"
+                    id="re_email_rep"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="regAFINForm">
+            <div className="regAFRow">
+              <div className="regAFRowIn">
+                <div className="regAFRowInWrap">
+                  <label className="regAFLebel">Passwort</label>
+                  <input
+                    className="ResAFInput"
+                    type="password"
+                    name="password"
+                    id="password"
+                  />
+                </div>
+                <div className="regAFRowInWrap">
+                  <label className="regAFLebel">Re-Passwort</label>
+                  <input
+                    className="ResAFInput"
+                    type="password"
+                    name="re_password"
+                    id="re_password"
+                  />
+                </div>
+              </div>
+            </div>
+
+            <div className="regASRow">
+              <div className="regAFRowIn">
+                <div className="regAFRowInWrap">
+                  <label className="regAFLebel">Tel.Nr</label>
+                  <input
+                    className="ResAFInput"
+                    type="text"
+                    name="tel_nr_rep"
+                    id="tel_nr_rep"
+                  />
+                </div>
+                <div className="regAFRowInWrap">
+                  <label className="regAFLebel">Handy.Nr</label>
+                  <input
+                    className="ResAFInput"
+                    type="text"
+                    name="mobile_nr_rep"
+                    id="mobile_nr_rep"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="signUpFButtonDivANDTerms">
+            <div className="signUpFbuttonDiv">
+              <input
+                type="submit"
+                value="Registrieren"
+                className="signUpFButtonFirma"
+                onClick={regsHandler}
+              />
+            </div>
+            <div className="termsFDiv">
+              <input type="checkbox" id="scalesF" name="scalesF"></input>
+              <p className="acceptTermsTextFirma">
+                I agree with the{" "}
+                <a href="" className="TermsANDCondText">
+                  Terms & Conditions
+                </a>
+              </p>
+            </div>
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </body>
   );
 };
 
