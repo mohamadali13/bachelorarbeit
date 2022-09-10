@@ -4,6 +4,9 @@ const auth = require("../middlewares/auth");
 const authRoleAdmin = require("../middlewares/admin");
 const authRoleStudent = require("../middlewares/student");
 const authRoleCompany = require("../middlewares/company");
+
+
+
 router.post("/add_offer", [auth, authRoleCompany], offerController.offerPost);
 
 router.get("/get_all_offers", auth, offerController.getAllOffers);
@@ -88,4 +91,6 @@ router.delete(
   [auth, authRoleCompany],
   offerController.delteOffer
 );
+
+
 module.exports = router;

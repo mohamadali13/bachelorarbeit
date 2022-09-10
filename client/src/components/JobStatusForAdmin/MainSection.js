@@ -135,41 +135,39 @@ const TheSection = () => {
     setToggleState(index);
   };
   return (
-    <body>
-      <section className="content">
-        <div className="tabWrap">
-          <div className="tabsDiv">
-            <div
-              className={toggleState === 1 ? "tab1 tab active" : "tab"}
-              onClick={() => toggleTab(1)}
-            >
-              Beworben
-            </div>
-            <div
-              className={toggleState === 2 ? "tab2 tab active" : "tab"}
-              onClick={() => toggleTab(2)}
-            >
-              Anstehend
-            </div>
-            <div
-              className={toggleState === 3 ? "tab3 tab active" : "tab"}
-              onClick={() => toggleTab(3)}
-            >
-              Beendet
-            </div>
+    <section className="content">
+      <div className="tabWrap">
+        <div className="tabsDiv">
+          <div
+            className={toggleState === 1 ? "tab1 tab active" : "tab"}
+            onClick={() => toggleTab(1)}
+          >
+            Beworben
           </div>
-          <div className="tabsContentDiv">
-            {(() => {
-              if (toggleState === 1) {
-                return <div className="contentTab1">{offersApplied}</div>;
-              } else if (toggleState === 2) {
-                return <div className="contentTab2">{offersUpcomming}</div>;
-              } else return <div className="contentTab3">{offersFinished}</div>;
-            })()}
+          <div
+            className={toggleState === 2 ? "tab2 tab active" : "tab"}
+            onClick={() => toggleTab(2)}
+          >
+            Anstehend
+          </div>
+          <div
+            className={toggleState === 3 ? "tab3 tab active" : "tab"}
+            onClick={() => toggleTab(3)}
+          >
+            Beendet
           </div>
         </div>
-      </section>
-    </body>
+        <div className="tabsContentDiv">
+          {(() => {
+            if (toggleState === 1) {
+              return <div className="contentTab1">{offersApplied}</div>;
+            } else if (toggleState === 2) {
+              return <div className="contentTab2">{offersUpcomming}</div>;
+            } else return <div className="contentTab3">{offersFinished}</div>;
+          })()}
+        </div>
+      </div>
+    </section>
   );
 };
 

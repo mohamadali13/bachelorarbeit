@@ -35,18 +35,16 @@ const TheSection = () => {
     );
 
   return (
-    <body>
-      <section className="content">
-        <div className="tabWrap">
-          <div className="tabsDiv">
-            <div className={"tab1 tab active"}>All Offers</div>
-          </div>
-          <div className="tabsContentDiv">
-            <div className="contentTab1">{offers}</div>;
-          </div>
+    <section className="content">
+      <div className="tabWrap">
+        <div className="tabsDiv">
+          <div className={"tab1 tab active"}>All Offers</div>
         </div>
-      </section>
-    </body>
+        <div className="tabsContentDiv">
+          <div className="contentTab1">{offers}</div>;
+        </div>
+      </div>
+    </section>
   );
 };
 

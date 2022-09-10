@@ -116,7 +116,7 @@ const TheSection = () => {
   }
 
   return (
-    <body>
+    
       <section className="content">
         <div className="regStudentForm">
           <div className="regSLogoImageDiv">
@@ -378,7 +378,7 @@ const TheSection = () => {
           </div>
         </div>
       </section>
-    </body>
+
   );
 };
 

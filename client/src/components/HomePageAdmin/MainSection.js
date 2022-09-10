@@ -36,16 +36,14 @@ const TheSection = () => {
     );
 
   return (
-    <body>
-      <section className="content">
-        <div className="homePageAmdinWrap">
-          <div className="anfragenTextDiv">
-            <p className="anfragenText">Anfragen</p>
-          </div>
-          {reqs}
+    <section className="content">
+      <div className="homePageAmdinWrap">
+        <div className="anfragenTextDiv">
+          <p className="anfragenText">Anfragen</p>
         </div>
-      </section>
-    </body>
+        {reqs}
+      </div>
+    </section>
   );
 };
 

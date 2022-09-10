@@ -35,21 +35,19 @@ const TheSection = () => {
     return <TheOffer key={offer.id} offerInfo={offer} />;
   });
   return (
-    <body>
-      <section className="content">
-        <div className="homePageStudentWrap">
-          <div className="selectCityHomePageStadtStudent">
-            <Select
-              options={listOfCitesHomePageStudent}
-              onChange={(opt) => {
-                console.log(opt.value);
-              }}
-            />
-          </div>
-          <div className="offersHomePageStudent">{offers}</div>
+    <section className="content">
+      <div className="homePageStudentWrap">
+        <div className="selectCityHomePageStadtStudent">
+          <Select
+            options={listOfCitesHomePageStudent}
+            onChange={(opt) => {
+              console.log(opt.value);
+            }}
+          />
         </div>
-      </section>
-    </body>
+        <div className="offersHomePageStudent">{offers}</div>
+      </div>
+    </section>
   );
 };
 

@@ -156,63 +156,48 @@ const TheSection = () => {
   };
 
   return (
-    <body>
-      <section className="content">
-        <div className="tabWrap">
-          <div className="tabsDiv">
-            <div
-              className={toggleState === 1 ? "tab1Company tab active" : "tab"}
-              onClick={() => toggleTab(1)}
-            >
-              Meine Anzeigen
-            </div>
-            <div
-              className={toggleState === 2 ? "tab2Company tab active" : "tab"}
-              onClick={() => toggleTab(2)}
-            >
-              Beworben
-            </div>
-            <div
-              className={toggleState === 3 ? "tab3Company tab active" : "tab"}
-              onClick={() => toggleTab(3)}
-            >
-              Up Comming
-            </div>
-            <div
-              className={toggleState === 4 ? "tab4Company tab active" : "tab"}
-              onClick={() => toggleTab(4)}
-            >
-              Beendet
-            </div>
+    <section className="content">
+      <div className="tabWrap">
+        <div className="tabsDiv">
+          <div
+            className={toggleState === 1 ? "tab1Company tab active" : "tab"}
+            onClick={() => toggleTab(1)}
+          >
+            Meine Anzeigen
           </div>
-          <div className="tabsContentDiv">
-            {(() => {
-              if (toggleState === 1) {
-                return <div className="contentTab1">{offerCompany}</div>;
-              } else if (toggleState === 2) {
-                return <div className="contentTab2">{offersApplied}</div>;
-              } else if (toggleState === 3) {
-                return <div className="contentTab3">{offersUpcomming}</div>;
-              } else return <div className="contentTab4">{offersFinished}</div>;
-            })()}
+          <div
+            className={toggleState === 2 ? "tab2Company tab active" : "tab"}
+            onClick={() => toggleTab(2)}
+          >
+            Beworben
+          </div>
+          <div
+            className={toggleState === 3 ? "tab3Company tab active" : "tab"}
+            onClick={() => toggleTab(3)}
+          >
+            Up Comming
+          </div>
+          <div
+            className={toggleState === 4 ? "tab4Company tab active" : "tab"}
+            onClick={() => toggleTab(4)}
+          >
+            Beendet
           </div>
         </div>
-      </section>
-    </body>
+        <div className="tabsContentDiv">
+          {(() => {
+            if (toggleState === 1) {
+              return <div className="contentTab1">{offerCompany}</div>;
+            } else if (toggleState === 2) {
+              return <div className="contentTab2">{offersApplied}</div>;
+            } else if (toggleState === 3) {
+              return <div className="contentTab3">{offersUpcomming}</div>;
+            } else return <div className="contentTab4">{offersFinished}</div>;
+          })()}
+        </div>
+      </div>
+    </section>
   );
 };
 
 export default TheSection;
-/*useEffect(() => {
-    console.log(localStorage.getItem("userId"));
-
-    Axios.get(`http://localhost:4000/api/v1/offer/get_offer_company`, {params:{userId:userId}})
-      .then((res) => {
-        console.log(res.data);
-        setOffersData(res.data);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  }, []);
-*/
