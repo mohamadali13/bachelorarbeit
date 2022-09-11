@@ -80,6 +80,10 @@ footer {
 }
 
 @media only screen and (max-width: 768px) {
+  footer{
+    bottom: auto;
+    left: auto;
+  }
   #bottomSection {
     flex-flow: column wrap;
   }
