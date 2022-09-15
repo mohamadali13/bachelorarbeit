@@ -17,6 +17,7 @@ import AddedSuscess from "./components/AddedSucsessPage/AddedSucsessPage";
 import DeletedSuscess from "./components/DeletedAccess/DeletedSucsessPage";
 import AllOffersAdmin from "./components/AllOffersAdmin/AllOffersAdmin";
 import ProtectedRoutes from "./ProtectedRoutes";
+import ProtectedRoutesReg from "./ProtectedRoutesReg";
 
 function App() {
   return (
@@ -34,11 +35,15 @@ function App() {
         <Route path="jobStatusForStudent" element={<JobStatusForStudent />} />
         <Route path="jobStatusForAdmin" element={<JobStatusForAdmin />} />
       </Route>
-      <Route path="/" exact element={<LandingPage />} />
+      <Route element ={<ProtectedRoutesReg />}>
+        <Route path="/" exact element={<LandingPage />} />
+        <Route path="regFirmaPage" exact element={<RegFirmaPage />} />
+        <Route path="regStudentPage" element={<RegStudentPage />} />
+      </Route>
+      
       <Route path="regSucsessPage" element={<RegSucsessPage />} />
       <Route path="loginPage" exact element={<LoginPage />} />
-      <Route path="regFirmaPage" exact element={<RegFirmaPage />} />
-      <Route path="regStudentPage" element={<RegStudentPage />} />
+
       <Route path="*" element={<p>Page NOT Found: ERROR 404!</p>} />
     </Routes>
   );
