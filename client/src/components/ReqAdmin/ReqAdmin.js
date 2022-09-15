@@ -5,8 +5,8 @@ import "../../style/ReqAdmin/ReqAdmin.scss";
 
 const ReqAdmin = (props) => {
   const navigate = useNavigate();
-  const tokenUser = localStorage.getItem('token');
-  const user_role = localStorage.getItem('role');
+  const tokenUser = localStorage.getItem("token");
+  const user_role = localStorage.getItem("role");
   return (
     <div className="anfrageHomePageAmdin">
       <div className="anfrageInfoHomePageAdmin">
