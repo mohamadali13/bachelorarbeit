@@ -175,7 +175,7 @@ const TheSection = () => {
             className={toggleState === 3 ? "tab3Company tab active" : "tab"}
             onClick={() => toggleTab(3)}
           >
-            Up Comming
+            Anstehend
           </div>
           <div
             className={toggleState === 4 ? "tab4Company tab active" : "tab"}
