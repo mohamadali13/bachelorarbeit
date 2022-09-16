@@ -29,7 +29,7 @@ const OfferComponent = (props) => {
           </p>
           <div className="geldProStundeDiv">
             <p className="geldProStundeText">
-              {props.offerInfo.per_hour_money} €
+              {props.offerInfo.per_hour_money} € Pro Stunde
             </p>
           </div>
         </div>
