@@ -108,7 +108,7 @@ const TheSection = () => {
                     `http://localhost:4000/api/v1/offer/finish_offer_applay`,
                     null,
                     {
-                      params: { userId: userId },
+                      params: { id_application: offer["id"]},
                       headers: {
                         "x-auth-token": `${tokenUser}`,
                         role: `${user_role}`,

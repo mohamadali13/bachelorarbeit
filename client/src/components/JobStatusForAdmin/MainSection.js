@@ -93,7 +93,13 @@ const TheSection = () => {
                   Axios.put(
                     `http://localhost:4000/api/v1/offer/reject_req_applay`,
                     null,
-                    { params: { id_application: offer["id_application"] } }
+                    {
+                      params: { id_application: offer["id"] },
+                      headers: {
+                        "x-auth-token": `${tokenUser}`,
+                        role: `${user_role}`,
+                      },
+                    }
                   )
                     .then((res) => {
                       console.log(res.data);
