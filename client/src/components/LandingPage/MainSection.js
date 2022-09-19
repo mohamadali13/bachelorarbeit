@@ -59,7 +59,7 @@ const TheSection = () => {
         <div>
           <p className="titleSignBox">
             {" "}
-            Du bist ein Student, der nach flexibler Jobs mit getem Gehalt sucht?{" "}
+            Du bist ein Student, der nach flexibler Jobs mit gutem Gehalt sucht?{" "}
           </p>
         </div>
         <div className="vorteileSignBox">
